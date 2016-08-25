@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		532F1F731D6EF21000F19D5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F721D6EF21000F19D5B /* main.m */; };
 		532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F751D6EF21000F19D5B /* AppDelegate.m */; };
-		532F1F791D6EF21000F19D5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F781D6EF21000F19D5B /* ViewController.m */; };
 		532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7A1D6EF21000F19D5B /* Main.storyboard */; };
 		532F1F7E1D6EF21000F19D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7D1D6EF21000F19D5B /* Assets.xcassets */; };
 		532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7F1D6EF21000F19D5B /* LaunchScreen.storyboard */; };
 		532F1F8C1D6EF21000F19D5B /* Nissan_OmanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F8B1D6EF21000F19D5B /* Nissan_OmanTests.m */; };
 		532F1F971D6EF21000F19D5B /* Nissan_OmanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F961D6EF21000F19D5B /* Nissan_OmanUITests.m */; };
+		532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FE21D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m */; };
+		532F1FE81D6EFA5000F19D5B /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 532F1FE41D6EFA5000F19D5B /* SVProgressHUD.bundle */; };
+		532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FE61D6EFA5000F19D5B /* SVProgressHUD.m */; };
+		532F1FF41D6EFF6E00F19D5B /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */; };
+		532F1FF51D6EFF6E00F19D5B /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */; };
+		532F1FF61D6EFF6E00F19D5B /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FF31D6EFF6E00F19D5B /* UserData.m */; };
+		532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FFC1D6EFFEE00F19D5B /* InternetConnection.m */; };
+		532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FFE1D6EFFEE00F19D5B /* Reachability.m */; };
+		532F20031D6EFFEE00F19D5B /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F20001D6EFFEE00F19D5B /* WebService.m */; };
+		532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F20071D6EFFFD00F19D5B /* NotificationManager.m */; };
+		532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F200A1D6EFFFD00F19D5B /* SharePreferenceUtil.m */; };
+		532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F200C1D6EFFFD00F19D5B /* Utility.m */; };
+		532F20131D6F000800F19D5B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F20121D6F000800F19D5B /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +51,6 @@
 		532F1F721D6EF21000F19D5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		532F1F741D6EF21000F19D5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		532F1F751D6EF21000F19D5B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		532F1F771D6EF21000F19D5B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		532F1F781D6EF21000F19D5B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		532F1F7B1D6EF21000F19D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		532F1F7D1D6EF21000F19D5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		532F1F801D6EF21000F19D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +61,34 @@
 		532F1F921D6EF21000F19D5B /* Nissan OmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nissan OmanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		532F1F961D6EF21000F19D5B /* Nissan_OmanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nissan_OmanUITests.m; sourceTree = "<group>"; };
 		532F1F981D6EF21000F19D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		532F1FD61D6EF62000F19D5B /* NissanOman.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NissanOman.pch; sourceTree = "<group>"; };
+		532F1FE11D6EFA5000F19D5B /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		532F1FE21D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		532F1FE31D6EFA5000F19D5B /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		532F1FE41D6EFA5000F19D5B /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		532F1FE51D6EFA5000F19D5B /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		532F1FE61D6EFA5000F19D5B /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		532F1FEE1D6EFF6E00F19D5B /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		532F1FF01D6EFF6E00F19D5B /* ResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseModel.h; sourceTree = "<group>"; };
+		532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
+		532F1FF21D6EFF6E00F19D5B /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		532F1FF31D6EFF6E00F19D5B /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		532F1FFB1D6EFFEE00F19D5B /* InternetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnection.h; sourceTree = "<group>"; };
+		532F1FFC1D6EFFEE00F19D5B /* InternetConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnection.m; sourceTree = "<group>"; };
+		532F1FFD1D6EFFEE00F19D5B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		532F1FFE1D6EFFEE00F19D5B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		532F1FFF1D6EFFEE00F19D5B /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
+		532F20001D6EFFEE00F19D5B /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
+		532F20051D6EFFFD00F19D5B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		532F20061D6EFFFD00F19D5B /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		532F20071D6EFFFD00F19D5B /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		532F20091D6EFFFD00F19D5B /* SharePreferenceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePreferenceUtil.h; sourceTree = "<group>"; };
+		532F200A1D6EFFFD00F19D5B /* SharePreferenceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePreferenceUtil.m; sourceTree = "<group>"; };
+		532F200B1D6EFFFD00F19D5B /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		532F200C1D6EFFFD00F19D5B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		532F20111D6F000800F19D5B /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		532F20121D6F000800F19D5B /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +119,7 @@
 		532F1F651D6EF21000F19D5B = {
 			isa = PBXGroup;
 			children = (
+				532F1FD61D6EF62000F19D5B /* NissanOman.pch */,
 				532F1F701D6EF21000F19D5B /* Nissan Oman */,
 				532F1F8A1D6EF21000F19D5B /* Nissan OmanTests */,
 				532F1F951D6EF21000F19D5B /* Nissan OmanUITests */,
@@ -101,10 +140,18 @@
 		532F1F701D6EF21000F19D5B /* Nissan Oman */ = {
 			isa = PBXGroup;
 			children = (
+				532F1FDF1D6EFA5000F19D5B /* Libs */,
+				532F1FEA1D6EFF3D00F19D5B /* Callbacks */,
+				532F1FEB1D6EFF4F00F19D5B /* CustomViews */,
+				532F1FEC1D6EFF5A00F19D5B /* Database */,
+				532F1FED1D6EFF6E00F19D5B /* Datamodels */,
+				532F1FF71D6EFF9300F19D5B /* Location */,
+				532F1FF81D6EFFD300F19D5B /* Resources */,
+				532F1FF91D6EFFEE00F19D5B /* Services */,
+				532F20041D6EFFFD00F19D5B /* Utility */,
+				532F20101D6F000800F19D5B /* ViewControllers */,
 				532F1F741D6EF21000F19D5B /* AppDelegate.h */,
 				532F1F751D6EF21000F19D5B /* AppDelegate.m */,
-				532F1F771D6EF21000F19D5B /* ViewController.h */,
-				532F1F781D6EF21000F19D5B /* ViewController.m */,
 				532F1F7A1D6EF21000F19D5B /* Main.storyboard */,
 				532F1F7D1D6EF21000F19D5B /* Assets.xcassets */,
 				532F1F7F1D6EF21000F19D5B /* LaunchScreen.storyboard */,
@@ -138,6 +185,122 @@
 				532F1F981D6EF21000F19D5B /* Info.plist */,
 			);
 			path = "Nissan OmanUITests";
+			sourceTree = "<group>";
+		};
+		532F1FDF1D6EFA5000F19D5B /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				532F1FE01D6EFA5000F19D5B /* SVProgressHUD */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		532F1FE01D6EFA5000F19D5B /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				532F1FE11D6EFA5000F19D5B /* SVIndefiniteAnimatedView.h */,
+				532F1FE21D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m */,
+				532F1FE31D6EFA5000F19D5B /* SVProgressHUD-Prefix.pch */,
+				532F1FE41D6EFA5000F19D5B /* SVProgressHUD.bundle */,
+				532F1FE51D6EFA5000F19D5B /* SVProgressHUD.h */,
+				532F1FE61D6EFA5000F19D5B /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		532F1FEA1D6EFF3D00F19D5B /* Callbacks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Callbacks;
+			sourceTree = "<group>";
+		};
+		532F1FEB1D6EFF4F00F19D5B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		532F1FEC1D6EFF5A00F19D5B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		532F1FED1D6EFF6E00F19D5B /* Datamodels */ = {
+			isa = PBXGroup;
+			children = (
+				532F1FEE1D6EFF6E00F19D5B /* CategoryModel.h */,
+				532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */,
+				532F1FF01D6EFF6E00F19D5B /* ResponseModel.h */,
+				532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */,
+				532F1FF21D6EFF6E00F19D5B /* UserData.h */,
+				532F1FF31D6EFF6E00F19D5B /* UserData.m */,
+			);
+			name = Datamodels;
+			path = Database/Datamodels;
+			sourceTree = "<group>";
+		};
+		532F1FF71D6EFF9300F19D5B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Location;
+			path = Database/Datamodels/Location;
+			sourceTree = "<group>";
+		};
+		532F1FF81D6EFFD300F19D5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = Database/Datamodels/Location/Resources;
+			sourceTree = "<group>";
+		};
+		532F1FF91D6EFFEE00F19D5B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				532F1FFA1D6EFFEE00F19D5B /* InternetServices */,
+				532F1FFF1D6EFFEE00F19D5B /* WebService.h */,
+				532F20001D6EFFEE00F19D5B /* WebService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		532F1FFA1D6EFFEE00F19D5B /* InternetServices */ = {
+			isa = PBXGroup;
+			children = (
+				532F1FFB1D6EFFEE00F19D5B /* InternetConnection.h */,
+				532F1FFC1D6EFFEE00F19D5B /* InternetConnection.m */,
+				532F1FFD1D6EFFEE00F19D5B /* Reachability.h */,
+				532F1FFE1D6EFFEE00F19D5B /* Reachability.m */,
+			);
+			path = InternetServices;
+			sourceTree = "<group>";
+		};
+		532F20041D6EFFFD00F19D5B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				532F20051D6EFFFD00F19D5B /* Constants.h */,
+				532F20061D6EFFFD00F19D5B /* NotificationManager.h */,
+				532F20071D6EFFFD00F19D5B /* NotificationManager.m */,
+				532F20091D6EFFFD00F19D5B /* SharePreferenceUtil.h */,
+				532F200A1D6EFFFD00F19D5B /* SharePreferenceUtil.m */,
+				532F200B1D6EFFFD00F19D5B /* Utility.h */,
+				532F200C1D6EFFFD00F19D5B /* Utility.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		532F20101D6F000800F19D5B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				532F20111D6F000800F19D5B /* BaseViewController.h */,
+				532F20121D6F000800F19D5B /* BaseViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +409,7 @@
 				532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */,
 				532F1F7E1D6EF21000F19D5B /* Assets.xcassets in Resources */,
 				532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */,
+				532F1FE81D6EFA5000F19D5B /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +434,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				532F1F791D6EF21000F19D5B /* ViewController.m in Sources */,
+				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
+				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
+				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
+				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,
+				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
+				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
+				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
+				532F1FF61D6EFF6E00F19D5B /* UserData.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
+				532F1FF41D6EFF6E00F19D5B /* CategoryModel.m in Sources */,
+				532F1FF51D6EFF6E00F19D5B /* ResponseModel.m in Sources */,
+				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
 				532F1F731D6EF21000F19D5B /* main.m in Sources */,
+				532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +590,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Imagine-Interactive.Nissan-Oman";
@@ -426,6 +603,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Imagine-Interactive.Nissan-Oman";
@@ -498,6 +677,7 @@
 				532F1F9D1D6EF21000F19D5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		532F1F9E1D6EF21000F19D5B /* Build configuration list for PBXNativeTarget "Nissan OmanTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +686,7 @@
 				532F1FA01D6EF21000F19D5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		532F1FA11D6EF21000F19D5B /* Build configuration list for PBXNativeTarget "Nissan OmanUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +695,7 @@
 				532F1FA31D6EF21000F19D5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

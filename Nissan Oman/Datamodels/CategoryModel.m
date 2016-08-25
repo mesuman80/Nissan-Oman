@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  CategoryModel.m
 //  Nissan Oman
 //
 //  Created by Sakshi on 25/08/16.
 //  Copyright © 2016 Sakshi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CategoryModel.h"
 
-@interface ViewController : UIViewController
-
+@implementation CategoryModel
 
 @end
-
