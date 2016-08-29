@@ -7,16 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    Utility *utility;
+    SharePreferenceUtil *sharePreferenceUtil;
+    WebService *webService;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    utility = [[Utility alloc]init];
+    sharePreferenceUtil = [SharePreferenceUtil getInstance];
+    webService = [[WebService alloc]init];
+    
+    if(![sharePreferenceUtil getBoolWithKey:kN_isUserMobileRegistered]){
+        //Open User Mobile Registration Screen
+        LoginViewController  *loginViewController  = [[LoginViewController alloc]init];
+        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:loginViewController];
+        self.window.rootViewController = navigationController;
+        
+    }else {
+//        NewNudgeViewController  *newNudgeViewController  = [[NewNudgeViewController alloc]init];
+//        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:newNudgeViewController];
+//        self.window.rootViewController = navigationController;
+    }
+    
     return YES;
 }
 

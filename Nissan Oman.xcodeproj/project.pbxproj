@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530417231D70648300168934 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530417221D70648300168934 /* LoginViewController.m */; };
+		530417351D706D4900168934 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417311D706D4900168934 /* app_icon.png */; };
+		530417371D706D4900168934 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417331D706D4900168934 /* bottombar.png */; };
+		530417381D706D4900168934 /* signfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417341D706D4900168934 /* signfacebook.png */; };
+		5304174A1D706DB100168934 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530417451D706DB100168934 /* CategoryModel.m */; };
+		5304174B1D706DB100168934 /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530417471D706DB100168934 /* ResponseModel.m */; };
+		5304174C1D706DB100168934 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 530417491D706DB100168934 /* UserData.m */; };
+		5304177B1D70788800168934 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417761D70788800168934 /* Default-667h@2x.png */; };
+		5304177C1D70788800168934 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417771D70788800168934 /* Default-736h@3x.png */; };
+		5304177D1D70788800168934 /* Default-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417781D70788800168934 /* Default-ipad.png */; };
+		5304177E1D70788800168934 /* Default-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530417791D70788800168934 /* Default-ipad@2x.png */; };
+		5304177F1D70788800168934 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5304177A1D70788800168934 /* Default@2x.png */; };
 		532F1F731D6EF21000F19D5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F721D6EF21000F19D5B /* main.m */; };
 		532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F751D6EF21000F19D5B /* AppDelegate.m */; };
 		532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7A1D6EF21000F19D5B /* Main.storyboard */; };
-		532F1F7E1D6EF21000F19D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7D1D6EF21000F19D5B /* Assets.xcassets */; };
 		532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F7F1D6EF21000F19D5B /* LaunchScreen.storyboard */; };
 		532F1F8C1D6EF21000F19D5B /* Nissan_OmanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F8B1D6EF21000F19D5B /* Nissan_OmanTests.m */; };
 		532F1F971D6EF21000F19D5B /* Nissan_OmanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1F961D6EF21000F19D5B /* Nissan_OmanUITests.m */; };
 		532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FE21D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m */; };
 		532F1FE81D6EFA5000F19D5B /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 532F1FE41D6EFA5000F19D5B /* SVProgressHUD.bundle */; };
 		532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FE61D6EFA5000F19D5B /* SVProgressHUD.m */; };
-		532F1FF41D6EFF6E00F19D5B /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */; };
-		532F1FF51D6EFF6E00F19D5B /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */; };
-		532F1FF61D6EFF6E00F19D5B /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FF31D6EFF6E00F19D5B /* UserData.m */; };
 		532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FFC1D6EFFEE00F19D5B /* InternetConnection.m */; };
 		532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F1FFE1D6EFFEE00F19D5B /* Reachability.m */; };
 		532F20031D6EFFEE00F19D5B /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F20001D6EFFEE00F19D5B /* WebService.m */; };
@@ -27,6 +35,8 @@
 		532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F200A1D6EFFFD00F19D5B /* SharePreferenceUtil.m */; };
 		532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F200C1D6EFFFD00F19D5B /* Utility.m */; };
 		532F20131D6F000800F19D5B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 532F20121D6F000800F19D5B /* BaseViewController.m */; };
+		532F20371D6F0D0700F19D5B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532F1F821D6EF21000F19D5B /* Info.plist */; };
+		5390C47A1D7401AD00193CE3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5390C4791D7401AD00193CE3 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		530417211D70648300168934 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		530417221D70648300168934 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		530417311D706D4900168934 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		530417331D706D4900168934 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
+		530417341D706D4900168934 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
+		530417441D706DB100168934 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		530417451D706DB100168934 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		530417461D706DB100168934 /* ResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseModel.h; sourceTree = "<group>"; };
+		530417471D706DB100168934 /* ResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
+		530417481D706DB100168934 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		530417491D706DB100168934 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		530417761D70788800168934 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		530417771D70788800168934 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		530417781D70788800168934 /* Default-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-ipad.png"; sourceTree = "<group>"; };
+		530417791D70788800168934 /* Default-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-ipad@2x.png"; sourceTree = "<group>"; };
+		5304177A1D70788800168934 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		532F1F6E1D6EF21000F19D5B /* Nissan Oman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nissan Oman.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		532F1F721D6EF21000F19D5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		532F1F741D6EF21000F19D5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,12 +94,6 @@
 		532F1FE41D6EFA5000F19D5B /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		532F1FE51D6EFA5000F19D5B /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		532F1FE61D6EFA5000F19D5B /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		532F1FEE1D6EFF6E00F19D5B /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
-		532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
-		532F1FF01D6EFF6E00F19D5B /* ResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseModel.h; sourceTree = "<group>"; };
-		532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
-		532F1FF21D6EFF6E00F19D5B /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
-		532F1FF31D6EFF6E00F19D5B /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		532F1FFB1D6EFFEE00F19D5B /* InternetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnection.h; sourceTree = "<group>"; };
 		532F1FFC1D6EFFEE00F19D5B /* InternetConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnection.m; sourceTree = "<group>"; };
 		532F1FFD1D6EFFEE00F19D5B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -89,6 +109,7 @@
 		532F200C1D6EFFFD00F19D5B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		532F20111D6F000800F19D5B /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		532F20121D6F000800F19D5B /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		5390C4791D7401AD00193CE3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +137,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		530417241D70649300168934 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				530417211D70648300168934 /* LoginViewController.h */,
+				530417221D70648300168934 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		530417301D706D4900168934 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				530417311D706D4900168934 /* app_icon.png */,
+				530417331D706D4900168934 /* bottombar.png */,
+				5390C4791D7401AD00193CE3 /* background.png */,
+				530417341D706D4900168934 /* signfacebook.png */,
+			);
+			name = Login;
+			path = "Nissan Oman/Resources/Login";
+			sourceTree = SOURCE_ROOT;
+		};
+		530417431D706DB100168934 /* Datamodels */ = {
+			isa = PBXGroup;
+			children = (
+				530417441D706DB100168934 /* CategoryModel.h */,
+				530417451D706DB100168934 /* CategoryModel.m */,
+				530417461D706DB100168934 /* ResponseModel.h */,
+				530417471D706DB100168934 /* ResponseModel.m */,
+				530417481D706DB100168934 /* UserData.h */,
+				530417491D706DB100168934 /* UserData.m */,
+			);
+			path = Datamodels;
+			sourceTree = "<group>";
+		};
+		5304175E1D706F5F00168934 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		530417751D70788800168934 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				530417761D70788800168934 /* Default-667h@2x.png */,
+				530417771D70788800168934 /* Default-736h@3x.png */,
+				530417781D70788800168934 /* Default-ipad.png */,
+				530417791D70788800168934 /* Default-ipad@2x.png */,
+				5304177A1D70788800168934 /* Default@2x.png */,
+			);
+			name = SplashScreen;
+			path = "Nissan Oman/Resources/SplashScreen";
+			sourceTree = SOURCE_ROOT;
+		};
 		532F1F651D6EF21000F19D5B = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +219,9 @@
 				532F1FEA1D6EFF3D00F19D5B /* Callbacks */,
 				532F1FEB1D6EFF4F00F19D5B /* CustomViews */,
 				532F1FEC1D6EFF5A00F19D5B /* Database */,
-				532F1FED1D6EFF6E00F19D5B /* Datamodels */,
-				532F1FF71D6EFF9300F19D5B /* Location */,
+				530417431D706DB100168934 /* Datamodels */,
 				532F1FF81D6EFFD300F19D5B /* Resources */,
+				5304175E1D706F5F00168934 /* Location */,
 				532F1FF91D6EFFEE00F19D5B /* Services */,
 				532F20041D6EFFFD00F19D5B /* Utility */,
 				532F20101D6F000800F19D5B /* ViewControllers */,
@@ -229,31 +304,11 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		532F1FED1D6EFF6E00F19D5B /* Datamodels */ = {
-			isa = PBXGroup;
-			children = (
-				532F1FEE1D6EFF6E00F19D5B /* CategoryModel.h */,
-				532F1FEF1D6EFF6E00F19D5B /* CategoryModel.m */,
-				532F1FF01D6EFF6E00F19D5B /* ResponseModel.h */,
-				532F1FF11D6EFF6E00F19D5B /* ResponseModel.m */,
-				532F1FF21D6EFF6E00F19D5B /* UserData.h */,
-				532F1FF31D6EFF6E00F19D5B /* UserData.m */,
-			);
-			name = Datamodels;
-			path = Database/Datamodels;
-			sourceTree = "<group>";
-		};
-		532F1FF71D6EFF9300F19D5B /* Location */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Location;
-			path = Database/Datamodels/Location;
-			sourceTree = "<group>";
-		};
 		532F1FF81D6EFFD300F19D5B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				530417751D70788800168934 /* SplashScreen */,
+				530417301D706D4900168934 /* Login */,
 			);
 			name = Resources;
 			path = Database/Datamodels/Location/Resources;
@@ -297,6 +352,7 @@
 		532F20101D6F000800F19D5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				530417241D70649300168934 /* Login */,
 				532F20111D6F000800F19D5B /* BaseViewController.h */,
 				532F20121D6F000800F19D5B /* BaseViewController.m */,
 			);
@@ -406,10 +462,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530417371D706D4900168934 /* bottombar.png in Resources */,
 				532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */,
-				532F1F7E1D6EF21000F19D5B /* Assets.xcassets in Resources */,
+				5390C47A1D7401AD00193CE3 /* background.png in Resources */,
 				532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */,
+				532F20371D6F0D0700F19D5B /* Info.plist in Resources */,
+				5304177F1D70788800168934 /* Default@2x.png in Resources */,
+				5304177B1D70788800168934 /* Default-667h@2x.png in Resources */,
+				530417351D706D4900168934 /* app_icon.png in Resources */,
+				5304177D1D70788800168934 /* Default-ipad.png in Resources */,
+				5304177E1D70788800168934 /* Default-ipad@2x.png in Resources */,
+				5304177C1D70788800168934 /* Default-736h@3x.png in Resources */,
 				532F1FE81D6EFA5000F19D5B /* SVProgressHUD.bundle in Resources */,
+				530417381D706D4900168934 /* signfacebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,20 +499,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5304174B1D706DB100168934 /* ResponseModel.m in Sources */,
 				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
 				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,
+				5304174A1D706DB100168934 /* CategoryModel.m in Sources */,
 				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
-				532F1FF61D6EFF6E00F19D5B /* UserData.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
-				532F1FF41D6EFF6E00F19D5B /* CategoryModel.m in Sources */,
-				532F1FF51D6EFF6E00F19D5B /* ResponseModel.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
 				532F1F731D6EF21000F19D5B /* main.m in Sources */,
 				532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */,
+				5304174C1D706DB100168934 /* UserData.m in Sources */,
+				530417231D70648300168934 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,9 +656,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Launchimage;
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Imagine-Interactive.Nissan-Oman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -603,9 +670,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = Launchimage;
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Imagine-Interactive.Nissan-Oman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
