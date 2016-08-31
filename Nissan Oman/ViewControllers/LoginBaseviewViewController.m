@@ -1,20 +1,20 @@
 //
-//  BaseViewController.m
+//  LoginBaseviewViewController.m
 //  Nissan Oman
 //
-//  Created by Sakshi on 25/08/16.
+//  Created by Sakshi on 30/08/16.
 //  Copyright © 2016 Sakshi. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "LoginBaseviewViewController.h"
 
-@interface BaseViewController ()<UIScrollViewDelegate>
+@interface LoginBaseviewViewController ()<UIScrollViewDelegate>
 
 @end
 
-@implementation BaseViewController
+@implementation LoginBaseviewViewController
 
-
+@synthesize upperLogo,y,scrollView;
 @synthesize backgroundDimView,viewHeight,viewWidth,navigationHeight;
 
 - (void)viewDidLoad {
@@ -32,13 +32,23 @@
     [self initialiseVariables];
     
     navigationHeight = self.navigationController.navigationBar.frame.size.height + 10;
-
+    [self setupForScrollView];
+    [self setBackgoundImage];
+    [self setUpperLogo];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setBackgoundImage{
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [backgroundView setFrame:CGRectMake(0, 0, viewWidth,viewHeight*1.3)];
+    backgroundView.contentMode = UIViewContentModeScaleToFill;
+    [scrollView addSubview:backgroundView];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma Initialization
@@ -52,6 +62,23 @@
     //    userData = [sharePreferenceUtil getCustomObjectFromDefaultsWithKey:kN_UserData];
 }
 
+-(void)setUpperLogo{
+    upperLogo = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*40,ScreenHeightFactor*40, ScreenWidthFactor*80, ScreenHeightFactor*80)];
+    [upperLogo setImage:[UIImage imageNamed:@"login_logo.png"]];
+    [scrollView addSubview:upperLogo];
+    y = upperLogo.frame.origin.y+upperLogo.frame.size.height+ScreenHeightFactor*20;
+}
+
+-(void)setupForScrollView{
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    scrollView.scrollEnabled = YES;
+    scrollView.pagingEnabled = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    [scrollView setContentOffset:CGPointZero];
+    [self.view addSubview:scrollView];
+}
 
 
 /*

@@ -10,19 +10,19 @@
 #define Nudger_Constants_h
 
 //Color Codes
-#define WhiteColor @"ffffff"
-#define BASELIGHT @"BCC8D7"
-#define BASEDARK @"416c80"
-#define REVERSE_DARK @"0066cc"
-#define REVERSE_LIGHT @"213640"
-#define DARK_GREY @"999999"
-#define LIGHT_GREY @"cccccc"
-#define TableColor @"ffffff"
-//#define TableTextColor @"424242"
-#define GOLDEN @"0066cc"
-#define viewCornerRadius 10
-#define ColorAlphaVal 0.70
-#define ReceiverColorAlphaVal 0.80
+#define gray @"#0B99B8"
+#define app_background @"424242"
+#define btn_background @"#2196F3"
+#define setting_btn_background @"#E0E0E0"
+#define white @"ffffff"
+#define black @"000000"
+#define btn_red @"#8B0326"
+#define btn_blue @"#0000ff"
+#define performace_line_colour @"#E6E6E7"
+#define performace_secondary_text @"#A2A3A4"
+#define performace_title @"555657"
+#define light_grey @"#eeeeee"
+#define back_logo @"#C41732"
 
 #define CANCEL_TIMER 3
 
@@ -31,7 +31,7 @@
 
 #define titleFont          @"HelveticaNeue-Roman"
 #define subTitleFont       @"HelveticaNeue-Light"
-#define buttonBackgroundColor [UIColor colorWithRed:0 green:155.0f/255 blue:187.0f/255 alpha:1]
+#define buttonRedColor [UIColor colorWithRed:139.0f/255 green:3.0f/255 blue:38.0f/255 alpha:1.0]
 #define mapGeofenceColor [UIColor colorWithRed:250.0f/255 green:220.0f/255 blue:220.0f/255 alpha:1.0]
 #define TableTextColor [UIColor colorWithRed:66.0f/255 green:66.0f/255 blue:66.0f/255 alpha:1.0]
 
@@ -48,18 +48,26 @@
 #define GoogleiOSPlacesKey   @"AIzaSyBb1oJRrBY_O_9qpVs3yjppitudZtSio2M"
 #define GoogleiOSMapKeyScheme @"AIzaSyBDavXsSPaDZyfcKS9l6TFYVYm6i8sZ4R8"
 
-//PlaceHolder Strings
-#define PlaceholderTitleString  @" Title"
+//************************************************** PlaceHolder Strings **************************************************
+#define PlaceholderLoginUsernameString  @"USERNAME"
+#define PlaceholderLoginPasswordString  @"PASSWORD"
+#define PlaceholderSignupFirstNameString  @"FIRST NAME"
+#define PlaceholderSignupLastNameString  @"LAST NAME"
+#define PlaceholderSignupDobString  @"dd-mm-yyyy"
+#define PlaceholderSignupPhoneNumberString  @"  xx-xx-xxxx"
+#define PlaceholderSignupEmailString  @"abc@gmail.com"
+#define PlaceholderSignupCountryCodeString  @"   +968"
 
-//Alerts
+
+//************************************************** Alerts **************************************************
 #define ApplicationInternetConnectionErrorMessage   @"Please check your internet connection."
 
 
-//Networking
+//************************************************** Networking **************************************************
 #define kN_BaseURL                       @"kN_BaseURL"
 #define kN_BaseIP                        @"kN_BaseIP"
 
-//Nudger Chat User Registration
+//************************************************** Nudger Chat User Registration **************************************************
 #define kN_ChatBaseIP                     @"kN_ChatBaseIP"
 #define kN_ChatBaseURL                    @"kN_ChatBaseURL"
 #define kN_Host                           @"Host"
@@ -69,7 +77,7 @@
 #define NudgerAllNumber                    @"AllNumbers"
 #define NudgerDriversNumber                @"NudgerNumber"
 
-//Webservices URL
+//************************************************** Webservices URL **************************************************
 #define W_UserSignup                       @"signup"
 #define W_UserVerify                       @"verifyMobile"
 #define W_UserResendVerification           @"resendVerificationCode"
@@ -79,25 +87,25 @@
 #define W_GetAllCategories                 @"categories"
 
 
-//Chat core Data entity Name
+//************************************************** Chat core Data entity Name **************************************************
 #define ReadStatusNotification  @"ReadNotification"
 #define ConversationDataEntity @"ConversationData"
 #define MessageDataEntity @"MessageData"
 #define SwoopAppendId @"Recv"
 
-//Message Type Keys
+//************************************************** Message Type Keys **************************************************
 #define TTMMessageTypeText @"1"
 #define TTMMessageTypeImage @"2"
 #define TTMMessageTypeAudio @"6"
 #define TTMMessageTypeVideo @"3"
 
-//Registration Key Values
+//************************************************ Registration Key Values **************************************************
 #define kN_DeviceToken                     @"DeviceToken"
 #define kN_UserData                        @"kN_UserData"
 #define kN_isUserMobileRegistered          @"kN_isUserMobileRegistered"
 #define kN_isNewNudgeSkiped                @"kN_isNewNudgeSkiped"
 
-//User Key Values
+//************************************************** User Key Values **************************************************
 #define kIphoneDeviceType                 @"0"//For iPhone
 #define U_UserID                          @"userId"
 #define U_UserName                        @"userName"
@@ -120,34 +128,14 @@
 #define U_PhoneNumberWithCC               @"PhoneNumberWithCC"
 #define U_Password                        @"password"
 
+//********************************** screen factors **************************************************
+#define ScreenWidthFactor       [UIScreen mainScreen].bounds.size.width/320
+#define ScreenHeightFactor      [UIScreen mainScreen].bounds.size.height/568
+#define ScreenFactor            sqrt(pow([UIScreen mainScreen].bounds.size.width/320, 2)+pow([UIScreen mainScreen].bounds.size.height/568, 2))
+#define cellPadding             ScreenWidthFactor*12
+#define cellPaddingReg          ScreenWidthFactor*15
 
-//Category Key values
-#define CategoryIcon                      @"categoryIcon"
-#define CategoryId                        @"categoryId"
-#define CategoryName                      @"categoryName"
 
-
-
-typedef enum {
-    SliderMenuHome          = 1,
-    SliderMenuMyProfile     = 2,
-    SliderMenuMessages      = 3,
-    SliderMenuMyRequests    = 4,
-    SliderMenuMyDeliveries  = 5,
-    SliderMenuPayment       = 6,
-    SliderMenuInvite        = 7,
-    SliderMenuLogout        = 8
-}SliderMenuItems;
-
-typedef enum {
-    TypeNone          = 0,
-    TypeProfilePic    = 1,
-    TypeAudio         = 2,
-    TypeText          = 3,
-    TypeImage         = 4,
-    TypeVideo         = 5,
-    TypeDisplayImage  = 6
-} TextViewType;
 
 #endif
 

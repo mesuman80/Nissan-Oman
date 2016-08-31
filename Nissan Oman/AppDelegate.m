@@ -26,6 +26,11 @@
     sharePreferenceUtil = [SharePreferenceUtil getInstance];
     webService = [[WebService alloc]init];
     
+    [[InternetConnection sharedInstance] connectionStatus];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    [self.window setAutoresizesSubviews:YES];
+    [self.window makeKeyAndVisible];
+    
     if(![sharePreferenceUtil getBoolWithKey:kN_isUserMobileRegistered]){
         //Open User Mobile Registration Screen
         LoginViewController  *loginViewController  = [[LoginViewController alloc]init];
@@ -37,7 +42,7 @@
 //        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:newNudgeViewController];
 //        self.window.rootViewController = navigationController;
     }
-    
+    [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
     return YES;
 }
 

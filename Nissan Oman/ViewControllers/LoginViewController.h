@@ -7,10 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "LoginBaseviewViewController.h"
+#import "CustomTextField.h"
 
-@interface LoginViewController : BaseViewController
+@interface LoginViewController : LoginBaseviewViewController
 
--(void)setupDefaultBackgound;
+@property CustomTextField *usernameTextfield;
+@property CustomTextField *passwordTextfield;
+@property UIButton *forgetPasswordButton;
+@property UIButton *loginButton;
+@property UIButton *signupButton;
+@property UIButton *loginWithFacebookButton;
+
+@property UILabel *separatorLabel;
+
+-(void)setupTextField;
+-(void)setupForForgetPassword;
+-(void)setupForSignUp;
+-(void)setupForFacebookLogin;
+-(void)setBottomBanner;
+-(void)addSeparatorView;
+-(void)signupButtonTouched:(id)sender;
+-(void)loginButtonTouched:(id)sender;
+-(void)facebookButtonTouched:(id)sender;
 
 @end
