@@ -23,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     utility = [[Utility alloc]init];
+    [utility configNudgerServerData];
     sharePreferenceUtil = [SharePreferenceUtil getInstance];
     webService = [[WebService alloc]init];
     

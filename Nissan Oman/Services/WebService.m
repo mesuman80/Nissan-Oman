@@ -13,6 +13,7 @@
     SharePreferenceUtil *sharePreferenceUtil;
     UserData *userData;
 }
+@synthesize customWebServiceDelegate;
 
 -(id)init{
     utility = [[Utility alloc]init];
@@ -57,8 +58,13 @@
 
 //Post Request
 -(NSMutableURLRequest*)requestForPost:(NSString*)url  withData:(NSMutableDictionary*)arguments{
-    NSData *jsonData = [NSJSONSerialization
-                        dataWithJSONObject:arguments options:NSJSONWritingPrettyPrinted error:nil];
+    NSData *jsonData;
+    if(arguments)
+    {
+       jsonData = [NSJSONSerialization
+                            dataWithJSONObject:arguments options:NSJSONWritingPrettyPrinted error:nil];
+
+    }
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -152,11 +158,21 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger statusCode   = httpResponse.statusCode;
         if(statusCode  ==  200) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSDictionary *userDict = [dict valueForKey:@"user"];
             ResponseModel *res = [self processResponseData:data];
             if([self isError:res]){
                 iCompletion([self getErrorMessage:res.status], nil);
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithError:nil];
+                }
             }else{
                 iCompletion(nil, res);
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
             }
         }else {
             iCompletion(@"Somethings not correct. Please try again.", nil);
@@ -260,6 +276,47 @@
             
         }
     }
+}
+
+-(void)registerUser:(NSDictionary *)dict {
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForPost:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                               // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+
+}
+
+-(void)loginUser:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        NSString *str = [NSString stringWithFormat:@"%@%@%@%@",@"?tag=login&email=",[dict valueForKey:@"name"],@"&password=",[dict valueForKey:@"password"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                               // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    
 }
 
 @end

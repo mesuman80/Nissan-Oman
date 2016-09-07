@@ -32,8 +32,9 @@
     [self initialiseVariables];
     
     navigationHeight = self.navigationController.navigationBar.frame.size.height + 10;
-    [self setupForScrollView];
     [self setBackgoundImage];
+    [self setupForScrollView];
+   
     [self setUpperLogo];
     // Do any additional setup after loading the view.
 }
@@ -45,9 +46,9 @@
 
 -(void)setBackgoundImage{
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-    [backgroundView setFrame:CGRectMake(0, 0, viewWidth,viewHeight*1.3)];
+    [backgroundView setFrame:CGRectMake(0, 0, viewWidth,self.view.frame.size.height)];
     backgroundView.contentMode = UIViewContentModeScaleToFill;
-    [scrollView addSubview:backgroundView];
+    [self.view addSubview:backgroundView];
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -75,8 +76,9 @@
     scrollView.pagingEnabled = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    scrollView.contentSize = CGSizeMake(0, self.view.bounds.size.height);
     [scrollView setContentOffset:CGPointZero];
+    [scrollView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:scrollView];
 }
 

@@ -7,13 +7,16 @@
 //
 
 #import "SignupViewController.h"
+#import "WebService.h"
 
-
-@interface SignupViewController ()<UITextFieldDelegate>
+@interface SignupViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
 
 @end
 
 @implementation SignupViewController
+{
+    WebService *webService;
+}
 
 @synthesize firstNameTextfield,lastNameTextfield;
 @synthesize dobNameTextfield,phoneNumberTextfield;
@@ -22,10 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.2);
+   // self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.2);
     // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self setupForTextfield];
     [self setupForSignup];
     [self setBottomBanner];
@@ -131,6 +135,9 @@
     UIImageView *bottomBannerView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/8, self.y, screenWidth-ScreenWidthFactor*80, ScreenHeightFactor*40)];
     [bottomBannerView setImage:[UIImage imageNamed:@"bottombar.png"]];
     [self.scrollView addSubview:bottomBannerView];
+    
+    
+     self.scrollView.contentSize = CGSizeMake(0, bottomBannerView.frame.size.height + bottomBannerView.frame.origin.y);
 }
 
 #pragma textField Delegate
@@ -153,11 +160,163 @@
 }
 
 -(void)signupButtonTouched:(id)sender{
-   
+   if([self checkValidation])
+   {
+       webService = [[WebService alloc]init];
+       webService.customWebServiceDelegate = self;
+       NSDictionary *dict = @{
+                              @"firstName" : firstNameTextfield.text,
+                              @"lastName" : lastNameTextfield.text,
+                              @"dateOfBirth" : @"10/10/1992",
+                              @"phoneNum" : phoneNumberTextfield.text,
+                              @"email" : emailTextfield.text,
+                              @"password" : passwordTextfield.text
+                              };
+       [webService registerUser:dict];
+   }
+    
+}
+
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+{
+    
+}
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+{
+    
 }
 
 -(void)loginButtonTouched:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(BOOL)checkValidation
+{
+    NSString *firstname;
+    NSString *lastname;
+    NSString *dateOfBirth;
+    NSString *email;
+    NSString *phoneNum;
+    NSString *password;
+    BOOL isValid;
+    
+    firstname = [firstNameTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(firstname.length >0)
+    {
+        isValid = YES;
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+    }
+    lastname = [lastNameTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && lastname.length >0)
+    {
+        isValid = YES;
+       
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+
+    }
+    
+    dateOfBirth = [dobNameTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && dateOfBirth.length >0)
+    {
+        isValid = YES;
+        
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+
+    }
+    lastname = [lastNameTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && lastname.length >0)
+    {
+        isValid = YES;
+        
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+        
+    }
+
+    
+    phoneNum = [phoneNumberTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && phoneNum.length >0)
+    {
+        isValid = YES;
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+        
+    }
+    
+    email = [emailTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && email.length >0)
+    {
+        isValid = YES;
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+        
+    }
+    password = [passwordTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(isValid && password.length >0)
+    {
+        return YES;
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+        
+    }
+
+
+    return NO;
+}
+
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
+                                                                        message: msg
+                                                                 preferredStyle: UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertAction      = [UIAlertAction actionWithTitle: @"Ok"
+                                                               style: UIAlertActionStyleCancel
+                                                             handler: ^(UIAlertAction *action) {
+                                                                 
+                                                             }];
+    
+    [controller addAction: alertAction];
+    
+    UIViewController* viewController =[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    [viewController presentViewController: controller
+                                 animated: YES
+                               completion: nil];
+    
 }
 
 

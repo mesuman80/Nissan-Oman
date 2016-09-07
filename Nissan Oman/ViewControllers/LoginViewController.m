@@ -10,13 +10,17 @@
 #import "LoginBaseviewViewController.h"
 #import "CustomTextField.h"
 #import "SignupViewController.h"
+#import "WebService.h"
 
 
-@interface LoginViewController ()<UITextFieldDelegate>
+@interface LoginViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
 
 @end
 
 @implementation LoginViewController
+{
+    WebService *webService;
+}
 
 @synthesize usernameTextfield,passwordTextfield;
 @synthesize forgetPasswordButton,loginButton,loginWithFacebookButton;
@@ -29,6 +33,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self setupTextField];
     [self setupForForgetPassword];
     [self setupForSignUp];
@@ -157,6 +162,80 @@
     [self.navigationController pushViewController:signupViewController animated:YES];
 }
 
+-(void)loginButtonTouched:(id)sender{
+    
+    if([self checkValidation])
+    {
+        NSDictionary *dict = @{
+                               @"name" : usernameTextfield.text,
+                               @"password" : passwordTextfield.text
+                               };
+        webService = [[WebService alloc]init];
+        webService.customWebServiceDelegate = self;
+       [ webService loginUser:dict];
+    }
+}
+
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+{
+    
+}
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+{
+    
+}
+-(BOOL)checkValidation
+{
+    NSString *userName;
+    NSString *password;
+    BOOL isValid;
+    
+    userName = [usernameTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(userName.length >0)
+    {
+        isValid = YES;
+    }
+    else
+    {
+        isValid = NO;
+        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        return NO;
+    }
+    
+    password = [passwordTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    
+    if(isValid && password.length > 0)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
+                                                                        message: msg
+                                                                 preferredStyle: UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertAction      = [UIAlertAction actionWithTitle: @"Ok"
+                                                               style: UIAlertActionStyleCancel
+                                                             handler: ^(UIAlertAction *action) {
+                                                                 
+                                                             }];
+    
+    [controller addAction: alertAction];
+    
+    UIViewController* viewController =[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    [viewController presentViewController: controller
+                                 animated: YES
+                               completion: nil];
+
+}
 /*
 #pragma mark - Navigation
 
