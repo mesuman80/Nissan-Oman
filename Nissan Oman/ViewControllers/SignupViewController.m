@@ -16,6 +16,7 @@
 @implementation SignupViewController
 {
     WebService *webService;
+    UITextField *activeTextField;
 }
 
 @synthesize firstNameTextfield,lastNameTextfield;
@@ -33,7 +34,65 @@
     [self setupForTextfield];
     [self setupForSignup];
     [self setBottomBanner];
+    
+     [self addKeyBoardNotification];
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self removeAllNotification];
+}
+
+#pragma mark KeyBoardNotification
+-(void)addKeyBoardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+-(void) keyboardWillShow:(NSNotification *)note
+{
+    NSLog(@"self.frame %f", self.view.frame.size.height);
+    
+    NSDictionary* info = [note userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    CGPoint point= CGPointZero;
+    // [scrollView setContentSize:CGSizeMake (scrollView.frame.size.width,scrollView.contentSize.height)];
+    
+    NSLog(@"self.frame %f", self.view.frame.size.height);
+    point = activeTextField.frame.origin ;
+    if (!CGRectContainsPoint(aRect,point))
+    {
+        CGPoint scrollPoint = CGPointMake(0.0, activeTextField.frame.origin.y-kbSize.height  );
+        [self.scrollView setContentOffset:scrollPoint animated:YES];
+    }
+    
+}
+
+-(void) keyboardWillHide:(NSNotification *)note
+{
+    NSLog(@"KeyBoard wiil Hide");
+    UIEdgeInsets contentInsets=UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    //[doneView removeFromSuperview];
+}
+
+-(void)removeAllNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -317,6 +376,12 @@
                                  animated: YES
                                completion: nil];
     
+}
+
+#pragma mark TextField Delegate
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    activeTextField = textField;
 }
 
 
