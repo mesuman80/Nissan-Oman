@@ -202,7 +202,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Services/WebService.m"
-                  timestampString = "494928490.025054"
+                  timestampString = "494999461.814111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "291"
@@ -217,7 +217,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Services/WebService.m"
-                  timestampString = "494928490.025209"
+                  timestampString = "494999461.814269"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "293"
@@ -266,7 +266,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Services/WebService.m"
-                  timestampString = "494928490.026737"
+                  timestampString = "494999461.815795"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -281,7 +281,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Services/WebService.m"
-                  timestampString = "494928490.026883"
+                  timestampString = "494999461.81595"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -352,38 +352,6 @@
             startingLineNumber = "286"
             endingLineNumber = "286"
             landmarkName = "-registerUser:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nissan Oman/ViewControllers/SignupViewController.m"
-            timestampString = "494928400.270226"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-ConnectionDidFinishWithSuccess:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nissan Oman/ViewControllers/SignupViewController.m"
-            timestampString = "494928400.270226"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "-ConnectionDidFinishWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
