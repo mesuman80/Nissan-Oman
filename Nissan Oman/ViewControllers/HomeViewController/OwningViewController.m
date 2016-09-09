@@ -1,54 +1,60 @@
 //
-//  BuyerSupportViewController.m
+//  OwningViewController.m
 //  Nissan Oman
 //
 //  Created by Tripta Garg on 09/09/16.
 //  Copyright © 2016 Sakshi. All rights reserved.
 //
 
-#import "BuyerSupportViewController.h"
+#import "OwningViewController.h"
 #import "CustomTableViewCell.h"
 
-@interface BuyerSupportViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface OwningViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation BuyerSupportViewController
+@implementation OwningViewController
 {
     CGFloat yCordinate;
     NSArray *dataArr;
     UITableView *tableView;
-
+    
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSDictionary *dict1 = @{
-                            @"image": @"call.png",
-                            @"text":   @"CALL NISSAN TOll FREE"
+                            @"image": @"service_centre.png",
+                            @"text":   @"SERVICE CENTRE"
                             };
     
     NSDictionary *dict2 = @{
-                            @"image": @"quote.png",
-                            @"text":   @"REQUEST A QUOTE"
+                            @"image": @"genuine_parts_center.png",
+                            @"text":   @"GENUINE PARTS CENTRE"
                             };
     
     NSDictionary *dict3 = @{
-                            @"image": @"brochure.png",
-                            @"text":   @"REQUEST A BROCHURE"
+                            @"image": @"body_shop.png",
+                            @"text":   @"BODY SHOP"
                             };
     
     NSDictionary *dict4 = @{
-                            @"image": @"test_drive.png",
-                            @"text":   @"REQUEST A TEST DRIVE"
+                            @"image": @"maintenance_tips.png",
+                            @"text":   @"MAINTENANCE TIPS"
                             };
     
-    dataArr = @[dict1,dict2, dict3, dict4];
+    NSDictionary *dict5 = @{
+                            @"image": @"loyalty_program.png",
+                            @"text":   @"LOYALTY PROGRAM"
+                            };
 
     
+    dataArr = @[dict1,dict2, dict3, dict4, dict5];
     
     [self addTitle];
     [self addTableView];
+
     // Do any additional setup after loading the view.
 }
 
@@ -56,7 +62,7 @@
 {
     yCordinate = .2*self.view.frame.size.height;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
-    label.text = @"VEHICLES";
+    label.text = @"OWNING";
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
@@ -110,8 +116,6 @@
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

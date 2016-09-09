@@ -10,6 +10,8 @@
 #import "CustomTableViewCell.h"
 #import "VehicleCategeoryViewController.h"
 #import "BuyerSupportViewController.h"
+#import "OwningViewController.h"
+#import "PromotionsViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -129,7 +131,16 @@
         BuyerSupportViewController *buyerSupportViewController  = [[BuyerSupportViewController alloc]init];
         [self.navigationController pushViewController:buyerSupportViewController animated:YES];
     }
-    
+    else if(indexPath.row == 3)
+    {
+        OwningViewController *owningViewController  = [[OwningViewController alloc]init];
+        [self.navigationController pushViewController:owningViewController animated:YES];
+    }
+    else if(indexPath.row == 5)
+    {
+        PromotionsViewController *promotionsViewController  = [[PromotionsViewController alloc]init];
+        [self.navigationController pushViewController:promotionsViewController animated:YES];
+    }
     
     
 }

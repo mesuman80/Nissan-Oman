@@ -125,6 +125,8 @@
 		F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */; };
 		F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */; };
 		F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */; };
+		F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB01D82E09700AECEDA /* OwningViewController.m */; };
+		F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +301,10 @@
 		F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleCategeoryViewController.m; sourceTree = "<group>"; };
 		F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyerSupportViewController.h; sourceTree = "<group>"; };
 		F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyerSupportViewController.m; sourceTree = "<group>"; };
+		F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwningViewController.h; sourceTree = "<group>"; };
+		F7AD7BB01D82E09700AECEDA /* OwningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwningViewController.m; sourceTree = "<group>"; };
+		F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionsViewController.h; sourceTree = "<group>"; };
+		F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +554,10 @@
 				F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */,
 				F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */,
 				F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */,
+				F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */,
+				F7AD7BB01D82E09700AECEDA /* OwningViewController.m */,
+				F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */,
+				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -907,6 +917,7 @@
 				F710409B1D8126EE00BD3E88 /* LocationViewController.m in Sources */,
 				5304174B1D706DB100168934 /* ResponseModel.m in Sources */,
 				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
+				F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */,
 				534D9A121D758AA500867F73 /* SignupViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
@@ -921,6 +932,7 @@
 				F71040981D8126E400BD3E88 /* CallViewController.m in Sources */,
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
+				F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
 				F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */,
