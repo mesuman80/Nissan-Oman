@@ -246,6 +246,7 @@
    if([self checkValidation])
    {
        webService = [[WebService alloc]init];
+       webService.serviceName = @"signUp";
        webService.customWebServiceDelegate = self;
        NSDictionary *dict = @{
                               @"firstName" : firstNameTextfield.text,

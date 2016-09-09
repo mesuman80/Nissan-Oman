@@ -12,8 +12,9 @@
     Utility *utility;
     SharePreferenceUtil *sharePreferenceUtil;
     UserData *userData;
+    
 }
-@synthesize customWebServiceDelegate;
+@synthesize customWebServiceDelegate, serviceName;
 
 -(id)init{
     utility = [[Utility alloc]init];
@@ -160,22 +161,46 @@
         [utility hideHUD];
         if(statusCode  ==  200) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSDictionary *userDict = [dict valueForKey:@"user"];
-           // ResponseModel *res = [self processResponseData:data];
-            if([[dict valueForKey:@"error"] compare:[NSNumber numberWithInt:1]] == NSOrderedSame){
-               // iCompletion([self getErrorMessage:res.status], nil);
+            NSDictionary *userDict;
+            if([self.serviceName isEqualToString:@"login"] || [self.serviceName isEqualToString:@"signUp"])
+            {
+                userDict = [dict valueForKey:@"user"];
+                
+                if([[dict valueForKey:@"error"] compare:[NSNumber numberWithInt:1]] == NSOrderedSame){
+                    if(self.customWebServiceDelegate)
+                    {
+                        [self.customWebServiceDelegate ConnectionDidFinishWithError:dict];
+                    }
+                }
+                else{
+                    if(self.customWebServiceDelegate)
+                    {
+                        [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                    }
+                }
+            }
+            else if([self.serviceName isEqualToString:@"vehicleCategory"])
+            {
+               
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+
+            }
+         /*   if([[dict valueForKey:@"error"] compare:[NSNumber numberWithInt:1]] == NSOrderedSame){
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithError:dict];
                 }
             }
             else{
-                //iCompletion(nil, res);
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
                 }
-            }
+            }  */
         }else {
             iCompletion(@"Somethings not correct. Please try again.", nil);
         }
@@ -283,7 +308,7 @@
 -(void)registerUser:(NSDictionary *)dict {
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"]];
+        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"users/?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForPost:url withData:nil];
@@ -309,7 +334,7 @@
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@",@"?tag=login&email=",[dict valueForKey:@"name"],@"&password=",[dict valueForKey:@"password"]];
+        NSString *str = [NSString stringWithFormat:@"%@%@%@%@",@"users/?tag=login&email=",[dict valueForKey:@"name"],@"&password=",[dict valueForKey:@"password"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForGet:url withData:nil];
@@ -331,4 +356,28 @@
     
 }
 
+-(void)getVehicleCategeoryList
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"category/?tag=view"];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
 @end

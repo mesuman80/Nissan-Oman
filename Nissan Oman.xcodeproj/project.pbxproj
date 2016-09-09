@@ -122,6 +122,9 @@
 		F7A1C33B1D80338700C386A5 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E71D80338700C386A5 /* bottombar.png */; };
 		F7A1C33C1D80338700C386A5 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E81D80338700C386A5 /* login_logo.png */; };
 		F7A1C33D1D80338700C386A5 /* signfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E91D80338700C386A5 /* signfacebook.png */; };
+		F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */; };
+		F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */; };
+		F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +293,12 @@
 		F7A1C2E71D80338700C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C2E81D80338700C386A5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		F7A1C2E91D80338700C386A5 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
+		F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleCategeoryViewController.h; sourceTree = "<group>"; };
+		F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleCategeoryViewController.m; sourceTree = "<group>"; };
+		F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyerSupportViewController.h; sourceTree = "<group>"; };
+		F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyerSupportViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +542,12 @@
 			children = (
 				F710409F1D81270100BD3E88 /* HomeViewController.h */,
 				F71040A01D81270100BD3E88 /* HomeViewController.m */,
+				F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */,
+				F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */,
+				F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */,
+				F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */,
+				F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */,
+				F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -898,14 +913,17 @@
 				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,
 				5304174A1D706DB100168934 /* CategoryModel.m in Sources */,
 				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
+				F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */,
 				F71040A41D81290C00BD3E88 /* Common.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
 				F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */,
+				F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */,
 				F71040981D8126E400BD3E88 /* CallViewController.m in Sources */,
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
+				F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */,
 				532F1F731D6EF21000F19D5B /* main.m in Sources */,
 				532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */,
 				5304174C1D706DB100168934 /* UserData.m in Sources */,

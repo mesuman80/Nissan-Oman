@@ -185,6 +185,7 @@
                                @"password" : passwordTextfield.text
                                };
         webService = [[WebService alloc]init];
+        webService.serviceName = @"login";
         webService.customWebServiceDelegate = self;
         [activeTextField resignFirstResponder];
        [ webService loginUser:dict];
