@@ -157,18 +157,20 @@
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger statusCode   = httpResponse.statusCode;
+        [utility hideHUD];
         if(statusCode  ==  200) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             NSDictionary *userDict = [dict valueForKey:@"user"];
-            ResponseModel *res = [self processResponseData:data];
-            if([self isError:res]){
-                iCompletion([self getErrorMessage:res.status], nil);
+           // ResponseModel *res = [self processResponseData:data];
+            if([[dict valueForKey:@"error"] compare:[NSNumber numberWithInt:1]] == NSOrderedSame){
+               // iCompletion([self getErrorMessage:res.status], nil);
                 if(self.customWebServiceDelegate)
                 {
-                    [self.customWebServiceDelegate ConnectionDidFinishWithError:nil];
+                    [self.customWebServiceDelegate ConnectionDidFinishWithError:dict];
                 }
-            }else{
-                iCompletion(nil, res);
+            }
+            else{
+                //iCompletion(nil, res);
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -280,6 +282,7 @@
 
 -(void)registerUser:(NSDictionary *)dict {
     if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
         NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
@@ -295,12 +298,17 @@
             
         }
     }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
 
 }
 
 -(void)loginUser:(NSDictionary *)dict
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
         NSString *str = [NSString stringWithFormat:@"%@%@%@%@",@"?tag=login&email=",[dict valueForKey:@"name"],@"&password=",[dict valueForKey:@"password"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
@@ -315,6 +323,10 @@
                         }] resume];
             
         }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
     }
     
 }

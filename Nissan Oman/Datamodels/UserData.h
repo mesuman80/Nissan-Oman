@@ -12,6 +12,8 @@
 @interface UserData : NSObject<NSCoding>{
     
 }
++ (id)sharedData;
+
 
 @property NSString *userId;
 @property NSString *userName;

@@ -11,7 +11,10 @@
 #import "CustomTextField.h"
 #import "SignupViewController.h"
 #import "WebService.h"
-
+#import "AppDelegate.h"
+#import "UserData.h"
+#import "SharePreferenceUtil.h"
+#import "Common.h"
 
 @interface LoginViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
 
@@ -20,6 +23,7 @@
 @implementation LoginViewController
 {
     WebService *webService;
+    UITextField *activeTextField;
 }
 
 @synthesize usernameTextfield,passwordTextfield;
@@ -157,6 +161,16 @@
     return YES;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    activeTextField = textField;
+}
+
 -(void)signupButtonTouched:(id)sender{
     SignupViewController *signupViewController = [[SignupViewController alloc] init];
     [self.navigationController pushViewController:signupViewController animated:YES];
@@ -172,19 +186,43 @@
                                };
         webService = [[WebService alloc]init];
         webService.customWebServiceDelegate = self;
+        [activeTextField resignFirstResponder];
        [ webService loginUser:dict];
     }
 }
 
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
 {
+    UserData *data = [UserData sharedData];
+
+    data.userName = [dict valueForKey:@"name"];
+    data.userId = [dict valueForKey:@"email"];
+    data.firstName = [dict valueForKey:@"name"];
     
+    [[SharePreferenceUtil getInstance]saveBool:YES withKey:kN_isUserMobileRegistered];
+
+    
+    [Common saveCustomObject:data key:@"UserData"];
+    
+   
+    [self openTabBar];
 }
 
 -(void)ConnectionDidFinishWithError:(NSDictionary *)dict
 {
-    
+    [self showAlertView:@"Error" WithMessage:[dict valueForKey:@"error_msg"]];
 }
+
+-(AppDelegate *)getInstance
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+-(void)openTabBar
+{
+    AppDelegate *appDelegate=[self getInstance];
+    [appDelegate openTabBar];
+}
+
 -(BOOL)checkValidation
 {
     NSString *userName;

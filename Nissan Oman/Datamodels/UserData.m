@@ -7,6 +7,10 @@
 //
 
 #import "UserData.h"
+
+static UserData *userData;
+
+
 @implementation UserData
 {
     BOOL isDefaultImage;
@@ -42,8 +46,17 @@
 }
 
 
++ (id)sharedData {
+    if(!userData)
+    {
+        userData=[[UserData alloc]init];
+    }
+    return userData;
+}
+
 -(id)initWithCoder:(NSCoder *)decoder {
-    if(self = [super init]) {
+    if(self = [super init])
+    {
         userId                      = [decoder decodeObjectForKey: U_UserID]                   ;
         userName                    = [decoder decodeObjectForKey: U_UserName]                 ;
         firstName                   = [decoder decodeObjectForKey: U_FirstName]                ;
@@ -62,7 +75,7 @@
         modifiedOn                  = [decoder decodeObjectForKey: U_ModifiedOn]               ;
         isVerifiedPhoneNumber       = [decoder decodeBoolForKey: U_IsVerifiedPhoneNumber]    ;
         isActive                    = [decoder decodeBoolForKey: U_IsActive]                 ;
-
+        
         deviceType = kIphoneDeviceType;
         
         return self;
@@ -89,7 +102,9 @@
     [encoder encodeObject   :modifiedOn                 forKey: U_ModifiedOn]               ;
     [encoder encodeBool     :isVerifiedPhoneNumber      forKey: U_IsVerifiedPhoneNumber]    ;
     [encoder encodeBool     :isActive                   forKey: U_IsActive]                 ;
-   
+    
 }
+
+
 
 @end

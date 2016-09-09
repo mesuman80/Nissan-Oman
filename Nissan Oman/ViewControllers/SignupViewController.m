@@ -8,6 +8,9 @@
 
 #import "SignupViewController.h"
 #import "WebService.h"
+#import "AppDelegate.h"
+#import "UserData.h"
+#import "Common.h"
 
 @interface SignupViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
 
@@ -17,6 +20,10 @@
 {
     WebService *webService;
     UITextField *activeTextField;
+    UIView *datePickerView;
+    UIDatePicker *myDatePicker;
+    NSDate *dob;
+    UITextField *previousTextField;
 }
 
 @synthesize firstNameTextfield,lastNameTextfield;
@@ -26,9 +33,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBackgroundTap:)];
+    [self.scrollView addGestureRecognizer:gesture];
    // self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.2);
     // Do any additional setup after loading the view.
 }
+-(void)onBackgroundTap:(id)sender
+{
+    if(activeTextField)
+    {
+        [activeTextField resignFirstResponder];
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setupForTextfield];
@@ -121,6 +139,7 @@
     [dobNameTextfield setFrame:CGRectMake(ScreenWidthFactor*10,self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
     [dobNameTextfield setPlaceholder:PlaceholderSignupDobString];
     dobNameTextfield.delegate = self;
+    dobNameTextfield.tag = 100;
     [self.scrollView addSubview:dobNameTextfield];
     
     self.y = dobNameTextfield.frame.origin.y+dobNameTextfield.frame.size.height+ScreenHeightFactor*10;
@@ -204,6 +223,11 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    if(textField.tag != 100)
+    {
+        previousTextField = textField;
+    }
+   
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
@@ -226,7 +250,7 @@
        NSDictionary *dict = @{
                               @"firstName" : firstNameTextfield.text,
                               @"lastName" : lastNameTextfield.text,
-                              @"dateOfBirth" : @"10/10/1992",
+                              @"dateOfBirth" :dobNameTextfield.text,
                               @"phoneNum" : phoneNumberTextfield.text,
                               @"email" : emailTextfield.text,
                               @"password" : passwordTextfield.text
@@ -238,12 +262,32 @@
 
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
 {
+     UserData *data = [UserData sharedData];
+    data.userName = [dict valueForKey:@"name"];
+    data.userId = [dict valueForKey:@"email"];
+    data.firstName = [dict valueForKey:@"name"];
     
+    [[SharePreferenceUtil getInstance]saveBool:YES withKey:kN_isUserMobileRegistered];
+    [Common saveCustomObject:data key:@"UserData"];
+
+    [self openTabBar];
 }
 
 -(void)ConnectionDidFinishWithError:(NSDictionary *)dict
 {
-    
+    [self showAlertView:@"Error" WithMessage:[dict valueForKey:@"error_msg"]];
+
+}
+
+
+-(AppDelegate *)getInstance
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+-(void)openTabBar
+{
+    AppDelegate *appDelegate=[self getInstance];
+    [appDelegate openTabBar];
 }
 
 -(void)loginButtonTouched:(id)sender{
@@ -381,10 +425,164 @@
 #pragma mark TextField Delegate
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    
     activeTextField = textField;
+    
+    if(textField.tag == 100)
+    {
+        if(previousTextField)
+        {
+            [previousTextField resignFirstResponder];
+            previousTextField = nil;
+        }
+        else
+        {
+            [textField resignFirstResponder];
+        }
+        
+        //[textField resignFirstResponder];
+        
+        [self openDatePicker];
+    }
+    else
+    {
+        if(datePickerView)
+        {
+            [self removeDatePicker1];
+        }
+    }
 }
 
 
+
+-(void)openDatePicker
+{
+    [activeTextField resignFirstResponder];
+    if(!myDatePicker)
+    {
+        datePickerView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 200  , self.view.frame.size.width ,200)];
+        [datePickerView setBackgroundColor:[UIColor whiteColor]];
+        myDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,47, self.view.frame.size.width ,datePickerView.frame.size.height-47)];
+        NSLog(@"%f",myDatePicker.frame.origin.y);
+        // myDatePicker.minimumDate=[NSDate date];
+        
+        NSDate *currentDate = [NSDate date];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
+        
+        
+        NSDate *newDate = [calendar dateFromComponents: components];
+       // [myDatePicker setMinimumDate:newDate];
+        
+        
+        myDatePicker.datePickerMode = UIDatePickerModeDate;
+        myDatePicker.backgroundColor = [UIColor whiteColor];
+        [myDatePicker addTarget:self action:@selector(dateSelected:) forControlEvents:UIControlEventValueChanged];
+        
+        datePickerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        
+        
+        
+        //        NSDate *now = [NSDate date];
+        //        int daysToAdd = 1;
+        //        NSDate *newDate1 = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
+        
+    }
+    [self.view bringSubviewToFront:datePickerView];
+    [self.view addSubview:datePickerView];
+    [datePickerView addSubview:myDatePicker];
+    [datePickerView bringSubviewToFront:myDatePicker];
+    
+    [self setupDoneButton:datePickerView];
+    [self setupCancelButton:datePickerView];
+    
+}
+
+-(void)setupDoneButton:(UIView *)view
+{
+    UIButton *doneButton = [[UIButton alloc]init];
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self
+                   action:@selector(onDoneTap:)forControlEvents:UIControlEventTouchUpInside];
+    doneButton.frame = CGRectMake(self.view.frame.size.width -80, 3, 70 , 40);
+    [doneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [view addSubview:doneButton];
+    
+}
+
+-(void)setupCancelButton:(UIView *)view
+{
+    UIButton *cancelButton = [[UIButton alloc]init];
+    [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelButton addTarget:self
+                     action:@selector(onCancelTap:)forControlEvents:UIControlEventTouchUpInside];
+    cancelButton.frame = CGRectMake( 20, 3, 70 , 40);
+    [view addSubview:cancelButton];
+    
+}
+
+-(void)onDoneTap:(id)sender
+{
+    dob = myDatePicker.date;
+    //previousMessageFutureDate  = futureDate;
+    NSString *str = [self getDatePickerTimeStr];
+    [self setDateOnLabel:str];
+    [self removeDatePicker1];
+    
+    NSLog(@"Date = %@",str);
+    myDatePicker = nil;
+    
+    
+}
+-(void)dateSelected:(id)sender
+{
+    
+    //futureDate = myDatePicker.date;
+}
+
+-(void)removeDatePicker1 {
+    
+    [datePickerView removeFromSuperview];
+    [myDatePicker removeFromSuperview];
+    datePickerView =nil;
+    myDatePicker  = nil;
+}
+
+
+-(void)setDateOnLabel:(NSString *)dateAndTime
+{
+    NSString * dateTimeString;
+    if(dateAndTime)
+    {
+        dateTimeString = dateAndTime;
+    }
+    else
+    {
+       // dateTimeString = TTMFutureButton;
+    }
+    CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
+    CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
+    //or whatever font you're using
+    
+    [dobNameTextfield setText:dateTimeString];
+    
+}
+
+
+-(NSString *)getDatePickerTimeStr
+{
+    NSDateFormatter *dateSelected = [[NSDateFormatter alloc]init];
+    dateSelected.dateFormat = @"MM/dd/YYYY";
+    NSString *time =[dateSelected stringFromDate:dob];
+    return time;
+}
+-(void)onCancelTap:(id)sender
+{
+    [self removeDatePicker1];
+    dob = nil;
+    
+}
 /*
 #pragma mark - Navigation
 

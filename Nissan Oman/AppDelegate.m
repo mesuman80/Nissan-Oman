@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TabbarViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -32,6 +34,19 @@
     [self.window setAutoresizesSubviews:YES];
     [self.window makeKeyAndVisible];
     
+    
+  /*  UserData *data = [[NSUserDefaults standardUserDefaults]valueForKey:@"UserData"];
+    if(!data){
+        //Open User Mobile Registration Screen
+        LoginViewController  *loginViewController  = [[LoginViewController alloc]init];
+        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:loginViewController];
+        self.window.rootViewController = navigationController;
+        
+    }else {
+        [self openTabBar];
+    }
+*/
+    
     if(![sharePreferenceUtil getBoolWithKey:kN_isUserMobileRegistered]){
         //Open User Mobile Registration Screen
         LoginViewController  *loginViewController  = [[LoginViewController alloc]init];
@@ -39,13 +54,23 @@
         self.window.rootViewController = navigationController;
         
     }else {
-//        NewNudgeViewController  *newNudgeViewController  = [[NewNudgeViewController alloc]init];
-//        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:newNudgeViewController];
-//        self.window.rootViewController = navigationController;
+        [self openTabBar];
     }
     [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
     return YES;
 }
+
+-(void)openTabBar{
+    if(self.window.rootViewController) {
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        [navigationController dismissViewControllerAnimated:YES completion:^{
+        }];
+    }
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
+    TabbarViewController *tabBarController = [[TabbarViewController alloc] init];
+    [_window setRootViewController:tabBarController];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
