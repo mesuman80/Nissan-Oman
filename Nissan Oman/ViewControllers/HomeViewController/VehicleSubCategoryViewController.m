@@ -23,6 +23,7 @@
     NSArray *carArray;
     UITableView *tableView;
     NSArray *arrOfDict;
+    SubTypeView *subTypeView;
 
 }
 @synthesize dictionary;
@@ -42,6 +43,10 @@
 {
     [super viewWillAppear:animated];
     [self getVehicleSubCategoryData];
+    if(subTypeView)
+    {
+        [subTypeView removeFromSuperview];
+    }
 }
 -(void)addTitle
 {
@@ -72,8 +77,10 @@
 
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
 {
+    arrOfDict = nil;
     arrOfDict = [dict valueForKey:@"sub_category"];
     int i = 0;
+    [dataArr removeAllObjects];
     for(NSDictionary *dict in arrOfDict)
     {
         NSString *name = [dict valueForKey:@"model_name"];
@@ -149,7 +156,7 @@
         [dictArray addObject:dictionary1];
     }
     
-    SubTypeView *subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame];
+    subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame];
     subTypeView.dictionaryArray = dictArray;
     subTypeView.vehicleArr = [dict valueForKey:@"type"];
     subTypeView.parentViewController = self;
