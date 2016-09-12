@@ -199,6 +199,17 @@
                 }
                 
             }
+            else if([self.serviceName isEqualToString:@"vehicleDescription"])
+            {
+                
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+
          
         }else {
             iCompletion(@"Somethings not correct. Please try again.", nil);
@@ -405,5 +416,33 @@
     }
     
 }
+
+-(void)getVehicleDescription:(NSString *)idVal
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"vehicle/?id=",idVal];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+
 
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TabbarBaseViewController : UIViewController
+@property  CGFloat yCordinate;
 
 @end

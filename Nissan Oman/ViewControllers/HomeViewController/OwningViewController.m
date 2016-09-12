@@ -60,7 +60,7 @@
 
 -(void)addTitle
 {
-    yCordinate = .2*self.view.frame.size.height;
+    yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
     label.text = @"OWNING";
     label.textColor = [UIColor blackColor];

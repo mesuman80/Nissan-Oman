@@ -39,6 +39,8 @@
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
 		F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */; };
+		F7896D1C1D8686FC00DB024C /* SubTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D1B1D8686FC00DB024C /* SubTypeView.m */; };
+		F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */; };
 		F7A1C2EA1D80338700C386A5 /* account_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2951D80338600C386A5 /* account_settings.png */; };
 		F7A1C2EB1D80338700C386A5 /* adventure_park.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2961D80338600C386A5 /* adventure_park.png */; };
 		F7A1C2EC1D80338700C386A5 /* altima.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2971D80338600C386A5 /* altima.png */; };
@@ -214,6 +216,10 @@
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
 		F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleSubCategoryViewController.m; sourceTree = "<group>"; };
+		F7896D1A1D8686FC00DB024C /* SubTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTypeView.h; sourceTree = "<group>"; };
+		F7896D1B1D8686FC00DB024C /* SubTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTypeView.m; sourceTree = "<group>"; };
+		F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleDescriptionViewController.h; sourceTree = "<group>"; };
+		F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleDescriptionViewController.m; sourceTree = "<group>"; };
 		F7A1C2951D80338600C386A5 /* account_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account_settings.png; sourceTree = "<group>"; };
 		F7A1C2961D80338600C386A5 /* adventure_park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adventure_park.png; sourceTree = "<group>"; };
 		F7A1C2971D80338600C386A5 /* altima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altima.png; sourceTree = "<group>"; };
@@ -563,6 +569,10 @@
 				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
 				F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */,
 				F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */,
+				F7896D1A1D8686FC00DB024C /* SubTypeView.h */,
+				F7896D1B1D8686FC00DB024C /* SubTypeView.m */,
+				F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */,
+				F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -931,6 +941,8 @@
 				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
 				F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */,
 				F71040A41D81290C00BD3E88 /* Common.m in Sources */,
+				F7896D1C1D8686FC00DB024C /* SubTypeView.m in Sources */,
+				F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
 				F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */,
 				F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */,

@@ -21,6 +21,7 @@
 {
     UITableView *tableView;
     NSArray *dataArr;
+    CGFloat yVal;
 }
 
 - (void)viewDidLoad {
@@ -67,6 +68,13 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,14 +82,17 @@
 
 -(void)addImageView
 {
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, .20*self.view.frame.size.height, self.view.frame.size.width - 20, .20f*self.view.frame.size.height)];
+    yVal = self.yCordinate;
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10,yVal, self.view.frame.size.width - 20, .20f*self.view.frame.size.height)];
     imgView.image = [UIImage imageNamed:@"juke4.jpg"];
     [self.view addSubview: imgView];
+    
+    yVal += imgView.frame.size.height + 10;
 }
 
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .42*self.view.frame.size.height,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.4f) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -123,7 +134,9 @@
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0)
     {
+         [self.navigationController setNavigationBarHidden:NO];
         VehicleCategeoryViewController *vehicleCategeoryViewController  = [[VehicleCategeoryViewController alloc]init];
+       
         [self.navigationController pushViewController:vehicleCategeoryViewController animated:YES];
     }
     else if(indexPath.row == 1)

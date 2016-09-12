@@ -9,6 +9,7 @@
 #import "VehicleSubCategoryViewController.h"
 #import "CustomTableViewCell.h"
 #import "WebService.h"
+#import "SubTypeView.h"
 
 
 @interface VehicleSubCategoryViewController ()<CustomWebServiceDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -28,6 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
+
     dataArr = [[NSMutableArray alloc]init];
     carArray = @[@"passenger_cars.png",@"crossovers.png",@"suv.png",@"lcv.png"];
     [self addTitle];
@@ -42,7 +45,7 @@
 }
 -(void)addTitle
 {
-    yCordinate = .2*self.view.frame.size.height;
+    yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
     NSString *name = [self.dictionary valueForKey:@"category"];
     label.text = name;
@@ -128,17 +131,39 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSDictionary *dict = [arrOfDict objectAtIndex:indexPath.row];
-  /*  VehicleSubCategoryViewController *vehicleCategeoryViewController = [[VehicleSubCategoryViewController alloc]init];
-    vehicleCategeoryViewController.dictionary = dict;
-    [self.navigationController pushViewController:vehicleCategeoryViewController animated:YES]; */
+    NSArray *arr = [dict valueForKey:@"type"];
+    NSMutableArray *dictArray = [[NSMutableArray alloc]init];
+    int i = 0;
+    for(NSDictionary *dict in arr)
+    {
+        NSString *name = [dict valueForKey:@"vehicle_name"];
+        
+        NSDictionary *dictionary1 = @{
+                                      @"text": name,
+                                      @"image": self.imageName
+                                      };
+        i++;
+        
+        [dictArray addObject:dictionary1];
+    }
+    
+    SubTypeView *subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame];
+    subTypeView.dictionaryArray = dictArray;
+    subTypeView.vehicleArr = [dict valueForKey:@"type"];
+    subTypeView.parentViewController = self;
+    [self.view addSubview:subTypeView];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

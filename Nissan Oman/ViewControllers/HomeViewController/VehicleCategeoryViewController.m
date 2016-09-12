@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
     dataArr = [[NSMutableArray alloc]init];
     carArray = @[@"passenger_cars.png",@"crossovers.png",@"suv.png",@"lcv.png"];
     [self getVehicleCategoryData];
@@ -69,7 +70,7 @@
 
 -(void)addTitle
 {
-    yCordinate = .2*self.view.frame.size.height;
+    yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
     label.text = @"VEHICLES";
     label.textColor = [UIColor blackColor];
@@ -97,7 +98,7 @@
 
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

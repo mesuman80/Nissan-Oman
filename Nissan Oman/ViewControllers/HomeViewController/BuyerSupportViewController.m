@@ -54,7 +54,7 @@
 
 -(void)addTitle
 {
-    yCordinate = .2*self.view.frame.size.height;
+    yCordinate = self.yCordinate + 10;;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
     label.text = @"VEHICLES";
     label.textColor = [UIColor blackColor];
@@ -87,7 +87,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Index pathn =%li" , indexPath.row);
     static NSString *tableCellIdentifierForReadReceipt = @"cellIdentifier";
     CustomTableViewCell *tableCell = [tableView1 dequeueReusableCellWithIdentifier:tableCellIdentifierForReadReceipt];
     if(tableCell == nil) {
