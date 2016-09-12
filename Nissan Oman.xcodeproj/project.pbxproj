@@ -38,6 +38,7 @@
 		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
+		F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */; };
 		F7A1C2EA1D80338700C386A5 /* account_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2951D80338600C386A5 /* account_settings.png */; };
 		F7A1C2EB1D80338700C386A5 /* adventure_park.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2961D80338600C386A5 /* adventure_park.png */; };
 		F7A1C2EC1D80338700C386A5 /* altima.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2971D80338600C386A5 /* altima.png */; };
@@ -211,6 +212,8 @@
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
+		F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleSubCategoryViewController.m; sourceTree = "<group>"; };
 		F7A1C2951D80338600C386A5 /* account_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account_settings.png; sourceTree = "<group>"; };
 		F7A1C2961D80338600C386A5 /* adventure_park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adventure_park.png; sourceTree = "<group>"; };
 		F7A1C2971D80338600C386A5 /* altima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altima.png; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 				F7AD7BB01D82E09700AECEDA /* OwningViewController.m */,
 				F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */,
 				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
+				F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */,
+				F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -931,6 +936,7 @@
 				F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */,
 				F71040981D8126E400BD3E88 /* CallViewController.m in Sources */,
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
+				F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
 				F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,

@@ -23,6 +23,7 @@ typedef void(^onCompletion)(NSString *error, ResponseModel *responseModel);
 -(void)registerUser:(NSDictionary *)dict;
 -(void)loginUser:(NSDictionary *)dict;
 -(void)getVehicleCategeoryList;
+-(void)getVehicleSubCategeoryList:(NSString *)idVal;
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;
