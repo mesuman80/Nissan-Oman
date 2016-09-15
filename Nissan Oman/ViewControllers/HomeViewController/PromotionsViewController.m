@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
+
     NSDictionary *dict1 = @{
                             @"image": @"current_offers.png",
                             @"text":   @"CURRENT OFFERS"

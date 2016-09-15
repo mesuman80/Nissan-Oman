@@ -32,6 +32,8 @@
 #define titleFont          @"HelveticaNeue-Roman"
 #define subTitleFont       @"HelveticaNeue-Light"
 #define buttonRedColor [UIColor colorWithRed:139.0f/255 green:3.0f/255 blue:38.0f/255 alpha:1.0]
+#define appGrayColor [UIColor colorWithRed:66.0f/255 green:66.0f/255 blue:66.0f/255 alpha:1.0]
+
 #define mapGeofenceColor [UIColor colorWithRed:250.0f/255 green:220.0f/255 blue:220.0f/255 alpha:1.0]
 #define TableTextColor [UIColor colorWithRed:66.0f/255 green:66.0f/255 blue:66.0f/255 alpha:1.0]
 

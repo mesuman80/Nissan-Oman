@@ -23,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
+
     NSDictionary *dict1 = @{
                             @"image": @"call.png",
                             @"text":   @"CALL NISSAN TOll FREE"

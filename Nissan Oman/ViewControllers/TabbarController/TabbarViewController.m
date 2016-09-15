@@ -48,7 +48,7 @@
     [[self tabBar] addSubview:v];
     
     subview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height)];
-    subview.backgroundColor = [UIColor redColor];
+    subview.backgroundColor = buttonRedColor;
     [[self tabBar]addSubview:subview];
     
     

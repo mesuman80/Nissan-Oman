@@ -125,6 +125,7 @@
 		F7A1C33B1D80338700C386A5 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E71D80338700C386A5 /* bottombar.png */; };
 		F7A1C33C1D80338700C386A5 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E81D80338700C386A5 /* login_logo.png */; };
 		F7A1C33D1D80338700C386A5 /* signfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E91D80338700C386A5 /* signfacebook.png */; };
+		F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */; };
 		F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */; };
 		F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */; };
 		F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */; };
@@ -304,6 +305,8 @@
 		F7A1C2E71D80338700C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C2E81D80338700C386A5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		F7A1C2E91D80338700C386A5 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
+		F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionView.h; sourceTree = "<group>"; };
+		F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionView.m; sourceTree = "<group>"; };
 		F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleCategeoryViewController.h; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 				F7896D1B1D8686FC00DB024C /* SubTypeView.m */,
 				F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */,
 				F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */,
+				F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */,
+				F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -951,6 +956,7 @@
 				F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
 				F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */,
+				F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
 				F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */,

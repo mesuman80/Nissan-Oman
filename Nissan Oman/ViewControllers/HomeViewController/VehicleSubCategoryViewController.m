@@ -26,6 +26,7 @@
     SubTypeView *subTypeView;
 
 }
+
 @synthesize dictionary;
 
 - (void)viewDidLoad {

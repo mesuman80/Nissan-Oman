@@ -68,7 +68,7 @@
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Types";
-    label.backgroundColor = [UIColor redColor];
+    label.backgroundColor = buttonRedColor;
     label.textColor = [UIColor whiteColor];
     label.textAlignment=NSTextAlignmentCenter;
     return label;

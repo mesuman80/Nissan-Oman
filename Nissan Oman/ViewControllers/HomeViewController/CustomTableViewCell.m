@@ -34,7 +34,8 @@
     if (self)
     {
         baseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height - 2)];
-        baseView.backgroundColor =[[UIColor blackColor]colorWithAlphaComponent:.8f ];
+       // baseView.backgroundColor =[[UIColor blackColor]colorWithAlphaComponent:.8f ];
+        baseView.backgroundColor = appGrayColor;
         [self.contentView addSubview:baseView];
         
         iconImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
