@@ -12,6 +12,7 @@
 #import "BuyerSupportViewController.h"
 #import "OwningViewController.h"
 #import "PromotionsViewController.h"
+#import "ShowroomViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -144,6 +145,12 @@
         BuyerSupportViewController *buyerSupportViewController  = [[BuyerSupportViewController alloc]init];
         [self.navigationController pushViewController:buyerSupportViewController animated:YES];
     }
+    else if(indexPath.row == 2)
+    {
+        ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
+
     else if(indexPath.row == 3)
     {
         OwningViewController *owningViewController  = [[OwningViewController alloc]init];

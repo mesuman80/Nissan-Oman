@@ -25,7 +25,7 @@ typedef void(^onCompletion)(NSString *error, ResponseModel *responseModel);
 -(void)getVehicleCategeoryList;
 -(void)getVehicleSubCategeoryList:(NSString *)idVal;
 -(void)getVehicleDescription:(NSString *)idVal;
-
+-(void)getShowroomAddress;
 //User Update Webservices
 -(void)updateDeviceTokenInSever;
 
