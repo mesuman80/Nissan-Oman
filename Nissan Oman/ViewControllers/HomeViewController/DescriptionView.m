@@ -11,7 +11,6 @@
 
 @implementation DescriptionView
 {
-    UIView *baseView;
     UILabel *label;
     UIImageView *imgView;
     NSString *title;
@@ -21,6 +20,7 @@
 {
     if(self = [super initWithFrame:frame])
     {
+        [self setBackgroundColor:appGrayColor];
         title = titleVal;
         [self drawButtons];
         return self;
@@ -30,22 +30,21 @@
 
 -(void)drawButtons
 {
-    baseView = [[UIView alloc]initWithFrame:self.frame];
-    [baseView setBackgroundColor:appGrayColor];
-    [self addSubview:baseView];
+   
     
-    label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, .8*self.frame.size.width, .7*self.frame.size.height)];
+    label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, .6*self.frame.size.width, .7*self.frame.size.height)];
     [label setBackgroundColor:[UIColor clearColor]];
-    label.center = CGPointMake(baseView.frame.size.width/2, baseView.frame.size.height/2);
+    label.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     label.text = title;
+    label.font = [UIFont systemFontOfSize:10.0f];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    [baseView addSubview:label];
+    [self addSubview:label];
     
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(label.frame.size.width + label.frame.origin.x + 5, 0, 20, 20)];
-    imgView.center = CGPointMake(imgView.center.y, baseView.frame.size.height/2);
-    imgView.image = [UIImage imageNamed:@"arrow_icon.png"];
-    [baseView addSubview:imgView];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(label.frame.size.width + label.frame.origin.x + 5, 0, 10, 10)];
+    imgView.center = CGPointMake(imgView.center.x, self.frame.size.height/2);
+    imgView.image = [UIImage imageNamed:@"arrow_icon_gray.png"];
+    [self addSubview:imgView];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -22,8 +22,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    stringArr = [[NSMutableArray alloc]init];
-    stringArr = @[@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY"];
+    stringArr = [[NSMutableArray alloc]initWithObjects:@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY", nil];
+   // stringArr = @[@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY"];
     [self.navigationController setNavigationBarHidden:NO];
 
     // Do any additional setup after loading the view.
@@ -67,7 +67,7 @@
     [self.view addSubview:baseView];
     yVal += baseView.frame.size.height + 10;
     
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 120, 120)];
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 100, 100)];
     NSURL *url = [NSURL URLWithString:[dataDictionary valueForKey:@"overview_image"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *img = [[UIImage alloc] initWithData:data];
@@ -93,22 +93,36 @@
 
 -(void)drawButtons
 {
-    int xx      = 10;
+    int xx      = 0;
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yVal, self.view.frame.size.width, .4*self.view.frame.size.height)];
+    [scrollView setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:scrollView];
     
+    CGFloat yPos = 0;
     for(int i=0; i<10; i++)
     {
-        DescriptionView *view = [[DescriptionView alloc]initWithFrame:CGRectMake(xx, yVal,self.view.frame.size.width/2 - 15, .26*self.view.frame.size.height) WithTitle:([stringArr objectAtIndex:i])];
+        DescriptionView *view = [[DescriptionView alloc]initWithFrame:CGRectMake(xx, yPos,self.view.frame.size.width/2 - 5, .06*self.view.frame.size.height) WithTitle:([stringArr objectAtIndex:i])];
         
         xx += view.frame.size.width +10;
         if(i %2 != 0) {
-            xx = 10;
+            xx = 0;
+            yPos += view.frame.size.height + 5;
             
         }
-        else yVal += view.frame.size.height + 5;
-        [view setBackgroundColor:[UIColor orangeColor]];
-        [self.view addSubview:view];
+        //else yVal += view.frame.size.height + 5;
+       // [view setBackgroundColor:[UIColor orangeColor]];
+        [scrollView addSubview:view];
+       
 
     }
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, yPos, scrollView.frame.size.width, .1*scrollView.frame.size.height)];
+    [btn setBackgroundColor:buttonRedColor];
+    [btn setTitle:@"REQUEST A BROCHURE" forState:UIControlStateNormal];
+    
+    [scrollView addSubview:btn];
+    
+    [scrollView setContentSize:CGSizeMake(0, scrollView.frame.size.height *.15f + scrollView.frame.origin.y)];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
