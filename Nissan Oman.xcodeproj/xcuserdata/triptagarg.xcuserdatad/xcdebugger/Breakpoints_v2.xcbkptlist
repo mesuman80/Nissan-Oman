@@ -601,22 +601,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Nissan Oman/ViewControllers/TabbarBaseViewController.m"
-            timestampString = "495358402.67191"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-drawLogo"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleSubCategoryViewController.m"
             timestampString = "495369220.568133"
             startingColumnNumber = "9223372036854775807"
@@ -880,6 +864,86 @@
             startingLineNumber = "126"
             endingLineNumber = "126"
             landmarkName = "-ConnectionDidFinishWithSuccess:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/ViewControllers/TabbarBaseViewController.m"
+            timestampString = "495696788.596522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-settingBtnTouched:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TabbarBaseViewController settingBtnTouched:]"
+                  moduleName = "Nissan Oman"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/TabbarBaseViewController.m"
+                  timestampString = "495696690.287908"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1826">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[TabbarBaseViewController settingBtnTouched:]_block_invoke_2"
+                  moduleName = "Nissan Oman"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/TabbarBaseViewController.m"
+                  timestampString = "495696690.289753"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/ViewControllers/TabbarBaseViewController.m"
+            timestampString = "495696618.065722"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-drawLogo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/ViewControllers/TabbarBaseViewController.m"
+            timestampString = "495696690.197728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-drawLogo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

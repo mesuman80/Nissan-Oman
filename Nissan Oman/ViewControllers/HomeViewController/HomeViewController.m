@@ -93,7 +93,7 @@
 
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.4f) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.45f) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.dataSource = self;

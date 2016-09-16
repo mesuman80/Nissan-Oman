@@ -7,6 +7,7 @@
 //
 
 #import "TabbarBaseViewController.h"
+#import "SettingView.h"
 
 @interface TabbarBaseViewController ()
 
@@ -14,7 +15,9 @@
 
 @implementation TabbarBaseViewController
 {
-   
+     UIImageView *imgView;
+    SettingView *view;
+    int counter;
 }
 
 @synthesize yCordinate;
@@ -30,22 +33,68 @@
 
 -(void)drawLogo
 {
-    UIImageView *imgView;
-    yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
+   if([self.navigationController.navigationBar isHidden])
+   {
+       yCordinate = 25;
+   }
+    else
+    {
+        yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
+
+    }
+   // yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 80, 80)];
    // UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 25, 80, 80)];
     imgView.image = [UIImage imageNamed:@"app_icon.png"];
     [self.view addSubview:imgView];
     
-    yCordinate += imgView.frame.size.height + 10;
+   
 }
 
 -(void)drawSettingButton
 {
-    UIButton *settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 25 + self.navigationController.navigationBar.frame.size.height, 20, 20)];
+    UIButton *settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 20, 20)];
     settingBtn.center = CGPointMake(self.view.frame.size.width *.9f, settingBtn.center.y);
     [settingBtn setBackgroundImage:[UIImage imageNamed:@"setting_icon.png"] forState:UIControlStateNormal];
     [self.view addSubview:settingBtn];
+    [settingBtn addTarget:self action:@selector(settingBtnTouched:) forControlEvents:UIControlEventTouchUpInside];
+     yCordinate += imgView.frame.size.height + 10;
+}
+
+-(void)settingBtnTouched:(id)sender
+{
+    counter ++;
+    if(!view)
+    {
+        view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10, 50,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - 50)];
+        view.backgroundColor = [UIColor whiteColor];
+        //  [self.view addSubview:view];
+    }
+    
+    if(counter %2 != 0)
+    {
+        view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
+        [UIView animateWithDuration:0.9f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.view addSubview:view];
+            view.center = CGPointMake(.67*self.view.frame.size.width, view.center.y);
+        } completion:^(BOOL finished) {
+            
+        }];
+
+    }
+    
+    else
+    {
+        [UIView animateWithDuration:0.9f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
+        } completion:^(BOOL finished) {
+            [view removeFromSuperview];
+
+        }];
+    }
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
