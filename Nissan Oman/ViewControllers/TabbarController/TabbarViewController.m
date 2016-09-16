@@ -9,7 +9,6 @@
 #import "TabbarViewController.h"
 #import "HomeViewController.h"
 #import "CallViewController.h"
-#import "LocationViewController.h"
 #import "VehiclesViewController.h"
 #import "Constants.h"
 #import "Common.h"

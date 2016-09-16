@@ -130,6 +130,8 @@
 #define U_PhoneNumberWithCC               @"PhoneNumberWithCC"
 #define U_Password                        @"password"
 
+#define TollfreeNumber                     @"80050011"
+
 //********************************** screen factors **************************************************
 #define ScreenWidthFactor       [UIScreen mainScreen].bounds.size.width/320
 #define ScreenHeightFactor      [UIScreen mainScreen].bounds.size.height/568

@@ -34,7 +34,6 @@
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
-		F710409B1D8126EE00BD3E88 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409A1D8126EE00BD3E88 /* LocationViewController.m */; };
 		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
@@ -209,20 +208,18 @@
 		F71040941D8126D300BD3E88 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
 		F71040961D8126E400BD3E88 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
 		F71040971D8126E400BD3E88 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
-		F71040991D8126EE00BD3E88 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
-		F710409A1D8126EE00BD3E88 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		F710409C1D8126F900BD3E88 /* VehiclesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehiclesViewController.h; sourceTree = "<group>"; };
 		F710409D1D8126F900BD3E88 /* VehiclesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehiclesViewController.m; sourceTree = "<group>"; };
 		F710409F1D81270100BD3E88 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
-		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
-		F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleSubCategoryViewController.m; sourceTree = "<group>"; };
-		F7896D1A1D8686FC00DB024C /* SubTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTypeView.h; sourceTree = "<group>"; };
-		F7896D1B1D8686FC00DB024C /* SubTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTypeView.m; sourceTree = "<group>"; };
-		F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleDescriptionViewController.h; sourceTree = "<group>"; };
-		F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleDescriptionViewController.m; sourceTree = "<group>"; };
+		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleSubCategoryViewController.h; path = ../HomeViewController/VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
+		F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleSubCategoryViewController.m; path = ../HomeViewController/VehicleSubCategoryViewController.m; sourceTree = "<group>"; };
+		F7896D1A1D8686FC00DB024C /* SubTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubTypeView.h; path = ../HomeViewController/SubTypeView.h; sourceTree = "<group>"; };
+		F7896D1B1D8686FC00DB024C /* SubTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubTypeView.m; path = ../HomeViewController/SubTypeView.m; sourceTree = "<group>"; };
+		F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleDescriptionViewController.h; path = ../HomeViewController/VehicleDescriptionViewController.h; sourceTree = "<group>"; };
+		F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleDescriptionViewController.m; path = ../HomeViewController/VehicleDescriptionViewController.m; sourceTree = "<group>"; };
 		F7A1C2951D80338600C386A5 /* account_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account_settings.png; sourceTree = "<group>"; };
 		F7A1C2961D80338600C386A5 /* adventure_park.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adventure_park.png; sourceTree = "<group>"; };
 		F7A1C2971D80338600C386A5 /* altima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altima.png; sourceTree = "<group>"; };
@@ -307,16 +304,16 @@
 		F7A1C2E71D80338700C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C2E81D80338700C386A5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		F7A1C2E91D80338700C386A5 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
-		F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionView.h; sourceTree = "<group>"; };
-		F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionView.m; sourceTree = "<group>"; };
-		F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowroomViewController.h; sourceTree = "<group>"; };
-		F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowroomViewController.m; sourceTree = "<group>"; };
+		F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DescriptionView.h; path = ../HomeViewController/DescriptionView.h; sourceTree = "<group>"; };
+		F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DescriptionView.m; path = ../HomeViewController/DescriptionView.m; sourceTree = "<group>"; };
+		F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowroomViewController.h; path = ../HomeViewController/ShowroomViewController.h; sourceTree = "<group>"; };
+		F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowroomViewController.m; path = ../HomeViewController/ShowroomViewController.m; sourceTree = "<group>"; };
 		F7AA6D821D8ABD610058BE50 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		F7AA6D831D8ABD610058BE50 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
-		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleCategeoryViewController.h; sourceTree = "<group>"; };
-		F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleCategeoryViewController.m; sourceTree = "<group>"; };
+		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleCategeoryViewController.h; path = ../HomeViewController/VehicleCategeoryViewController.h; sourceTree = "<group>"; };
+		F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleCategeoryViewController.m; path = ../HomeViewController/VehicleCategeoryViewController.m; sourceTree = "<group>"; };
 		F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyerSupportViewController.h; sourceTree = "<group>"; };
 		F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyerSupportViewController.m; sourceTree = "<group>"; };
 		F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwningViewController.h; sourceTree = "<group>"; };
@@ -568,24 +565,12 @@
 				F71040A01D81270100BD3E88 /* HomeViewController.m */,
 				F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */,
 				F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */,
-				F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */,
-				F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */,
 				F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */,
 				F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */,
 				F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */,
 				F7AD7BB01D82E09700AECEDA /* OwningViewController.m */,
 				F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */,
 				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
-				F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */,
-				F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */,
-				F7896D1A1D8686FC00DB024C /* SubTypeView.h */,
-				F7896D1B1D8686FC00DB024C /* SubTypeView.m */,
-				F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */,
-				F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */,
-				F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */,
-				F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */,
-				F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */,
-				F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */,
 				F7AA6D821D8ABD610058BE50 /* SettingView.h */,
 				F7AA6D831D8ABD610058BE50 /* SettingView.m */,
 			);
@@ -604,8 +589,8 @@
 		F710408E1D8123D700BD3E88 /* LocationViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F71040991D8126EE00BD3E88 /* LocationViewController.h */,
-				F710409A1D8126EE00BD3E88 /* LocationViewController.m */,
+				F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */,
+				F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */,
 			);
 			path = LocationViewController;
 			sourceTree = "<group>";
@@ -613,6 +598,16 @@
 		F710408F1D8123D700BD3E88 /* VehiclesViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */,
+				F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */,
+				F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */,
+				F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */,
+				F7896D1A1D8686FC00DB024C /* SubTypeView.h */,
+				F7896D1B1D8686FC00DB024C /* SubTypeView.m */,
+				F7896D1D1D86A57E00DB024C /* VehicleDescriptionViewController.h */,
+				F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */,
+				F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */,
+				F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */,
 				F710409C1D8126F900BD3E88 /* VehiclesViewController.h */,
 				F710409D1D8126F900BD3E88 /* VehiclesViewController.m */,
 			);
@@ -944,7 +939,6 @@
 				F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */,
 				5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */,
 				F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */,
-				F710409B1D8126EE00BD3E88 /* LocationViewController.m in Sources */,
 				5304174B1D706DB100168934 /* ResponseModel.m in Sources */,
 				F7AA6D841D8ABD610058BE50 /* SettingView.m in Sources */,
 				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
