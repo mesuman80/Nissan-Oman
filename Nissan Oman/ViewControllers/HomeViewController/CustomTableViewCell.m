@@ -38,7 +38,7 @@
         baseView.backgroundColor = appGrayColor;
         [self.contentView addSubview:baseView];
         
-        iconImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        iconImgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, 30, 30)];
         [baseView addSubview:iconImgView];
         
         
@@ -46,6 +46,7 @@
         textLabel.backgroundColor = [UIColor clearColor];
         textLabel.textAlignment = NSTextAlignmentLeft;
         textLabel.textColor = [UIColor whiteColor];
+        textLabel.font = [UIFont systemFontOfSize:12.0f];
         [baseView addSubview:textLabel];
         
         rightArrImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 12, 12)];
@@ -60,12 +61,12 @@
 - (void)configureCell:(NSDictionary *)dict
 {
     iconImgView.image = [UIImage imageNamed:[dict valueForKey:@"image"]];
-    iconImgView.center = CGPointMake(baseView.frame.size.width *.10f, baseView.frame.size.height/2);
+    iconImgView.center = CGPointMake(iconImgView.center.x, baseView.frame.size.height/2);
     
     textLabel.text = [dict valueForKey:@"text"];
     CGSize size =[textLabel.text sizeWithAttributes:@{NSFontAttributeName : textLabel.font}];
-    [textLabel setFrame:CGRectMake(15, 0, size.width, size.height+3)];
-    textLabel.center = CGPointMake(baseView.frame.size.width/2, baseView.frame.size.height/2);
+    [textLabel setFrame:CGRectMake(50, 0, size.width, size.height+3)];
+    textLabel.center = CGPointMake(textLabel.center.x, baseView.frame.size.height/2);
     
     
     rightArrImgView.image = [UIImage imageNamed:@"arrow_icon_gray"];

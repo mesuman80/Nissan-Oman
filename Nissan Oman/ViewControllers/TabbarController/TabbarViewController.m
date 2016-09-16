@@ -13,6 +13,8 @@
 #import "VehiclesViewController.h"
 #import "Constants.h"
 #import "Common.h"
+#import "ShowroomViewController.h"
+#import "VehicleCategeoryViewController.h"
 
 @interface TabbarViewController ()
 
@@ -57,14 +59,17 @@
     
     UINavigationController *homeNavigationController=[[UINavigationController alloc]initWithRootViewController:homeViewController];
     
-    LocationViewController  *locationViewController = [[LocationViewController alloc]init];
+    ShowroomViewController  *locationViewController = [[ShowroomViewController alloc]init];
     locationViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"location_icon.png"] tag:1];
     UINavigationController *locationNavigationController=[[UINavigationController alloc]initWithRootViewController:locationViewController];
+    [locationNavigationController setNavigationBarHidden: NO];
+
     
-    
-    VehiclesViewController  *vehiclesViewController = [[VehiclesViewController alloc]init];
+    [self.navigationController setNavigationBarHidden:NO];
+    VehicleCategeoryViewController  *vehiclesViewController = [[VehicleCategeoryViewController alloc]init];
     vehiclesViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"crossover_icon.png"] tag:2];
     UINavigationController *vehicleNavigationController=[[UINavigationController alloc]initWithRootViewController:vehiclesViewController];
+    [vehicleNavigationController setNavigationBarHidden: NO];
     
     CallViewController  *callViewController = [[CallViewController alloc]init];
     callViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"call.png"] tag:3];

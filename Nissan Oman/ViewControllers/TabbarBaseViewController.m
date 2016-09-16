@@ -18,6 +18,7 @@
      UIImageView *imgView;
     SettingView *view;
     int counter;
+    UIButton *settingBtn;
 }
 
 @synthesize yCordinate;
@@ -30,6 +31,7 @@
     [self drawSettingButton];
     // Do any additional setup after loading the view.
 }
+
 
 -(void)drawLogo
 {
@@ -53,7 +55,7 @@
 
 -(void)drawSettingButton
 {
-    UIButton *settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 20, 20)];
+    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 20, 20)];
     settingBtn.center = CGPointMake(self.view.frame.size.width *.9f, settingBtn.center.y);
     [settingBtn setBackgroundImage:[UIImage imageNamed:@"setting_icon.png"] forState:UIControlStateNormal];
     [self.view addSubview:settingBtn];
@@ -64,9 +66,10 @@
 -(void)settingBtnTouched:(id)sender
 {
     counter ++;
+    CGFloat yval = settingBtn.frame.origin.y + settingBtn.frame.size.height + 5;
     if(!view)
     {
-        view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10, 50,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - 50)];
+        view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10,  yval,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - yval)];
         view.backgroundColor = [UIColor whiteColor];
         //  [self.view addSubview:view];
     }

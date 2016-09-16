@@ -34,32 +34,32 @@
     
     NSDictionary *dict1 = @{
                             @"image": @"vehicles.png",
-                            @"text":   @"Vehicles"
+                            @"text":   @"VEHICLES"
                             };
     
     NSDictionary *dict2 = @{
                             @"image": @"buyer_support.png",
-                            @"text":   @"Buyer Support"
+                            @"text":   @"BUYER SUPPORT"
                             };
     
     NSDictionary *dict3 = @{
                             @"image": @"showroom.png",
-                            @"text":   @"Showroom Locator"
+                            @"text":   @"SHOWROOM LOCATOR"
                             };
     
     NSDictionary *dict4 = @{
                             @"image": @"owning.png",
-                            @"text":   @"Owning"
+                            @"text":   @"OWNING"
                             };
     
     NSDictionary *dict5 = @{
                             @"image": @"service.png",
-                            @"text":   @"Service Appointment"
+                            @"text":   @"SERVICE APPOINTMENT"
                             };
     
     NSDictionary *dict6 = @{
                             @"image": @"promotions.png",
-                            @"text":   @"Promotions"
+                            @"text":   @"PROMOTIONS"
                             };
     
     dataArr = @[dict1,dict2, dict3, dict4,dict5,dict6];
@@ -93,11 +93,12 @@
 
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.45f) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.5f) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tableView];
 }
 
@@ -137,27 +138,32 @@
     {
          [self.navigationController setNavigationBarHidden:NO];
         VehicleCategeoryViewController *vehicleCategeoryViewController  = [[VehicleCategeoryViewController alloc]init];
-       
+        vehicleCategeoryViewController.isBarShown = YES;
         [self.navigationController pushViewController:vehicleCategeoryViewController animated:YES];
     }
     else if(indexPath.row == 1)
     {
+        [self.navigationController setNavigationBarHidden:NO];
         BuyerSupportViewController *buyerSupportViewController  = [[BuyerSupportViewController alloc]init];
         [self.navigationController pushViewController:buyerSupportViewController animated:YES];
     }
     else if(indexPath.row == 2)
     {
+        [self.navigationController setNavigationBarHidden:NO];
         ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
     }
 
     else if(indexPath.row == 3)
     {
+        [self.navigationController setNavigationBarHidden:NO];
         OwningViewController *owningViewController  = [[OwningViewController alloc]init];
         [self.navigationController pushViewController:owningViewController animated:YES];
     }
     else if(indexPath.row == 5)
     {
+        [self.navigationController setNavigationBarHidden:NO];
         PromotionsViewController *promotionsViewController  = [[PromotionsViewController alloc]init];
         [self.navigationController pushViewController:promotionsViewController animated:YES];
     }

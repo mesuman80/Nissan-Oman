@@ -28,7 +28,10 @@
     [super viewDidLoad];
     dataArr = [[NSMutableArray alloc]init];
     [self addTitle];
-    [self.navigationController setNavigationBarHidden:NO];
+    if(self.isBarShown)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
 
     // Do any additional setup after loading the view.
 }

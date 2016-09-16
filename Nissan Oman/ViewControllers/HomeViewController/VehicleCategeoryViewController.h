@@ -9,5 +9,5 @@
 #import "TabbarBaseViewController.h"
 
 @interface VehicleCategeoryViewController : TabbarBaseViewController
-
+@property BOOL isBarShown;
 @end

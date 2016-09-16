@@ -99,11 +99,12 @@
 }
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .55*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource = self;
+    tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tableView];
 }
 

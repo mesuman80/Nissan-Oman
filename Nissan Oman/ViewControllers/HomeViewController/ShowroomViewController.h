@@ -9,5 +9,5 @@
 #import "TabbarBaseViewController.h"
 
 @interface ShowroomViewController : TabbarBaseViewController
-
+@property BOOL isBarShown;
 @end

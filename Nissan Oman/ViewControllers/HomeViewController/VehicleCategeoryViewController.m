@@ -26,13 +26,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO];
+    if(self.isBarShown)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
     dataArr = [[NSMutableArray alloc]init];
     carArray = @[@"passenger_cars.png",@"crossovers.png",@"suv.png",@"lcv.png"];
     [self getVehicleCategoryData];
     [self addTitle];
     [self addSubTitle];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(self.isBarShown)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+    else
+    {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
 }
 
 -(void)getVehicleCategoryData
@@ -142,6 +158,7 @@
     VehicleSubCategoryViewController *vehicleCategeoryViewController = [[VehicleSubCategoryViewController alloc]init];
     vehicleCategeoryViewController.dictionary = dict;
     vehicleCategeoryViewController.imageName = [carArray objectAtIndex:indexPath.row];
+    [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController pushViewController:vehicleCategeoryViewController animated:YES];
 }
 
