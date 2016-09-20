@@ -159,6 +159,10 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger statusCode   = httpResponse.statusCode;
         [utility hideHUD];
+        if(statusCode  ==  500) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSLog(@"dict = %@",dict);
+        }
         if(statusCode  ==  200) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
             NSDictionary *userDict;
@@ -210,6 +214,46 @@
                 
             }
             else if([self.serviceName isEqualToString:@"showroomAddress"])
+            {
+                
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+            else if([self.serviceName isEqualToString:@"vehicleDropdown"])
+            {
+                
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+            else if([self.serviceName isEqualToString:@"requestQuote"])
+            {
+                
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+            else if([self.serviceName isEqualToString:@"requestBrochure"])
+            {
+                
+                userDict = dict;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+            else if([self.serviceName isEqualToString:@"requestTestDrive"])
             {
                 
                 userDict = dict;
@@ -477,6 +521,111 @@
     }
     
 }
+
+-(void)getVehicleDropDown
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"vehicle_dropdown/?tag=view"];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)requestBrochure:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"request_brochure&car_model=%@&first_name=%@&last_name=%@&showroom_id=%@&email=%@&phone=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"first_name"],[dict valueForKey:@"last_name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)requestQuote:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"request_quote/?tag=request_a_quote&car_model=%@&first_name=%@&last_name=%@&showroom_id=%@&email=%@&phone=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"first_name"],[dict valueForKey:@"last_name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)requestTestDrive:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"test_drive/?tag=request_a_test_drive&car_model=%@&first_name=%@&last_name=%@&p_o_box=%@&pc=%@&showroom_id=%@&email=%@&phone=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"first_name"],[dict valueForKey:@"last_name"],[dict valueForKey:@"p_o_box"],[dict valueForKey:@"pc"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
+                                // iCompletion(error, responseModel);
+                            }];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+
 
 
 @end

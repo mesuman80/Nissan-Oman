@@ -67,6 +67,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 1)
+    {
+        NSString *phnNum = [NSString stringWithFormat:@"%@%@",@"tel:",TollfreeNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phnNum]];
+    }
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "BuyerSupportViewController.h"
 #import "CustomTableViewCell.h"
+#import "RequestFormViewController.h"
 
 @interface BuyerSupportViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -58,7 +59,7 @@
 {
     yCordinate = self.yCordinate + 10;;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
-    label.text = @"VEHICLES";
+    label.text = @"BUYER SUPPORT";
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
@@ -115,8 +116,32 @@
         NSString *phnNum = [NSString stringWithFormat:@"%@%@",@"tel:",TollfreeNumber];
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phnNum]];
     }
+    if(indexPath.row == 1)
+    {
+        RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
+        NSArray *arr = @[@"REQUEST A QUOTE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        requestFormViewController.arrVal = arr;
+        requestFormViewController.formType = RequestTypeQuote;
+        [self.navigationController pushViewController:requestFormViewController animated:YES];
+    }
+    if(indexPath.row == 2)
+    {
+        RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
+        NSArray *arr = @[@"REQUEST A BROCHURE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        requestFormViewController.arrVal = arr;
+        requestFormViewController.formType = RequestTypeBrochure;
+        [self.navigationController pushViewController:requestFormViewController animated:YES];
+    }
+    if(indexPath.row == 3)
+    {
+        RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
+        NSArray *arr = @[@"REQUEST A TEST DRIVE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"P O BOX",@"PC",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        requestFormViewController.arrVal = arr;
+        requestFormViewController.formType = RequestTypeTestDrive;
+        [self.navigationController pushViewController:requestFormViewController animated:YES];
+    }
+    
 }
-
 
 
 

@@ -139,6 +139,12 @@
 #define cellPadding             ScreenWidthFactor*12
 #define cellPaddingReg          ScreenWidthFactor*15
 
+typedef enum {
+    RequestTypeQuote          = 0,
+    RequestTypeBrochure       = 1,
+    RequestTypeTestDrive      = 2,
+    
+} RequestType;
 
 
 

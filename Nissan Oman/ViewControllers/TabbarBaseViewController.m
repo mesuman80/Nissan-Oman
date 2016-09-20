@@ -45,7 +45,7 @@
 
     }
    // yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
-    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 80, 80)];
+    imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 60, 60)];
    // UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 25, 80, 80)];
     imgView.image = [UIImage imageNamed:@"app_icon.png"];
     [self.view addSubview:imgView];

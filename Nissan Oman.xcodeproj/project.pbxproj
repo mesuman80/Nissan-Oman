@@ -124,6 +124,10 @@
 		F7A1C33B1D80338700C386A5 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E71D80338700C386A5 /* bottombar.png */; };
 		F7A1C33C1D80338700C386A5 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E81D80338700C386A5 /* login_logo.png */; };
 		F7A1C33D1D80338700C386A5 /* signfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E91D80338700C386A5 /* signfacebook.png */; };
+		F7A9F35C1D8BFF4A00898284 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F35B1D8BFF4A00898284 /* MapViewController.m */; };
+		F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A9F35E1D8BFFBA00898284 /* MapKit.framework */; };
+		F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */; };
+		F7A9F3661D8FAEB000898284 /* RequestFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */; };
 		F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */; };
 		F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */; };
 		F7AA6D841D8ABD610058BE50 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D831D8ABD610058BE50 /* SettingView.m */; };
@@ -132,6 +136,8 @@
 		F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */; };
 		F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB01D82E09700AECEDA /* OwningViewController.m */; };
 		F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */; };
+		F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */; };
+		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +310,13 @@
 		F7A1C2E71D80338700C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C2E81D80338700C386A5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		F7A1C2E91D80338700C386A5 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
+		F7A9F35A1D8BFF4A00898284 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F7A9F35B1D8BFF4A00898284 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F7A9F35E1D8BFFBA00898284 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F7A9F3601D8FAB5800898284 /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
+		F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
+		F7A9F3641D8FAEB000898284 /* RequestFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormViewController.h; sourceTree = "<group>"; };
+		F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormViewController.m; sourceTree = "<group>"; };
 		F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DescriptionView.h; path = ../HomeViewController/DescriptionView.h; sourceTree = "<group>"; };
 		F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DescriptionView.m; path = ../HomeViewController/DescriptionView.m; sourceTree = "<group>"; };
 		F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowroomViewController.h; path = ../HomeViewController/ShowroomViewController.h; sourceTree = "<group>"; };
@@ -314,12 +327,14 @@
 		F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleCategeoryViewController.h; path = ../HomeViewController/VehicleCategeoryViewController.h; sourceTree = "<group>"; };
 		F7AD7BA71D82CA9700AECEDA /* VehicleCategeoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleCategeoryViewController.m; path = ../HomeViewController/VehicleCategeoryViewController.m; sourceTree = "<group>"; };
-		F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyerSupportViewController.h; sourceTree = "<group>"; };
-		F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyerSupportViewController.m; sourceTree = "<group>"; };
+		F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyerSupportViewController.h; path = ../BuyerSupportViewController.h; sourceTree = "<group>"; };
+		F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuyerSupportViewController.m; path = ../BuyerSupportViewController.m; sourceTree = "<group>"; };
 		F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwningViewController.h; sourceTree = "<group>"; };
 		F7AD7BB01D82E09700AECEDA /* OwningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwningViewController.m; sourceTree = "<group>"; };
 		F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionsViewController.h; sourceTree = "<group>"; };
 		F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionsViewController.m; sourceTree = "<group>"; };
+		F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_off@2x.png"; sourceTree = "<group>"; };
+		F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_on@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +342,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +404,7 @@
 				532F1F8A1D6EF21000F19D5B /* Nissan OmanTests */,
 				532F1F951D6EF21000F19D5B /* Nissan OmanUITests */,
 				532F1F6F1D6EF21000F19D5B /* Products */,
+				F7A9F35D1D8BFFBA00898284 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -561,12 +578,11 @@
 		F710408C1D81238C00BD3E88 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F7A9F3631D8FAE7800898284 /* Buyer Support */,
 				F710409F1D81270100BD3E88 /* HomeViewController.h */,
 				F71040A01D81270100BD3E88 /* HomeViewController.m */,
 				F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */,
 				F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */,
-				F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */,
-				F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */,
 				F7AD7BAF1D82E09700AECEDA /* OwningViewController.h */,
 				F7AD7BB01D82E09700AECEDA /* OwningViewController.m */,
 				F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */,
@@ -591,6 +607,10 @@
 			children = (
 				F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */,
 				F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */,
+				F7A9F35A1D8BFF4A00898284 /* MapViewController.h */,
+				F7A9F35B1D8BFF4A00898284 /* MapViewController.m */,
+				F7A9F3601D8FAB5800898284 /* AddressAnnotation.h */,
+				F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */,
 			);
 			path = LocationViewController;
 			sourceTree = "<group>";
@@ -626,6 +646,8 @@
 		F7A1C2941D80338600C386A5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */,
+				F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */,
 				F7A1C2951D80338600C386A5 /* account_settings.png */,
 				F7A1C2961D80338600C386A5 /* adventure_park.png */,
 				F7A1C2971D80338600C386A5 /* altima.png */,
@@ -719,6 +741,25 @@
 				F7A1C2E91D80338700C386A5 /* signfacebook.png */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F7A9F35D1D8BFFBA00898284 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7A9F35E1D8BFFBA00898284 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7A9F3631D8FAE7800898284 /* Buyer Support */ = {
+			isa = PBXGroup;
+			children = (
+				F7AD7BA91D82DD4500AECEDA /* BuyerSupportViewController.h */,
+				F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */,
+				F7A9F3641D8FAEB000898284 /* RequestFormViewController.h */,
+				F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */,
+			);
+			path = "Buyer Support";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -856,6 +897,7 @@
 				F7A1C2F91D80338700C386A5 /* civillian.png in Resources */,
 				F7A1C3081D80338700C386A5 /* location_icon.png in Resources */,
 				F7A1C2F11D80338700C386A5 /* background.png in Resources */,
+				F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */,
 				F7A1C31C1D80338700C386A5 /* patrolpickup.png in Resources */,
 				F7A1C3331D80338700C386A5 /* vehicles.png in Resources */,
 				532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */,
@@ -876,6 +918,7 @@
 				F7A1C3041D80338700C386A5 /* juke4.jpg in Resources */,
 				F7A1C2EE1D80338700C386A5 /* armada.png in Resources */,
 				F7A1C3231D80338700C386A5 /* sentra.png in Resources */,
+				F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */,
 				F7A1C3171D80338700C386A5 /* passenger_cars.png in Resources */,
 				F7A1C3091D80338700C386A5 /* logo.png in Resources */,
 				F7A1C33D1D80338700C386A5 /* signfacebook.png in Resources */,
@@ -937,8 +980,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */,
+				F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */,
 				5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */,
 				F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */,
+				F7A9F35C1D8BFF4A00898284 /* MapViewController.m in Sources */,
 				5304174B1D706DB100168934 /* ResponseModel.m in Sources */,
 				F7AA6D841D8ABD610058BE50 /* SettingView.m in Sources */,
 				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
@@ -966,6 +1011,7 @@
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
 				F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */,
+				F7A9F3661D8FAEB000898284 /* RequestFormViewController.m in Sources */,
 				532F1F731D6EF21000F19D5B /* main.m in Sources */,
 				532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */,
 				5304174C1D706DB100168934 /* UserData.m in Sources */,

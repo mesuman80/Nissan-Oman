@@ -26,6 +26,11 @@ typedef void(^onCompletion)(NSString *error, ResponseModel *responseModel);
 -(void)getVehicleSubCategeoryList:(NSString *)idVal;
 -(void)getVehicleDescription:(NSString *)idVal;
 -(void)getShowroomAddress;
+-(void)getVehicleDropDown;
+-(void)requestBrochure:(NSDictionary *)dict;
+-(void)requestQuote:(NSDictionary *)dict;
+-(void)requestTestDrive:(NSDictionary *)dict;
+
 //User Update Webservices
 -(void)updateDeviceTokenInSever;
 

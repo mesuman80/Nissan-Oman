@@ -10,6 +10,8 @@
 #import "WebService.h"
 #import "Common.h"
 #import "Constants.h"
+#import "MapViewController.h"
+
 
 @interface ShowroomViewController ()<UITextFieldDelegate,CustomWebServiceDelegate,UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +23,9 @@
     UITextField *texfield;
     NSMutableArray *dataArr;
     UITableView *tableView;
+    UIButton *submitButton;
+    NSArray *arrOfDict;
+    NSDictionary *dictSelected;
    
 }
 
@@ -32,6 +37,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
     }
+     [self getShowroomBranchData];
 
     // Do any additional setup after loading the view.
 }
@@ -56,7 +62,7 @@
     texfield = [[UITextField  alloc] initWithFrame:
                 CGRectMake(0, yCordinate, self.view.frame.size.width*.85f, 40)];
     texfield.center = CGPointMake(screenWidth/2, texfield.center.y );
-    [texfield setFont:[UIFont boldSystemFontOfSize:12]];
+    [texfield setFont:[UIFont boldSystemFontOfSize:10]];
     [texfield setBackgroundColor:[UIColor whiteColor]];
     texfield.textColor = [UIColor blackColor];
     [texfield setTextAlignment:NSTextAlignmentCenter];
@@ -74,30 +80,35 @@
 }
 -(void)addSubmitButton
 {
-    UIButton *submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.85f, 40)];
+    submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
     submitButton.backgroundColor = buttonRedColor;
     submitButton.center = CGPointMake(screenWidth/2, submitButton.center.y );
-
+    [submitButton setEnabled:NO];
     [self.view addSubview:submitButton];
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)submitRequest:(id)sender
 {
-    
+    MapViewController *viewController = [[MapViewController alloc]init];
+    viewController.dict = dictSelected;
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 #pragma Textfield delegate implementation
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if(dataArr.count == 0)
+   /* if(dataArr.count == 0)
     {
          [self getShowroomBranchData];
     }
    else
    {
        [self addTableView];
-   }
+   }*/
+    [textField resignFirstResponder];
+     [self addTableView];
 }
 
 -(void)getShowroomBranchData
@@ -116,17 +127,19 @@
 
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
 {
-   NSArray *arrOfDict = [dict valueForKey:@"showroom_address"];
+    arrOfDict = [dict valueForKey:@"showroom_address"];
     int i = 0;
     for(NSDictionary *dict in arrOfDict)
     {
-        NSString *name = [dict valueForKey:@"showroom_address"];
+        NSString *str1 = [dict valueForKey:@"showroom_branch"];
+        NSString *str2 = [dict valueForKey:@"showroom_address"];
+        NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
     
         i++;
         
         [dataArr addObject:name];
     }
-    [self addTableView];
+  //  [self addTableView];
 }
 
 
@@ -134,8 +147,8 @@
 {
     if(!tableView)
     {
-        tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, .2*self.view.frame.size.height) style:UITableViewStylePlain];
-        tableView.backgroundColor = [UIColor whiteColor];
+        tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, .4*self.view.frame.size.height) style:UITableViewStylePlain];
+        tableView.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:1.0];
         tableView.delegate = self;
         tableView.center = CGPointMake(screenWidth/2, tableView.center.y );
         tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -164,7 +177,7 @@
                      tableCellIdentifierForReadReceipt];
     }
     tableCell.textLabel.text =[dataArr objectAtIndex:indexPath.row];
-    tableCell.textLabel.textColor = [UIColor blackColor];
+    tableCell.textLabel.textColor = [UIColor darkGrayColor];
     tableCell.backgroundColor = [UIColor clearColor];
     tableCell.textLabel.font = [UIFont systemFontOfSize:12.0f];
     return tableCell;
@@ -183,8 +196,12 @@
     NSString *name = [dataArr objectAtIndex:indexPath.row];
     texfield.text = name;
     [texfield endEditing:YES];
+    [submitButton setEnabled:YES];
     
+    dictSelected = [arrOfDict objectAtIndex:indexPath.row];
     [tableView removeFromSuperview];
+    
+    
     
 }
 
