@@ -393,7 +393,33 @@
        str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
        if(str.length >0)
        {
-           return YES;
+           if(self.formType == RequestTypeBrochure || self.formType == RequestTypeQuote)
+           {
+               if(textField.tag == 5)
+               {
+                   if(![self NSStringIsValidEmail:textField.text])
+                   {
+                       [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
+                       
+                       return NO;
+                   }
+               }
+
+           }
+           else if(self.formType == RequestTypeTestDrive)
+           {
+               if(textField.tag == 7)
+               {
+                   if(![self NSStringIsValidEmail:textField.text])
+                   {
+                       [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
+                       
+                       return NO;
+                   }
+               }
+               
+           }
+                      //return YES;
        }
        else
        {
@@ -405,6 +431,17 @@
        
     return YES;
 }
+
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO;
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
+
 
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
@@ -472,16 +509,33 @@
     
     else
     {
-        carDictArr = (NSArray *)dict;
-        int j=0;
-        for(NSDictionary *dict in carDictArr)
+        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
         {
-            NSString *name = [dict valueForKey:@"vehicle_name"];
-            
-            j++;
-            
-            [carArray addObject:name];
+            carDictArr = [dict valueForKey:@"dropDown"];
+            int j=0;
+            for(NSDictionary *dict in carDictArr)
+            {
+                NSString *name = [dict valueForKey:@"vehicle_name"];
+                
+                j++;
+                
+                [carArray addObject:name];
+            }
         }
+        
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestQuote"])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            [self showAlertView:nil WithMessage:@"Your request for Quote is successfully submitted."];
+
+        }
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestBrochure"])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            [self showAlertView:nil WithMessage:@"Your request for Brochure is successfully submitted."];
+
+        }
+
         //  [self addTableView];
     }
 
@@ -517,10 +571,6 @@
             
         }
     }
-    
-    
-    
-   
     
 }
 

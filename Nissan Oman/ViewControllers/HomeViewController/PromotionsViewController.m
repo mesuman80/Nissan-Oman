@@ -83,7 +83,7 @@
         tableCell = [[CustomTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:
                      tableCellIdentifierForReadReceipt];
     }
-    [tableCell configureCell:[dataArr objectAtIndex:indexPath.row] ];
+    [tableCell configureCell:[dataArr objectAtIndex:indexPath.row] withWidth:tableView.frame.size.width];
     tableCell.backgroundColor = [UIColor clearColor];
     return tableCell;
     

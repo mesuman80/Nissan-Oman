@@ -33,7 +33,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        baseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height - 2)];
+        baseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.contentView.frame.size.height - 2)];
        // baseView.backgroundColor =[[UIColor blackColor]colorWithAlphaComponent:.8f ];
         baseView.backgroundColor = appGrayColor;
         [self.contentView addSubview:baseView];
@@ -58,8 +58,10 @@
     
 }
 
-- (void)configureCell:(NSDictionary *)dict
+- (void)configureCell:(NSDictionary *)dict withWidth:(CGFloat)cellWidth
 {
+    baseView.frame = CGRectMake(0, 0, cellWidth, self.contentView.frame.size.height - 2);
+    
     iconImgView.image = [UIImage imageNamed:[dict valueForKey:@"image"]];
     iconImgView.center = CGPointMake(iconImgView.center.x, baseView.frame.size.height/2);
     

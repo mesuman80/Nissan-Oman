@@ -154,18 +154,16 @@
     return data;
 }
 
--(void)processServerResult:(NSURLResponse*)response withData:(NSData*)data withCompletionCallback:(onCompletion)iCompletion{
+-(void)processServerResult:(NSURLResponse*)response withData:(NSData*)data withError :(NSError *)error{
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger statusCode   = httpResponse.statusCode;
         [utility hideHUD];
-        if(statusCode  ==  500) {
+        //  NSDictionary *dict1 = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+      //  NSLog(@"dict1 = %@",dict1);
+               if(statusCode  ==  200) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSLog(@"dict = %@",dict);
-        }
-        if(statusCode  ==  200) {
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSDictionary *userDict;
+                NSMutableDictionary *userDict = [[NSMutableDictionary alloc]init];
             if([self.serviceName isEqualToString:@"login"] || [self.serviceName isEqualToString:@"signUp"])
             {
                 userDict = [dict valueForKey:@"user"];
@@ -186,7 +184,7 @@
             else if([self.serviceName isEqualToString:@"vehicleCategory"])
             {
                
-                userDict = dict;
+                userDict = dict.mutableCopy;
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -196,7 +194,7 @@
             else if([self.serviceName isEqualToString:@"vehicleSubCategory"])
             {
                 
-                userDict = dict;
+                userDict = dict.mutableCopy;
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -206,7 +204,7 @@
             else if([self.serviceName isEqualToString:@"vehicleDescription"])
             {
                 
-                userDict = dict;
+                userDict = dict.mutableCopy;
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -216,7 +214,7 @@
             else if([self.serviceName isEqualToString:@"showroomAddress"])
             {
                 
-                userDict = dict;
+                userDict = dict.mutableCopy;
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -226,7 +224,12 @@
             else if([self.serviceName isEqualToString:@"vehicleDropdown"])
             {
                 
-                userDict = dict;
+                //userDict = dict.mutableCopy;
+               
+               
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict setObject:dict forKey:@"dropDown"];
+
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -235,8 +238,8 @@
             }
             else if([self.serviceName isEqualToString:@"requestQuote"])
             {
-                
-                userDict = dict;
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict addEntriesFromDictionary:dict];
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -245,8 +248,9 @@
             }
             else if([self.serviceName isEqualToString:@"requestBrochure"])
             {
-                
-                userDict = dict;
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                 [userDict addEntriesFromDictionary:dict];
+
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -255,8 +259,9 @@
             }
             else if([self.serviceName isEqualToString:@"requestTestDrive"])
             {
-                
-                userDict = dict;
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                 [userDict addEntriesFromDictionary:dict];
+
                 if(self.customWebServiceDelegate)
                 {
                     [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
@@ -266,7 +271,8 @@
 
          
         }else {
-            iCompletion(@"Somethings not correct. Please try again.", nil);
+            [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+
         }
     });
 }
@@ -281,9 +287,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data withError :error];
                         }] resume];
             
         }
@@ -304,9 +308,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -325,9 +327,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
         }
     }else{
@@ -360,9 +360,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data withError :error];
                         }] resume];
             
         }
@@ -380,9 +378,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                               // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -406,9 +402,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                               // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -431,9 +425,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -457,9 +449,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data withError :error];
                         }] resume];
             
         }
@@ -483,9 +473,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -508,9 +496,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data withError :error];
                         }] resume];
             
         }
@@ -533,9 +519,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -551,7 +535,7 @@
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
-        NSString *str = [NSString stringWithFormat:@"request_brochure&car_model=%@&first_name=%@&last_name=%@&showroom_id=%@&email=%@&phone=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"first_name"],[dict valueForKey:@"last_name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"]];
+        NSString *str = [NSString stringWithFormat:@"request_brochure/?tag=request_a_brochure&car_model=%@&first_name=%@&last_name=%@&showroom_id=%@&email=%@&phone=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"first_name"],[dict valueForKey:@"last_name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForGet:url withData:nil];
@@ -559,9 +543,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data withError :error];
                         }] resume];
             
         }
@@ -585,9 +567,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }
@@ -611,9 +591,7 @@
             NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
             [[session dataTaskWithRequest:request
                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                            [self processServerResult:response withData:data withCompletionCallback:^(NSString *error, ResponseModel *responseModel) {
-                                // iCompletion(error, responseModel);
-                            }];
+                            [self processServerResult:response withData:data  withError :error];
                         }] resume];
             
         }

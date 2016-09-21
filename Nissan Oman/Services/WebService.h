@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ResponseModel.h"
 
-typedef void(^onCompletion)(NSString *error, ResponseModel *responseModel);
+typedef void(^onCompletion)(NSString *error);
 
 @protocol CustomWebServiceDelegate;
 

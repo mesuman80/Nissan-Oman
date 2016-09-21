@@ -62,6 +62,7 @@
                             @"text":   @"PROMOTIONS"
                             };
     
+    
     dataArr = @[dict1,dict2, dict3, dict4,dict5,dict6];
 
     
@@ -93,8 +94,9 @@
 
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,self.view.frame.size.width - 20, self.view.frame.size.height*.5f) style:UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor whiteColor];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,screenWidth - 20, self.view.frame.size.height*.5f) style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.center = CGPointMake(screenWidth/2, tableView.center.y);
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -113,13 +115,13 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Index pathn =%li" , indexPath.row);
-    static NSString *tableCellIdentifierForReadReceipt = @"cellIdentifier";
-    CustomTableViewCell *tableCell = [tableView1 dequeueReusableCellWithIdentifier:tableCellIdentifierForReadReceipt];
+    static NSString *tableCellIdentifier = @"cellIdentifier";
+    CustomTableViewCell *tableCell = [tableView1 dequeueReusableCellWithIdentifier:tableCellIdentifier];
     if(tableCell == nil) {
         tableCell = [[CustomTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:
-                tableCellIdentifierForReadReceipt];
+                tableCellIdentifier];
     }
-    [tableCell configureCell:[dataArr objectAtIndex:indexPath.row] ];
+    [tableCell configureCell:[dataArr objectAtIndex:indexPath.row] withWidth:tableView.frame.size.width ];
     tableCell.backgroundColor = [UIColor clearColor];
     return tableCell;
     

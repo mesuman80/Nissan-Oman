@@ -11,5 +11,6 @@
 @interface CustomTableViewCell : UITableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
-- (void)configureCell:(NSDictionary *)dict;
+- (void)configureCell:(NSDictionary *)dict withWidth:(CGFloat)cellWidth;
+
 @end

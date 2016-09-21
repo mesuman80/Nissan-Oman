@@ -54,7 +54,7 @@
         tableCell = [[CustomTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:
                      tableCellIdentifierForReadReceipt];
     }
-    [tableCell configureCell:[self.dictionaryArray objectAtIndex:indexPath.row] ];
+    [tableCell configureCell:[self.dictionaryArray objectAtIndex:indexPath.row] withWidth:tableView.frame.size.width];
     tableCell.backgroundColor = [UIColor clearColor];
     return tableCell;
     
