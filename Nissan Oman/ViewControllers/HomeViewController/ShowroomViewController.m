@@ -29,12 +29,20 @@
     NSDictionary *dictSelected;
     CGFloat tableCellHeight;
    
+    
+    NSMutableArray *offerVehicleNameArray;
+    NSMutableArray *offerDescriptionArray;
+    
+    NSString *vehicleName;
+    NSString *offerDescription;
 }
 @synthesize arrVal;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataArr = [[NSMutableArray alloc]init];
+    offerVehicleNameArray = [[NSMutableArray alloc]init];
+    offerDescriptionArray = [[NSMutableArray alloc]init];
     tableCellHeight = 30;
     isFirstTime = YES;
 
@@ -80,7 +88,7 @@
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
-    label.font = [UIFont systemFontOfSize:18.0f];
+    label.font = [UIFont boldSystemFontOfSize:18.0f];
     [self.view addSubview:label];
     
     yCordinate += label.frame.size.height +3;
@@ -122,15 +130,25 @@
     [submitButton setEnabled:NO];
     [self.view addSubview:submitButton];
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
+    yCordinate += submitButton.frame.size.height;
 }
 
 -(void)submitRequest:(id)sender
 {
-    MapViewController *viewController = [[MapViewController alloc]init];
-    viewController.dict = dictSelected;
-    [self.navigationController setNavigationBarHidden:NO];
-    [self.navigationController pushViewController:viewController animated:YES];
+    if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    {
+        [self addLabel];
+    }
+    else
+    {
+        MapViewController *viewController = [[MapViewController alloc]init];
+        viewController.dict = dictSelected;
+        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+   
 }
+
 #pragma Textfield delegate implementation
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -170,6 +188,11 @@
     {
         webService.serviceName = @"bodyShop";
         [webService getBodyShop];
+    }
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    {
+        webService.serviceName = @"currentOffers";
+        [webService getCurrentOffers];
     }
    
 
@@ -243,11 +266,48 @@
             i++;
             
             [dataArr addObject:name];
-        }    }
+        }
+    }
+    
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    {
+        NSArray *arr = [dict valueForKey:@"current_offers"];
+        
+        for(NSDictionary *dict1 in arr)
+        {
+            NSArray *arrList = [dict1 valueForKey:@"offer_list"];
+            NSLog(@"arrList = %@",arrList);
+            NSDictionary *dict2 = [arrList objectAtIndex:0];
+            
+            [offerVehicleNameArray addObject:[dict2 valueForKey:@"vehicle_name"]];
+            [offerDescriptionArray addObject:[dict2 valueForKey:@"offer"]];
+            
+             [dataArr addObject:[dict2 valueForKey:@"vehicle_name"]];
+            
+        }
+        
+        
+    }
     
      //  [self addTableView];
 }
 
+-(void)addLabel
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate + 20, self.view.frame.size.width*.90f, 100)];
+    NSString *str = [NSString stringWithFormat:@"Vehicle Name: %@ \n\n Offer: %@",vehicleName,offerDescription];
+    label.text =str;
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = appGrayColor;
+    label.font = [UIFont boldSystemFontOfSize:12.0f];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.numberOfLines = 0;
+    label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
+    //[label sizeToFit];
+    [self.view addSubview:label];
+
+}
 
 -(void)addTableView
 {
@@ -260,6 +320,7 @@
         }
         else
         {
+            
             tableHeight = tableCellHeight *dataArr.count;
         }
         tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, tableHeight) style:UITableViewStylePlain];
@@ -311,14 +372,32 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *name = [dataArr objectAtIndex:indexPath.row];
-    texfield.text = name;
-    [texfield endEditing:YES];
-    [submitButton setEnabled:YES];
     
-    dictSelected = [arrOfDict objectAtIndex:indexPath.row];
-    [tableView removeFromSuperview];
-    
+    if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    {
+        vehicleName = [offerVehicleNameArray objectAtIndex:indexPath.row];
+        offerDescription = [offerDescriptionArray objectAtIndex:indexPath.row];
+        
+        NSString *name = [dataArr objectAtIndex:indexPath.row];
+        texfield.text = name;
+        [texfield endEditing:YES];
+        [submitButton setEnabled:YES];
+        
+        dictSelected = [arrOfDict objectAtIndex:indexPath.row];
+        [tableView removeFromSuperview];
+    }
+    else
+    {
+        NSString *name = [dataArr objectAtIndex:indexPath.row];
+        texfield.text = name;
+        [texfield endEditing:YES];
+        [submitButton setEnabled:YES];
+        
+        dictSelected = [arrOfDict objectAtIndex:indexPath.row];
+        [tableView removeFromSuperview];
+        
+
+    }
     
     
 }

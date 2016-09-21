@@ -8,6 +8,7 @@
 
 #import "PromotionsViewController.h"
 #import "CustomTableViewCell.h"
+#import "ShowroomViewController.h"
 
 @interface PromotionsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -98,6 +99,14 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 0)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.arrVal = @[@"CURRENT OFFERS",@"SELECT CAR MODEL",@"currentOffers"];
+        showroomViewController.isBarShown = YES;
+        [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
 }
 
 

@@ -33,6 +33,7 @@ typedef void(^onCompletion)(NSString *error);
 -(void)getServiceCentre;
 -(void)getBodyShop;
 -(void)getGenuinePart;
+-(void)getCurrentOffers;
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;
