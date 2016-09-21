@@ -221,6 +221,38 @@
                 }
                 
             }
+            else if([self.serviceName isEqualToString:@"serviceCentre"])
+            {
+                
+                userDict = dict.mutableCopy;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+            else if([self.serviceName isEqualToString:@"bodyShop"])
+            {
+                
+                userDict = dict.mutableCopy;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+
+            else if([self.serviceName isEqualToString:@"genuinePart"])
+            {
+                
+                userDict = dict.mutableCopy;
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+
             else if([self.serviceName isEqualToString:@"vehicleDropdown"])
             {
                 
@@ -507,6 +539,78 @@
     }
     
 }
+
+-(void)getServiceCentre
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"/service_centre_address/?tag=view"];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)getBodyShop
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"/bodyshop/?tag=view"];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+-(void)getGenuinePart
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],@"/genuine_parts_centre/?tag=view"];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+
+
+
 
 -(void)getVehicleDropDown
 {

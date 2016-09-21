@@ -124,6 +124,7 @@
 		F7A1C33B1D80338700C386A5 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E71D80338700C386A5 /* bottombar.png */; };
 		F7A1C33C1D80338700C386A5 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E81D80338700C386A5 /* login_logo.png */; };
 		F7A1C33D1D80338700C386A5 /* signfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E91D80338700C386A5 /* signfacebook.png */; };
+		F7A6A6EE1D928A1F001770D9 /* WebPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A6A6ED1D928A1E001770D9 /* WebPageViewController.m */; };
 		F7A9F35C1D8BFF4A00898284 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F35B1D8BFF4A00898284 /* MapViewController.m */; };
 		F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A9F35E1D8BFFBA00898284 /* MapKit.framework */; };
 		F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */; };
@@ -310,6 +311,8 @@
 		F7A1C2E71D80338700C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C2E81D80338700C386A5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
 		F7A1C2E91D80338700C386A5 /* signfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signfacebook.png; sourceTree = "<group>"; };
+		F7A6A6EC1D928A1E001770D9 /* WebPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPageViewController.h; sourceTree = "<group>"; };
+		F7A6A6ED1D928A1E001770D9 /* WebPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPageViewController.m; sourceTree = "<group>"; };
 		F7A9F35A1D8BFF4A00898284 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F7A9F35B1D8BFF4A00898284 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F7A9F35E1D8BFFBA00898284 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -515,6 +518,7 @@
 		532F1FF91D6EFFEE00F19D5B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7A6A6EB1D928A1E001770D9 /* Webpage Services */,
 				532F1FFA1D6EFFEE00F19D5B /* InternetServices */,
 				532F1FFF1D6EFFEE00F19D5B /* WebService.h */,
 				532F20001D6EFFEE00F19D5B /* WebService.m */,
@@ -741,6 +745,15 @@
 				F7A1C2E91D80338700C386A5 /* signfacebook.png */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F7A6A6EB1D928A1E001770D9 /* Webpage Services */ = {
+			isa = PBXGroup;
+			children = (
+				F7A6A6EC1D928A1E001770D9 /* WebPageViewController.h */,
+				F7A6A6ED1D928A1E001770D9 /* WebPageViewController.m */,
+			);
+			path = "Webpage Services";
 			sourceTree = "<group>";
 		};
 		F7A9F35D1D8BFFBA00898284 /* Frameworks */ = {
@@ -998,6 +1011,7 @@
 				F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */,
 				F71040A41D81290C00BD3E88 /* Common.m in Sources */,
 				F7896D1C1D8686FC00DB024C /* SubTypeView.m in Sources */,
+				F7A6A6EE1D928A1F001770D9 /* WebPageViewController.m in Sources */,
 				F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
 				F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */,

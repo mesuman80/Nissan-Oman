@@ -59,6 +59,8 @@
     UINavigationController *homeNavigationController=[[UINavigationController alloc]initWithRootViewController:homeViewController];
     
     ShowroomViewController  *locationViewController = [[ShowroomViewController alloc]init];
+    locationViewController.arrVal = @[@"SHOWROOM LOCATOR",@"SELECT BRANCH",@"showroomAddress"];
+
     locationViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"location_icon.png"] tag:1];
     UINavigationController *locationNavigationController=[[UINavigationController alloc]initWithRootViewController:locationViewController];
     [locationNavigationController setNavigationBarHidden: NO];

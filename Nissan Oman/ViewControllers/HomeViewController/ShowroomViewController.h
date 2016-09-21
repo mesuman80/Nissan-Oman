@@ -10,4 +10,5 @@
 
 @interface ShowroomViewController : TabbarBaseViewController
 @property BOOL isBarShown;
+@property NSArray *arrVal;
 @end

@@ -30,6 +30,9 @@ typedef void(^onCompletion)(NSString *error);
 -(void)requestBrochure:(NSDictionary *)dict;
 -(void)requestQuote:(NSDictionary *)dict;
 -(void)requestTestDrive:(NSDictionary *)dict;
+-(void)getServiceCentre;
+-(void)getBodyShop;
+-(void)getGenuinePart;
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;

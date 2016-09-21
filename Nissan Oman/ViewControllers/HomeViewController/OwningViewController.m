@@ -8,6 +8,8 @@
 
 #import "OwningViewController.h"
 #import "CustomTableViewCell.h"
+#import "ShowroomViewController.h"
+#import "WebPageViewController.h"
 
 @interface OwningViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -117,6 +119,46 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 0)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.arrVal = @[@"SERVICE CENTRE",@"SELECT BRANCH",@"serviceCentre"];
+        showroomViewController.isBarShown = YES;
+        [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
+    if(indexPath.row == 1)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.arrVal = @[@"GENUINE PART CENTRE",@"SELECT BRANCH",@"genuinePart"];
+        showroomViewController.isBarShown = YES;
+        [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
+
+    if(indexPath.row == 2)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.arrVal = @[@"BODY SHOP",@"SELECT BRANCH",@"bodyShop"];
+        showroomViewController.isBarShown = YES;
+        [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
+    
+    if(indexPath.row == 3)
+    {
+        //[self.navigationController setNavigationBarHidden:NO];
+        WebPageViewController *webPage = [[WebPageViewController alloc]initWithWebString:@"Maintenance Tip" withUrl:MAINTENCETIPSURLPAGE ];
+        [self.navigationController pushViewController:webPage animated:YES];
+
+    }
+    if(indexPath.row == 4)
+    {
+      //  [self.navigationController setNavigationBarHidden:NO];
+        WebPageViewController *webPage = [[WebPageViewController alloc]initWithWebString:@"Loyalty Program" withUrl:LOYALITYPROGRAMURLPAGE];
+        [self.navigationController pushViewController:webPage animated:YES];
+        
+    }
 }
 
 

@@ -44,6 +44,7 @@
         yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
 
     }
+    NSLog(@"yCordinate = %f",yCordinate);
    // yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 60, 60)];
    // UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 25, 80, 80)];

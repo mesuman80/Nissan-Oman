@@ -153,6 +153,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
         ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
+        showroomViewController.arrVal = @[@"SHOWROOM LOCATOR",@"SELECT BRANCH",@"showroomAddress"];
         showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
     }

@@ -60,7 +60,9 @@
 #define PlaceholderSignupEmailString  @"abc@gmail.com"
 #define PlaceholderSignupCountryCodeString  @"   +968"
 
-
+#define LOYALITYPROGRAMURLPAGE @"http://webisdomsolutions.com/nissanweb/loyality-program.php"
+#define MAINTENCETIPSURLPAGE @"http://webisdomsolutions.com/nissanweb/maintenance_tips.php"
+#define ADVENTUREPARKPAGE @"http://webisdomsolutions.com/nissanweb/adventure.php"
 //************************************************** Alerts **************************************************
 #define ApplicationInternetConnectionErrorMessage   @"Please check your internet connection."
 
