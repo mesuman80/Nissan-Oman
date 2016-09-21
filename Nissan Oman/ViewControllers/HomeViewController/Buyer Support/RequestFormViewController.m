@@ -372,7 +372,45 @@
        
        else if(self.formType == RequestTypeTestDrive)
        {
+           WebService *webService = [[WebService alloc]init];
+           webService.customWebServiceDelegate = self;
+           NSArray *arr = @[@"car_model",@"first_name",@"last_name",@"p_o_box",@"pc",@"showroom_id",@"email",@"phone"];
+           NSMutableArray *dataArr = [[NSMutableArray alloc]init];
+           for(UITextField *textField in dataFieldArr)
+           {
+               NSString *str = textField.text;
+               if(textField.tag == 6)
+               {
+                   [dataArr addObject:[showRoomDict valueForKey:@"showroom_id"]];
+               }
+               else if(textField.tag == 1)
+               {
+                   [dataArr addObject:[carDict valueForKey:@"vehicle_id"]];
+                   
+               }
+               else
+               {
+                   [dataArr addObject:str];
+               }
+               
+               
+           }
            
+           NSDictionary *dict = @{
+                                  [arr objectAtIndex:0] : [dataArr objectAtIndex:0],
+                                  [arr objectAtIndex:1] : [dataArr objectAtIndex:1],
+                                  [arr objectAtIndex:2] : [dataArr objectAtIndex:2],
+                                  [arr objectAtIndex:3] : [dataArr objectAtIndex:3],
+                                  [arr objectAtIndex:4] : [dataArr objectAtIndex:4],
+                                  [arr objectAtIndex:5] : [dataArr objectAtIndex:5],
+                                  [arr objectAtIndex:6] : [dataArr objectAtIndex:6],
+                                  [arr objectAtIndex:7] : [dataArr objectAtIndex:7]
+                                  };
+            webService.serviceName = @"requestTestDrive";
+           [webService requestTestDrive:dict];
+               
+        
+
        }
    }
 
@@ -534,6 +572,12 @@
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Brochure is successfully submitted."];
 
+        }
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestTestDrive"])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            [self showAlertView:nil WithMessage:@"Your request for Test Drive is successfully submitted."];
+            
         }
 
         //  [self addTableView];
