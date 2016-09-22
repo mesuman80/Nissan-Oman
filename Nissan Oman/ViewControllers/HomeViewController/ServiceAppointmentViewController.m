@@ -1,35 +1,35 @@
 //
-//  AdventureParkViewController.m
+//  ServiceAppointmentViewController.m
 //  Nissan Oman
 //
 //  Created by Tripta Garg on 22/09/16.
 //  Copyright © 2016 Sakshi. All rights reserved.
 //
 
-#import "AdventureParkViewController.h"
+#import "ServiceAppointmentViewController.h"
 #import "Constants.h"
 #import "Common.h"
 #import "WebService.h"
 
-@interface AdventureParkViewController ()<UITextFieldDelegate,CustomWebServiceDelegate,UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate>
+@interface ServiceAppointmentViewController ()<UITextFieldDelegate,CustomWebServiceDelegate,UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate>
 
 @end
 
-@implementation AdventureParkViewController
+@implementation ServiceAppointmentViewController
 {
     BOOL isFirstTime;
     CGFloat yValue;
-    NSMutableArray *carArray;
-    NSMutableArray *showRoomArray;
-    NSMutableArray *arrOfDict;
+    NSMutableArray *serviceCentreArray;
+    NSMutableArray *modelArray;
+    NSArray *arrOfDict;
     UITableView *tableView;
     UITextField *activeField;
     UIScrollView *scrollView;
     CGFloat yVal;
     UITextField *previousTextField;
     UIButton *submitButton;
-
-   
+    NSArray *timeArray;
+    
     NSMutableArray *dataFieldArr;
     
     NSDictionary *showRoomDict;
@@ -39,24 +39,34 @@
     UIView *datePickerView;
     UIDatePicker *myDatePicker;
     NSDate *dob;
-
-
+    NSArray *arrVal;
+    CGFloat tableCellHeight;
 }
-@synthesize arrVal;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.navigationController setNavigationBarHidden:NO];
+    
     arrOfDict = [[NSMutableArray alloc]init];
-    carArray = [[NSMutableArray alloc]init];
-    showRoomArray = [[NSMutableArray alloc]init];
+    serviceCentreArray = [[NSMutableArray alloc]init];
+    modelArray = [[NSMutableArray alloc]init];
     dataFieldArr = [[NSMutableArray alloc]init];
     isFirstTime = YES;
+    tableCellHeight = 30;
+    arrVal = @[@"SERVICE APPOINTMENT",@"SERVICE INFORMATION", @"PREFERRED TEST DRIVR DATE",@"SERVICE CENTRE LOCATION",@"VEHICLE REGISTRATION NO",@"MODEL OWNED",@"PREFERRED DATE", @"PREFERRED TIME SLOT",@"CURRENT ODOMETER READING",@"MOBILE NO",@"EMAIL"];
+    
+    timeArray = @[@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00"];
+    
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBackgroundTap)];
     gesture.delegate = self;
     [self.view addGestureRecognizer:gesture];
-    
     // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void)onBackgroundTap
@@ -75,14 +85,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+
     [self addKeyBoardNotification];
     if(isFirstTime)
     {
         isFirstTime = NO;
+        [self gerServiceCentreData];
         [self getVehicleDropDown];
-        [self getShowroomBranchData];
         [self addTitle];
-        [self drawLogoVal];
+        [self addSubTitle];
         [self drawForm];
     }
     
@@ -144,43 +156,148 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+-(void)gerServiceCentreData
+{
+    WebService *webService = [[WebService alloc]init];
+    webService.customWebServiceDelegate = self;
+    webService.serviceName = @"serviceCentre";
+    [webService getServiceCentre];
+
+}
+
+-(void)getVehicleDropDown
+{
+    WebService *webService = [[WebService alloc]init];
+    webService.customWebServiceDelegate = self;
+    webService.serviceName = @"vehicleDropdown";
+    [webService getVehicleDropDown];
+    
+}
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+{
+    
+}
+
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+{
+    if([dict isKindOfClass:[NSArray class]])
+    {
+        arrOfDict = (NSArray *)dict;
+        int i = 0;
+        for(NSDictionary *dict in arrOfDict)
+        {
+            NSString *str1 = [dict valueForKey:@"showroom_branch"];
+            NSString *str2 = [dict valueForKey:@"showroom_address"];
+            NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
+            
+            i++;
+            
+            [serviceCentreArray addObject:name];
+        }
+    }
+    
+    else
+    {
+        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+        {
+            carDictArr = [dict valueForKey:@"dropDown"];
+            int j=0;
+            for(NSDictionary *dict in carDictArr)
+            {
+                NSString *name = [dict valueForKey:@"vehicle_name"];
+                
+                j++;
+                
+                [modelArray addObject:name];
+            }
+        }
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"serviceAppointment"])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            [self showAlertView:nil WithMessage:@"Your request for Service Appointment is successfully submitted."];
+            
+        }
+       
+    }
+    
+  /*  if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+    {
+        carDictArr = [dict valueForKey:@"dropDown"];
+        int j=0;
+        for(NSDictionary *dict in carDictArr)
+        {
+            NSString *name = [dict valueForKey:@"vehicle_name"];
+            
+            j++;
+            
+            [modelArray addObject:name];
+        }
+    }
+    else
+    {
+        arrOfDict = (NSArray *)dict;
+        int i = 0;
+        for(NSDictionary *dict in arrOfDict)
+        {
+            NSString *str1 = [dict valueForKey:@"showroom_branch"];
+            NSString *str2 = [dict valueForKey:@"showroom_address"];
+            NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
+            
+            i++;
+            
+            [serviceCentreArray addObject:name];
+        }
+
+    }*/
+}
+
+
 
 
 -(void)addTitle
 {
     yValue = self.yCordinate + 10;
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yValue, 250, 30)];
-    label.text = @"ADVENTURE PARK";
-    label.textColor = [UIColor blackColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
-    label.font = [UIFont boldSystemFontOfSize:22.0f];
-    [self.view addSubview:label];
     
-    yValue += label.frame.size.height +3;
-}
-
--(void)drawLogoVal
-{
-    //bottombar.png
-    
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, yValue, 150, 30)];
-    imgView.image = [UIImage imageNamed:@"bottombar.png"];
-    imgView.contentMode = UIViewContentModeScaleAspectFill;
-    imgView.center = CGPointMake(self.view.frame.size.width/2, imgView.center.y);
-    [self.view addSubview:imgView];
-    
-    yValue += imgView.frame.size.height + 10;
-}
-
--(void)drawForm
-{
-    scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yValue, screenWidth, screenHeight - yValue- 70)];
+    scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yValue, screenWidth, screenHeight - yValue)];
     [scrollView setUserInteractionEnabled:YES];
     [scrollView setScrollEnabled:YES];
     [self.view addSubview:scrollView];
     yVal = 0;;
-    for(int i=1; i<arrVal.count; i++)
+    
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yVal, 250, 30)];
+    label.text = [arrVal objectAtIndex:0];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
+    label.font = [UIFont boldSystemFontOfSize:20.0f];
+    [scrollView addSubview:label];
+    
+    yVal += label.frame.size.height + 10;
+}
+
+-(void)addSubTitle
+{
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yVal, 250, 30)];
+    label.text = [arrVal objectAtIndex:1];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
+    label.font = [UIFont systemFontOfSize:14.0f];
+    [scrollView addSubview:label];
+    
+    yVal += label.frame.size.height + 8;
+}
+
+
+
+
+-(void)drawForm
+{
+    
+    for(int i=2; i<arrVal.count; i++)
     {
         UITextField *texfield = [[UITextField  alloc] initWithFrame:
                                  CGRectMake(0, yVal, self.view.frame.size.width*.90f, 40)];
@@ -239,37 +356,38 @@
     {
         WebService *webService = [[WebService alloc]init];
         webService.customWebServiceDelegate = self;
-        NSArray *arr = @[@"name",@"showroom_id",@"email",@"phone",@"test_drive_date"];
+        NSArray *arr = @[@"test_drive_date",@"service_centre_id",@"vehicle_reg_number",@"car_model",@"preferred_time_slot",@"current_odometer_reading",@"phone",@"email"];
         NSMutableArray *dataArr = [[NSMutableArray alloc]init];
         for(UITextField *textField in dataFieldArr)
         {
             NSString *str = textField.text;
-            if(textField.tag == 4)
+            if(textField.tag == 5)
             {
-                [dataArr addObject:[showRoomDict valueForKey:@"showroom_id"]];
+                [dataArr addObject:[showRoomDict valueForKey:@"vehicle_id"]];
             }
-            else if(textField.tag == 1)
+            else if(textField.tag == 3)
             {
-                [dataArr addObject:[carDict valueForKey:@"vehicle_id"]];
+                [dataArr addObject:[carDict valueForKey:@"showroom_id"]];
                 
             }
             else
             {
                 [dataArr addObject:str];
             }
-            
-            
-        }
+    }
         
         NSDictionary *dict = @{
                                [arr objectAtIndex:0] : [dataArr objectAtIndex:0],
-                               [arr objectAtIndex:1] : [dataArr objectAtIndex:3],
+                               [arr objectAtIndex:1] : [dataArr objectAtIndex:1],
                                [arr objectAtIndex:2] : [dataArr objectAtIndex:2],
                                [arr objectAtIndex:3] : [dataArr objectAtIndex:1],
-                               [arr objectAtIndex:4] : [dataArr objectAtIndex:4]
+                               [arr objectAtIndex:4] : [dataArr objectAtIndex:5],
+                               [arr objectAtIndex:5] : [dataArr objectAtIndex:6],
+                               [arr objectAtIndex:6] : [dataArr objectAtIndex:7],
+                               [arr objectAtIndex:7] : [dataArr objectAtIndex:8]
                                };
-        webService.serviceName = @"adventurePark";
-        [webService requestAdventurePark:dict];
+        webService.serviceName = @"serviceAppointment";
+        [webService requestServiceAppointment:dict];
     }
 }
 
@@ -288,7 +406,7 @@
         str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if(str.length >0)
         {
-            if(textField.tag == 3)
+            if(textField.tag == 10)
             {
                 if(![self NSStringIsValidEmail:textField.text])
                 {
@@ -309,6 +427,7 @@
     
     return YES;
 }
+
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString
 {
@@ -344,74 +463,6 @@
     
 }
 
--(void)getShowroomBranchData
-{
-    WebService *webService = [[WebService alloc]init];
-    webService.customWebServiceDelegate = self;
-    webService.serviceName = @"showroomAddress";
-    [webService getShowroomAddress];
-    
-}
-
--(void)getVehicleDropDown
-{
-    WebService *webService = [[WebService alloc]init];
-    webService.customWebServiceDelegate = self;
-    webService.serviceName = @"vehicleDropdown";
-    [webService getVehicleDropDown];
-    
-}
-
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
-{
-    
-}
-
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
-{
-    //if()
-    if(dict.count == 1)
-    {
-        arrOfDict = [dict valueForKey:@"showroom_address"];
-        int i = 0;
-        for(NSDictionary *dict in arrOfDict)
-        {
-            NSString *name = [dict valueForKey:@"showroom_address"];
-            
-            i++;
-            
-            [showRoomArray addObject:name];
-        }
-        
-    }
-    
-    else
-    {
-        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
-        {
-            carDictArr = [dict valueForKey:@"dropDown"];
-            int j=0;
-            for(NSDictionary *dict in carDictArr)
-            {
-                NSString *name = [dict valueForKey:@"vehicle_name"];
-                
-                j++;
-                
-                [carArray addObject:name];
-            }
-        }
-        
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"adventurePark"])
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-            [self showAlertView:nil WithMessage:@"Your request for Adventure Park is successfully submitted."];
-            
-        }
-        
-        //  [self addTableView];
-    }
-    
-}
 
 #pragma Textfield delegate implementation
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -423,14 +474,14 @@
         previousTextField = nil;
     }
     
-    if(textField.tag == 1 || textField.tag == 4)
+    if(textField.tag == 3 || textField.tag == 5 || textField.tag == 7)
     {
         [textField resignFirstResponder];
         
         [self addTableView:textField];
         
     }
-    if(textField.tag == 5)
+    if(textField.tag == 2 || textField.tag == 6)
     {
         if(previousTextField)
         {
@@ -474,7 +525,42 @@
 {
     if(!tableView)
     {
-        tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, .4*self.view.frame.size.height) style:UITableViewStylePlain];
+        CGFloat tableHeight;
+        if(texfield.tag == 3)
+        {
+            if(serviceCentreArray.count >4)
+            {
+                tableHeight = .4*self.view.frame.size.height;
+            }
+            else
+            {
+                tableHeight = tableCellHeight *serviceCentreArray.count;
+            }
+        }
+        else  if(texfield.tag == 5)
+        {
+            if(modelArray.count >4)
+            {
+                tableHeight = .4*self.view.frame.size.height;
+            }
+            else
+            {
+                tableHeight = tableCellHeight *modelArray.count;
+            }
+        }
+        
+        else  if(texfield.tag == 7)
+        {
+            if(timeArray.count >4)
+            {
+                tableHeight = .4*self.view.frame.size.height;
+            }
+            else
+            {
+                tableHeight = tableCellHeight *timeArray.count;
+            }
+        }
+        tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, tableHeight) style:UITableViewStylePlain];
         tableView.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:1.0];
         tableView.delegate = self;
         tableView.center = CGPointMake(screenWidth/2, tableView.center.y );
@@ -482,7 +568,7 @@
         tableView.dataSource = self;
         [Common addBorderToUiView:tableView withBorderWidth:1.0f cornerRadius:0 Color:[UIColor lightGrayColor]];
     }
-    
+   // [scrollView setScrollEnabled:NO];
     [scrollView addSubview:tableView];
 }
 
@@ -507,12 +593,16 @@
 {
     NSLog(@"Value rows");
     
-    if(activeField.tag == 1)
+    if(activeField.tag == 3)
     {
-        return carArray.count;
+        return serviceCentreArray.count;
+    }
+   else  if(activeField.tag == 7)
+    {
+        return timeArray.count;
     }
     
-    return showRoomArray.count;
+    return modelArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -525,13 +615,17 @@
                      tableCellIdentifierForReadReceipt];
     }
     
-    if(activeField.tag == 1)
+    if(activeField.tag == 3)
     {
-        tableCell.textLabel.text =[carArray objectAtIndex:indexPath.row];
+        tableCell.textLabel.text =[serviceCentreArray objectAtIndex:indexPath.row];
+    }
+    else if(activeField.tag == 7)
+    {
+        tableCell.textLabel.text =[timeArray objectAtIndex:indexPath.row];
     }
     else
     {
-        tableCell.textLabel.text =[showRoomArray objectAtIndex:indexPath.row];
+        tableCell.textLabel.text =[modelArray objectAtIndex:indexPath.row];
     }
     
     tableCell.textLabel.textColor = [UIColor darkGrayColor];
@@ -544,7 +638,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 30.0f;
+    return tableCellHeight;
 }
 
 
@@ -556,16 +650,22 @@
     
     //if(self.formType == RequestTypeQuote)
     //{
-    if(activeField.tag == 1)
+    if(activeField.tag == 7)
     {
-        name = [carArray objectAtIndex:indexPath.row];
-        carDict = [carDictArr objectAtIndex:indexPath.row];
+        name = [timeArray objectAtIndex:indexPath.row];
         
     }
+    else if(activeField.tag == 3)
+    {
+        name = [serviceCentreArray objectAtIndex:indexPath.row];
+        carDict = [arrOfDict objectAtIndex:indexPath.row];
+        
+    }
+    
     else
     {
-        name = [showRoomArray objectAtIndex:indexPath.row];
-        showRoomDict = [arrOfDict objectAtIndex:indexPath.row];
+        name = [modelArray objectAtIndex:indexPath.row];
+        showRoomDict = [carDictArr objectAtIndex:indexPath.row];
     }
     
     activeField.text = name;
@@ -574,19 +674,14 @@
     
     [tableView removeFromSuperview];
     tableView = nil;
-    
+   // [scrollView setScrollEnabled:YES];
+
     
     // }
     
     
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 -(void)openDatePicker
 {
@@ -716,7 +811,6 @@
     dob = nil;
     
 }
-
 
 /*
 #pragma mark - Navigation

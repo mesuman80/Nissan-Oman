@@ -98,7 +98,7 @@
 -(void)addTextField
 {
     texfield = [[UITextField  alloc] initWithFrame:
-                CGRectMake(0, yCordinate, self.view.frame.size.width*.85f, 40)];
+                CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 40)];
     texfield.center = CGPointMake(screenWidth/2, texfield.center.y );
     [texfield setFont:[UIFont boldSystemFontOfSize:10]];
     [texfield setBackgroundColor:[UIColor whiteColor]];

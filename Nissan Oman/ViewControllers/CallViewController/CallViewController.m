@@ -57,7 +57,7 @@
 
 -(void)addButton
 {
-    UIButton *callButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.85f, 40)];
+    UIButton *callButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 40)];
     [callButton setTitle:@"CALL" forState:UIControlStateNormal];
     callButton.backgroundColor = buttonRedColor;
     callButton.titleLabel.font = [UIFont boldSystemFontOfSize:15.0f];

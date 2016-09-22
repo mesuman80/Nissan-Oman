@@ -322,6 +322,18 @@
                 }
                 
             }
+            else if([self.serviceName isEqualToString:@"serviceAppointment"])
+            {
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict addEntriesFromDictionary:dict];
+                
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
+
 
          
         }else {
@@ -756,6 +768,30 @@
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
         NSString *str = [NSString stringWithFormat:@"adventure/?tag=adventure&name=%@&showroom_id=%@&email=%@&phone=%@&test_drive_date=%@",[dict valueForKey:@"name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"],[dict valueForKey:@"test_drive_date"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data  withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)requestServiceAppointment:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"service_appointment/?tag=service_appointment&test_drive_date=%@&service_centre_id=%@&vehicle_reg_number=%@&car_model=%@&preferred_time_slot=%@&current_odometer_reading=%@&phone=%@&email=%@",[dict valueForKey:@"test_drive_date"],[dict valueForKey:@"service_centre_id"],[dict valueForKey:@"vehicle_reg_number"],[dict valueForKey:@"car_model"],[dict valueForKey:@"preferred_time_slot"],[dict valueForKey:@"current_odometer_reading"],[dict valueForKey:@"phone"],[dict valueForKey:@"email"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForGet:url withData:nil];

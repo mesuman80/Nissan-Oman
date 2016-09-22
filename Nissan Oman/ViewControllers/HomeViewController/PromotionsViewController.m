@@ -114,6 +114,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
         WebPageViewController *webPage = [[WebPageViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];
+        webPage.isFormShown = YES;
         [self.navigationController pushViewController:webPage animated:YES];
     }
 }

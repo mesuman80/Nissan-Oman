@@ -13,6 +13,7 @@
 #import "OwningViewController.h"
 #import "PromotionsViewController.h"
 #import "ShowroomViewController.h"
+#import "ServiceAppointmentViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -163,6 +164,12 @@
         [self.navigationController setNavigationBarHidden:NO];
         OwningViewController *owningViewController  = [[OwningViewController alloc]init];
         [self.navigationController pushViewController:owningViewController animated:YES];
+    }
+    else if(indexPath.row == 4)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        ServiceAppointmentViewController *serviceAppointmentViewController  = [[ServiceAppointmentViewController alloc]init];
+        [self.navigationController pushViewController:serviceAppointmentViewController animated:YES];
     }
     else if(indexPath.row == 5)
     {

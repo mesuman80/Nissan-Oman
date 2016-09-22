@@ -14,4 +14,5 @@
     UIWebView *webView;
 }
 -(id)initWithWebString:(NSString *)str withUrl:(NSString *)url;
+@property BOOL isFormShown;
 @end

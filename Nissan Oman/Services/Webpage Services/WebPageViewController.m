@@ -19,7 +19,7 @@
    // UIButton *backButton;
 }
 
-
+@synthesize isFormShown;
 -(id)initWithWebString:(NSString *)str withUrl:(NSString *)url
 {
     if(self =[super init])
@@ -44,7 +44,7 @@
   //  self.title=title;
    // self.edgesForExtendedLayout = UIRectEdgeNone;
     CGFloat yVal = self.yCordinate;
-    if([urlToOpen isEqualToString:ADVENTUREPARKPAGE])
+    if(isFormShown)
     {
          webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,yVal, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - yVal - 50)];
         [self addSubmitButton];
@@ -164,6 +164,8 @@
     controller.arrVal = arr;
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 
 
 @end

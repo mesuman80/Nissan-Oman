@@ -171,7 +171,7 @@
     for(int i=1; i<arrVal.count; i++)
     {
         UITextField *texfield = [[UITextField  alloc] initWithFrame:
-                    CGRectMake(0, yVal, self.view.frame.size.width*.85f, 40)];
+                    CGRectMake(0, yVal, self.view.frame.size.width*.90f, 40)];
         texfield.center = CGPointMake(screenWidth/2, texfield.center.y );
         [texfield setFont:[UIFont boldSystemFontOfSize:10]];
         [texfield setBackgroundColor:[UIColor whiteColor]];
