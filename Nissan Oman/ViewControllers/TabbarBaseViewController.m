@@ -19,6 +19,8 @@
     SettingView *view;
     int counter;
     UIButton *settingBtn;
+    CGFloat yValue;
+    UIView *baseView;
 }
 
 @synthesize yCordinate;
@@ -44,6 +46,7 @@
         yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
 
     }
+    yValue = yCordinate;
     NSLog(@"yCordinate = %f",yCordinate);
    // yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 60, 60)];
@@ -56,22 +59,37 @@
 
 -(void)drawSettingButton
 {
-    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 20, 20)];
-    settingBtn.center = CGPointMake(self.view.frame.size.width *.9f, settingBtn.center.y);
+    baseView = [[UIView alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 50, 50)];
+    baseView.center = CGPointMake(self.view.frame.size.width *.85f, baseView.center.y);
+    [self.view addSubview:baseView];
+    [baseView setUserInteractionEnabled:YES];
+    [baseView setBackgroundColor:[UIColor clearColor]];
+    
+    
+    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(25, 5, 20, 20)];
+    settingBtn.center = CGPointMake(settingBtn.center.x, settingBtn.center.y);
     [settingBtn setBackgroundImage:[UIImage imageNamed:@"setting_icon.png"] forState:UIControlStateNormal];
-    [self.view addSubview:settingBtn];
+    [baseView addSubview:settingBtn];
     [settingBtn addTarget:self action:@selector(settingBtnTouched:) forControlEvents:UIControlEventTouchUpInside];
      yCordinate += imgView.frame.size.height + 10;
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(settingBtnTouched:)];
+    [baseView addGestureRecognizer:gesture];
 }
 
 -(void)settingBtnTouched:(id)sender
 {
     counter ++;
-    CGFloat yval = settingBtn.frame.origin.y + settingBtn.frame.size.height + 5;
+    CGFloat yval = yValue;//settingBtn.frame.origin.y + settingBtn.frame.size.height + 5;
     if(!view)
     {
-        view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10,  yval,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - yval)];
-        view.backgroundColor = [UIColor whiteColor];
+        //view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10,  yval,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - yval)];
+        
+        
+         view = [[SettingView alloc]initWithFrame:CGRectMake(0,  yval,self.view.frame.size.width, self.view.frame.size.height - yval)];
+        
+        
+       // view.backgroundColor = [UIColor whiteColor];
         //  [self.view addSubview:view];
     }
     
@@ -80,7 +98,9 @@
         view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
         [UIView animateWithDuration:0.9f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self.view addSubview:view];
-            view.center = CGPointMake(.67*self.view.frame.size.width, view.center.y);
+            view.center = CGPointMake(self.view.frame.size.width/2, view.center.y);
+          //  self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+
         } completion:^(BOOL finished) {
             
         }];
@@ -93,10 +113,12 @@
             view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
         } completion:^(BOOL finished) {
             [view removeFromSuperview];
+            // self.view.backgroundColor = [UIColor whiteColor];
 
         }];
     }
     
+    [self.view bringSubviewToFront:baseView];
 
     
 }

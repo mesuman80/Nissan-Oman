@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingView : UITableView<UITableViewDelegate, UITableViewDataSource>
+@interface SettingView : UIView<UITableViewDelegate, UITableViewDataSource>
 
 @end
