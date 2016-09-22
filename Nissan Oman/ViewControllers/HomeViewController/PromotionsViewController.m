@@ -9,6 +9,8 @@
 #import "PromotionsViewController.h"
 #import "CustomTableViewCell.h"
 #import "ShowroomViewController.h"
+#import "WebPageViewController.h"
+#import "Constants.h"
 
 @interface PromotionsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -106,6 +108,13 @@
         showroomViewController.arrVal = @[@"CURRENT OFFERS",@"SELECT CAR MODEL",@"currentOffers"];
         showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
+    }
+    
+    if(indexPath.row == 1)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        WebPageViewController *webPage = [[WebPageViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];
+        [self.navigationController pushViewController:webPage animated:YES];
     }
 }
 

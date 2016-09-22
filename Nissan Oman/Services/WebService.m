@@ -310,6 +310,18 @@
                 }
                 
             }
+            
+            else if([self.serviceName isEqualToString:@"adventurePark"])
+            {
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict addEntriesFromDictionary:dict];
+                
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
 
          
         }else {
@@ -738,6 +750,31 @@
     }
     
 }
+
+-(void)requestAdventurePark:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"adventure/?tag=adventure&name=%@&showroom_id=%@&email=%@&phone=%@&test_drive_date=%@",[dict valueForKey:@"name"],[dict valueForKey:@"showroom_id"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"],[dict valueForKey:@"test_drive_date"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data  withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
 
 
 

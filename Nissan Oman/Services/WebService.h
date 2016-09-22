@@ -34,6 +34,7 @@ typedef void(^onCompletion)(NSString *error);
 -(void)getBodyShop;
 -(void)getGenuinePart;
 -(void)getCurrentOffers;
+-(void)requestAdventurePark:(NSDictionary *)dict;
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;

@@ -137,6 +137,7 @@
 		F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BAA1D82DD4500AECEDA /* BuyerSupportViewController.m */; };
 		F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB01D82E09700AECEDA /* OwningViewController.m */; };
 		F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */; };
+		F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF23C11D93B23000105EF7 /* AdventureParkViewController.m */; };
 		F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */; };
 		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
 /* End PBXBuildFile section */
@@ -336,6 +337,8 @@
 		F7AD7BB01D82E09700AECEDA /* OwningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwningViewController.m; sourceTree = "<group>"; };
 		F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionsViewController.h; sourceTree = "<group>"; };
 		F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionsViewController.m; sourceTree = "<group>"; };
+		F7AF23C01D93B23000105EF7 /* AdventureParkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdventureParkViewController.h; sourceTree = "<group>"; };
+		F7AF23C11D93B23000105EF7 /* AdventureParkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdventureParkViewController.m; sourceTree = "<group>"; };
 		F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_off@2x.png"; sourceTree = "<group>"; };
 		F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_on@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -593,6 +596,8 @@
 				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
 				F7AA6D821D8ABD610058BE50 /* SettingView.h */,
 				F7AA6D831D8ABD610058BE50 /* SettingView.m */,
+				F7AF23C01D93B23000105EF7 /* AdventureParkViewController.h */,
+				F7AF23C11D93B23000105EF7 /* AdventureParkViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -1003,6 +1008,7 @@
 				F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */,
 				F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */,
 				534D9A121D758AA500867F73 /* SignupViewController.m in Sources */,
+				F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
 				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,

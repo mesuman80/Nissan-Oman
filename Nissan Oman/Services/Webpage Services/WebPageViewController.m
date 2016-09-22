@@ -9,6 +9,7 @@
 #import "WebPageViewController.h"
 #import "Constants.h"
 #import "Utility.h"
+#import "AdventureParkViewController.h"
 
 @implementation WebPageViewController
 {
@@ -43,8 +44,16 @@
   //  self.title=title;
    // self.edgesForExtendedLayout = UIRectEdgeNone;
     CGFloat yVal = self.yCordinate;
-    
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,yVal, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - yVal)];
+    if([urlToOpen isEqualToString:ADVENTUREPARKPAGE])
+    {
+         webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,yVal, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - yVal - 50)];
+        [self addSubmitButton];
+    }
+    else
+    {
+         webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,yVal, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height - yVal)];
+    }
+   
     webView.delegate=self;
     webView.delegate = self; // setup the delegate as the web view is shown
     
@@ -119,8 +128,42 @@
     
 }
 
+-(void)addSubmitButton
+{
+    UIView *baseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
+    baseView.center = CGPointMake(.85f*self.view.frame.size.width, self.view.frame.size.height *.88f);
+    [baseView setBackgroundColor:[UIColor clearColor]];
+    [baseView setUserInteractionEnabled:YES];
+    [self.view addSubview:baseView];
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 10)];
+    [btn setTitle:@"SUBMIT FORM" forState:UIControlStateNormal];
+    [btn setTitleColor:buttonRedColor forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+    btn.center = CGPointMake(btn.center.x, baseView.frame.size.height/2);
+    [btn addTarget:self action:@selector(submitButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [baseView addSubview:btn];
+    
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(105, 0, 8, 8)];
+    imgView.image = [UIImage imageNamed:@"arrow_icon.png"];
+    imgView.center = CGPointMake(imgView.center.x, baseView.frame.size.height/2);
+    [baseView addSubview:imgView];
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(submitButtonTapped:)];
+    [baseView addGestureRecognizer:gesture];
+    
+    
+    
+}
 
-
+-(void)submitButtonTapped:(id)sender
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    AdventureParkViewController *controller = [[AdventureParkViewController alloc]init];
+    NSArray *arr = @[@"ADVENTURE PARK", @"NAME",@"MOBILE NO",@"EMAIL",@"LOCATION",@"PREFERRED TEST DRIVE DATE"];
+    controller.arrVal = arr;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 
 @end
