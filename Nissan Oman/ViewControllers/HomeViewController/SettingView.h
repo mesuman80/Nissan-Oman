@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingView : UIView<UITableViewDelegate, UITableViewDataSource>
-
+@property UIViewController *rootController;
 @end

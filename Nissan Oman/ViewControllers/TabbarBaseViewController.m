@@ -87,7 +87,7 @@
         
         
          view = [[SettingView alloc]initWithFrame:CGRectMake(0,  yval,self.view.frame.size.width, self.view.frame.size.height - yval)];
-        
+        view.rootController = self;
         
        // view.backgroundColor = [UIColor whiteColor];
         //  [self.view addSubview:view];

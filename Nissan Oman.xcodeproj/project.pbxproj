@@ -141,6 +141,7 @@
 		F7AF23C51D93E69D00105EF7 /* ServiceAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */; };
 		F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */; };
 		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
+		F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +345,8 @@
 		F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceAppointmentViewController.m; sourceTree = "<group>"; };
 		F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_off@2x.png"; sourceTree = "<group>"; };
 		F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_on@2x.png"; sourceTree = "<group>"; };
+		F7EC862E1D9414CE00FAD40B /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -762,6 +765,8 @@
 			children = (
 				F7A6A6EC1D928A1E001770D9 /* WebPageViewController.h */,
 				F7A6A6ED1D928A1E001770D9 /* WebPageViewController.m */,
+				F7EC862E1D9414CE00FAD40B /* AboutUsViewController.h */,
+				F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */,
 			);
 			path = "Webpage Services";
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 			files = (
 				F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */,
 				F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */,
+				F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */,
 				5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */,
 				F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */,
 				F7A9F35C1D8BFF4A00898284 /* MapViewController.m in Sources */,

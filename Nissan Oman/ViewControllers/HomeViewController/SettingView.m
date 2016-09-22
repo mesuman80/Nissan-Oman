@@ -7,12 +7,14 @@
 //
 
 #import "SettingView.h"
+#import "AboutUsViewController.h"
 
 @implementation SettingView
 {
     NSArray *dataArr;
     UITableView *tableView;
 }
+@synthesize rootController;
 
 -(id)initWithFrame:(CGRect)frame
 {
@@ -93,6 +95,12 @@
     {
         NSString *phnNum = [NSString stringWithFormat:@"%@%@",@"tel:",TollfreeNumber];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phnNum]];
+    }
+    if(indexPath.row == 2)
+    {
+        [rootController.navigationController setNavigationBarHidden:NO];
+        AboutUsViewController *webPage = [[AboutUsViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];
+        [rootController.navigationController pushViewController:webPage animated:YES];
     }
 }
 
