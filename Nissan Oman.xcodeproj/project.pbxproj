@@ -146,6 +146,7 @@
 		F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */; };
 		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
 		F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */; };
+		F7ECA7491D94E3AC0065E83A /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,8 +337,8 @@
 		F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DescriptionView.m; path = ../HomeViewController/DescriptionView.m; sourceTree = "<group>"; };
 		F7AA6D7F1D8A9E7D0058BE50 /* ShowroomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowroomViewController.h; path = ../HomeViewController/ShowroomViewController.h; sourceTree = "<group>"; };
 		F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowroomViewController.m; path = ../HomeViewController/ShowroomViewController.m; sourceTree = "<group>"; };
-		F7AA6D821D8ABD610058BE50 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
-		F7AA6D831D8ABD610058BE50 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
+		F7AA6D821D8ABD610058BE50 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingView.h; path = ../SettingView.h; sourceTree = "<group>"; };
+		F7AA6D831D8ABD610058BE50 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingView.m; path = ../SettingView.m; sourceTree = "<group>"; };
 		F7AD7BA31D82ADAF00AECEDA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		F7AD7BA41D82ADAF00AECEDA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		F7AD7BA61D82CA9700AECEDA /* VehicleCategeoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleCategeoryViewController.h; path = ../HomeViewController/VehicleCategeoryViewController.h; sourceTree = "<group>"; };
@@ -350,12 +351,14 @@
 		F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionsViewController.m; sourceTree = "<group>"; };
 		F7AF23C01D93B23000105EF7 /* AdventureParkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdventureParkViewController.h; sourceTree = "<group>"; };
 		F7AF23C11D93B23000105EF7 /* AdventureParkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdventureParkViewController.m; sourceTree = "<group>"; };
-		F7AF23C31D93E69D00105EF7 /* ServiceAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceAppointmentViewController.h; sourceTree = "<group>"; };
-		F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceAppointmentViewController.m; sourceTree = "<group>"; };
+		F7AF23C31D93E69D00105EF7 /* ServiceAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceAppointmentViewController.h; path = ../ServiceAppointmentViewController.h; sourceTree = "<group>"; };
+		F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceAppointmentViewController.m; path = ../ServiceAppointmentViewController.m; sourceTree = "<group>"; };
 		F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_off@2x.png"; sourceTree = "<group>"; };
 		F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_on@2x.png"; sourceTree = "<group>"; };
 		F7EC862E1D9414CE00FAD40B /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		F7ECA7471D94E3AC0065E83A /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,6 +608,7 @@
 		F710408C1D81238C00BD3E88 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F7ECA7461D94E34D0065E83A /* Setting Controller */,
 				F7A9F3631D8FAE7800898284 /* Buyer Support */,
 				F710409F1D81270100BD3E88 /* HomeViewController.h */,
 				F71040A01D81270100BD3E88 /* HomeViewController.m */,
@@ -614,12 +618,8 @@
 				F7AD7BB01D82E09700AECEDA /* OwningViewController.m */,
 				F7AD7BB21D82E2E000AECEDA /* PromotionsViewController.h */,
 				F7AD7BB31D82E2E000AECEDA /* PromotionsViewController.m */,
-				F7AA6D821D8ABD610058BE50 /* SettingView.h */,
-				F7AA6D831D8ABD610058BE50 /* SettingView.m */,
 				F7AF23C01D93B23000105EF7 /* AdventureParkViewController.h */,
 				F7AF23C11D93B23000105EF7 /* AdventureParkViewController.m */,
-				F7AF23C31D93E69D00105EF7 /* ServiceAppointmentViewController.h */,
-				F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -806,6 +806,19 @@
 				F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */,
 			);
 			path = "Buyer Support";
+			sourceTree = "<group>";
+		};
+		F7ECA7461D94E34D0065E83A /* Setting Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7AA6D821D8ABD610058BE50 /* SettingView.h */,
+				F7AA6D831D8ABD610058BE50 /* SettingView.m */,
+				F7AF23C31D93E69D00105EF7 /* ServiceAppointmentViewController.h */,
+				F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */,
+				F7ECA7471D94E3AC0065E83A /* FeedbackViewController.h */,
+				F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */,
+			);
+			path = "Setting Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1061,6 +1074,7 @@
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
 				F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
+				F7ECA7491D94E3AC0065E83A /* FeedbackViewController.m in Sources */,
 				F7AD7BB11D82E09700AECEDA /* OwningViewController.m in Sources */,
 				F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,

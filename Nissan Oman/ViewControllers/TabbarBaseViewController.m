@@ -119,6 +119,7 @@
     }
     
     [self.view bringSubviewToFront:baseView];
+     [self.view bringSubviewToFront:imgView];
 
     
 }

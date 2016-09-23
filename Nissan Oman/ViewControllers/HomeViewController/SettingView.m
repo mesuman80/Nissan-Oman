@@ -8,6 +8,7 @@
 
 #import "SettingView.h"
 #import "AboutUsViewController.h"
+#import "FeedbackViewController.h"
 
 @implementation SettingView
 {
@@ -31,11 +32,11 @@
 {
     dataArr = @[@"FEEDBACK",@"CALL NISSAN TOLL FREE",@"ABOUT US",@"SETTINGS"];
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(.3*self.frame.size.width, 0,.7*self.frame.size.width, self.frame.size.height - 60)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0,self.frame.size.width, 60)];
     view.backgroundColor = [UIColor whiteColor];
     [self addSubview:view];
     
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60,view.frame.size.width, view.frame.size.height ) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(.22*view.frame.size.width, 60,.78*self.frame.size.width, self.frame.size.height ) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -47,7 +48,7 @@
     tableView.tableHeaderView=[[UIView alloc]initWithFrame:CGRectZero];
 
     
-    [view addSubview:tableView];
+    [self addSubview:tableView];
     
    /* [self setDelegate:self];
     [self setDataSource:self];
@@ -91,12 +92,18 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == 1)
+    if(indexPath.row == 0)
+    {
+        [rootController.navigationController setNavigationBarHidden:NO];
+        FeedbackViewController *controller = [[FeedbackViewController alloc]init];
+        [rootController.navigationController pushViewController:controller animated:YES];
+    }
+    else if(indexPath.row == 1)
     {
         NSString *phnNum = [NSString stringWithFormat:@"%@%@",@"tel:",TollfreeNumber];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phnNum]];
     }
-    if(indexPath.row == 2)
+   else  if(indexPath.row == 2)
     {
         [rootController.navigationController setNavigationBarHidden:NO];
         AboutUsViewController *webPage = [[AboutUsViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];

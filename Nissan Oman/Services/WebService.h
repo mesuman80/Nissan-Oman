@@ -36,6 +36,8 @@ typedef void(^onCompletion)(NSString *error);
 -(void)getCurrentOffers;
 -(void)requestAdventurePark:(NSDictionary *)dict;
 -(void)requestServiceAppointment:(NSDictionary *)dict;
+-(void)requestFeedback:(NSDictionary *)dict;
+
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;
