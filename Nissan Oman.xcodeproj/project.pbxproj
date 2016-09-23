@@ -153,6 +153,7 @@
 		F7ECA7551D95382D0065E83A /* vpone_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7501D95382D0065E83A /* vpone_3.jpg */; };
 		F7ECA7561D95382D0065E83A /* vpone_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7511D95382D0065E83A /* vpone_4.jpg */; };
 		F7ECA7571D95382D0065E83A /* vpone_5.png in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7521D95382D0065E83A /* vpone_5.png */; };
+		F7ECA75A1D9546D60065E83A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA7591D9546D60065E83A /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +373,8 @@
 		F7ECA7501D95382D0065E83A /* vpone_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_3.jpg; sourceTree = "<group>"; };
 		F7ECA7511D95382D0065E83A /* vpone_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_4.jpg; sourceTree = "<group>"; };
 		F7ECA7521D95382D0065E83A /* vpone_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vpone_5.png; sourceTree = "<group>"; };
+		F7ECA7581D9546D60065E83A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F7ECA7591D9546D60065E83A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -833,6 +836,8 @@
 				F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */,
 				F7ECA7471D94E3AC0065E83A /* FeedbackViewController.h */,
 				F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */,
+				F7ECA7581D9546D60065E83A /* SettingsViewController.h */,
+				F7ECA7591D9546D60065E83A /* SettingsViewController.m */,
 			);
 			path = "Setting Controller";
 			sourceTree = "<group>";
@@ -1088,6 +1093,7 @@
 				F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */,
 				F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */,
 				534D9A121D758AA500867F73 /* SignupViewController.m in Sources */,
+				F7ECA75A1D9546D60065E83A /* SettingsViewController.m in Sources */,
 				F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,

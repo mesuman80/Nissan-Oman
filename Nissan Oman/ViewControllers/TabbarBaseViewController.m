@@ -68,7 +68,7 @@
     [baseView setBackgroundColor:[UIColor clearColor]];
     
     
-    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(25, 5, 20, 20)];
+    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, 5, 20, 20)];
     settingBtn.center = CGPointMake(settingBtn.center.x, settingBtn.center.y);
     [settingBtn setBackgroundImage:[UIImage imageNamed:@"setting_icon.png"] forState:UIControlStateNormal];
     [baseView addSubview:settingBtn];
@@ -98,7 +98,7 @@
     if(counter %2 != 0)
     {
         view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
-        [UIView animateWithDuration:0.9f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self.view addSubview:view];
             view.center = CGPointMake(self.view.frame.size.width/2, view.center.y);
           //  self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
@@ -111,7 +111,7 @@
     
     else
     {
-        [UIView animateWithDuration:0.9f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
         } completion:^(BOOL finished) {
             [view removeFromSuperview];

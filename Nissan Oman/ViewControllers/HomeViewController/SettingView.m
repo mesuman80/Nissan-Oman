@@ -9,11 +9,14 @@
 #import "SettingView.h"
 #import "AboutUsViewController.h"
 #import "FeedbackViewController.h"
+#import "SettingsViewController.h"
 
 @implementation SettingView
 {
     NSArray *dataArr;
     UITableView *tableView;
+    BOOL isClicked;
+    SettingsViewController *controller;
 }
 @synthesize rootController;
 
@@ -21,7 +24,8 @@
 {
     if(self = [super initWithFrame:frame])
     {
-        [self setBackgroundColor:[[UIColor blackColor]colorWithAlphaComponent:0.5f]];
+        
+        [self setBackgroundColor:[[UIColor blackColor]colorWithAlphaComponent:0.3f]];
         [self setElements];
         return self;
     }
@@ -109,6 +113,20 @@
         AboutUsViewController *webPage = [[AboutUsViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];
         [rootController.navigationController pushViewController:webPage animated:YES];
     }
+   else  if(indexPath.row == 3)
+   {
+       if(controller)
+       {
+            [self removeFromSuperview];
+           return;
+       }
+       
+       [rootController.navigationController setNavigationBarHidden:NO];
+       controller = [[SettingsViewController alloc]init];
+       [rootController.navigationController pushViewController:controller animated:YES];
+
+   }
+
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
