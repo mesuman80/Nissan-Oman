@@ -148,6 +148,11 @@
 		F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */; };
 		F7ECA7491D94E3AC0065E83A /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */; };
 		F7ECA74C1D9518560065E83A /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */; };
+		F7ECA7531D95382D0065E83A /* vpone_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA74E1D95382D0065E83A /* vpone_1.jpg */; };
+		F7ECA7541D95382D0065E83A /* vpone_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA74F1D95382D0065E83A /* vpone_2.jpg */; };
+		F7ECA7551D95382D0065E83A /* vpone_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7501D95382D0065E83A /* vpone_3.jpg */; };
+		F7ECA7561D95382D0065E83A /* vpone_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7511D95382D0065E83A /* vpone_4.jpg */; };
+		F7ECA7571D95382D0065E83A /* vpone_5.png in Resources */ = {isa = PBXBuildFile; fileRef = F7ECA7521D95382D0065E83A /* vpone_5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +367,11 @@
 		F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		F7ECA74A1D9518560065E83A /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		F7ECA74E1D95382D0065E83A /* vpone_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_1.jpg; sourceTree = "<group>"; };
+		F7ECA74F1D95382D0065E83A /* vpone_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_2.jpg; sourceTree = "<group>"; };
+		F7ECA7501D95382D0065E83A /* vpone_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_3.jpg; sourceTree = "<group>"; };
+		F7ECA7511D95382D0065E83A /* vpone_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vpone_4.jpg; sourceTree = "<group>"; };
+		F7ECA7521D95382D0065E83A /* vpone_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vpone_5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +683,7 @@
 		F7A1C2931D80338600C386A5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7ECA74D1D95382D0065E83A /* ScrollView */,
 				F7A1C2941D80338600C386A5 /* Detail */,
 				F7A1C2E51D80338700C386A5 /* Login */,
 			);
@@ -826,6 +837,18 @@
 			path = "Setting Controller";
 			sourceTree = "<group>";
 		};
+		F7ECA74D1D95382D0065E83A /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				F7ECA74E1D95382D0065E83A /* vpone_1.jpg */,
+				F7ECA74F1D95382D0065E83A /* vpone_2.jpg */,
+				F7ECA7501D95382D0065E83A /* vpone_3.jpg */,
+				F7ECA7511D95382D0065E83A /* vpone_4.jpg */,
+				F7ECA7521D95382D0065E83A /* vpone_5.png */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -940,6 +963,7 @@
 				F7A1C3311D80338700C386A5 /* tiida.png in Resources */,
 				F7A1C32E1D80338700C386A5 /* suv_icon.png in Resources */,
 				F7A1C30E1D80338700C386A5 /* menu_icon.png in Resources */,
+				F7ECA7531D95382D0065E83A /* vpone_1.jpg in Resources */,
 				F7A1C3021D80338700C386A5 /* juke2.jpg in Resources */,
 				F7A1C3101D80338700C386A5 /* mobile_icon.png in Resources */,
 				F7A1C2FB1D80338700C386A5 /* crossovers.png in Resources */,
@@ -948,6 +972,7 @@
 				F7A1C3001D80338700C386A5 /* juke.png in Resources */,
 				F7A1C3161D80338700C386A5 /* owning_icon.png in Resources */,
 				F7A1C3221D80338700C386A5 /* search_icon.png in Resources */,
+				F7ECA7571D95382D0065E83A /* vpone_5.png in Resources */,
 				F7A1C2FC1D80338700C386A5 /* current_offers.png in Resources */,
 				F7A1C32A1D80338700C386A5 /* signfacebook.png in Resources */,
 				F7A1C2F31D80338700C386A5 /* bottombar.png in Resources */,
@@ -976,14 +1001,17 @@
 				F7A1C3251D80338700C386A5 /* service_centre.png in Resources */,
 				F7A1C31B1D80338700C386A5 /* patrol.png in Resources */,
 				532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */,
+				F7ECA7561D95382D0065E83A /* vpone_4.jpg in Resources */,
 				F7A1C3141D80338700C386A5 /* nvurvan.png in Resources */,
 				F7A1C3061D80338700C386A5 /* lcv.png in Resources */,
 				F7A1C2FF1D80338700C386A5 /* homeicon.png in Resources */,
+				F7ECA7551D95382D0065E83A /* vpone_3.jpg in Resources */,
 				F7A1C30D1D80338700C386A5 /* menu.png in Resources */,
 				F7A1C3121D80338700C386A5 /* navara.png in Resources */,
 				F7A1C3361D80338700C386A5 /* xtrail1.jpg in Resources */,
 				F7A1C2EB1D80338700C386A5 /* adventure_park.png in Resources */,
 				F7A1C2F21D80338700C386A5 /* body_shop.png in Resources */,
+				F7ECA7541D95382D0065E83A /* vpone_2.jpg in Resources */,
 				F7A1C3041D80338700C386A5 /* juke4.jpg in Resources */,
 				F7A1C2EE1D80338700C386A5 /* armada.png in Resources */,
 				F7A1C3231D80338700C386A5 /* sentra.png in Resources */,

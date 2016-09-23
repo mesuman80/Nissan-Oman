@@ -860,7 +860,7 @@
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
-        NSString *str = [NSString stringWithFormat:@"users/?tag=forget_password&&email=%@",email];
+        NSString *str = [NSString stringWithFormat:@"users/?tag=forget_password&email=%@",email];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForGet:url withData:nil];

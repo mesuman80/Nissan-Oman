@@ -83,14 +83,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)addImageView
 {
     yVal = self.yCordinate;
-    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10,yVal, self.view.frame.size.width - 20, .20f*self.view.frame.size.height)];
-    imgView.image = [UIImage imageNamed:@"juke4.jpg"];
-    [self.view addSubview: imgView];
+    UIScrollView *horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yVal, self.view.frame.size.width , .20f*self.view.frame.size.height)];
+    [self.view addSubview:horScrollView];
+    horScrollView.pagingEnabled = YES;
+    NSArray *arr = @[@"vpone_1.jpg",@"vpone_2.jpg",@"vpone_3.jpg",@"vpone_4.jpg",@"vpone_5.png"];
     
-    yVal += imgView.frame.size.height + 10;
+    CGFloat xpos = 10;
+    for(NSString *str in arr)
+    {
+        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(xpos,0, horScrollView.frame.size.width - 20, horScrollView.frame.size.height)];
+        imgView.image = [UIImage imageNamed:str];
+        [horScrollView addSubview: imgView];
+        xpos += horScrollView.frame.size.width;
+        horScrollView.showsHorizontalScrollIndicator = NO;
+    }
+    [horScrollView setContentSize:CGSizeMake(xpos, horScrollView.frame.size.height)];
+     yVal += horScrollView.frame.size.height + 10;
+    
+   // yVal += imgView.frame.size.height + 10;
 }
 
 -(void)addTableView

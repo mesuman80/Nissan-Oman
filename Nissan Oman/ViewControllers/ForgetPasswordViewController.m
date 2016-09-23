@@ -85,7 +85,7 @@
     webService = [[WebService alloc]init];
     webService.serviceName = @"forgetPassword";
     webService.customWebServiceDelegate = self;
-    [ webService forgetPassword:usernameTextfield.text];
+    [ webService forgetPassword:usernameTextfield.text.lowercaseString];
 }
 
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict

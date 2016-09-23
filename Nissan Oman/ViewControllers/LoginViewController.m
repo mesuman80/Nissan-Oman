@@ -154,6 +154,8 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSLog(@"usernameTextfield.text = %@",usernameTextfield.text);
+    
     [textField resignFirstResponder];
 }
 

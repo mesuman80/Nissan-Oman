@@ -255,7 +255,7 @@
                               @"phoneNum" : phoneNumberTextfield.text,
                               @"email" : emailTextfield.text,
                               @"password" : passwordTextfield.text,
-                              @"signUpMode": @""
+                              @"signUpMode": @"INAPP"
                               };
        [webService registerUser:dict];
    }
