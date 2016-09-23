@@ -15,6 +15,8 @@
 #import "UserData.h"
 #import "SharePreferenceUtil.h"
 #import "Common.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface LoginViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
 
@@ -131,6 +133,7 @@
     
     loginWithFacebookButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidthFactor*10, self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
     [loginWithFacebookButton setBackgroundImage:[UIImage imageNamed:@"signfacebook.png"] forState:UIControlStateNormal];
+    [loginWithFacebookButton addTarget:self action:@selector(facebookLogin:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:loginWithFacebookButton];
     
     self.y = loginWithFacebookButton.frame.origin.y+loginWithFacebookButton.frame.size.height+ScreenHeightFactor*20;
@@ -274,6 +277,26 @@
                                  animated: YES
                                completion: nil];
 
+}
+
+
+#pragma mark FaceBook Related Function 
+-(void)facebookLogin:(id)sender {
+    NSLog(@"FaceBook Login");
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+         }
+     }];
+    
 }
 /*
 #pragma mark - Navigation

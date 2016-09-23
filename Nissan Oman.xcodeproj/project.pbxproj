@@ -31,6 +31,10 @@
 		534D9A121D758AA500867F73 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D9A111D758AA500867F73 /* SignupViewController.m */; };
 		534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D9A141D759C2E00867F73 /* LoginBaseviewViewController.m */; };
 		5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390C47E1D74381900193CE3 /* CustomTextField.m */; };
+		ECA1E9D11D950245007607CC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */; };
+		ECA1E9D31D950253007607CC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */; };
+		ECA1E9D51D950259007607CC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */; };
+		ECA1E9D71D9503D5007607CC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D61D9503D5007607CC /* Bolts.framework */; };
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
@@ -212,6 +216,11 @@
 		534D9A141D759C2E00867F73 /* LoginBaseviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginBaseviewViewController.m; sourceTree = "<group>"; };
 		5390C47D1D74381900193CE3 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
 		5390C47E1D74381900193CE3 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		ECA1E9D61D9503D5007607CC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		ECA1E9D81D9505FB007607CC /* Nissan Oman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nissan Oman.entitlements"; sourceTree = "<group>"; };
 		F71040901D8126C600BD3E88 /* TabbarBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarBaseViewController.h; sourceTree = "<group>"; };
 		F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarBaseViewController.m; sourceTree = "<group>"; };
 		F71040931D8126D300BD3E88 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
@@ -354,7 +363,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA1E9D71D9503D5007607CC /* Bolts.framework in Frameworks */,
+				ECA1E9D51D950259007607CC /* FBSDKShareKit.framework in Frameworks */,
 				F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */,
+				ECA1E9D11D950245007607CC /* FBSDKCoreKit.framework in Frameworks */,
+				ECA1E9D31D950253007607CC /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +446,7 @@
 		532F1F701D6EF21000F19D5B /* Nissan Oman */ = {
 			isa = PBXGroup;
 			children = (
+				ECA1E9D81D9505FB007607CC /* Nissan Oman.entitlements */,
 				F7A1C2931D80338600C386A5 /* Resources */,
 				532F1FDF1D6EFA5000F19D5B /* Libs */,
 				532F1FEA1D6EFF3D00F19D5B /* Callbacks */,
@@ -774,6 +788,10 @@
 		F7A9F35D1D8BFFBA00898284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECA1E9D61D9503D5007607CC /* Bolts.framework */,
+				ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */,
+				ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */,
+				ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */,
 				F7A9F35E1D8BFFBA00898284 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -857,6 +875,11 @@
 				TargetAttributes = {
 					532F1F6D1D6EF21000F19D5B = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					532F1F861D6EF21000F19D5B = {
 						CreatedOnToolsVersion = 7.3;
@@ -1191,8 +1214,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nissan Oman/Nissan Oman.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tripta Mittal (Y27LH2Z4Q8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tripta Mittal (Y27LH2Z4Q8)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1207,8 +1235,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Nissan Oman/Nissan Oman.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tripta Mittal (Y27LH2Z4Q8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tripta Mittal (Y27LH2Z4Q8)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
