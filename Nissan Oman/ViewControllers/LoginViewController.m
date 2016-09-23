@@ -10,6 +10,7 @@
 #import "LoginBaseviewViewController.h"
 #import "CustomTextField.h"
 #import "SignupViewController.h"
+#import "ForgetPasswordViewController.h"
 #import "WebService.h"
 #import "AppDelegate.h"
 #import "UserData.h"
@@ -26,6 +27,8 @@
 {
     WebService *webService;
     UITextField *activeTextField;
+    NSString *fbAccessToken;
+
 }
 
 @synthesize usernameTextfield,passwordTextfield;
@@ -82,6 +85,8 @@
     [forgetPasswordButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [forgetPasswordButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f] ];
     [self.scrollView addSubview:forgetPasswordButton];
+    [forgetPasswordButton addTarget:self action:@selector(forgetPasswordButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+
     
     self.y = forgetPasswordButton.frame.origin.y+forgetPasswordButton.frame.size.height+ScreenHeightFactor*10;
 }
@@ -177,6 +182,12 @@
 -(void)signupButtonTouched:(id)sender{
     SignupViewController *signupViewController = [[SignupViewController alloc] init];
     [self.navigationController pushViewController:signupViewController animated:YES];
+}
+
+-(void)forgetPasswordButtonTouched:(id)sender
+{
+    ForgetPasswordViewController *forgetPasswordViewController = [[ForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
 }
 
 -(void)loginButtonTouched:(id)sender{
@@ -285,7 +296,7 @@
     NSLog(@"FaceBook Login");
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
-     logInWithReadPermissions: @[@"public_profile"]
+     logInWithReadPermissions: @[@"public_profile",@"email"]
      fromViewController:self
      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
@@ -295,6 +306,48 @@
          } else {
              NSLog(@"Logged in");
          }
+         
+         if(result.token)   // This means if There is current access token.
+         {
+             
+             fbAccessToken =result.token.tokenString;
+             NSLog(@"fbAccessToken:%@", fbAccessToken);
+             [[NSUserDefaults standardUserDefaults] setValue:(fbAccessToken)  forKey:@"fbaccesstoken"];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             
+             if ([FBSDKAccessToken currentAccessToken]) {
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"first_name, last_name, picture.type(large), email, name, id, gender"}]
+                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                      if (!error) {
+                          NSLog(@"fetched user:%@", result);
+                          
+                          [[NSUserDefaults standardUserDefaults] setObject:result forKey:@"fbuser"];
+                          [[NSUserDefaults standardUserDefaults] synchronize];
+                          
+                          
+                                    
+                          webService = [[WebService alloc]init];
+                          webService.serviceName = @"signUp";
+                          webService.customWebServiceDelegate = self;
+                          NSDictionary *dict = @{
+                                                 @"firstName" : [result valueForKey:@"first_name"],
+                                                 @"lastName" : [result valueForKey:@"last_name"],
+                                                 @"dateOfBirth" :@"",
+                                                 @"phoneNum" : @"",
+                                                 @"email" : [result valueForKey:@"email"],
+                                                 @"password" : @"",
+                                                 @"signUpMode": @"FACEBOOK"
+                                                 };
+                          [webService registerUser:dict];
+
+                          
+                          
+                          // [self showPhoneNumberPopup];
+                      }
+                  }];
+             }
+         }
+
      }];
     
 }

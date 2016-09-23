@@ -59,6 +59,8 @@
 #define PlaceholderSignupPhoneNumberString  @"  xx-xx-xxxx"
 #define PlaceholderSignupEmailString  @"abc@gmail.com"
 #define PlaceholderSignupCountryCodeString  @"   +968"
+#define PlaceholderLForgetPassword  @"ENTER EMAIL"
+
 
 #define LOYALITYPROGRAMURLPAGE @"http://webisdomsolutions.com/nissanweb/loyality-program.php"
 #define MAINTENCETIPSURLPAGE @"http://webisdomsolutions.com/nissanweb/maintenance_tips.php"

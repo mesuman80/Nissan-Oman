@@ -344,10 +344,18 @@
                 }
                 
             }
+            else if([self.serviceName isEqualToString:@"forgetPassword"])
+            {
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict addEntriesFromDictionary:dict];
+                
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
 
-
-
-         
         }else {
             NSLog(@"error = %@",error.description);
             [utility showAlertWithTitle:@"Error!" message:@"Oops something went wrong" andDelegate:nil];
@@ -449,7 +457,7 @@
 -(void)registerUser:(NSDictionary *)dict {
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
-        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",@"users/?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"]];
+        NSString *str = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@",@"users/?tag=register&name=",[dict valueForKey:@"firstName"],@"&email=",[dict valueForKey:@"email"],@"&password=",[dict valueForKey:@"password"],@"&mobile=",[dict valueForKey:@"phoneNum"],@"&dob=",[dict valueForKey:@"dateOfBirth"],@"&signUpMode=",[dict valueForKey:@"signUpMode"]];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForPost:url withData:nil];
@@ -829,6 +837,30 @@
     if([[InternetConnection sharedInstance] connectionStatus]) {
         [utility showHUD];
         NSString *str = [NSString stringWithFormat:@"feedback/?tag=feedback&car_model=%@&name=%@&feedback=%@",[dict valueForKey:@"car_model"],[dict valueForKey:@"name"],[dict valueForKey:@"feedback"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data  withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
+
+-(void)forgetPassword:(NSString *)email
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"users/?tag=forget_password&&email=%@",email];
         
         NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
         NSMutableURLRequest *request = [self requestForGet:url withData:nil];

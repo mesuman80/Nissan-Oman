@@ -254,7 +254,8 @@
                               @"dateOfBirth" :dobNameTextfield.text,
                               @"phoneNum" : phoneNumberTextfield.text,
                               @"email" : emailTextfield.text,
-                              @"password" : passwordTextfield.text
+                              @"password" : passwordTextfield.text,
+                              @"signUpMode": @""
                               };
        [webService registerUser:dict];
    }

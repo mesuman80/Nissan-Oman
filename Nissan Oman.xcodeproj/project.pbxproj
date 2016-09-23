@@ -147,6 +147,7 @@
 		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
 		F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */; };
 		F7ECA7491D94E3AC0065E83A /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */; };
+		F7ECA74C1D9518560065E83A /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +360,8 @@
 		F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		F7ECA7471D94E3AC0065E83A /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		F7ECA74A1D9518560065E83A /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +403,8 @@
 				530417221D70648300168934 /* LoginViewController.m */,
 				534D9A101D758AA500867F73 /* SignupViewController.h */,
 				534D9A111D758AA500867F73 /* SignupViewController.m */,
+				F7ECA74A1D9518560065E83A /* ForgetPasswordViewController.h */,
+				F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1085,6 +1090,7 @@
 				532F200F1D6EFFFD00F19D5B /* Utility.m in Sources */,
 				5304174C1D706DB100168934 /* UserData.m in Sources */,
 				530417231D70648300168934 /* LoginViewController.m in Sources */,
+				F7ECA74C1D9518560065E83A /* ForgetPasswordViewController.m in Sources */,
 				F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
