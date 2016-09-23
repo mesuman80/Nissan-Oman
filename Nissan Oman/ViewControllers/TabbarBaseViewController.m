@@ -57,9 +57,11 @@
    
 }
 
+
+
 -(void)drawSettingButton
 {
-    baseView = [[UIView alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 50, 50)];
+    baseView = [[UIView alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 100, 40)];
     baseView.center = CGPointMake(self.view.frame.size.width *.85f, baseView.center.y);
     [self.view addSubview:baseView];
     [baseView setUserInteractionEnabled:YES];
