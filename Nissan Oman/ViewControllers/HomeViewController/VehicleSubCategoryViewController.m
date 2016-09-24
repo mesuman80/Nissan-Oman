@@ -139,7 +139,7 @@
 
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
-    [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView1 deselectRowAtIndexPath:indexPath animated:NO];
     
     NSDictionary *dict = [arrOfDict objectAtIndex:indexPath.row];
     NSArray *arr = [dict valueForKey:@"type"];
@@ -158,7 +158,7 @@
         [dictArray addObject:dictionary1];
     }
     
-    subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame];
+    subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame withDictionaryArray:dictArray];
     subTypeView.dictionaryArray = dictArray;
     subTypeView.vehicleArr = [dict valueForKey:@"type"];
     subTypeView.parentViewController = self;

@@ -11,6 +11,7 @@
 
 @interface SubTypeView : UIView<UITableViewDataSource, UITableViewDelegate>
 
+-(id)initWithFrame:(CGRect)frame withDictionaryArray:(NSArray *)array;;
 @property NSArray *dictionaryArray;;
 @property NSArray *vehicleArr;
 @property UIViewController *parentViewController;
