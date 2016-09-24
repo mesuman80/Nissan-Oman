@@ -9,6 +9,7 @@
 #import "VehicleDescriptionViewController.h"
 #import "WebService.h"
 #import "DescriptionView.h"
+#import "GalleryViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -102,13 +103,17 @@
     for(int i=0; i<10; i++)
     {
         DescriptionView *view = [[DescriptionView alloc]initWithFrame:CGRectMake(xx, yPos,self.view.frame.size.width/2 - 5, .06*self.view.frame.size.height) WithTitle:([stringArr objectAtIndex:i])];
-        
+        view.tag = i;
         xx += view.frame.size.width +10;
         if(i %2 != 0) {
             xx = 0;
             yPos += view.frame.size.height + 5;
             
         }
+        [view setUserInteractionEnabled:YES];
+        
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(btntouched:)];
+        [view addGestureRecognizer:gesture];
         //else yVal += view.frame.size.height + 5;
        // [view setBackgroundColor:[UIColor orangeColor]];
         [scrollView addSubview:view];
@@ -124,6 +129,23 @@
     
     [scrollView setContentSize:CGSizeMake(0, scrollView.frame.size.height *.15f + scrollView.frame.origin.y)];
 }
+
+
+-(void)btntouched:(UITapGestureRecognizer *)sender
+{
+    UIView *view = (UIView *)sender.view;
+    
+    if(view.tag == 8)
+    {
+       // [self.navigationController setNavigationBarHidden:NO];
+        NSArray *arr = [dataDictionary valueForKey:@"gallery"];
+        GalleryViewController *controller = [[GalleryViewController alloc]init];
+        controller.title = [dataDictionary valueForKey:@"vehicle_name"];
+        controller.dataArray = arr;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

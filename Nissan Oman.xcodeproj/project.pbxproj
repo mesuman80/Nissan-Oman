@@ -37,6 +37,7 @@
 		ECA1E9D71D9503D5007607CC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D61D9503D5007607CC /* Bolts.framework */; };
 		F70C3AE51D9648CE00EDC4F9 /* AccountSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */; };
 		F70C3AE81D968F7300EDC4F9 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AE71D968F7300EDC4F9 /* NotificationViewController.m */; };
+		F70C3AEB1D96A9C600EDC4F9 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */; };
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
@@ -235,6 +236,8 @@
 		F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettingViewController.m; sourceTree = "<group>"; };
 		F70C3AE61D968F7300EDC4F9 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		F70C3AE71D968F7300EDC4F9 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		F70C3AE91D96A9C600EDC4F9 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		F71040901D8126C600BD3E88 /* TabbarBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarBaseViewController.h; sourceTree = "<group>"; };
 		F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarBaseViewController.m; sourceTree = "<group>"; };
 		F71040931D8126D300BD3E88 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */,
 				F710409C1D8126F900BD3E88 /* VehiclesViewController.h */,
 				F710409D1D8126F900BD3E88 /* VehiclesViewController.m */,
+				F70C3AE91D96A9C600EDC4F9 /* GalleryViewController.h */,
+				F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */,
 			);
 			path = VehiclesViewController;
 			sourceTree = "<group>";
@@ -1108,6 +1113,7 @@
 				F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
+				F70C3AEB1D96A9C600EDC4F9 /* GalleryViewController.m in Sources */,
 				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,
 				5304174A1D706DB100168934 /* CategoryModel.m in Sources */,
 				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
