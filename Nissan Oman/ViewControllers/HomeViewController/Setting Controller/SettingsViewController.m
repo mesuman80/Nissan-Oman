@@ -10,6 +10,7 @@
 #import "CustomTableViewCell.h"
 #import "AccountSettingViewController.h"
 #import "NotificationViewController.h"
+#import "LoginViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -147,7 +148,17 @@
 
 -(void)logoutButtonTouched:(id)sender
 {
+    [self.navigationController.view removeFromSuperview];
+    [self.navigationController removeFromParentViewController];
     
+     [[SharePreferenceUtil getInstance]saveBool:NO withKey:kN_isUserMobileRegistered];
+    
+    UINavigationController *navController=[[UINavigationController alloc] init];
+    LoginViewController *firstController=[[LoginViewController alloc] init];
+    [navController pushViewController:firstController animated:YES];
+    
+    [[[UIApplication sharedApplication]keyWindow]setRootViewController:navController];
+
 }
 
 #pragma Mark tableView Delegaes implementation
