@@ -34,7 +34,7 @@
     NSDictionary *showRoomDict;
     NSArray *carDictArr;
     NSDictionary *carDict;
-
+    UITextField *desiredField;
 
 }
 @synthesize arrVal;
@@ -587,6 +587,35 @@
 }
 
 #pragma Textfield delegate implementation
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(self.formType == RequestTypeTestDrive)
+    {
+        if(textField.tag == 1 || textField.tag == 6)
+        {
+            [textField resignFirstResponder];
+            desiredField = textField;
+            [self addTableView:textField];
+            return NO;
+            
+        }
+    }
+    else
+    {
+        if(textField.tag == 1 || textField.tag == 4)
+        {
+            [textField resignFirstResponder];
+            desiredField = textField;
+            [self addTableView:textField];
+            return NO;
+            
+        }
+    }
+
+    return YES;
+}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeField = textField;
@@ -641,6 +670,7 @@
 
 -(void)addTableView:(UITextField *)texfield
 {
+    [activeField resignFirstResponder];
     if(!tableView)
     {
         tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, .4*self.view.frame.size.height) style:UITableViewStylePlain];
@@ -694,7 +724,7 @@
                      tableCellIdentifierForReadReceipt];
     }
     
-    if(activeField.tag == 1)
+    if(desiredField.tag == 1)
     {
         tableCell.textLabel.text =[carArray objectAtIndex:indexPath.row];
     }
@@ -725,7 +755,7 @@
     
     //if(self.formType == RequestTypeQuote)
     //{
-        if(activeField.tag == 1)
+        if(desiredField.tag == 1)
         {
             name = [carArray objectAtIndex:indexPath.row];
             carDict = [carDictArr objectAtIndex:indexPath.row];
@@ -737,8 +767,8 @@
             showRoomDict = [arrOfDict objectAtIndex:indexPath.row];
         }
         
-        activeField.text = name;
-        [activeField endEditing:YES];
+        desiredField.text = name;
+        [desiredField endEditing:YES];
         
         [tableView removeFromSuperview];
         tableView = nil;

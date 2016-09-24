@@ -39,7 +39,7 @@
     UIView *datePickerView;
     UIDatePicker *myDatePicker;
     NSDate *dob;
-
+    UITextField *desiredField;
 
 }
 @synthesize arrVal;
@@ -415,6 +415,25 @@
 }
 
 #pragma Textfield delegate implementation
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField.tag == 1 || textField.tag == 4)
+    {
+        [textField resignFirstResponder];
+        desiredField = textField;
+        [self addTableView:textField];
+        
+    }
+    if(textField.tag == 5)
+    {
+        desiredField = textField;
+        [self openDatePicker];
+        
+    }
+
+    return YES;
+}
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeField = textField;
@@ -424,27 +443,6 @@
         previousTextField = nil;
     }
     
-    if(textField.tag == 1 || textField.tag == 4)
-    {
-        [textField resignFirstResponder];
-        
-        [self addTableView:textField];
-        
-    }
-    if(textField.tag == 5)
-    {
-        if(previousTextField)
-        {
-            [previousTextField resignFirstResponder];
-            previousTextField = nil;
-        }
-        else
-        {
-            [textField resignFirstResponder];
-        }
-        [self openDatePicker];
-        
-    }
     else
     {
         [self removeDatePicker1];
@@ -473,6 +471,7 @@
 
 -(void)addTableView:(UITextField *)texfield
 {
+    [activeField resignFirstResponder];
     if(!tableView)
     {
         tableView = [[UITableView alloc]initWithFrame:CGRectMake(3, texfield.frame.origin.y + texfield.frame.size.height -2, texfield.frame.size.width - 6, .4*self.view.frame.size.height) style:UITableViewStylePlain];
@@ -526,7 +525,7 @@
                      tableCellIdentifierForReadReceipt];
     }
     
-    if(activeField.tag == 1)
+    if(desiredField.tag == 1)
     {
         tableCell.textLabel.text =[carArray objectAtIndex:indexPath.row];
     }
@@ -557,7 +556,7 @@
     
     //if(self.formType == RequestTypeQuote)
     //{
-    if(activeField.tag == 1)
+    if(desiredField.tag == 1)
     {
         name = [carArray objectAtIndex:indexPath.row];
         carDict = [carDictArr objectAtIndex:indexPath.row];
@@ -569,8 +568,8 @@
         showRoomDict = [arrOfDict objectAtIndex:indexPath.row];
     }
     
-    activeField.text = name;
-    [activeField resignFirstResponder];
+    desiredField.text = name;
+    [desiredField resignFirstResponder];
     [activeField endEditing:YES];
     
     [tableView removeFromSuperview];
@@ -695,11 +694,11 @@
     {
         // dateTimeString = TTMFutureButton;
     }
-    CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
-    CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
+    //CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
+    //CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
     //or whatever font you're using
     
-    [activeField setText:dateTimeString];
+    [desiredField setText:dateTimeString];
     
 }
 

@@ -41,6 +41,7 @@
     NSDate *dob;
     NSArray *arrVal;
     CGFloat tableCellHeight;
+    UITextField *desiredTextField;
 }
 
 - (void)viewDidLoad {
@@ -466,6 +467,28 @@
 
 
 #pragma Textfield delegate implementation
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField.tag == 3 || textField.tag == 5 || textField.tag == 7)
+    {
+        [textField resignFirstResponder];
+        desiredTextField = textField;
+        [self addTableView:textField];
+        return NO;
+        
+    }
+    if(textField.tag == 2 || textField.tag == 6)
+    {
+        desiredTextField = textField;
+        [self openDatePicker];
+        return NO;
+        
+    }
+    
+
+    return YES;
+}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeField = textField;
@@ -473,28 +496,6 @@
     {
         [previousTextField resignFirstResponder];
         previousTextField = nil;
-    }
-    
-    if(textField.tag == 3 || textField.tag == 5 || textField.tag == 7)
-    {
-        [textField resignFirstResponder];
-        
-        [self addTableView:textField];
-        
-    }
-    if(textField.tag == 2 || textField.tag == 6)
-    {
-        if(previousTextField)
-        {
-            [previousTextField resignFirstResponder];
-            previousTextField = nil;
-        }
-        else
-        {
-            [textField resignFirstResponder];
-        }
-        [self openDatePicker];
-        
     }
     else
     {
@@ -524,6 +525,7 @@
 
 -(void)addTableView:(UITextField *)texfield
 {
+    [activeField resignFirstResponder];
     if(!tableView)
     {
         CGFloat tableHeight;
@@ -616,11 +618,11 @@
                      tableCellIdentifierForReadReceipt];
     }
     
-    if(activeField.tag == 3)
+    if(desiredTextField.tag == 3)
     {
         tableCell.textLabel.text =[serviceCentreArray objectAtIndex:indexPath.row];
     }
-    else if(activeField.tag == 7)
+    else if(desiredTextField.tag == 7)
     {
         tableCell.textLabel.text =[timeArray objectAtIndex:indexPath.row];
     }
@@ -651,12 +653,12 @@
     
     //if(self.formType == RequestTypeQuote)
     //{
-    if(activeField.tag == 7)
+    if(desiredTextField.tag == 7)
     {
         name = [timeArray objectAtIndex:indexPath.row];
         
     }
-    else if(activeField.tag == 3)
+    else if(desiredTextField.tag == 3)
     {
         name = [serviceCentreArray objectAtIndex:indexPath.row];
         carDict = [arrOfDict objectAtIndex:indexPath.row];
@@ -669,9 +671,9 @@
         showRoomDict = [carDictArr objectAtIndex:indexPath.row];
     }
     
-    activeField.text = name;
-    [activeField resignFirstResponder];
-    [activeField endEditing:YES];
+    desiredTextField.text = name;
+    [desiredTextField resignFirstResponder];
+    [desiredTextField endEditing:YES];
     
     [tableView removeFromSuperview];
     tableView = nil;
@@ -790,11 +792,11 @@
     {
         // dateTimeString = TTMFutureButton;
     }
-    CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
-    CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
+    //CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
+   // CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
     //or whatever font you're using
     
-    [activeField setText:dateTimeString];
+    [desiredTextField setText:dateTimeString];
     
 }
 

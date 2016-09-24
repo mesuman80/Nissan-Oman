@@ -28,6 +28,7 @@
     CGFloat tableCellHeight;
     UITableView *tableView;
     NSDictionary *showRoomDict;
+    UITextView *desiredView;
 
 }
 
@@ -245,6 +246,20 @@
 }
 
 #pragma Textfield delegate implementation
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    
+    if(textView.tag == 1 )
+    {
+        [textView resignFirstResponder];
+        desiredView = textView;
+        [self addTableView:textView];
+        return NO;
+        
+    }
+    return YES;
+}
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     activeField = textView;
@@ -259,13 +274,7 @@
         previousTextField = nil;
     }
     
-    if(textView.tag == 1 )
-    {
-        [textView resignFirstResponder];
-        
-       [self addTableView:textView];
-        
-    }
+    
    
 }
 
@@ -331,6 +340,7 @@
 
 -(void)addTableView:(UITextView *)texfield
 {
+    [activeField resignFirstResponder];
     if(!tableView)
     {
         CGFloat tableHeight;
@@ -415,10 +425,10 @@
     name = [modelArray objectAtIndex:indexPath.row];
     showRoomDict = [carDictArr objectAtIndex:indexPath.row];
     
-    activeField.text = name;
-    [activeField resignFirstResponder];
-    activeField.textColor = [UIColor blackColor];
-    [activeField endEditing:YES];
+    desiredView.text = name;
+    [desiredView resignFirstResponder];
+    desiredView.textColor = [UIColor blackColor];
+    [desiredView endEditing:YES];
     
     [tableView removeFromSuperview];
     tableView = nil;
