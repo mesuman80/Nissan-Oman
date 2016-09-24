@@ -62,6 +62,9 @@
 #define PlaceholderLForgetPassword  @"ENTER EMAIL"
 
 
+#define IsSettingScreen @"Setting Screen"
+
+
 #define LOYALITYPROGRAMURLPAGE @"http://webisdomsolutions.com/nissanweb/loyality-program.php"
 #define MAINTENCETIPSURLPAGE @"http://webisdomsolutions.com/nissanweb/maintenance_tips.php"
 #define ADVENTUREPARKPAGE @"http://webisdomsolutions.com/nissanweb/adventure.php"

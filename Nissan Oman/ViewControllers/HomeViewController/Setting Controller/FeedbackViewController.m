@@ -145,12 +145,12 @@
         
        // [texView setContentInset:UIEdgeInsetsMake(0, 0, -10,-10)];
        texView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        yCordinate += texView.frame.size.height;
+        yCordinate += texView.frame.size.height + 3;
         
         [dataFieldArr addObject:texView];
     }
     
-    yCordinate += 10;
+    yCordinate += 7;
     [self addSubmitButton];
     
     

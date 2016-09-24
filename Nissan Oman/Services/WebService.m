@@ -355,6 +355,17 @@
                 }
                 
             }
+            else if([self.serviceName isEqualToString:@"accountSettings"])
+            {
+                [userDict setValue:self.serviceName forKey:@"serviceName"];
+                [userDict addEntriesFromDictionary:dict];
+                
+                if(self.customWebServiceDelegate)
+                {
+                    [self.customWebServiceDelegate ConnectionDidFinishWithSuccess:userDict];
+                }
+                
+            }
 
         }else {
             NSLog(@"error = %@",error.description);
@@ -880,6 +891,29 @@
     
 }
 
+-(void)accountSettings:(NSDictionary *)dict
+{
+    if([[InternetConnection sharedInstance] connectionStatus]) {
+        [utility showHUD];
+        NSString *str = [NSString stringWithFormat:@"users/?tag=update&name=%@&email=%@&phone=%@&dob=%@",[dict valueForKey:@"name"],[dict valueForKey:@"email"],[dict valueForKey:@"phone"],[dict valueForKey:@"dob"]];
+        
+        NSString* url = [NSString stringWithFormat:@"%@%@",[sharePreferenceUtil getStringWithKey:kN_BaseURL],str];
+        NSMutableURLRequest *request = [self requestForGet:url withData:nil];
+        if(request) {
+            NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+            [[session dataTaskWithRequest:request
+                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                            [self processServerResult:response withData:data  withError :error];
+                        }] resume];
+            
+        }
+    }
+    else{
+        [utility hideHUD];
+        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+    }
+    
+}
 
 
 @end

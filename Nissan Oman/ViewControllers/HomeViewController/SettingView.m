@@ -10,6 +10,7 @@
 #import "AboutUsViewController.h"
 #import "FeedbackViewController.h"
 #import "SettingsViewController.h"
+#import "SharePreferenceUtil.h"
 
 @implementation SettingView
 {
@@ -99,8 +100,8 @@
     if(indexPath.row == 0)
     {
         [rootController.navigationController setNavigationBarHidden:NO];
-        FeedbackViewController *controller = [[FeedbackViewController alloc]init];
-        [rootController.navigationController pushViewController:controller animated:YES];
+        FeedbackViewController *controller1 = [[FeedbackViewController alloc]init];
+        [rootController.navigationController pushViewController:controller1 animated:YES];
     }
     else if(indexPath.row == 1)
     {
@@ -115,12 +116,14 @@
     }
    else  if(indexPath.row == 3)
    {
-       if(controller)
+       NSString *getVal = [[SharePreferenceUtil getInstance] getStringWithKey:IsSettingScreen];
+       if([getVal isEqualToString:@"YES"])
        {
             [self removeFromSuperview];
            return;
        }
-       
+        [[SharePreferenceUtil  getInstance] saveString:@"YES" withKey:IsSettingScreen];
+
        [rootController.navigationController setNavigationBarHidden:NO];
        controller = [[SettingsViewController alloc]init];
        [rootController.navigationController pushViewController:controller animated:YES];

@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "CustomTableViewCell.h"
+#import "AccountSettingViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -19,6 +20,8 @@
      NSMutableArray *dataArr;
     NSArray *imageArray;
     UITableView *tableView;
+    UIButton *logoutButton;
+    UIButton *deactivateButton;
 }
 
 - (void)viewDidLoad {
@@ -27,7 +30,7 @@
     dataArr = [[NSMutableArray alloc]init];
     
     NSDictionary *dict1 = @{
-                            @"image": @"account_settings.PNG",
+                            @"image": @"account_settings.png",
                             @"text":   @"ACCOUNT SETTINGS"
                             };
     
@@ -50,10 +53,16 @@
 
     [self addTitle];
     [self addTableView];
+    [self addButtons];
 
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[SharePreferenceUtil  getInstance] saveString:@"NO" withKey:IsSettingScreen];
+}
 -(void)addTitle
 {
     yCordinate = self.yCordinate + 10;
@@ -79,6 +88,54 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:tableView];
+    
+    yCordinate += tableView.frame.size.height + 5;
+
+}
+
+
+-(void)addButtons
+{
+    yCordinate = .78*screenHeight;
+    
+    logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(0,yCordinate, ScreenWidthFactor*90, ScreenHeightFactor*30)];
+    logoutButton.center = CGPointMake(screenWidth/2, logoutButton.center.y);
+    [logoutButton setBackgroundColor:[UIColor clearColor]];
+    [logoutButton setTitle:@"LOGOUT" forState:UIControlStateNormal];
+    [logoutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logoutButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:logoutButton];
+    
+    UIView *highlighter = [[UIView alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*45, yCordinate+logoutButton.frame.size.height - 7*ScreenHeightFactor, logoutButton.frame.size.width, ScreenHeightFactor*1)];
+    highlighter.center = CGPointMake(screenWidth/2, highlighter.center.y);
+    
+    [highlighter setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:highlighter];
+
+    
+    yCordinate += logoutButton.frame.size.height + 8;
+    
+    deactivateButton = [[UIButton alloc] initWithFrame:CGRectMake(0,yCordinate, ScreenWidthFactor*200, ScreenHeightFactor*30)];
+    deactivateButton.center = CGPointMake(screenWidth/2, deactivateButton.center.y);
+    [deactivateButton setBackgroundColor:[UIColor clearColor]];
+    [deactivateButton setTitle:@"DEACTIVATE ACCOUNT" forState:UIControlStateNormal];
+    [deactivateButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [deactivateButton addTarget:self action:@selector(logoutButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:deactivateButton];
+    
+    UIView *highlighter1 = [[UIView alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*45, yCordinate+deactivateButton.frame.size.height - 7*ScreenHeightFactor, deactivateButton.frame.size.width, ScreenHeightFactor*1)];
+    highlighter1.center = CGPointMake(screenWidth/2, highlighter1.center.y);
+    
+    [highlighter1 setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:highlighter1];
+
+    
+    
+}
+
+-(void)logoutButtonTouched:(id)sender
+{
+    
 }
 
 #pragma Mark tableView Delegaes implementation
@@ -113,6 +170,11 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 0)
+    {
+        AccountSettingViewController *controller = [[AccountSettingViewController alloc]init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
     
     
 }

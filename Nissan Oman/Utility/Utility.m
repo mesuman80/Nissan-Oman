@@ -12,6 +12,8 @@
     NSDateFormatter *dateformatter;
 }
 
+@synthesize isSettingScreen;
+
 -(id)init{
     dateformatter = [[NSDateFormatter alloc] init];
     [dateformatter setDateFormat:@"dd/MM/yy, HH:mm"];

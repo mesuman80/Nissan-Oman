@@ -27,6 +27,8 @@
     utility = [[Utility alloc]init];
     [utility configNudgerServerData];
     sharePreferenceUtil = [SharePreferenceUtil getInstance];
+    [[SharePreferenceUtil  getInstance] saveString:@"NO" withKey:IsSettingScreen];
+
     webService = [[WebService alloc]init];
     
     [[InternetConnection sharedInstance] connectionStatus];

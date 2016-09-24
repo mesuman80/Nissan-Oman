@@ -35,6 +35,7 @@
 		ECA1E9D31D950253007607CC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */; };
 		ECA1E9D51D950259007607CC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */; };
 		ECA1E9D71D9503D5007607CC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D61D9503D5007607CC /* Bolts.framework */; };
+		F70C3AE51D9648CE00EDC4F9 /* AccountSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */; };
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
@@ -229,6 +230,8 @@
 		ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		ECA1E9D61D9503D5007607CC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		ECA1E9D81D9505FB007607CC /* Nissan Oman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nissan Oman.entitlements"; sourceTree = "<group>"; };
+		F70C3AE31D9648CE00EDC4F9 /* AccountSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettingViewController.h; sourceTree = "<group>"; };
+		F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettingViewController.m; sourceTree = "<group>"; };
 		F71040901D8126C600BD3E88 /* TabbarBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarBaseViewController.h; sourceTree = "<group>"; };
 		F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarBaseViewController.m; sourceTree = "<group>"; };
 		F71040931D8126D300BD3E88 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
@@ -838,6 +841,8 @@
 				F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */,
 				F7ECA7581D9546D60065E83A /* SettingsViewController.h */,
 				F7ECA7591D9546D60065E83A /* SettingsViewController.m */,
+				F70C3AE31D9648CE00EDC4F9 /* AccountSettingViewController.h */,
+				F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */,
 			);
 			path = "Setting Controller";
 			sourceTree = "<group>";
@@ -1118,6 +1123,7 @@
 				F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */,
 				534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */,
 				532F20021D6EFFEE00F19D5B /* Reachability.m in Sources */,
+				F70C3AE51D9648CE00EDC4F9 /* AccountSettingViewController.m in Sources */,
 				F7AD7BAB1D82DD4500AECEDA /* BuyerSupportViewController.m in Sources */,
 				F7A9F3661D8FAEB000898284 /* RequestFormViewController.m in Sources */,
 				532F1F731D6EF21000F19D5B /* main.m in Sources */,

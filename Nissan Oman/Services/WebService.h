@@ -38,7 +38,7 @@ typedef void(^onCompletion)(NSString *error);
 -(void)requestServiceAppointment:(NSDictionary *)dict;
 -(void)requestFeedback:(NSDictionary *)dict;
 -(void)forgetPassword:(NSString *)email;
-
+-(void)accountSettings:(NSDictionary *)dict;
 
 //User Update Webservices
 -(void)updateDeviceTokenInSever;

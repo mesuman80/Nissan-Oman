@@ -199,7 +199,7 @@
         texfield.leftView = leftView;
         texfield.leftViewMode = UITextFieldViewModeAlways;
         
-        yVal += texfield.frame.size.height;
+        yVal += texfield.frame.size.height + 3;
     
         [dataFieldArr addObject:texfield];
     }
@@ -207,7 +207,7 @@
     [self radioButton];
     [self addSubmitButton];
     
-    [scrollView setContentSize:CGSizeMake(0, yVal + scrollView.frame.origin.y)];
+    [scrollView setContentSize:CGSizeMake(0,yVal)];
 
 }
 
@@ -316,6 +316,7 @@
     submitButton.center = CGPointMake(screenWidth/2, submitButton.center.y );
     [scrollView addSubview:submitButton];
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
+    yVal += submitButton.frame.size.height + 3;
 }
 
 -(void)submitRequest:(id)sender
