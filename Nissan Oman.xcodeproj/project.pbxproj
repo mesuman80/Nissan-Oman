@@ -36,6 +36,7 @@
 		ECA1E9D51D950259007607CC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */; };
 		ECA1E9D71D9503D5007607CC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D61D9503D5007607CC /* Bolts.framework */; };
 		F70C3AE51D9648CE00EDC4F9 /* AccountSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */; };
+		F70C3AE81D968F7300EDC4F9 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70C3AE71D968F7300EDC4F9 /* NotificationViewController.m */; };
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
@@ -232,6 +233,8 @@
 		ECA1E9D81D9505FB007607CC /* Nissan Oman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nissan Oman.entitlements"; sourceTree = "<group>"; };
 		F70C3AE31D9648CE00EDC4F9 /* AccountSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettingViewController.h; sourceTree = "<group>"; };
 		F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettingViewController.m; sourceTree = "<group>"; };
+		F70C3AE61D968F7300EDC4F9 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		F70C3AE71D968F7300EDC4F9 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		F71040901D8126C600BD3E88 /* TabbarBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarBaseViewController.h; sourceTree = "<group>"; };
 		F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarBaseViewController.m; sourceTree = "<group>"; };
 		F71040931D8126D300BD3E88 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
@@ -843,6 +846,8 @@
 				F7ECA7591D9546D60065E83A /* SettingsViewController.m */,
 				F70C3AE31D9648CE00EDC4F9 /* AccountSettingViewController.h */,
 				F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */,
+				F70C3AE61D968F7300EDC4F9 /* NotificationViewController.h */,
+				F70C3AE71D968F7300EDC4F9 /* NotificationViewController.m */,
 			);
 			path = "Setting Controller";
 			sourceTree = "<group>";
@@ -1095,6 +1100,7 @@
 				5304174B1D706DB100168934 /* ResponseModel.m in Sources */,
 				F7AA6D841D8ABD610058BE50 /* SettingView.m in Sources */,
 				532F200E1D6EFFFD00F19D5B /* SharePreferenceUtil.m in Sources */,
+				F70C3AE81D968F7300EDC4F9 /* NotificationViewController.m in Sources */,
 				F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */,
 				F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */,
 				534D9A121D758AA500867F73 /* SignupViewController.m in Sources */,

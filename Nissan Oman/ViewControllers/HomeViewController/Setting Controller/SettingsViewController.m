@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "CustomTableViewCell.h"
 #import "AccountSettingViewController.h"
+#import "NotificationViewController.h"
 
 @interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -185,6 +186,13 @@
     {
         isOnSameScreen = YES;
         AccountSettingViewController *controller = [[AccountSettingViewController alloc]init];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+    else if(indexPath.row == 1)
+    {
+        isOnSameScreen = YES;
+        NotificationViewController *controller = [[NotificationViewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
         
     }
