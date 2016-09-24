@@ -9,7 +9,7 @@
 #import "AccountSettingViewController.h"
 #import "WebService.h"
 
-@interface AccountSettingViewController ()<UITextFieldDelegate,CustomWebServiceDelegate>
+@interface AccountSettingViewController ()<UITextFieldDelegate,CustomWebServiceDelegate,UIGestureRecognizerDelegate>
 
 @end
 
@@ -43,7 +43,7 @@
     [self drawForm];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBackgroundTap)];
-    //gesture.delegate = self;
+    gesture.delegate = self;
     [self.view addGestureRecognizer:gesture];
     
     // Do any additional setup after loading the view.
@@ -325,6 +325,20 @@
                                  animated: YES
                                completion: nil];
     
+}
+
+#pragma mark UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([touch.view isDescendantOfView:self.settingView.tableView]) {
+        
+        // Don't let selections of auto-complete entries fire the
+        // gesture recognizer
+        return NO;
+    }
+    
+    return YES;
 }
 
 

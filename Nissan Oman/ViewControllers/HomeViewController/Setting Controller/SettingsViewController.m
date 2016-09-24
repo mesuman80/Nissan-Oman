@@ -22,6 +22,7 @@
     UITableView *tableView;
     UIButton *logoutButton;
     UIButton *deactivateButton;
+    BOOL isOnSameScreen;
 }
 
 - (void)viewDidLoad {
@@ -58,10 +59,20 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    isOnSameScreen = NO;
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[SharePreferenceUtil  getInstance] saveString:@"NO" withKey:IsSettingScreen];
+    if(!isOnSameScreen)
+    {
+        [[SharePreferenceUtil  getInstance] saveString:@"NO" withKey:IsSettingScreen];
+
+    }
 }
 -(void)addTitle
 {
@@ -172,8 +183,10 @@
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0)
     {
+        isOnSameScreen = YES;
         AccountSettingViewController *controller = [[AccountSettingViewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
+        
     }
     
     

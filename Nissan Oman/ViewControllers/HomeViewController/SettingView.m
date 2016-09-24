@@ -15,11 +15,10 @@
 @implementation SettingView
 {
     NSArray *dataArr;
-    UITableView *tableView;
     BOOL isClicked;
     SettingsViewController *controller;
 }
-@synthesize rootController;
+@synthesize rootController,tableView;
 
 -(id)initWithFrame:(CGRect)frame
 {

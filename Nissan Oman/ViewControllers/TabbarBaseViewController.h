@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingView.h"
 
 @interface TabbarBaseViewController : UIViewController
 @property  CGFloat yCordinate;
+@property SettingView *settingView;
 
 @end

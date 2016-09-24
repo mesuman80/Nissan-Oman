@@ -16,14 +16,14 @@
 @implementation TabbarBaseViewController
 {
      UIImageView *imgView;
-    SettingView *view;
+    
     int counter;
     UIButton *settingBtn;
     CGFloat yValue;
     UIView *baseView;
 }
 
-@synthesize yCordinate;
+@synthesize yCordinate,settingView;
 
 - (void)viewDidLoad {
     self.navigationController.navigationBarHidden = YES;
@@ -83,13 +83,13 @@
 {
     counter ++;
     CGFloat yval = yValue;//settingBtn.frame.origin.y + settingBtn.frame.size.height + 5;
-    if(!view)
+    if(!settingView)
     {
         //view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10,  yval,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - yval)];
         
         
-         view = [[SettingView alloc]initWithFrame:CGRectMake(0,  yval,self.view.frame.size.width, self.view.frame.size.height - yval)];
-        view.rootController = self;
+         settingView = [[SettingView alloc]initWithFrame:CGRectMake(0,  yval,self.view.frame.size.width, self.view.frame.size.height - yval)];
+        settingView.rootController = self;
         
        // view.backgroundColor = [UIColor whiteColor];
         //  [self.view addSubview:view];
@@ -97,10 +97,10 @@
     
     if(counter %2 != 0)
     {
-        view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
+        settingView.center = CGPointMake(2*self.view.frame.size.width, settingView.center.y);
         [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.view addSubview:view];
-            view.center = CGPointMake(self.view.frame.size.width/2, view.center.y);
+            [self.view addSubview:settingView];
+            settingView.center = CGPointMake(self.view.frame.size.width/2, settingView.center.y);
           //  self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
 
         } completion:^(BOOL finished) {
@@ -112,9 +112,9 @@
     else
     {
         [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            view.center = CGPointMake(2*self.view.frame.size.width, view.center.y);
+            settingView.center = CGPointMake(2*self.view.frame.size.width, settingView.center.y);
         } completion:^(BOOL finished) {
-            [view removeFromSuperview];
+            [settingView removeFromSuperview];
             // self.view.backgroundColor = [UIColor whiteColor];
 
         }];

@@ -10,4 +10,5 @@
 
 @interface SettingView : UIView<UITableViewDelegate, UITableViewDataSource>
 @property UIViewController *rootController;
+@property     UITableView *tableView;
 @end
