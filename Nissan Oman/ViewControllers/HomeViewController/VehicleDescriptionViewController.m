@@ -10,6 +10,7 @@
 #import "WebService.h"
 #import "DescriptionView.h"
 #import "GalleryViewController.h"
+#import "SubDescriptionViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -20,10 +21,12 @@
     NSDictionary *dataDictionary;
     CGFloat yVal;
     NSMutableArray *stringArr;
+    BOOL isFirstTime;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    stringArr = [[NSMutableArray alloc]initWithObjects:@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY", nil];
+    isFirstTime = YES;
+    stringArr = [[NSMutableArray alloc]initWithObjects:@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSATILITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY", nil];
    // stringArr = @[@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY"];
     [self.navigationController setNavigationBarHidden:NO];
 
@@ -32,7 +35,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self getDescription];
+    if(isFirstTime)
+    {
+        isFirstTime = NO;
+        [self getDescription];
+    }
+    
 }
 
 -(void)getDescription
@@ -127,13 +135,44 @@
     
     [scrollView addSubview:btn];
     
-    [scrollView setContentSize:CGSizeMake(0, scrollView.frame.size.height *.15f + scrollView.frame.origin.y)];
+    yPos += btn.frame.size.height + 5;
+    
+    [scrollView setContentSize:CGSizeMake(0, yPos)];
 }
 
 
 -(void)btntouched:(UITapGestureRecognizer *)sender
 {
     UIView *view = (UIView *)sender.view;
+    
+    if(view.tag == 3)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"performance"];
+        [self.navigationController setNavigationBarHidden:NO];
+        SubDescriptionViewController *controller =[[SubDescriptionViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"PEFORMANCE",arr];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+    if(view.tag == 4)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"safty"];
+        [self.navigationController setNavigationBarHidden:NO];
+        SubDescriptionViewController *controller =[[SubDescriptionViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"SAFETY",arr];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+
+    if(view.tag == 6)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"versatility"];
+        [self.navigationController setNavigationBarHidden:NO];
+        SubDescriptionViewController *controller =[[SubDescriptionViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"VERSATILITY",arr];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
     
     if(view.tag == 8)
     {
@@ -144,6 +183,16 @@
         controller.dataArray = arr;
         [self.navigationController pushViewController:controller animated:YES];
     }
+    
+    if(view.tag == 9)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"technology"];
+        [self.navigationController setNavigationBarHidden:NO];
+        SubDescriptionViewController *controller =[[SubDescriptionViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"TECHNOLOGY",arr];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

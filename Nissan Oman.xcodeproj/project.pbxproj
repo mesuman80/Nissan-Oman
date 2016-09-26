@@ -44,6 +44,7 @@
 		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
+		F778C5E31D98FDEE0074FB86 /* SubDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */; };
 		F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */; };
 		F7896D1C1D8686FC00DB024C /* SubTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D1B1D8686FC00DB024C /* SubTypeView.m */; };
 		F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */; };
@@ -250,6 +251,8 @@
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		F778C5E11D98FDED0074FB86 /* SubDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubDescriptionViewController.h; sourceTree = "<group>"; };
+		F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubDescriptionViewController.m; sourceTree = "<group>"; };
 		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleSubCategoryViewController.h; path = ../HomeViewController/VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
 		F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleSubCategoryViewController.m; path = ../HomeViewController/VehicleSubCategoryViewController.m; sourceTree = "<group>"; };
 		F7896D1A1D8686FC00DB024C /* SubTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubTypeView.h; path = ../HomeViewController/SubTypeView.h; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 				F710409D1D8126F900BD3E88 /* VehiclesViewController.m */,
 				F70C3AE91D96A9C600EDC4F9 /* GalleryViewController.h */,
 				F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */,
+				F778C5E11D98FDED0074FB86 /* SubDescriptionViewController.h */,
+				F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */,
 			);
 			path = VehiclesViewController;
 			sourceTree = "<group>";
@@ -1109,6 +1114,7 @@
 				F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */,
 				F7AD7BB41D82E2E000AECEDA /* PromotionsViewController.m in Sources */,
 				534D9A121D758AA500867F73 /* SignupViewController.m in Sources */,
+				F778C5E31D98FDEE0074FB86 /* SubDescriptionViewController.m in Sources */,
 				F7ECA75A1D9546D60065E83A /* SettingsViewController.m in Sources */,
 				F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
@@ -1295,7 +1301,7 @@
 				);
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nissan-Oman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1316,7 +1322,7 @@
 				);
 				GCC_PREFIX_HEADER = NissanOman.pch;
 				INFOPLIST_FILE = "Nissan Oman/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nissan-Oman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
