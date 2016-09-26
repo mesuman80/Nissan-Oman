@@ -68,7 +68,7 @@
     [baseView setBackgroundColor:[UIColor clearColor]];
     
     
-    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, 5, 20, 20)];
+    settingBtn = [[UIButton alloc]initWithFrame:CGRectMake(65, 5, 20, 20)];
     settingBtn.center = CGPointMake(settingBtn.center.x, settingBtn.center.y);
     [settingBtn setBackgroundImage:[UIImage imageNamed:@"setting_icon.png"] forState:UIControlStateNormal];
     [baseView addSubview:settingBtn];

@@ -423,13 +423,15 @@
         [textField resignFirstResponder];
         desiredField = textField;
         [self addTableView:textField];
+        return NO;
         
     }
     if(textField.tag == 5)
     {
+        [textField resignFirstResponder];
         desiredField = textField;
         [self openDatePicker];
-        
+        return NO;
     }
 
     return YES;
@@ -507,7 +509,7 @@
 {
     NSLog(@"Value rows");
     
-    if(activeField.tag == 1)
+    if(desiredField.tag == 1)
     {
         return carArray.count;
     }
@@ -590,7 +592,11 @@
 
 -(void)openDatePicker
 {
-    [activeField resignFirstResponder];
+    if(activeField)
+    {
+        [activeField resignFirstResponder];
+
+    }
     if(!myDatePicker)
     {
         datePickerView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 200  , self.view.frame.size.width ,200)];

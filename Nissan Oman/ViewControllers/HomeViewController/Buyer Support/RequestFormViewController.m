@@ -706,7 +706,7 @@
 {
     NSLog(@"Value rows");
     
-    if(activeField.tag == 1)
+    if(desiredField.tag == 1)
     {
         return carArray.count;
     }

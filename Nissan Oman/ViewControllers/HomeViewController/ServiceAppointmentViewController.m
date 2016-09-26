@@ -316,7 +316,7 @@
         texfield.tag = i;
         texfield.returnKeyType = UIReturnKeyDefault;
         
-        if([[arrVal objectAtIndex:i] isEqualToString:@"MOBILE NO"])
+        if([[arrVal objectAtIndex:i] isEqualToString:@"MOBILE NO"] || [[arrVal objectAtIndex:i] isEqualToString:@"CURRENT ODOMETER READING"] | [[arrVal objectAtIndex:i] isEqualToString:@"VEHICLE REGISTRATION NO"])
         {
             texfield.keyboardType = UIKeyboardTypePhonePad;
         }
@@ -473,6 +473,10 @@
     {
         [textField resignFirstResponder];
         desiredTextField = textField;
+        if(datePickerView)
+        {
+            [self removeDatePicker1];
+        }
         [self addTableView:textField];
         return NO;
         
@@ -480,6 +484,11 @@
     if(textField.tag == 2 || textField.tag == 6)
     {
         desiredTextField = textField;
+        if(tableView)
+        {
+            [tableView removeFromSuperview];
+            tableView = nil;
+        }
         [self openDatePicker];
         return NO;
         
@@ -556,7 +565,7 @@
         {
             if(timeArray.count >4)
             {
-                tableHeight = .4*self.view.frame.size.height;
+                tableHeight = .3*self.view.frame.size.height;
             }
             else
             {
@@ -596,11 +605,11 @@
 {
     NSLog(@"Value rows");
     
-    if(activeField.tag == 3)
+    if(desiredTextField.tag == 3)
     {
         return serviceCentreArray.count;
     }
-   else  if(activeField.tag == 7)
+   else  if(desiredTextField.tag == 7)
     {
         return timeArray.count;
     }

@@ -392,7 +392,7 @@
         [datePickerView setBackgroundColor:[UIColor whiteColor]];
         myDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,47, self.view.frame.size.width ,datePickerView.frame.size.height-47)];
         NSLog(@"%f",myDatePicker.frame.origin.y);
-        myDatePicker.minimumDate=[NSDate date];
+       // myDatePicker.minimumDate=[NSDate date];
         
         NSDate *currentDate = [NSDate date];
         NSCalendar *calendar = [NSCalendar currentCalendar];

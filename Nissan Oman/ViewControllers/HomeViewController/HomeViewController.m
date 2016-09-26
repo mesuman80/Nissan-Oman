@@ -102,6 +102,7 @@
         horScrollView.showsHorizontalScrollIndicator = NO;
     }
     [horScrollView setContentSize:CGSizeMake(xpos, horScrollView.frame.size.height)];
+    
      yVal += horScrollView.frame.size.height + 10;
     
    // yVal += imgView.frame.size.height + 10;

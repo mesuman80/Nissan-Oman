@@ -24,6 +24,7 @@
     UITableView *tableView;
     NSArray *arrOfDict;
     SubTypeView *subTypeView;
+    BOOL isFirstTime;
 
 }
 
@@ -32,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
+    isFirstTime = YES;
 
     dataArr = [[NSMutableArray alloc]init];
     carArray = @[@"passenger_cars.png",@"crossovers.png",@"suv.png",@"lcv.png"];
@@ -43,7 +45,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self getVehicleSubCategoryData];
+    if(isFirstTime)
+    {
+        isFirstTime = NO;
+        [self getVehicleSubCategoryData];
+
+    }
     if(subTypeView)
     {
         [subTypeView removeFromSuperview];
