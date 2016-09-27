@@ -34,7 +34,7 @@
    
     
     NSDictionary *dict1 = @{
-                            @"image": @"vehicles.png",
+                            @"image": @"passenger_cars.png",
                             @"text":   @"VEHICLES"
                             };
     

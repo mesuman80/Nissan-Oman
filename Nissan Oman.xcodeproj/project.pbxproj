@@ -64,12 +64,12 @@
 		F7A1C2F71D80338700C386A5 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A21D80338700C386A5 /* call.png */; };
 		F7A1C2F81D80338700C386A5 /* car_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A31D80338700C386A5 /* car_icon.png */; };
 		F7A1C2F91D80338700C386A5 /* civillian.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A41D80338700C386A5 /* civillian.png */; };
-		F7A1C2FA1D80338700C386A5 /* crossover_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A51D80338700C386A5 /* crossover_icon.png */; };
+		F7A1C2FA1D80338700C386A5 /* crossover_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A51D80338700C386A5 /* crossover_icon@2x.png */; };
 		F7A1C2FB1D80338700C386A5 /* crossovers.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A61D80338700C386A5 /* crossovers.png */; };
 		F7A1C2FC1D80338700C386A5 /* current_offers.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A71D80338700C386A5 /* current_offers.png */; };
 		F7A1C2FD1D80338700C386A5 /* genuine_parts_center.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */; };
 		F7A1C2FE1D80338700C386A5 /* gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A91D80338700C386A5 /* gtr.png */; };
-		F7A1C2FF1D80338700C386A5 /* homeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AA1D80338700C386A5 /* homeicon.png */; };
+		F7A1C2FF1D80338700C386A5 /* homeicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */; };
 		F7A1C3001D80338700C386A5 /* juke.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AB1D80338700C386A5 /* juke.png */; };
 		F7A1C3011D80338700C386A5 /* juke1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AC1D80338700C386A5 /* juke1.jpg */; };
 		F7A1C3021D80338700C386A5 /* juke2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AD1D80338700C386A5 /* juke2.jpg */; };
@@ -78,7 +78,7 @@
 		F7A1C3051D80338700C386A5 /* language_options.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B01D80338700C386A5 /* language_options.png */; };
 		F7A1C3061D80338700C386A5 /* lcv.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B11D80338700C386A5 /* lcv.png */; };
 		F7A1C3071D80338700C386A5 /* lcv_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B21D80338700C386A5 /* lcv_icon.png */; };
-		F7A1C3081D80338700C386A5 /* location_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B31D80338700C386A5 /* location_icon.png */; };
+		F7A1C3081D80338700C386A5 /* location_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B31D80338700C386A5 /* location_icon@2x.png */; };
 		F7A1C3091D80338700C386A5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B41D80338700C386A5 /* logo.png */; };
 		F7A1C30A1D80338700C386A5 /* loyalty_program.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B51D80338700C386A5 /* loyalty_program.png */; };
 		F7A1C30B1D80338700C386A5 /* maintenance_tips.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2B61D80338700C386A5 /* maintenance_tips.png */; };
@@ -103,7 +103,6 @@
 		F7A1C31E1D80338700C386A5 /* promotion_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2C91D80338700C386A5 /* promotion_icon.png */; };
 		F7A1C31F1D80338700C386A5 /* promotions.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CA1D80338700C386A5 /* promotions.png */; };
 		F7A1C3201D80338700C386A5 /* quote.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CB1D80338700C386A5 /* quote.png */; };
-		F7A1C3211D80338700C386A5 /* requestbrochoreedittext_background.xml in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CC1D80338700C386A5 /* requestbrochoreedittext_background.xml */; };
 		F7A1C3221D80338700C386A5 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CD1D80338700C386A5 /* search_icon.png */; };
 		F7A1C3231D80338700C386A5 /* sentra.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CE1D80338700C386A5 /* sentra.png */; };
 		F7A1C3241D80338700C386A5 /* service.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2CF1D80338700C386A5 /* service.png */; };
@@ -121,7 +120,7 @@
 		F7A1C3301D80338700C386A5 /* threeseven.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DB1D80338700C386A5 /* threeseven.png */; };
 		F7A1C3311D80338700C386A5 /* tiida.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DC1D80338700C386A5 /* tiida.png */; };
 		F7A1C3321D80338700C386A5 /* vechicle_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DD1D80338700C386A5 /* vechicle_icon.png */; };
-		F7A1C3331D80338700C386A5 /* vehicles.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DE1D80338700C386A5 /* vehicles.png */; };
+		F7A1C3331D80338700C386A5 /* vehicles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DE1D80338700C386A5 /* vehicles@2x.png */; };
 		F7A1C3341D80338700C386A5 /* xterra.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2DF1D80338700C386A5 /* xterra.png */; };
 		F7A1C3351D80338700C386A5 /* xtrail.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E01D80338700C386A5 /* xtrail.png */; };
 		F7A1C3361D80338700C386A5 /* xtrail1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2E11D80338700C386A5 /* xtrail1.jpg */; };
@@ -149,6 +148,9 @@
 		F7AF23C51D93E69D00105EF7 /* ServiceAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */; };
 		F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */; };
 		F7B0B9111D9138D700B2A7EA /* Radio_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */; };
+		F7C32F6F1D9A2DAE001D50B6 /* gridview_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7C32F6E1D9A2DAE001D50B6 /* gridview_icon.jpg */; };
+		F7C32F721D9A3FE8001D50B6 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C32F711D9A3FE8001D50B6 /* GridView.m */; };
+		F7C32F741D9A57DA001D50B6 /* listview_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C32F731D9A57DA001D50B6 /* listview_icon.png */; };
 		F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */; };
 		F7ECA7491D94E3AC0065E83A /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA7481D94E3AC0065E83A /* FeedbackViewController.m */; };
 		F7ECA74C1D9518560065E83A /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ECA74B1D9518560065E83A /* ForgetPasswordViewController.m */; };
@@ -275,12 +277,12 @@
 		F7A1C2A21D80338700C386A5 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		F7A1C2A31D80338700C386A5 /* car_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_icon.png; sourceTree = "<group>"; };
 		F7A1C2A41D80338700C386A5 /* civillian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = civillian.png; sourceTree = "<group>"; };
-		F7A1C2A51D80338700C386A5 /* crossover_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossover_icon.png; sourceTree = "<group>"; };
+		F7A1C2A51D80338700C386A5 /* crossover_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crossover_icon@2x.png"; sourceTree = "<group>"; };
 		F7A1C2A61D80338700C386A5 /* crossovers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossovers.png; sourceTree = "<group>"; };
 		F7A1C2A71D80338700C386A5 /* current_offers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current_offers.png; sourceTree = "<group>"; };
 		F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genuine_parts_center.png; sourceTree = "<group>"; };
 		F7A1C2A91D80338700C386A5 /* gtr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtr.png; sourceTree = "<group>"; };
-		F7A1C2AA1D80338700C386A5 /* homeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeicon.png; sourceTree = "<group>"; };
+		F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeicon@2x.png"; sourceTree = "<group>"; };
 		F7A1C2AB1D80338700C386A5 /* juke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juke.png; sourceTree = "<group>"; };
 		F7A1C2AC1D80338700C386A5 /* juke1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juke1.jpg; sourceTree = "<group>"; };
 		F7A1C2AD1D80338700C386A5 /* juke2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juke2.jpg; sourceTree = "<group>"; };
@@ -289,7 +291,7 @@
 		F7A1C2B01D80338700C386A5 /* language_options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language_options.png; sourceTree = "<group>"; };
 		F7A1C2B11D80338700C386A5 /* lcv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcv.png; sourceTree = "<group>"; };
 		F7A1C2B21D80338700C386A5 /* lcv_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lcv_icon.png; sourceTree = "<group>"; };
-		F7A1C2B31D80338700C386A5 /* location_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon.png; sourceTree = "<group>"; };
+		F7A1C2B31D80338700C386A5 /* location_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_icon@2x.png"; sourceTree = "<group>"; };
 		F7A1C2B41D80338700C386A5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F7A1C2B51D80338700C386A5 /* loyalty_program.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loyalty_program.png; sourceTree = "<group>"; };
 		F7A1C2B61D80338700C386A5 /* maintenance_tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maintenance_tips.png; sourceTree = "<group>"; };
@@ -314,7 +316,6 @@
 		F7A1C2C91D80338700C386A5 /* promotion_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = promotion_icon.png; sourceTree = "<group>"; };
 		F7A1C2CA1D80338700C386A5 /* promotions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = promotions.png; sourceTree = "<group>"; };
 		F7A1C2CB1D80338700C386A5 /* quote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quote.png; sourceTree = "<group>"; };
-		F7A1C2CC1D80338700C386A5 /* requestbrochoreedittext_background.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = requestbrochoreedittext_background.xml; sourceTree = "<group>"; };
 		F7A1C2CD1D80338700C386A5 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		F7A1C2CE1D80338700C386A5 /* sentra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sentra.png; sourceTree = "<group>"; };
 		F7A1C2CF1D80338700C386A5 /* service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = service.png; sourceTree = "<group>"; };
@@ -332,7 +333,7 @@
 		F7A1C2DB1D80338700C386A5 /* threeseven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = threeseven.png; sourceTree = "<group>"; };
 		F7A1C2DC1D80338700C386A5 /* tiida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiida.png; sourceTree = "<group>"; };
 		F7A1C2DD1D80338700C386A5 /* vechicle_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vechicle_icon.png; sourceTree = "<group>"; };
-		F7A1C2DE1D80338700C386A5 /* vehicles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vehicles.png; sourceTree = "<group>"; };
+		F7A1C2DE1D80338700C386A5 /* vehicles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vehicles@2x.png"; sourceTree = "<group>"; };
 		F7A1C2DF1D80338700C386A5 /* xterra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xterra.png; sourceTree = "<group>"; };
 		F7A1C2E01D80338700C386A5 /* xtrail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xtrail.png; sourceTree = "<group>"; };
 		F7A1C2E11D80338700C386A5 /* xtrail1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xtrail1.jpg; sourceTree = "<group>"; };
@@ -374,6 +375,10 @@
 		F7AF23C41D93E69D00105EF7 /* ServiceAppointmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceAppointmentViewController.m; path = ../ServiceAppointmentViewController.m; sourceTree = "<group>"; };
 		F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_off@2x.png"; sourceTree = "<group>"; };
 		F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio_button_on@2x.png"; sourceTree = "<group>"; };
+		F7C32F6E1D9A2DAE001D50B6 /* gridview_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gridview_icon.jpg; sourceTree = "<group>"; };
+		F7C32F701D9A3FE8001D50B6 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
+		F7C32F711D9A3FE8001D50B6 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
+		F7C32F731D9A57DA001D50B6 /* listview_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listview_icon.png; sourceTree = "<group>"; };
 		F7EC862E1D9414CE00FAD40B /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F7EC862F1D9414CE00FAD40B /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		F7ECA7471D94E3AC0065E83A /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
@@ -695,6 +700,8 @@
 				F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */,
 				F778C5E11D98FDED0074FB86 /* SubDescriptionViewController.h */,
 				F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */,
+				F7C32F701D9A3FE8001D50B6 /* GridView.h */,
+				F7C32F711D9A3FE8001D50B6 /* GridView.m */,
 			);
 			path = VehiclesViewController;
 			sourceTree = "<group>";
@@ -712,6 +719,8 @@
 		F7A1C2941D80338600C386A5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				F7C32F731D9A57DA001D50B6 /* listview_icon.png */,
+				F7C32F6E1D9A2DAE001D50B6 /* gridview_icon.jpg */,
 				F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */,
 				F7B0B90F1D9138D700B2A7EA /* Radio_button_on@2x.png */,
 				F7A1C2951D80338600C386A5 /* account_settings.png */,
@@ -730,12 +739,12 @@
 				F7A1C2A21D80338700C386A5 /* call.png */,
 				F7A1C2A31D80338700C386A5 /* car_icon.png */,
 				F7A1C2A41D80338700C386A5 /* civillian.png */,
-				F7A1C2A51D80338700C386A5 /* crossover_icon.png */,
+				F7A1C2A51D80338700C386A5 /* crossover_icon@2x.png */,
 				F7A1C2A61D80338700C386A5 /* crossovers.png */,
 				F7A1C2A71D80338700C386A5 /* current_offers.png */,
 				F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */,
 				F7A1C2A91D80338700C386A5 /* gtr.png */,
-				F7A1C2AA1D80338700C386A5 /* homeicon.png */,
+				F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */,
 				F7A1C2AB1D80338700C386A5 /* juke.png */,
 				F7A1C2AC1D80338700C386A5 /* juke1.jpg */,
 				F7A1C2AD1D80338700C386A5 /* juke2.jpg */,
@@ -744,7 +753,7 @@
 				F7A1C2B01D80338700C386A5 /* language_options.png */,
 				F7A1C2B11D80338700C386A5 /* lcv.png */,
 				F7A1C2B21D80338700C386A5 /* lcv_icon.png */,
-				F7A1C2B31D80338700C386A5 /* location_icon.png */,
+				F7A1C2B31D80338700C386A5 /* location_icon@2x.png */,
 				F7A1C2B41D80338700C386A5 /* logo.png */,
 				F7A1C2B51D80338700C386A5 /* loyalty_program.png */,
 				F7A1C2B61D80338700C386A5 /* maintenance_tips.png */,
@@ -769,7 +778,6 @@
 				F7A1C2C91D80338700C386A5 /* promotion_icon.png */,
 				F7A1C2CA1D80338700C386A5 /* promotions.png */,
 				F7A1C2CB1D80338700C386A5 /* quote.png */,
-				F7A1C2CC1D80338700C386A5 /* requestbrochoreedittext_background.xml */,
 				F7A1C2CD1D80338700C386A5 /* search_icon.png */,
 				F7A1C2CE1D80338700C386A5 /* sentra.png */,
 				F7A1C2CF1D80338700C386A5 /* service.png */,
@@ -787,7 +795,7 @@
 				F7A1C2DB1D80338700C386A5 /* threeseven.png */,
 				F7A1C2DC1D80338700C386A5 /* tiida.png */,
 				F7A1C2DD1D80338700C386A5 /* vechicle_icon.png */,
-				F7A1C2DE1D80338700C386A5 /* vehicles.png */,
+				F7A1C2DE1D80338700C386A5 /* vehicles@2x.png */,
 				F7A1C2DF1D80338700C386A5 /* xterra.png */,
 				F7A1C2E01D80338700C386A5 /* xtrail.png */,
 				F7A1C2E11D80338700C386A5 /* xtrail1.jpg */,
@@ -1008,17 +1016,17 @@
 				F7A1C3031D80338700C386A5 /* juke3.jpg in Resources */,
 				F7A1C3271D80338700C386A5 /* setting_icon.png in Resources */,
 				F7A1C31F1D80338700C386A5 /* promotions.png in Resources */,
-				F7A1C3211D80338700C386A5 /* requestbrochoreedittext_background.xml in Resources */,
 				F7A1C2ED1D80338700C386A5 /* app_icon.png in Resources */,
 				F7A1C3341D80338700C386A5 /* xterra.png in Resources */,
 				F7A1C3291D80338700C386A5 /* showroomicon.png in Resources */,
 				F7A1C32F1D80338700C386A5 /* test_drive.png in Resources */,
 				F7A1C2F91D80338700C386A5 /* civillian.png in Resources */,
-				F7A1C3081D80338700C386A5 /* location_icon.png in Resources */,
+				F7A1C3081D80338700C386A5 /* location_icon@2x.png in Resources */,
 				F7A1C2F11D80338700C386A5 /* background.png in Resources */,
 				F7B0B9101D9138D700B2A7EA /* Radio_button_off@2x.png in Resources */,
 				F7A1C31C1D80338700C386A5 /* patrolpickup.png in Resources */,
-				F7A1C3331D80338700C386A5 /* vehicles.png in Resources */,
+				F7C32F741D9A57DA001D50B6 /* listview_icon.png in Resources */,
+				F7A1C3331D80338700C386A5 /* vehicles@2x.png in Resources */,
 				532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */,
 				F7A1C3261D80338700C386A5 /* service_icon.png in Resources */,
 				F7A1C30F1D80338700C386A5 /* micra.png in Resources */,
@@ -1026,10 +1034,11 @@
 				F7A1C3251D80338700C386A5 /* service_centre.png in Resources */,
 				F7A1C31B1D80338700C386A5 /* patrol.png in Resources */,
 				532F1F7C1D6EF21000F19D5B /* Main.storyboard in Resources */,
+				F7C32F6F1D9A2DAE001D50B6 /* gridview_icon.jpg in Resources */,
 				F7ECA7561D95382D0065E83A /* vpone_4.jpg in Resources */,
 				F7A1C3141D80338700C386A5 /* nvurvan.png in Resources */,
 				F7A1C3061D80338700C386A5 /* lcv.png in Resources */,
-				F7A1C2FF1D80338700C386A5 /* homeicon.png in Resources */,
+				F7A1C2FF1D80338700C386A5 /* homeicon@2x.png in Resources */,
 				F7ECA7551D95382D0065E83A /* vpone_3.jpg in Resources */,
 				F7A1C30D1D80338700C386A5 /* menu.png in Resources */,
 				F7A1C3121D80338700C386A5 /* navara.png in Resources */,
@@ -1068,7 +1077,7 @@
 				F7A1C31A1D80338700C386A5 /* pathfinderclassic.png in Resources */,
 				F7A1C2F01D80338700C386A5 /* arrow_icon_gray.png in Resources */,
 				F7A1C3111D80338700C386A5 /* murano.png in Resources */,
-				F7A1C2FA1D80338700C386A5 /* crossover_icon.png in Resources */,
+				F7A1C2FA1D80338700C386A5 /* crossover_icon@2x.png in Resources */,
 				F7A1C3191D80338700C386A5 /* pathfinder.png in Resources */,
 				F7A1C2EC1D80338700C386A5 /* altima.png in Resources */,
 				F7A1C2EF1D80338700C386A5 /* arrow_icon.png in Resources */,
@@ -1119,6 +1128,7 @@
 				F7AF23C21D93B23000105EF7 /* AdventureParkViewController.m in Sources */,
 				532F20011D6EFFEE00F19D5B /* InternetConnection.m in Sources */,
 				532F200D1D6EFFFD00F19D5B /* NotificationManager.m in Sources */,
+				F7C32F721D9A3FE8001D50B6 /* GridView.m in Sources */,
 				F70C3AEB1D96A9C600EDC4F9 /* GalleryViewController.m in Sources */,
 				532F1FE91D6EFA5000F19D5B /* SVProgressHUD.m in Sources */,
 				5304174A1D706DB100168934 /* CategoryModel.m in Sources */,

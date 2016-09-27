@@ -31,6 +31,7 @@
     [self tabBar].barStyle  = UIBarStyleDefault;
   //  [[self tabBar] setOpaque:YES];
     [self tabBar].tintColor = [UIColor whiteColor];
+     self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, 0, 0);
     [self drawTabbar];
     // Do any additional setup after loading the view.
 }
@@ -97,7 +98,8 @@
     verticalView1.center = CGPointMake([self tabBar].frame.size.width*.25f, verticalView1.center.y);
     verticalView2.center = CGPointMake([self tabBar].frame.size.width*.5f, verticalView2.center.y);
     verticalView3.center = CGPointMake([self tabBar].frame.size.width*.75f, verticalView3.center.y);
-
+    
+   
     
 }
 

@@ -43,7 +43,7 @@
     
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(label.frame.size.width + label.frame.origin.x + 5, 0, 10, 10)];
     imgView.center = CGPointMake(imgView.center.x, self.frame.size.height/2);
-    imgView.image = [UIImage imageNamed:@"arrow_icon_gray.png"];
+    imgView.image = [UIImage imageNamed:@"arrow_icon.png"];
     [self addSubview:imgView];
 }
 /*

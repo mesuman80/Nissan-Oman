@@ -64,6 +64,7 @@
     
     iconImgView.image = [UIImage imageNamed:[dict valueForKey:@"image"]];
     iconImgView.center = CGPointMake(iconImgView.center.x, baseView.frame.size.height/2);
+    iconImgView.contentMode = UIViewContentModeScaleAspectFill;
     
     textLabel.text = [dict valueForKey:@"text"];
     CGSize size =[textLabel.text sizeWithAttributes:@{NSFontAttributeName : textLabel.font}];
@@ -71,8 +72,8 @@
     textLabel.center = CGPointMake(textLabel.center.x, baseView.frame.size.height/2);
     
     
-    rightArrImgView.image = [UIImage imageNamed:@"arrow_icon_gray"];
-    rightArrImgView.center = CGPointMake(baseView.frame.size.width *.90f, baseView.frame.size.height/2);
+    rightArrImgView.image = [UIImage imageNamed:@"arrow_icon.png"];
+    rightArrImgView.center = CGPointMake(baseView.frame.size.width *.93f, baseView.frame.size.height/2);
     
     
 }

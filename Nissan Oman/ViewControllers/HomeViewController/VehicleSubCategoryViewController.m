@@ -10,6 +10,7 @@
 #import "CustomTableViewCell.h"
 #import "WebService.h"
 #import "SubTypeView.h"
+#import "GridView.h"
 
 
 @interface VehicleSubCategoryViewController ()<CustomWebServiceDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -25,7 +26,9 @@
     NSArray *arrOfDict;
     SubTypeView *subTypeView;
     BOOL isFirstTime;
-
+    GridView *gridView;
+    UIButton *menuButton;
+    NSMutableArray *gridArray;
 }
 
 @synthesize dictionary;
@@ -38,7 +41,7 @@
     dataArr = [[NSMutableArray alloc]init];
     carArray = @[@"passenger_cars.png",@"crossovers.png",@"suv.png",@"lcv.png"];
     [self addTitle];
-
+    [self addButtons];
     // Do any additional setup after loading the view.
 }
 
@@ -70,6 +73,153 @@
     
     yCordinate += label.frame.size.height +3;
 }
+-(void)addButtons
+{
+    UIButton *gridButton = [[UIButton alloc]initWithFrame:CGRectMake(.75*self.view.frame.size.width, yCordinate, 20, 20)];
+    [gridButton setBackgroundImage:[UIImage imageNamed:@"gridview_icon.jpg"] forState:UIControlStateNormal];
+    [self.view addSubview:gridButton];
+    gridButton.tag = 0;
+    [gridButton addTarget:self action:@selector(displayTypeChanged:) forControlEvents:UIControlEventTouchUpInside];
+    
+    menuButton = [[UIButton alloc]initWithFrame:CGRectMake(.82*self.view.frame.size.width, yCordinate - 2, 25, 25)];
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"listview_icon.png"] forState:UIControlStateNormal];
+    [self.view addSubview:menuButton];
+    menuButton.tag = 1;
+    [menuButton addTarget:self action:@selector(displayTypeChanged:) forControlEvents:UIControlEventTouchUpInside];
+
+    yCordinate += gridButton.frame.size.height + 7;
+    
+}
+
+-(void)displayTypeChanged:(UIButton *)sender
+{
+    if(sender.tag == 0)
+    {
+        tableView.alpha = 0;
+        if(!gridView)
+        {
+            [self addGridView];
+        }
+        else
+        {
+            for(GridView *view in gridArray)
+            {
+                view.alpha = 1;
+            }
+        }
+    }
+    else
+    {
+        if(gridView)
+        {
+            for(GridView *view in gridArray)
+            {
+                 view.alpha = 0;
+            }
+           
+        }
+        tableView.alpha = 1;
+    }
+}
+
+-(void)addGridView
+{
+    gridArray = [[NSMutableArray alloc]init];
+    NSMutableArray *carNameArray = [[NSMutableArray alloc]init];
+     NSMutableArray *carImageArray = [[NSMutableArray alloc]init];
+    for(NSDictionary *dict in arrOfDict)
+    {
+         NSString *name = [dict valueForKey:@"model_name"];
+        [carNameArray addObject:name];
+        
+        if([[self.dictionary valueForKey:@"category"] isEqualToString:@"PASSENGER CARS"])
+        {
+            [carImageArray addObject:@"micra.png"];
+            [carImageArray addObject:@"sunny.png"];
+            [carImageArray addObject:@"tiida.png"];
+            [carImageArray addObject:@"sentra.png"];
+            [carImageArray addObject:@"altima.png"];
+            [carImageArray addObject:@"maxima.png"];
+            [carImageArray addObject:@"threeseven.png"];
+            [carImageArray addObject:@"gtr.png"];
+            
+        }
+        else if([[self.dictionary valueForKey:@"category"] isEqualToString:@"CROSSOVERS"])
+        {
+            [carImageArray addObject:@"juke.png"];
+            [carImageArray addObject:@"xtrail.png"];
+            [carImageArray addObject:@"pathfinder.png"];
+            
+        }
+        else if([[self.dictionary valueForKey:@"category"] isEqualToString:@"SUVs"])
+        {
+            [carImageArray addObject:@"xterra.png"];
+            [carImageArray addObject:@"armada.png"];
+            
+        }
+        else if([[self.dictionary valueForKey:@"category"] isEqualToString:@"LCVs"])
+        {
+            [carImageArray addObject:@"pickup.png"];
+            [carImageArray addObject:@"navara.png"];
+            [carImageArray addObject:@"nvurvan.png"];
+            [carImageArray addObject:@"pickup.png"];
+            
+        }
+
+    }
+    CGFloat xPos = .05*self.view.frame.size.width;
+    CGFloat yPos = menuButton.frame.size.height + menuButton.frame.origin.y + 7;
+    for(int i=0; i<carNameArray.count; i++)
+    {
+        NSArray *arr = @[[carNameArray objectAtIndex:i],[carImageArray objectAtIndex:i]];
+        gridView = [[GridView alloc]initWithFrame:CGRectMake(xPos, yPos, .28*self.view.frame.size.width, .20*self.view.frame.size.width) withData:arr];
+        [gridView drawGridView];
+        gridView.tag = i;
+        gridView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemClicked:)];
+        [gridView addGestureRecognizer:gesture];
+        
+        [self.view addSubview:gridView];
+        xPos += gridView.frame.size.width + 10;
+        if(i %3 != 0 && i %3 != 1) {
+            xPos = .05*self.view.frame.size.width;
+            yPos += gridView.frame.size.height + 10;
+            
+        }
+        
+        [gridArray addObject:gridView];
+    }
+}
+
+-(void)itemClicked:(UITapGestureRecognizer *)gesture
+{
+    UIView *view = gesture.view;
+    NSDictionary *dict = [arrOfDict objectAtIndex:view.tag];
+    NSArray *arr = [dict valueForKey:@"type"];
+    NSMutableArray *dictArray = [[NSMutableArray alloc]init];
+    int i = 0;
+    for(NSDictionary *dict in arr)
+    {
+        NSString *name = [dict valueForKey:@"vehicle_name"];
+        
+        NSDictionary *dictionary1 = @{
+                                      @"text": name,
+                                      @"image": self.imageName
+                                      };
+        i++;
+        
+        [dictArray addObject:dictionary1];
+    }
+    
+    subTypeView = [[SubTypeView alloc]initWithFrame:self.view.frame withDictionaryArray:dictArray];
+    subTypeView.dictionaryArray = dictArray;
+    subTypeView.vehicleArr = [dict valueForKey:@"type"];
+    subTypeView.parentViewController = self;
+    [self.view addSubview:subTypeView];
+
+}
+
 -(void)getVehicleSubCategoryData
 {
     WebService *webService = [[WebService alloc]init];
@@ -106,7 +256,7 @@
 }
 -(void)addTableView
 {
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .55*self.view.frame.size.height) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .55*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
