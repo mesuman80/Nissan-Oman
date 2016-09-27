@@ -11,6 +11,7 @@
 #import "DescriptionView.h"
 #import "GalleryViewController.h"
 #import "SubDescriptionViewController.h"
+#import "OverviewViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -144,7 +145,17 @@
 -(void)btntouched:(UITapGestureRecognizer *)sender
 {
     UIView *view = (UIView *)sender.view;
-    
+    if(view.tag == 0)
+    {
+        NSString *overview = [dataDictionary valueForKey:@"vehicle_overview"];
+        NSString *image = [dataDictionary valueForKey:@"overview_image"];
+
+        [self.navigationController setNavigationBarHidden:NO];
+        OverviewViewController *controller =[[OverviewViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"PEFORMANCE",image,overview];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
     if(view.tag == 3)
     {
         NSArray *arr = [dataDictionary valueForKey:@"performance"];

@@ -32,7 +32,7 @@
     [super viewWillAppear:animated];
     [self addTitle];
     [self addSubTitle];
-     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(addScrollView) userInfo:nil repeats:NO];
+     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(addScrollView) userInfo:nil repeats:NO];
     
    // [self addScrollView];
 

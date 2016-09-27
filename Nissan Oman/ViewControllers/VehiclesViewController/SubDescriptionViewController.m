@@ -97,12 +97,14 @@
         UILabel *headingLabel = [[UILabel alloc]init];
         headingLabel.font = [UIFont boldSystemFontOfSize:10.0f];
         NSString *headingStr = [dict valueForKey:@"heading"];
+        headingLabel.text = headingStr;
         CGSize displayValueSize = [headingLabel.text sizeWithFont:headingLabel.font
                                             constrainedToSize:CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX)
                                                 lineBreakMode:NSLineBreakByWordWrapping];
 
         headingLabel.frame = CGRectMake(16, initialY, scrollView.frame.size.width - 20, displayValueSize.height + 10);
-        headingLabel.text = headingStr;
+        headingLabel.numberOfLines = 0;
+        
         [scrollView addSubview:headingLabel];
 
         initialY += headingLabel.frame.size.height + 10;
