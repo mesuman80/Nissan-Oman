@@ -12,6 +12,7 @@
 #import "GalleryViewController.h"
 #import "SubDescriptionViewController.h"
 #import "OverviewViewController.h"
+#import "ExteriorViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -27,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isFirstTime = YES;
-    stringArr = [[NSMutableArray alloc]initWithObjects:@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSATILITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY", nil];
+    stringArr = [[NSMutableArray alloc]initWithObjects:@"OVERVIEW",@"EXTERIOIR",@"INTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSATILITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY", nil];
    // stringArr = @[@"OVERVIEW",@"EXTERIOIR",@"EXTERIOR",@"PERFORMANCE",@"SAFETY",@"COLOR AND TRIM",@"VERSALITY",@"SPECIFICATION",@"GALLERY",@"TECHNOLOGY"];
     [self.navigationController setNavigationBarHidden:NO];
 
@@ -156,6 +157,33 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
+    if(view.tag == 1)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        
+        ExteriorViewController *controller =[[ExteriorViewController alloc]init];
+        controller.titleName = [dataDictionary valueForKey:@"vehicle_name"];
+        controller.exteriorDataArray = [dataDictionary valueForKey:@"exterior"];
+        controller.interiorDataArray = [dataDictionary valueForKey:@"interior"];
+
+        controller.isexteriorSelected = YES;
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+    if(view.tag == 2)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+        
+        ExteriorViewController *controller =[[ExteriorViewController alloc]init];
+        controller.titleName = [dataDictionary valueForKey:@"vehicle_name"];
+        controller.interiorDataArray = [dataDictionary valueForKey:@"interior"];
+        controller.exteriorDataArray = [dataDictionary valueForKey:@"exterior"];
+
+        controller.isinteriorSelected = YES;
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+
     if(view.tag == 3)
     {
         NSArray *arr = [dataDictionary valueForKey:@"performance"];

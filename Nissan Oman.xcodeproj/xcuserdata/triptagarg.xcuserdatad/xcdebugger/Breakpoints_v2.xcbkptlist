@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496656903.504776"
+            timestampString = "496665207.026321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-getDescription"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496656903.504776"
+            timestampString = "496665207.026321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "-drawVehicleView"
             landmarkType = "7">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496656903.504776"
+            timestampString = "496665207.026321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-drawButtons"
             landmarkType = "7">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496656903.504776"
+            timestampString = "496665207.026321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-drawButtons"
             landmarkType = "7">
          </BreakpointContent>
@@ -2698,11 +2698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496658269.324012"
+            timestampString = "496669586.969278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-btntouched:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2746,11 +2746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496656903.504776"
+            timestampString = "496665207.026321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-ConnectionDidFinishWithSuccess:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2810,11 +2810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/HomeViewController/VehicleDescriptionViewController.m"
-            timestampString = "496658269.324012"
+            timestampString = "496669586.969278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-btntouched:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2928,6 +2928,38 @@
             startingLineNumber = "95"
             endingLineNumber = "95"
             landmarkName = "-drawOverView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/ViewControllers/VehiclesViewController/ExteriorViewController.m"
+            timestampString = "496671874.784336"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-drawExteriorScrollView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/ViewControllers/VehiclesViewController/ExteriorViewController.m"
+            timestampString = "496672068.563863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "-drawExteriorScrollView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

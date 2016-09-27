@@ -73,7 +73,7 @@
     
     
     rightArrImgView.image = [UIImage imageNamed:@"arrow_icon.png"];
-    rightArrImgView.center = CGPointMake(baseView.frame.size.width *.93f, baseView.frame.size.height/2);
+    rightArrImgView.center = CGPointMake(baseView.frame.size.width *.95f, baseView.frame.size.height/2);
     
     
 }
