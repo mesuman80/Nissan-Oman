@@ -32,7 +32,9 @@
     [super viewWillAppear:animated];
     [self addTitle];
     [self addSubTitle];
-    [self addScrollView];
+     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(addScrollView) userInfo:nil repeats:NO];
+    
+   // [self addScrollView];
 
 }
 -(void)addTitle
@@ -66,6 +68,7 @@
 -(void)addScrollView
 {
     UIScrollView *horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , .20f*self.view.frame.size.height)];
+    //[horScrollView setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:horScrollView];
     horScrollView.pagingEnabled = YES;
     NSArray *arr = dataArray;
