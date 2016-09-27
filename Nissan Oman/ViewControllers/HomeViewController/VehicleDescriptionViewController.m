@@ -13,6 +13,7 @@
 #import "SubDescriptionViewController.h"
 #import "OverviewViewController.h"
 #import "ExteriorViewController.h"
+#import "ColorViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -199,6 +200,15 @@
         [self.navigationController setNavigationBarHidden:NO];
         SubDescriptionViewController *controller =[[SubDescriptionViewController alloc]init];
         controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"SAFETY",arr];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+    if(view.tag == 5)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"color_trim"];
+        [self.navigationController setNavigationBarHidden:NO];
+        ColorViewController *controller =[[ColorViewController alloc]init];
+        controller.dataArray = @[[dataDictionary valueForKey:@"vehicle_name"],@"BODY COLOR",arr];
         [self.navigationController pushViewController:controller animated:YES];
         
     }
