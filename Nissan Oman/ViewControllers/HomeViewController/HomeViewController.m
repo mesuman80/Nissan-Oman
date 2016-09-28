@@ -75,6 +75,10 @@
 {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES];
+    if(self.settingView)
+    {
+        [self.settingView removeFromSuperview];
+    }
 
 }
 
