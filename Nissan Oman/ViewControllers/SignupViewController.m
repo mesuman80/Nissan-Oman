@@ -149,7 +149,7 @@
     [phoneNumberTextfield setPlaceholder:PlaceholderSignupPhoneNumberString];
     phoneNumberTextfield.delegate = self;
     phoneNumberTextfield.keyboardType = UIKeyboardTypePhonePad;
-    UILabel * leftView1 = [[UILabel alloc] initWithFrame:CGRectMake(0,0,60,ScreenHeightFactor*50)];
+    UILabel * leftView1 = [[UILabel alloc] initWithFrame:CGRectMake(0,0,60,phoneNumberTextfield.frame.size.height)];
     leftView1.backgroundColor = [UIColor clearColor];
     [leftView1 setText:PlaceholderSignupCountryCodeString];
     [leftView1 setFont:[UIFont systemFontOfSize:12.0]];

@@ -28,6 +28,7 @@
     WebService *webService;
     UITextField *activeTextField;
     NSString *fbAccessToken;
+    BOOL isFirstTime;
 
 }
 
@@ -37,18 +38,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isFirstTime = YES;
  
     // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setupTextField];
-    [self setupForForgetPassword];
-    [self setupForSignUp];
-    [self addSeparatorView];
-    [self setupForFacebookLogin];
-    [self setBottomBanner];
+    if(isFirstTime)
+    {
+        isFirstTime = NO;
+        [self setupTextField];
+        [self setupForForgetPassword];
+        [self setupForSignUp];
+        [self addSeparatorView];
+        [self setupForFacebookLogin];
+        [self setBottomBanner];
+
+        
+    }
 }
 
 
@@ -79,7 +87,7 @@
 }
 
 -(void)setupForForgetPassword{
-    forgetPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*10, self.y, screenWidth/2, ScreenHeightFactor*40)];
+    forgetPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*6, self.y, screenWidth/2, ScreenHeightFactor*40)];
     [forgetPasswordButton setBackgroundColor:[UIColor clearColor]];
     [forgetPasswordButton setTitle:@"Forget Password ?" forState:UIControlStateNormal];
     [forgetPasswordButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -148,6 +156,8 @@
     UIImageView *bottomBannerView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/8, self.y, screenWidth-ScreenWidthFactor*80, ScreenHeightFactor*40)];
     [bottomBannerView setImage:[UIImage imageNamed:@"bottombar.png"]];
     [self.scrollView addSubview:bottomBannerView];
+    self.y += bottomBannerView.frame.size.height + 5;
+    [self.scrollView setContentSize:CGSizeMake(0, self.y)];
 }
 
 #pragma textField Delegate

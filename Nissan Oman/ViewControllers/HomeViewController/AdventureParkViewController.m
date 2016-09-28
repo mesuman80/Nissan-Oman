@@ -422,6 +422,10 @@
     {
         [textField resignFirstResponder];
         desiredField = textField;
+        if(datePickerView)
+        {
+            [self removeDatePicker1];
+        }
         [self addTableView:textField];
         return NO;
         
@@ -430,6 +434,11 @@
     {
         [textField resignFirstResponder];
         desiredField = textField;
+        if(tableView)
+        {
+            [tableView removeFromSuperview];
+            tableView = nil;
+        }
         [self openDatePicker];
         return NO;
     }

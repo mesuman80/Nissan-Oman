@@ -31,6 +31,7 @@
 		534D9A121D758AA500867F73 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D9A111D758AA500867F73 /* SignupViewController.m */; };
 		534D9A151D759C2E00867F73 /* LoginBaseviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D9A141D759C2E00867F73 /* LoginBaseviewViewController.m */; };
 		5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390C47E1D74381900193CE3 /* CustomTextField.m */; };
+		CC9AC73AA5B4CF911D798D08 /* libPods-Nissan Oman.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF175F7935F72E1C7BD1215 /* libPods-Nissan Oman.a */; };
 		ECA1E9D11D950245007607CC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */; };
 		ECA1E9D31D950253007607CC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */; };
 		ECA1E9D51D950259007607CC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */; };
@@ -186,6 +187,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DF175F7935F72E1C7BD1215 /* libPods-Nissan Oman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nissan Oman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		530417211D70648300168934 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		530417221D70648300168934 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		530417441D706DB100168934 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
@@ -236,11 +238,13 @@
 		534D9A141D759C2E00867F73 /* LoginBaseviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginBaseviewViewController.m; sourceTree = "<group>"; };
 		5390C47D1D74381900193CE3 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
 		5390C47E1D74381900193CE3 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		C4FCB51549500C4F852F37CB /* Pods-Nissan Oman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nissan Oman.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nissan Oman/Pods-Nissan Oman.release.xcconfig"; sourceTree = "<group>"; };
 		ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		ECA1E9D41D950259007607CC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		ECA1E9D61D9503D5007607CC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		ECA1E9D81D9505FB007607CC /* Nissan Oman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nissan Oman.entitlements"; sourceTree = "<group>"; };
+		ECBEFF03F5AD6016FF15523B /* Pods-Nissan Oman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nissan Oman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nissan Oman/Pods-Nissan Oman.debug.xcconfig"; sourceTree = "<group>"; };
 		F70C3AE31D9648CE00EDC4F9 /* AccountSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettingViewController.h; sourceTree = "<group>"; };
 		F70C3AE41D9648CE00EDC4F9 /* AccountSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettingViewController.m; sourceTree = "<group>"; };
 		F70C3AE61D968F7300EDC4F9 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */,
 				ECA1E9D11D950245007607CC /* FBSDKCoreKit.framework in Frameworks */,
 				ECA1E9D31D950253007607CC /* FBSDKLoginKit.framework in Frameworks */,
+				CC9AC73AA5B4CF911D798D08 /* libPods-Nissan Oman.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +493,7 @@
 				532F1F951D6EF21000F19D5B /* Nissan OmanUITests */,
 				532F1F6F1D6EF21000F19D5B /* Products */,
 				F7A9F35D1D8BFFBA00898284 /* Frameworks */,
+				9AD51B05905B6384B7CD0F6A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -649,6 +655,15 @@
 				F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9AD51B05905B6384B7CD0F6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECBEFF03F5AD6016FF15523B /* Pods-Nissan Oman.debug.xcconfig */,
+				C4FCB51549500C4F852F37CB /* Pods-Nissan Oman.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F710408B1D81236A00BD3E88 /* TabbarController */ = {
@@ -866,6 +881,7 @@
 				ECA1E9D21D950253007607CC /* FBSDKLoginKit.framework */,
 				ECA1E9D01D950245007607CC /* FBSDKCoreKit.framework */,
 				F7A9F35E1D8BFFBA00898284 /* MapKit.framework */,
+				3DF175F7935F72E1C7BD1215 /* libPods-Nissan Oman.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -919,9 +935,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 532F1F9B1D6EF21000F19D5B /* Build configuration list for PBXNativeTarget "Nissan Oman" */;
 			buildPhases = (
+				0A2B6753CFCEC3B150640663 /* [CP] Check Pods Manifest.lock */,
 				532F1F6A1D6EF21000F19D5B /* Sources */,
 				532F1F6B1D6EF21000F19D5B /* Frameworks */,
 				532F1F6C1D6EF21000F19D5B /* Resources */,
+				5A282266B3FB7F02E7E482D1 /* [CP] Embed Pods Frameworks */,
+				EFC1A4017C2544490E17F188 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1135,6 +1154,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A2B6753CFCEC3B150640663 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A282266B3FB7F02E7E482D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nissan Oman/Pods-Nissan Oman-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFC1A4017C2544490E17F188 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nissan Oman/Pods-Nissan Oman-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		532F1F6A1D6EF21000F19D5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1336,6 +1403,7 @@
 		};
 		532F1F9C1D6EF21000F19D5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECBEFF03F5AD6016FF15523B /* Pods-Nissan Oman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Nissan Oman/Nissan Oman.entitlements";
@@ -1357,6 +1425,7 @@
 		};
 		532F1F9D1D6EF21000F19D5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4FCB51549500C4F852F37CB /* Pods-Nissan Oman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Nissan Oman/Nissan Oman.entitlements";

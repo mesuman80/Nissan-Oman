@@ -154,7 +154,7 @@ typedef enum {
 } RequestType;
 
 
-
+#define phoneNumLength          8
 
 
 
