@@ -14,6 +14,8 @@
 #import "OverviewViewController.h"
 #import "ExteriorViewController.h"
 #import "ColorViewController.h"
+#import "SpecificationViewController.h"
+#import "RequestFormViewController.h"
 
 @interface VehicleDescriptionViewController ()<CustomWebServiceDelegate>
 
@@ -135,7 +137,7 @@
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, yPos, scrollView.frame.size.width, .1*scrollView.frame.size.height)];
     [btn setBackgroundColor:buttonRedColor];
     [btn setTitle:@"REQUEST A BROCHURE" forState:UIControlStateNormal];
-    
+    [btn addTarget:self action:@selector(requestBtnTouched) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:btn];
     
     yPos += btn.frame.size.height + 5;
@@ -143,6 +145,14 @@
     [scrollView setContentSize:CGSizeMake(0, yPos)];
 }
 
+-(void)requestBtnTouched
+{
+    RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
+    NSArray *arr = @[@"REQUEST A BROCHURE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+    requestFormViewController.arrVal = arr;
+    requestFormViewController.formType = RequestTypeBrochure;
+    [self.navigationController pushViewController:requestFormViewController animated:YES];
+}
 
 -(void)btntouched:(UITapGestureRecognizer *)sender
 {
@@ -158,7 +168,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    if(view.tag == 1)
+   else  if(view.tag == 1)
     {
         [self.navigationController setNavigationBarHidden:NO];
         
@@ -171,7 +181,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    if(view.tag == 2)
+   else if(view.tag == 2)
     {
         [self.navigationController setNavigationBarHidden:NO];
         
@@ -185,7 +195,7 @@
         
     }
 
-    if(view.tag == 3)
+    else if(view.tag == 3)
     {
         NSArray *arr = [dataDictionary valueForKey:@"performance"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -194,7 +204,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    if(view.tag == 4)
+   else if(view.tag == 4)
     {
         NSArray *arr = [dataDictionary valueForKey:@"safty"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -203,7 +213,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    if(view.tag == 5)
+    else if(view.tag == 5)
     {
         NSArray *arr = [dataDictionary valueForKey:@"color_trim"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -213,7 +223,7 @@
         
     }
 
-    if(view.tag == 6)
+   else if(view.tag == 6)
     {
         NSArray *arr = [dataDictionary valueForKey:@"versatility"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -222,8 +232,18 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
+    else if(view.tag == 7)
+    {
+        NSArray *arr = [dataDictionary valueForKey:@"specification"];
+        [self.navigationController setNavigationBarHidden:NO];
+        SpecificationViewController *controller =[[SpecificationViewController alloc]init];
+        controller.dataArray = arr;
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    }
+
     
-    if(view.tag == 8)
+    else if(view.tag == 8)
     {
        // [self.navigationController setNavigationBarHidden:NO];
         NSArray *arr = [dataDictionary valueForKey:@"gallery"];
@@ -233,7 +253,7 @@
         [self.navigationController pushViewController:controller animated:YES];
     }
     
-    if(view.tag == 9)
+    else if(view.tag == 9)
     {
         NSArray *arr = [dataDictionary valueForKey:@"technology"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -243,6 +263,8 @@
     }
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

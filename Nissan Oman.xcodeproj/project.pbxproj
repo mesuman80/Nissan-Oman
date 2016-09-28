@@ -44,6 +44,9 @@
 		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
+		F768582F1D9B7AB700D9070C /* SpecificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768582E1D9B7AB700D9070C /* SpecificationViewController.m */; };
+		F76858321D9B7BF200D9070C /* SpecificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F76858311D9B7BF200D9070C /* SpecificationTableViewCell.m */; };
+		F76858351D9B87E300D9070C /* SpecificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = F76858341D9B87E300D9070C /* SpecificationData.m */; };
 		F778C5E31D98FDEE0074FB86 /* SubDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */; };
 		F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D181D867B5E00DB024C /* VehicleSubCategoryViewController.m */; };
 		F7896D1C1D8686FC00DB024C /* SubTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7896D1B1D8686FC00DB024C /* SubTypeView.m */; };
@@ -256,6 +259,12 @@
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		F768582D1D9B7AB700D9070C /* SpecificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationViewController.h; sourceTree = "<group>"; };
+		F768582E1D9B7AB700D9070C /* SpecificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificationViewController.m; sourceTree = "<group>"; };
+		F76858301D9B7BF200D9070C /* SpecificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationTableViewCell.h; sourceTree = "<group>"; };
+		F76858311D9B7BF200D9070C /* SpecificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificationTableViewCell.m; sourceTree = "<group>"; };
+		F76858331D9B87E300D9070C /* SpecificationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationData.h; sourceTree = "<group>"; };
+		F76858341D9B87E300D9070C /* SpecificationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificationData.m; sourceTree = "<group>"; };
 		F778C5E11D98FDED0074FB86 /* SubDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubDescriptionViewController.h; sourceTree = "<group>"; };
 		F778C5E21D98FDEE0074FB86 /* SubDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubDescriptionViewController.m; sourceTree = "<group>"; };
 		F7896D171D867B5E00DB024C /* VehicleSubCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleSubCategoryViewController.h; path = ../HomeViewController/VehicleSubCategoryViewController.h; sourceTree = "<group>"; };
@@ -457,6 +466,8 @@
 				530417471D706DB100168934 /* ResponseModel.m */,
 				530417481D706DB100168934 /* UserData.h */,
 				530417491D706DB100168934 /* UserData.m */,
+				F76858331D9B87E300D9070C /* SpecificationData.h */,
+				F76858341D9B87E300D9070C /* SpecificationData.m */,
 			);
 			path = Datamodels;
 			sourceTree = "<group>";
@@ -717,6 +728,10 @@
 				F7C32F791D9A70F9001D50B6 /* ExteriorViewController.m */,
 				F7D696E41D9A9EAF0097DC77 /* ColorViewController.h */,
 				F7D696E51D9A9EAF0097DC77 /* ColorViewController.m */,
+				F768582D1D9B7AB700D9070C /* SpecificationViewController.h */,
+				F768582E1D9B7AB700D9070C /* SpecificationViewController.m */,
+				F76858301D9B7BF200D9070C /* SpecificationTableViewCell.h */,
+				F76858311D9B7BF200D9070C /* SpecificationTableViewCell.m */,
 			);
 			path = VehiclesViewController;
 			sourceTree = "<group>";
@@ -1150,6 +1165,7 @@
 				532F20031D6EFFEE00F19D5B /* WebService.m in Sources */,
 				F7AD7BA51D82ADAF00AECEDA /* CustomTableViewCell.m in Sources */,
 				F71040A41D81290C00BD3E88 /* Common.m in Sources */,
+				F76858321D9B7BF200D9070C /* SpecificationTableViewCell.m in Sources */,
 				F7D696E61D9A9EAF0097DC77 /* ColorViewController.m in Sources */,
 				F7C32F771D9A5FE7001D50B6 /* OverviewViewController.m in Sources */,
 				F7AF23C51D93E69D00105EF7 /* ServiceAppointmentViewController.m in Sources */,
@@ -1157,10 +1173,12 @@
 				F7A6A6EE1D928A1F001770D9 /* WebPageViewController.m in Sources */,
 				F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
+				F76858351D9B87E300D9070C /* SpecificationData.m in Sources */,
 				F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */,
 				F7C32F7A1D9A70FA001D50B6 /* ExteriorViewController.m in Sources */,
 				F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */,
 				F71040981D8126E400BD3E88 /* CallViewController.m in Sources */,
+				F768582F1D9B7AB700D9070C /* SpecificationViewController.m in Sources */,
 				532F1FE71D6EFA5000F19D5B /* SVIndefiniteAnimatedView.m in Sources */,
 				F7896D191D867B5E00DB024C /* VehicleSubCategoryViewController.m in Sources */,
 				532F1F761D6EF21000F19D5B /* AppDelegate.m in Sources */,
