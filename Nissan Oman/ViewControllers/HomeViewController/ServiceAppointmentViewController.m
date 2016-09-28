@@ -588,7 +588,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if ([touch.view isDescendantOfView:tableView]) {
+    if ([touch.view isDescendantOfView:tableView] || [touch.view isDescendantOfView:self.settingView.tableView]) {
         
         // Don't let selections of auto-complete entries fire the
         // gesture recognizer
