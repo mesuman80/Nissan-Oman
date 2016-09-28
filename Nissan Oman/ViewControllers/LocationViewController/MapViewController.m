@@ -9,37 +9,36 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import "AddressAnnotation.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface MapViewController ()
+
+@interface MapViewController ()<GMSMapViewDelegate>
 {
-    NSString *_returnAddress;
-    BOOL isFirstTime;
+   
 }
 
 @end
 
 @implementation MapViewController
 {
-    MKMapView *mapView;
+    //MKMapView *mapView;
+    NSString *_returnAddress;
+    BOOL isFirstTime;
+    GMSMapView *mapView;
+    GMSMarker *marker;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
-    [self addMapView];
+    //[self addMapView];
     isFirstTime = YES;
     // Do any additional setup after loading the view.
 }
 
--(void)addMapView
-{
-    mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    mapView.showsBuildings = YES;
-    mapView.mapType = MKMapTypeStandard;
-    [self.view addSubview:mapView];
-    
- }
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -47,17 +46,252 @@
     if(isFirstTime)
     {
         isFirstTime = NO;
-        [self updateMap];
+        //[self updateMap];
+        [self mapIntegration];
     }
     
 }
+
+#pragma mark MAPS
+-(void)mapIntegration
+{
+    [GMSServices provideAPIKey:GoogleiOSMapKeyScheme];
+    
+    NSString *latStr = [self.dict valueForKey:@"latitude"];
+    double latdouble = [latStr doubleValue];
+    
+    NSString *longStr = [self.dict valueForKey:@"longitude"];
+    double longdouble = [longStr doubleValue];
+
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latdouble longitude:longdouble zoom:12];
+    
+    mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) camera:camera];
+    
+    
+    // mapView.settings.compassButton = YES;
+    mapView.myLocationEnabled = YES;
+    
+    
+    mapView.settings.myLocationButton = YES;
+    mapView.delegate=self;
+    
+    
+    marker = [[GMSMarker alloc] init];
+    marker.position = camera.target;
+    // marker.position = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    marker.appearAnimation = kGMSMarkerAnimationPop;
+   // marker.icon = [UIImage imageNamed: isiPhoneiPad(@"default-marker.png")];
+   marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+    NSString *str1 = [self.dict valueForKey:@"showroom_branch"];
+    NSString *str2 = [self.dict valueForKey:@"showroom_address"];
+    
+    marker.snippet = str2;
+    marker.title = str1;
+    marker.map = mapView;
+    [mapView setSelectedMarker:marker];
+    
+    [self.view addSubview:mapView];
+    
+    //[animateArray addObject:mapView];
+    
+    [self Searchplace];
+    
+    
+}
+
+
+-(void)Searchplace
+{
+    // -(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {
+    //    if(searchLoc.length==0)
+    //    {
+    //        [self contractMapView];
+    //        return;
+    //    }
+    
+    NSString *latStr = [self.dict valueForKey:@"latitude"];
+    double latdouble = [latStr doubleValue];
+    
+    NSString *longStr = [self.dict valueForKey:@"longitude"];
+    double longdouble = [longStr doubleValue];
+
+    
+    CLLocationCoordinate2D center;
+    center.latitude = latdouble;
+    center.longitude = longdouble;
+    [mapView animateToLocation:CLLocationCoordinate2DMake(latdouble, longdouble)];
+    marker.position=CLLocationCoordinate2DMake(latdouble,longdouble);
+    //mapView.camera= CLLocationCoordinate2DMake(latitude, longitude);
+    
+    //return center;
+    
+}
+
+- (void)mapView:(GMSMapView *)mapView1
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
+   
+    
+}
+
+
+- (void)mapView:(GMSMapView *)mapView1 willMove:(BOOL)gesture {
+    //[mapView1 clear];
+}
+
+- (void)mapView:(GMSMapView *)mapView1
+idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
+    id handler = ^(GMSReverseGeocodeResponse *response, NSError *error) {
+        if (error == nil) {
+            //            GMSReverseGeocodeResult *result = response.firstResult;
+            //            GMSMarker *marker1 = [GMSMarker markerWithPosition:cameraPosition.target];
+            //            marker1.title = result.lines[0];
+            //            marker1.snippet = result.lines[1];
+            //            marker1.map = mapView1;
+            //            mapView1.myLocationEnabled = YES;
+        }
+    };
+    //[geocoder_ reverseGeocodeCoordinate:cameraPosition.target completionHandler:handler];
+}
+
+
+-(BOOL)didTapMyLocationButtonForMapView:(GMSMapView *)mapView1{
+    NSLog(@"You tapped at my location button ");
+    
+    NSString *latStr = [self.dict valueForKey:@"latitude"];
+    double latdouble = [latStr doubleValue];
+    
+    NSString *longStr = [self.dict valueForKey:@"longitude"];
+    double longdouble = [longStr doubleValue];
+    
+    CLLocationCoordinate2D target =
+    CLLocationCoordinate2DMake(latdouble, longdouble);
+    
+    [mapView1 animateToLocation:target];
+    
+    mapView1.selectedMarker = nil;
+    marker.position= target;
+    
+    NSString *str1 = [self.dict valueForKey:@"showroom_branch"];
+    NSString *str2 = [self.dict valueForKey:@"showroom_address"];
+    NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
+    
+    marker.snippet = name;
+    
+    return true;
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if([keyPath isEqualToString:@"myLocation"]) {
+        //        CLLocation *location1 = [object myLocation];
+        //        //...
+        //        NSLog(@"Location, %@,", location1);
+        //
+        //        CLLocationCoordinate2D target =
+        //        CLLocationCoordinate2DMake(location1.coordinate.latitude, location1.coordinate.longitude);
+        //
+        //        [mapView animateToLocation:target];
+        //        [mapView animateToZoom:17];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    
+}
+
+
+
+
+
+- (void) mapView:(MKMapView *)aMapView didAddAnnotationViews:(NSArray *)views
+{
+    for (MKAnnotationView *view in views)
+    {
+        if ([[view annotation] isKindOfClass:[MKUserLocation class]])
+        {
+            [[view superview] bringSubviewToFront:view];
+        }
+        else
+        {
+            [[view superview] sendSubviewToBack:view];
+        }
+    }
+}
+
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
+    annotationView.canShowCallout = YES;
+    
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView1 regionDidChangeAnimated:(BOOL)animated
+{
+    for (NSObject *annotation in [mapView1 annotations])
+    {
+        if ([annotation isKindOfClass:[MKUserLocation class]])
+        {
+            NSLog(@"Bring blue location dot to front");
+            MKAnnotationView *view = [mapView1 viewForAnnotation:(MKUserLocation *)annotation];
+            [[view superview] bringSubviewToFront:view];
+        }
+    }
+}
+
+-(BOOL)mapView:(GMSMapView *)mapView1 didTapMarker:(GMSMarker *)markerTapped {
+    
+   
+    NSString *latStr = [self.dict valueForKey:@"latitude"];
+    double latdouble = [latStr doubleValue];
+    
+    NSString *longStr = [self.dict valueForKey:@"longitude"];
+    double longdouble = [longStr doubleValue];
+
+    CLLocationCoordinate2D target =
+    CLLocationCoordinate2DMake(latdouble, longdouble);
+    
+    
+    
+    [mapView1 animateToLocation:target];
+    
+    marker.position= target;
+    
+    NSString *str1 = [self.dict valueForKey:@"showroom_branch"];
+    NSString *str2 = [self.dict valueForKey:@"showroom_address"];
+    //NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
+    
+    marker.snippet = str2;
+    marker.title = str1;
+    [mapView setSelectedMarker:marker];
+
+    return YES;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateMap
+/*-(void)addMapView
+ {
+ mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+ mapView.showsBuildings = YES;
+ mapView.mapType = MKMapTypeStandard;
+ [self.view addSubview:mapView];
+ 
+ }*/
+
+/*-(void)updateMap
 {
     MKCoordinateRegion region;
     NSString *latStr = [self.dict valueForKey:@"latitude"];
@@ -65,25 +299,7 @@
    
     NSString *longStr = [self.dict valueForKey:@"longitude"];
     double longdouble = [longStr doubleValue];
-    
-  /*  region.center.latitude = latdouble;
-    region.center.longitude = longdouble;
-   // [mapView setRegion:region animated:YES];
-    
-   
-    
-    CLLocationCoordinate2D  ctrpoint;
-    ctrpoint.latitude = latdouble;
-    ctrpoint.longitude = longdouble;
-    AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:ctrpoint];
-    addAnnotation.title = [self.dict valueForKey:@"showroom_address"];
-
-    [mapView addAnnotation:addAnnotation];
-    
-    CLLocationCoordinate2D startCoord = CLLocationCoordinate2DMake(latdouble, longdouble);
-    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:MKCoordinateRegionMakeWithDistance(startCoord, 0, 0)];
-    [mapView setRegion:adjustedRegion animated:YES]; */
-    
+ 
     CLLocationCoordinate2D  location;
     location.latitude = latdouble; // change to your coordinate latitude
     location.longitude = longdouble; // change to your coordinate longitude
@@ -106,7 +322,7 @@
     
 
 }
-
+*/
 /*- (void)getGeoInformations {
     // #2 - This will be called during view did load.
     NSLog(@"Inside getGeoInformations");

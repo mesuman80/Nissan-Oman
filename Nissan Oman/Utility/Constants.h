@@ -48,7 +48,7 @@
 #define CRITERIA_NUDGE_MESSAGE 3
 
 #define GoogleiOSPlacesKey   @"AIzaSyBb1oJRrBY_O_9qpVs3yjppitudZtSio2M"
-#define GoogleiOSMapKeyScheme @"AIzaSyBDavXsSPaDZyfcKS9l6TFYVYm6i8sZ4R8"
+#define GoogleiOSMapKeyScheme @"AIzaSyBdh5VQWaVZcfE5iKPxh0k8IeMun9-IDHU"
 
 //************************************************** PlaceHolder Strings **************************************************
 #define PlaceholderLoginUsernameString  @"USERNAME"
