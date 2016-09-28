@@ -42,13 +42,14 @@
     NSArray *arrVal;
     CGFloat tableCellHeight;
     UITextField *desiredTextField;
+    Utility *utility;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.navigationController setNavigationBarHidden:NO];
-    
+    utility = [[Utility alloc]init];
     arrOfDict = [[NSMutableArray alloc]init];
     serviceCentreArray = [[NSMutableArray alloc]init];
     modelArray = [[NSMutableArray alloc]init];
@@ -408,15 +409,27 @@
         str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if(str.length >0)
         {
+            if(textField.tag == 9)
+            {
+                if(![utility NSStringIsValidPhoneNum:textField.text])
+                {
+                    [self showAlertView:@"Error" WithMessage:@"Please enter Valid Phone Number"];
+                    
+                    return NO;
+                }
+            }
+            
             if(textField.tag == 10)
             {
-                if(![self NSStringIsValidEmail:textField.text])
+                if(![utility NSStringIsValidEmail:textField.text])
                 {
                     [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
                     
                     return NO;
                 }
             }
+            
+            
             //return YES;
         }
         else

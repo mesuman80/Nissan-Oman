@@ -31,13 +31,27 @@
     return alert;
 }
 
--(void)showAlertWithTitle:(NSString *)title message:(NSString *)message andDelegate:(id)delegate{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:delegate
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil, nil];
-    [alert show];
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
+                                                                        message: msg
+                                                                 preferredStyle: UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertAction      = [UIAlertAction actionWithTitle: @"Ok"
+                                                               style: UIAlertActionStyleCancel
+                                                             handler: ^(UIAlertAction *action) {
+                                                                 
+                                                             }];
+    
+    [controller addAction: alertAction];
+    
+    UIViewController* viewController =[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    [viewController presentViewController: controller
+                                 animated: YES
+                               completion: nil];
+    
 }
 
 
@@ -427,5 +441,24 @@
     return numberString;
 }
 
+
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO;
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
+-(BOOL) NSStringIsValidPhoneNum:(NSString *)checkNumber
+{
+    checkNumber = [checkNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(checkNumber.length < phoneNumLength)
+    {
+        return NO;
+    }
+    return YES;
+}
 
 @end

@@ -26,6 +26,7 @@
     UIDatePicker *myDatePicker;
     NSDate *dob;
     UITextField *dateField;
+    Utility *utility;
 
 
 }
@@ -35,6 +36,7 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    utility = [[Utility alloc]init];
     arrVal = @[@"FIRST NAME",@"LAST NAME",@"DD-MM-YY",@"MOBILE NO",@"EMAIL"];
     dataFieldArr = [[NSMutableArray alloc]init];
     [self addKeyBoardNotification];
@@ -270,9 +272,18 @@
         str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if(str.length >0)
         {
+            if(textField.tag == 3)
+            {
+                if(![utility NSStringIsValidPhoneNum:textField.text])
+                {
+                    [self showAlertView:@"Error" WithMessage:@"Please enter Valid Phone Number"];
+                    
+                    return NO;
+                }
+            }
             if(textField.tag == 4)
             {
-                if(![self NSStringIsValidEmail:textField.text])
+                if(![utility NSStringIsValidEmail:textField.text])
                 {
                     [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
                     

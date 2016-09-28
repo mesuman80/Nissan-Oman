@@ -35,6 +35,7 @@
     NSArray *carDictArr;
     NSDictionary *carDict;
     UITextField *desiredField;
+    Utility *utility;
 
 }
 @synthesize arrVal;
@@ -42,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
+    utility = [[Utility alloc]init];
     arrOfDict = [[NSMutableArray alloc]init];
     carArray = [[NSMutableArray alloc]init];
     showRoomArray = [[NSMutableArray alloc]init];
@@ -436,9 +438,18 @@
            {
                if(textField.tag == 5)
                {
-                   if(![self NSStringIsValidEmail:textField.text])
+                   if(![utility NSStringIsValidEmail:textField.text])
                    {
                        [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
+                       
+                       return NO;
+                   }
+               }
+               if(textField.tag == 6)
+               {
+                   if(![utility NSStringIsValidPhoneNum:textField.text])
+                   {
+                       [self showAlertView:@"Error" WithMessage:@"Please enter Valid Phone Number"];
                        
                        return NO;
                    }
@@ -449,9 +460,18 @@
            {
                if(textField.tag == 7)
                {
-                   if(![self NSStringIsValidEmail:textField.text])
+                   if(![utility NSStringIsValidEmail:textField.text])
                    {
                        [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
+                       
+                       return NO;
+                   }
+               }
+               if(textField.tag == 8)
+               {
+                   if(![utility NSStringIsValidPhoneNum:textField.text])
+                   {
+                       [self showAlertView:@"Error" WithMessage:@"Please enter Valid Phone Number"];
                        
                        return NO;
                    }

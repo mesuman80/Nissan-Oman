@@ -40,6 +40,7 @@
     UIDatePicker *myDatePicker;
     NSDate *dob;
     UITextField *desiredField;
+    Utility *utility;
 
 }
 @synthesize arrVal;
@@ -47,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
+    utility = [[Utility alloc]init];
     arrOfDict = [[NSMutableArray alloc]init];
     carArray = [[NSMutableArray alloc]init];
     showRoomArray = [[NSMutableArray alloc]init];
@@ -289,9 +291,18 @@
         str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if(str.length >0)
         {
+            if(textField.tag == 2)
+            {
+                if(![utility NSStringIsValidPhoneNum:textField.text])
+                {
+                    [self showAlertView:@"Error" WithMessage:@"Please enter Valid Phone Number"];
+                    
+                    return NO;
+                }
+            }
             if(textField.tag == 3)
             {
-                if(![self NSStringIsValidEmail:textField.text])
+                if(![utility NSStringIsValidEmail:textField.text])
                 {
                     [self showAlertView:@"Error" WithMessage:@"Please enter Valid Email address"];
                     

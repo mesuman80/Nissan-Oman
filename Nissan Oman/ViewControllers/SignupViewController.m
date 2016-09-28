@@ -360,27 +360,27 @@
 
     
     phoneNum = [phoneNumberTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if(isValid && phoneNum.length >0)
+    if(isValid && [utility NSStringIsValidPhoneNum:phoneNum])
     {
         isValid = YES;
     }
     else
     {
         isValid = NO;
-        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        [self showAlertView:@"Error" WithMessage:@"Please enter valid Phone Number"];
         return NO;
         
     }
     
     email = [emailTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if(isValid && email.length >0)
+    if(isValid && [utility NSStringIsValidPhoneNum:email])
     {
         isValid = YES;
     }
     else
     {
         isValid = NO;
-        [self showAlertView:@"Error" WithMessage:@"Please enter all required fields"];
+        [self showAlertView:@"Error" WithMessage:@"Please enter valid Email."];
         return NO;
         
     }

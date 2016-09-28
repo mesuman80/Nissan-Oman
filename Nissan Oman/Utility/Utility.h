@@ -65,4 +65,8 @@
 //Country code
 -(NSDictionary *)dictCountryCodes;
 -(NSString *)countryCode;
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString;
+-(BOOL) NSStringIsValidPhoneNum:(NSString *)checkNumber;
+
+
 @end
