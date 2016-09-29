@@ -369,7 +369,7 @@
 
         }else {
             NSLog(@"error = %@",error.description);
-            [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
+            [utility showAlertView:@"Error" WithMessage:@"Oops Something went wrong"];
 
         }
     });
