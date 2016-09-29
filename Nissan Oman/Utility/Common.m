@@ -52,14 +52,6 @@
     label.clipsToBounds = YES;
 }
 
-#pragma mark AlertViewSpecificFunctions
-+(UIAlertView *)showAlertWithTitle:(NSString *)title
-                          message :(NSString *)message
-                       cancelTitle:(NSString *)buttonTitle {
-    UIAlertView *alertview =[[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonTitle otherButtonTitles:nil, nil];
-    [alertview show];
-    return alertview;
-}
 
 #pragma colorSpecification
 +(UIColor*)colorWithHexString:(NSString*)hex withAlpha:(float)alphaVal

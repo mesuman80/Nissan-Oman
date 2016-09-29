@@ -7,8 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import <MapKit/MapKit.h>
-#import "AddressAnnotation.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 
@@ -194,55 +192,6 @@ idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
         //
         //        [mapView animateToLocation:target];
         //        [mapView animateToZoom:17];
-    }
-}
-
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    
-}
-
-
-
-
-
-- (void) mapView:(MKMapView *)aMapView didAddAnnotationViews:(NSArray *)views
-{
-    for (MKAnnotationView *view in views)
-    {
-        if ([[view annotation] isKindOfClass:[MKUserLocation class]])
-        {
-            [[view superview] bringSubviewToFront:view];
-        }
-        else
-        {
-            [[view superview] sendSubviewToBack:view];
-        }
-    }
-}
-
-
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MKUserLocation class]])
-        return nil;
-    
-    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
-    annotationView.canShowCallout = YES;
-    
-    return annotationView;
-}
-
-- (void)mapView:(MKMapView *)mapView1 regionDidChangeAnimated:(BOOL)animated
-{
-    for (NSObject *annotation in [mapView1 annotations])
-    {
-        if ([annotation isKindOfClass:[MKUserLocation class]])
-        {
-            NSLog(@"Bring blue location dot to front");
-            MKAnnotationView *view = [mapView1 viewForAnnotation:(MKUserLocation *)annotation];
-            [[view superview] bringSubviewToFront:view];
-        }
     }
 }
 

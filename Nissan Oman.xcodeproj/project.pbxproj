@@ -138,7 +138,6 @@
 		F7A6A6EE1D928A1F001770D9 /* WebPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A6A6ED1D928A1E001770D9 /* WebPageViewController.m */; };
 		F7A9F35C1D8BFF4A00898284 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F35B1D8BFF4A00898284 /* MapViewController.m */; };
 		F7A9F35F1D8BFFBA00898284 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A9F35E1D8BFFBA00898284 /* MapKit.framework */; };
-		F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */; };
 		F7A9F3661D8FAEB000898284 /* RequestFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */; };
 		F7AA6D7E1D8A605C0058BE50 /* DescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */; };
 		F7AA6D811D8A9E7D0058BE50 /* ShowroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */; };
@@ -365,8 +364,6 @@
 		F7A9F35A1D8BFF4A00898284 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F7A9F35B1D8BFF4A00898284 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F7A9F35E1D8BFFBA00898284 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F7A9F3601D8FAB5800898284 /* AddressAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAnnotation.h; sourceTree = "<group>"; };
-		F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAnnotation.m; sourceTree = "<group>"; };
 		F7A9F3641D8FAEB000898284 /* RequestFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFormViewController.h; sourceTree = "<group>"; };
 		F7A9F3651D8FAEB000898284 /* RequestFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFormViewController.m; sourceTree = "<group>"; };
 		F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DescriptionView.h; path = ../HomeViewController/DescriptionView.h; sourceTree = "<group>"; };
@@ -710,8 +707,6 @@
 				F7AA6D801D8A9E7D0058BE50 /* ShowroomViewController.m */,
 				F7A9F35A1D8BFF4A00898284 /* MapViewController.h */,
 				F7A9F35B1D8BFF4A00898284 /* MapViewController.m */,
-				F7A9F3601D8FAB5800898284 /* AddressAnnotation.h */,
-				F7A9F3611D8FAB5800898284 /* AddressAnnotation.m */,
 			);
 			path = LocationViewController;
 			sourceTree = "<group>";
@@ -1208,7 +1203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */,
-				F7A9F3621D8FAB5800898284 /* AddressAnnotation.m in Sources */,
 				F7EC86301D9414CE00FAD40B /* AboutUsViewController.m in Sources */,
 				5390C47F1D74381900193CE3 /* CustomTextField.m in Sources */,
 				F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */,

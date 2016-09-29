@@ -122,8 +122,26 @@
     // load error, hide the activity indicator in the status bar
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"ERROR" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle: @"ERROR"
+                                                                        message: error.localizedDescription
+                                                                 preferredStyle: UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertAction      = [UIAlertAction actionWithTitle: @"Ok"
+                                                               style: UIAlertActionStyleCancel
+                                                             handler: ^(UIAlertAction *action) {
+                                                                 
+                                                             }];
+    
+    [controller addAction: alertAction];
+    
+    UIViewController* viewController =[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    
+    
+    [viewController presentViewController: controller
+                                 animated: YES
+                               completion: nil];
+    
+
     [utility hideHUD];
     
 }

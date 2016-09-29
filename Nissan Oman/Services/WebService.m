@@ -369,7 +369,7 @@
 
         }else {
             NSLog(@"error = %@",error.description);
-            [utility showAlertWithTitle:@"Error!" message:@"Oops something went wrong" andDelegate:nil];
+            [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
 
         }
     });
@@ -394,7 +394,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
 
 }
@@ -418,7 +418,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -441,7 +441,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -465,7 +465,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -489,7 +489,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -512,7 +512,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -535,7 +535,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -558,7 +558,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -580,7 +580,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -603,7 +603,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -629,7 +629,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -653,7 +653,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -677,7 +677,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -701,7 +701,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -725,7 +725,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -749,7 +749,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -773,7 +773,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -797,7 +797,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }
@@ -821,7 +821,7 @@
     }
     else{
         [utility hideHUD];
-        [utility showAlertWithTitle:@"Error!" message:ApplicationInternetConnectionErrorMessage andDelegate:nil];
+        [utility showAlertView:@"Error" WithMessage:ApplicationInternetConnectionErrorMessage];
     }
     
 }

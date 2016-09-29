@@ -35,10 +35,6 @@
                  Radius:(float)radius Color:(nonnull UIColor *)color;
 
 
-+(nonnull UIAlertView *)showAlertWithTitle:(nonnull NSString *)title
-                                  message :(nonnull NSString *)message
-                               cancelTitle:(nonnull NSString *)buttonTitle;
-
 +(nonnull UIColor*)colorWithHexString:(nonnull NSString*)hex
                             withAlpha:(float)alphaVal;
 
