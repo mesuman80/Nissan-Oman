@@ -51,16 +51,24 @@
 #define GoogleiOSMapKeyScheme @"AIzaSyBdh5VQWaVZcfE5iKPxh0k8IeMun9-IDHU"
 
 //************************************************** PlaceHolder Strings **************************************************
-#define PlaceholderLoginUsernameString  @"USERNAME"
-#define PlaceholderLoginPasswordString  @"PASSWORD"
-#define PlaceholderSignupFirstNameString  @"FIRST NAME"
-#define PlaceholderSignupLastNameString  @"LAST NAME"
-#define PlaceholderSignupDobString  @"dd-mm-yyyy"
+#define PlaceholderLoginUsernameString      @"USERNAME"
+#define PlaceholderLoginPasswordString      @"PASSWORD"
+#define PlaceholderSignupFirstNameString    @"FIRST NAME"
+#define PlaceholderSignupLastNameString     @"LAST NAME"
+#define PlaceholderSignupDobString          @"dd-mm-yyyy"
 #define PlaceholderSignupPhoneNumberString  @"  xx-xx-xxxx"
-#define PlaceholderSignupEmailString  @"abc@gmail.com"
+#define PlaceholderSignupEmailString        @"abc@gmail.com"
 #define PlaceholderSignupCountryCodeString  @"   +968"
-#define PlaceholderLForgetPassword  @"ENTER EMAIL"
+#define PlaceholderLForgetPassword          @"ENTER EMAIL"
 
+
+#define PlaceholderLSelectCarModel          @"SELECT CAR MODEL"
+#define PlaceholderLSelectShowroom          @"SELECT SHOWROOM"
+#define PLaceholderEmail                    @"EMAIL"
+#define PlaceholderPhone                    @"PHONE"
+#define PlaceholderPOBox                    @"P O BOX"
+#define PlaceholderPC                       @"PC"
+#define PlaceholderSelectBranch             @"SELECT BRANCH"
 
 #define IsSettingScreen @"Setting Screen"
 

@@ -123,7 +123,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
         ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
-        showroomViewController.arrVal = @[@"SERVICE CENTRE",@"SELECT BRANCH",@"serviceCentre"];
+        showroomViewController.arrVal = @[@"SERVICE CENTRE",PlaceholderSelectBranch,@"serviceCentre"];
         showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
     }
@@ -131,7 +131,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
         ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
-        showroomViewController.arrVal = @[@"GENUINE PART CENTRE",@"SELECT BRANCH",@"genuinePart"];
+        showroomViewController.arrVal = @[@"GENUINE PART CENTRE",PlaceholderSelectBranch,@"genuinePart"];
         showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
     }
@@ -140,7 +140,7 @@
     {
         [self.navigationController setNavigationBarHidden:NO];
         ShowroomViewController *showroomViewController  = [[ShowroomViewController alloc]init];
-        showroomViewController.arrVal = @[@"BODY SHOP",@"SELECT BRANCH",@"bodyShop"];
+        showroomViewController.arrVal = @[@"BODY SHOP",PlaceholderSelectBranch,@"bodyShop"];
         showroomViewController.isBarShown = YES;
         [self.navigationController pushViewController:showroomViewController animated:YES];
     }

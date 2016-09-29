@@ -75,15 +75,12 @@
     {
         [self.navigationController setNavigationBarHidden:YES];
     }
-
-    
 }
-
 
 -(void)addTitle
 {
     yCordinate = self.yCordinate + 10;
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 250, 30)];
     label.text = [arrVal objectAtIndex:0];
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;

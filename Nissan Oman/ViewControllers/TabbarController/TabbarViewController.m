@@ -60,7 +60,7 @@
     UINavigationController *homeNavigationController=[[UINavigationController alloc]initWithRootViewController:homeViewController];
     
     ShowroomViewController  *locationViewController = [[ShowroomViewController alloc]init];
-    locationViewController.arrVal = @[@"SHOWROOM LOCATOR",@"SELECT BRANCH",@"showroomAddress"];
+    locationViewController.arrVal = @[@"SHOWROOM LOCATOR",PlaceholderSelectBranch,@"showroomAddress"];
 
     locationViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"location_icon.png"] tag:1];
     UINavigationController *locationNavigationController=[[UINavigationController alloc]initWithRootViewController:locationViewController];

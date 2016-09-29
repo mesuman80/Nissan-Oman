@@ -90,12 +90,12 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/LocationViewController/MapViewController.m"
-                  timestampString = "496818676.512379"
+                  timestampString = "496820873.762266"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "238"
                   endingLineNumber = "238"
-                  offsetFromSymbolStart = "104">
+                  offsetFromSymbolStart = "106">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -105,12 +105,12 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/LocationViewController/MapViewController.m"
-                  timestampString = "496818676.514424"
+                  timestampString = "496820873.765732"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "238"
                   endingLineNumber = "238"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "111">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -177,38 +177,6 @@
             endingLineNumber = "115"
             landmarkName = "-addImageView"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeViewController addImageView]"
-                  moduleName = "Nissan Oman"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/HomeViewController/HomeViewController.m"
-                  timestampString = "496819502.914899"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "2305">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeViewController addImageView]"
-                  moduleName = "Nissan Oman"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/HomeViewController/HomeViewController.m"
-                  timestampString = "496819502.917354"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "2313">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -119,7 +119,7 @@
     if(indexPath.row == 1)
     {
         RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
-        NSArray *arr = @[@"REQUEST A QUOTE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        NSArray *arr = @[@"REQUEST A QUOTE", PlaceholderLSelectCarModel,PlaceholderSignupFirstNameString,PlaceholderSignupLastNameString,PlaceholderLSelectShowroom,PLaceholderEmail,PlaceholderPhone];
         requestFormViewController.arrVal = arr;
         requestFormViewController.formType = RequestTypeQuote;
         [self.navigationController pushViewController:requestFormViewController animated:YES];
@@ -127,7 +127,7 @@
     if(indexPath.row == 2)
     {
         RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
-        NSArray *arr = @[@"REQUEST A BROCHURE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        NSArray *arr = @[@"REQUEST A BROCHURE",PlaceholderLSelectCarModel,PlaceholderSignupFirstNameString,PlaceholderSignupLastNameString,PlaceholderLSelectShowroom,PLaceholderEmail,PlaceholderPhone];
         requestFormViewController.arrVal = arr;
         requestFormViewController.formType = RequestTypeBrochure;
         [self.navigationController pushViewController:requestFormViewController animated:YES];
@@ -135,7 +135,7 @@
     if(indexPath.row == 3)
     {
         RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
-        NSArray *arr = @[@"REQUEST A TEST DRIVE", @"SELECT CAR MODEL",@"FIRST NAME",@"LAST NAME",@"P O BOX",@"PC",@"SELECT SHOWROOM",@"EMAIL",@"PHONE"];
+        NSArray *arr = @[@"REQUEST A TEST DRIVE",PlaceholderLSelectCarModel,PlaceholderSignupFirstNameString,PlaceholderSignupLastNameString,PlaceholderPOBox,PlaceholderPC,PlaceholderLSelectShowroom,PLaceholderEmail,PlaceholderPhone];
         requestFormViewController.arrVal = arr;
         requestFormViewController.formType = RequestTypeTestDrive;
         [self.navigationController pushViewController:requestFormViewController animated:YES];
