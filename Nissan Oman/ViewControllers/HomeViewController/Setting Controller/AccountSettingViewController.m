@@ -37,7 +37,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     utility = [[Utility alloc]init];
-    arrVal = @[@"FIRST NAME",@"LAST NAME",@"DD-MM-YY",@"MOBILE NO",@"EMAIL"];
+    arrVal = @[PlaceholderSignupFirstNameString,PlaceholderSignupLastNameString,PlaceholderSignupDobString,PlaceholderMobileNo,PLaceholderEmail];
     dataFieldArr = [[NSMutableArray alloc]init];
     [self addKeyBoardNotification];
     [self addTitle];

@@ -160,7 +160,7 @@
 {
     [self.navigationController setNavigationBarHidden:NO];
     AdventureParkViewController *controller = [[AdventureParkViewController alloc]init];
-    NSArray *arr = @[@"ADVENTURE PARK", @"NAME",@"MOBILE NO",@"EMAIL",@"LOCATION",@"PREFERRED TEST DRIVE DATE"];
+    NSArray *arr = @[@"ADVENTURE PARK", PlaceholderName,PlaceholderMobileNo,PLaceholderEmail,PlaceholderLocation,PlaceholderPreferredTestDate];
     controller.arrVal = arr;
     [self.navigationController pushViewController:controller animated:YES];
 }

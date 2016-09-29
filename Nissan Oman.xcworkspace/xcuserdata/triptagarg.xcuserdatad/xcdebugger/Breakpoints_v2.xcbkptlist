@@ -90,7 +90,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/LocationViewController/MapViewController.m"
-                  timestampString = "496820873.762266"
+                  timestampString = "496828617.548398"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "238"
@@ -105,7 +105,7 @@
                   moduleName = "Nissan Oman"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/ViewControllers/LocationViewController/MapViewController.m"
-                  timestampString = "496820873.765732"
+                  timestampString = "496828617.550281"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "238"
@@ -177,6 +177,52 @@
             endingLineNumber = "115"
             landmarkName = "-addImageView"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nissan Oman/Utility/Utility.h"
+            timestampString = "496828609.118085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[Utility isSettingScreen]"
+                  moduleName = "Nissan Oman"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Utility/Utility.h"
+                  timestampString = "496828617.515202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[Utility setIsSettingScreen:]"
+                  moduleName = "Nissan Oman"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Works/Nissan-Oman/Nissan%20Oman/Utility/Utility.h"
+                  timestampString = "496828617.524979"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

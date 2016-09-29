@@ -15,8 +15,7 @@
 
 @property BOOL isSettingScreen;
 //Alerts
--(UIAlertView*)generateAlertWithTitle:(NSString *)title message:(NSString *)message andDelegate:(id)delegate;
--(void)showAlertWithTitle:(NSString *)title message:(NSString *)message andDelegate:(id)delegate;
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg;
 
 //Application
 -(UIWindow *)getApplicationWindow;

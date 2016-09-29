@@ -20,17 +20,6 @@
     return self;
 }
 
-#pragma Alerts Method
--(UIAlertView*)generateAlertWithTitle:(NSString *)title message:(NSString *)message andDelegate:(id)delegate
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:delegate
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil, nil];
-    return alert;
-}
-
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
@@ -81,10 +70,6 @@
 
 -(void)configNudgerServerData{
     SharePreferenceUtil *sharePreferenceUtil = [SharePreferenceUtil getInstance];
-    [sharePreferenceUtil saveString:@"http://54.183.197.171/" withKey:kN_ChatBaseIP];
-    [sharePreferenceUtil saveString:@"http://54.183.197.171:2878/" withKey:kN_ChatBaseURL];
-    [sharePreferenceUtil saveString:@"54.183.197.171" withKey:kN_Host];
-    [sharePreferenceUtil saveString:@"swoop.yappyapps.com" withKey:kN_ServerDomain];
     [sharePreferenceUtil saveString:@"http://webisdomsolutions.com/nissanweb/webservices/" withKey:kN_BaseURL];
     [sharePreferenceUtil saveString:@"http://54.153.76.97/" withKey:kN_BaseIP];
 }
