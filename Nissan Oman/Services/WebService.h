@@ -17,9 +17,7 @@ typedef void(^onCompletion)(NSString *error);
 //Registration Webservices
 
 @property NSString *serviceName;
--(void)registerMobileNumberInServer:(NSString*)mobileNumber withCC:(NSString*)countryCode completion:(onCompletion)iCompletion;
--(void)verifyMobileNumberInServer:(NSString*)mobileNumber withVerificationCode:(NSString*)verifyCode completion:(onCompletion)iCompletion;
--(void)resendVerificationCode:(NSString*)mobileNumber completion:(onCompletion)iCompletion;
+
 -(void)registerUser:(NSDictionary *)dict;
 -(void)loginUser:(NSDictionary *)dict;
 -(void)getVehicleCategeoryList;

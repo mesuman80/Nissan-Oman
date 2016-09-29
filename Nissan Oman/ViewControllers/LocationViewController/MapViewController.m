@@ -138,18 +138,8 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     //[mapView1 clear];
 }
 
-- (void)mapView:(GMSMapView *)mapView1
-idleAtCameraPosition:(GMSCameraPosition *)cameraPosition {
-    id handler = ^(GMSReverseGeocodeResponse *response, NSError *error) {
-        if (error == nil) {
-            //            GMSReverseGeocodeResult *result = response.firstResult;
-            //            GMSMarker *marker1 = [GMSMarker markerWithPosition:cameraPosition.target];
-            //            marker1.title = result.lines[0];
-            //            marker1.snippet = result.lines[1];
-            //            marker1.map = mapView1;
-            //            mapView1.myLocationEnabled = YES;
-        }
-    };
+- (void)mapView:(GMSMapView *)mapView1 idleAtCameraPosition:(GMSCameraPosition *)cameraPosition
+{
     //[geocoder_ reverseGeocodeCoordinate:cameraPosition.target completionHandler:handler];
 }
 

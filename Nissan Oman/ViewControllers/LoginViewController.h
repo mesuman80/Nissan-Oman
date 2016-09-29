@@ -29,6 +29,5 @@
 -(void)addSeparatorView;
 -(void)signupButtonTouched:(id)sender;
 -(void)loginButtonTouched:(id)sender;
--(void)facebookButtonTouched:(id)sender;
 
 @end

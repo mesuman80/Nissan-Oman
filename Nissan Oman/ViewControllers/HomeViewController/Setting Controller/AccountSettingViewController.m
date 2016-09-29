@@ -396,9 +396,7 @@
         NSDate *currentDate = [NSDate date];
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
-        
-        
-        NSDate *newDate = [calendar dateFromComponents: components];
+      
         // [myDatePicker setMinimumDate:newDate];
         
         

@@ -439,11 +439,11 @@
 -(BOOL) NSStringIsValidPhoneNum:(NSString *)checkNumber
 {
     checkNumber = [checkNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if(checkNumber.length < phoneNumLength)
+    if(checkNumber.length == phoneNumLength)
     {
-        return NO;
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 @end

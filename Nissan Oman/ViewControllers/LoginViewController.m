@@ -87,7 +87,7 @@
 }
 
 -(void)setupForForgetPassword{
-    forgetPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*6, self.y, screenWidth/2, ScreenHeightFactor*40)];
+    forgetPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2 + 30*ScreenWidthFactor, self.y, screenWidth/2 - 35*ScreenWidthFactor, ScreenHeightFactor*40)];
     [forgetPasswordButton setBackgroundColor:[UIColor clearColor]];
     [forgetPasswordButton setTitle:@"Forget Password ?" forState:UIControlStateNormal];
     [forgetPasswordButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

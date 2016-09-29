@@ -385,7 +385,7 @@
     }
     
     email = [emailTextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if(isValid && [utility NSStringIsValidPhoneNum:email])
+    if(isValid && [utility NSStringIsValidEmail:email])
     {
         isValid = YES;
     }

@@ -24,7 +24,6 @@
 
 -(void)setupForTextfield;
 -(void)setupForSignup;
--(void)setupForBottomBannar;
 -(void)signupButtonTouched:(id)sender;
 -(void)loginButtonTouched:(id)sender;
 
