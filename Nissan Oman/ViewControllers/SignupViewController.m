@@ -24,6 +24,7 @@
     UIDatePicker *myDatePicker;
     NSDate *dob;
     UITextField *previousTextField;
+    UITextField *desiredField;
 }
 
 @synthesize firstNameTextfield,lastNameTextfield;
@@ -220,6 +221,17 @@
 
 #pragma textField Delegate
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField.tag == 100)
+    {
+        desiredField = textField;
+        [textField resignFirstResponder];
+        [self openDatePicker];
+        return NO;
+    }
+    return YES;
+}
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -430,28 +442,9 @@
     
     activeTextField = textField;
     
-    if(textField.tag == 100)
+    if(datePickerView)
     {
-        if(previousTextField)
-        {
-            [previousTextField resignFirstResponder];
-            previousTextField = nil;
-        }
-        else
-        {
-            [textField resignFirstResponder];
-        }
-        
-        //[textField resignFirstResponder];
-        
-        [self openDatePicker];
-    }
-    else
-    {
-        if(datePickerView)
-        {
-            [self removeDatePicker1];
-        }
+        [self removeDatePicker1];
     }
 }
 
@@ -459,7 +452,10 @@
 
 -(void)openDatePicker
 {
-    [activeTextField resignFirstResponder];
+    if(activeTextField)
+    {
+         [activeTextField resignFirstResponder];    }
+   
     if(!myDatePicker)
     {
         datePickerView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 200  , self.view.frame.size.width ,200)];

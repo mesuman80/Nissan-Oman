@@ -24,14 +24,14 @@
     UITableView *tableView;
     NSArray *dataArr;
     CGFloat yVal;
+    UIScrollView *horScrollView;
+    NSMutableArray *scrollArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    scrollArray = [[NSMutableArray alloc]init];
     [self addImageView];
-
-    
-   
     
     NSDictionary *dict1 = @{
                             @"image": @"passenger_cars.png",
@@ -78,7 +78,12 @@
     if(self.settingView)
     {
         [self.settingView removeFromSuperview];
+        for(UIImageView *imgView in scrollArray)
+        {
+            imgView.center = CGPointMake(imgView.center.x, horScrollView.frame.size.height/2 - 17*ScreenHeightFactor);
+        }
     }
+
 
 }
 
@@ -91,7 +96,7 @@
 -(void)addImageView
 {
     yVal = self.yCordinate;
-    UIScrollView *horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yVal, self.view.frame.size.width , .20f*self.view.frame.size.height)];
+    horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yVal, self.view.frame.size.width , .20f*self.view.frame.size.height)];
     [self.view addSubview:horScrollView];
     horScrollView.pagingEnabled = YES;
     NSArray *arr = @[@"vpone_1.jpg",@"vpone_2.jpg",@"vpone_3.jpg",@"vpone_4.jpg",@"vpone_5.png"];
@@ -101,9 +106,11 @@
     {
         UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(xpos,0, horScrollView.frame.size.width - 20, horScrollView.frame.size.height)];
         imgView.image = [UIImage imageNamed:str];
+        imgView.center = CGPointMake(imgView.center.x, horScrollView.frame.size.height/2);
         [horScrollView addSubview: imgView];
         xpos += horScrollView.frame.size.width;
         horScrollView.showsHorizontalScrollIndicator = NO;
+        [scrollArray addObject:imgView];
     }
     [horScrollView setContentSize:CGSizeMake(xpos, 0)];
     
