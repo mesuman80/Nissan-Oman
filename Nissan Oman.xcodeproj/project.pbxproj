@@ -45,6 +45,7 @@
 		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
+		F71EE7BD1D9E3DE900169DFF /* gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = F71EE7BC1D9E3DE900169DFF /* gtr.png */; };
 		F768582F1D9B7AB700D9070C /* SpecificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F768582E1D9B7AB700D9070C /* SpecificationViewController.m */; };
 		F76858321D9B7BF200D9070C /* SpecificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F76858311D9B7BF200D9070C /* SpecificationTableViewCell.m */; };
 		F76858351D9B87E300D9070C /* SpecificationData.m in Sources */ = {isa = PBXBuildFile; fileRef = F76858341D9B87E300D9070C /* SpecificationData.m */; };
@@ -72,7 +73,6 @@
 		F7A1C2FB1D80338700C386A5 /* crossovers.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A61D80338700C386A5 /* crossovers.png */; };
 		F7A1C2FC1D80338700C386A5 /* current_offers.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A71D80338700C386A5 /* current_offers.png */; };
 		F7A1C2FD1D80338700C386A5 /* genuine_parts_center.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */; };
-		F7A1C2FE1D80338700C386A5 /* gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A91D80338700C386A5 /* gtr.png */; };
 		F7A1C2FF1D80338700C386A5 /* homeicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */; };
 		F7A1C3001D80338700C386A5 /* juke.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AB1D80338700C386A5 /* juke.png */; };
 		F7A1C3011D80338700C386A5 /* juke1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2AC1D80338700C386A5 /* juke1.jpg */; };
@@ -262,6 +262,7 @@
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F71040A31D81290C00BD3E88 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		F71EE7BC1D9E3DE900169DFF /* gtr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtr.png; sourceTree = "<group>"; };
 		F768582D1D9B7AB700D9070C /* SpecificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationViewController.h; sourceTree = "<group>"; };
 		F768582E1D9B7AB700D9070C /* SpecificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecificationViewController.m; sourceTree = "<group>"; };
 		F76858301D9B7BF200D9070C /* SpecificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecificationTableViewCell.h; sourceTree = "<group>"; };
@@ -296,7 +297,6 @@
 		F7A1C2A61D80338700C386A5 /* crossovers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossovers.png; sourceTree = "<group>"; };
 		F7A1C2A71D80338700C386A5 /* current_offers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current_offers.png; sourceTree = "<group>"; };
 		F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genuine_parts_center.png; sourceTree = "<group>"; };
-		F7A1C2A91D80338700C386A5 /* gtr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtr.png; sourceTree = "<group>"; };
 		F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeicon@2x.png"; sourceTree = "<group>"; };
 		F7A1C2AB1D80338700C386A5 /* juke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juke.png; sourceTree = "<group>"; };
 		F7A1C2AC1D80338700C386A5 /* juke1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juke1.jpg; sourceTree = "<group>"; };
@@ -759,6 +759,7 @@
 		F7A1C2941D80338600C386A5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				F71EE7BC1D9E3DE900169DFF /* gtr.png */,
 				F7C32F731D9A57DA001D50B6 /* listview_icon.png */,
 				F7C32F6E1D9A2DAE001D50B6 /* gridview_icon.jpg */,
 				F7B0B90E1D9138D700B2A7EA /* Radio_button_off@2x.png */,
@@ -783,7 +784,6 @@
 				F7A1C2A61D80338700C386A5 /* crossovers.png */,
 				F7A1C2A71D80338700C386A5 /* current_offers.png */,
 				F7A1C2A81D80338700C386A5 /* genuine_parts_center.png */,
-				F7A1C2A91D80338700C386A5 /* gtr.png */,
 				F7A1C2AA1D80338700C386A5 /* homeicon@2x.png */,
 				F7A1C2AB1D80338700C386A5 /* juke.png */,
 				F7A1C2AC1D80338700C386A5 /* juke1.jpg */,
@@ -1073,6 +1073,7 @@
 				F7A1C3331D80338700C386A5 /* vehicles@2x.png in Resources */,
 				532F1F811D6EF21000F19D5B /* LaunchScreen.storyboard in Resources */,
 				F7A1C3261D80338700C386A5 /* service_icon.png in Resources */,
+				F71EE7BD1D9E3DE900169DFF /* gtr.png in Resources */,
 				F7A1C30F1D80338700C386A5 /* micra.png in Resources */,
 				F7A1C33A1D80338700C386A5 /* background.png in Resources */,
 				F7A1C3251D80338700C386A5 /* service_centre.png in Resources */,
@@ -1116,7 +1117,6 @@
 				F7A1C30A1D80338700C386A5 /* loyalty_program.png in Resources */,
 				F7A1C3011D80338700C386A5 /* juke1.jpg in Resources */,
 				F7A1C32B1D80338700C386A5 /* splashscreen.png in Resources */,
-				F7A1C2FE1D80338700C386A5 /* gtr.png in Resources */,
 				F7A1C2F41D80338700C386A5 /* brochure.png in Resources */,
 				F7A1C31A1D80338700C386A5 /* pathfinderclassic.png in Resources */,
 				F7A1C2F01D80338700C386A5 /* arrow_icon_gray.png in Resources */,

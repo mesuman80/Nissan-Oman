@@ -26,7 +26,9 @@
     UIDatePicker *myDatePicker;
     NSDate *dob;
     UITextField *dateField;
+    CGFloat yVal;
     Utility *utility;
+    BOOL isFirstTime;
 
 
 }
@@ -39,10 +41,8 @@
     utility = [[Utility alloc]init];
     arrVal = @[PlaceholderSignupFirstNameString,PlaceholderSignupLastNameString,PlaceholderSignupDobString,PlaceholderMobileNo,PLaceholderEmail];
     dataFieldArr = [[NSMutableArray alloc]init];
-    [self addKeyBoardNotification];
-    [self addTitle];
-    [self addSubTitle];
-    [self drawForm];
+    isFirstTime = YES;
+    
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBackgroundTap)];
     gesture.delegate = self;
@@ -61,6 +61,20 @@
     {
         [self removeDatePicker1];
     }
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(isFirstTime)
+    {
+        isFirstTime = NO;
+        [self addTitle];
+        [self addSubTitle];
+        [self drawForm];
+
+    }
+    
+    [self addKeyBoardNotification];
 }
 
 
@@ -153,7 +167,7 @@
     [scrollView setUserInteractionEnabled:YES];
     [scrollView setScrollEnabled:YES];
     [self.view addSubview:scrollView];
-    CGFloat yVal = 0;;
+    yVal = 0;;
 
     for(int i=0; i<arrVal.count; i++)
     {
@@ -208,13 +222,13 @@
 
 -(void)addSubmitButton
 {
-    submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 35)];
+    submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yVal, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
     submitButton.backgroundColor = buttonRedColor;
     submitButton.center = CGPointMake(screenWidth/2, submitButton.center.y );
     [scrollView addSubview:submitButton];
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
-    yCordinate += submitButton.frame.size.height + 3;
+    yVal += submitButton.frame.size.height + 3;
 }
 
 -(void)submitRequest:(id)sender
@@ -325,6 +339,7 @@
                                completion: nil];
     
 }
+
 
 #pragma mark UIGestureRecognizerDelegate methods
 

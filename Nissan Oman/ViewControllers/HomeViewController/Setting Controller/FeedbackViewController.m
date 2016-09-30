@@ -274,6 +274,12 @@
         previousTextField = nil;
     }
     
+    if(tableView)
+    {
+        [tableView removeFromSuperview];
+        tableView = nil;
+    }
+    
     
    
 }

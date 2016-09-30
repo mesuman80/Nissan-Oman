@@ -169,6 +169,7 @@
     [scrollView setUserInteractionEnabled:YES];
     [scrollView setScrollEnabled:YES];
     [self.view addSubview:scrollView];
+   // [scrollView setBackgroundColor:[UIColor redColor]];
     yVal = 0;;
     for(int i=1; i<arrVal.count; i++)
     {
@@ -635,27 +636,11 @@
         previousTextField = nil;
     }
     
-    if(self.formType == RequestTypeTestDrive)
+    if(tableView)
     {
-        if(textField.tag == 1 || textField.tag == 6)
-        {
-            [textField resignFirstResponder];
-            
-            [self addTableView:textField];
-            
-        }
+        [tableView removeFromSuperview];
+        tableView = nil;
     }
-    else
-    {
-        if(textField.tag == 1 || textField.tag == 4)
-        {
-            [textField resignFirstResponder];
-            
-            [self addTableView:textField];
-            
-        }
-    }
-    
 }
 
 
