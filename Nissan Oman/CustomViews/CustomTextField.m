@@ -31,9 +31,10 @@
 }
 
 
+#pragma mark draw placeholder in textfield
+
 - (void)drawPlaceholderInRect:(CGRect)rect
 {
-    
     UIColor *colour = [UIColor whiteColor];
     
     if ([self.placeholder respondsToSelector:@selector(drawInRect:withAttributes:)]) {

@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     utility = [[Utility alloc]init];
-    [utility configNudgerServerData];
+    [utility configNissanServerData];
     sharePreferenceUtil = [SharePreferenceUtil getInstance];
     [[SharePreferenceUtil  getInstance] saveString:@"NO" withKey:IsSettingScreen];
 

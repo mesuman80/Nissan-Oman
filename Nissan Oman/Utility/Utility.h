@@ -22,7 +22,7 @@
 -(void)showStatusBar;
 -(void)hideStatusBar;
 -(CGFloat)statusBarAndNavigationBarHeight:(UIView *)navigationBar;
--(void)configNudgerServerData;
+-(void)configNissanServerData;
 
 //HUD
 -(void)showHUD;

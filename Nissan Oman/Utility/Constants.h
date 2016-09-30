@@ -114,6 +114,10 @@
 #define cellPadding             ScreenWidthFactor*12
 #define cellPaddingReg          ScreenWidthFactor*15
 
+
+
+//********************************** Request form types **************************************************
+
 typedef enum {
     RequestTypeQuote          = 0,
     RequestTypeBrochure       = 1,

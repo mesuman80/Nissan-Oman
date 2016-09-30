@@ -45,6 +45,8 @@
 }
 @synthesize arrVal;
 
+#pragma mark life cycle service
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -61,18 +63,7 @@
     // Do any additional setup after loading the view.
 }
 
--(void)onBackgroundTap
-{
-    if(activeField)
-    {
-        [activeField resignFirstResponder];
-    }
-    if(tableView)
-    {
-        [tableView removeFromSuperview];
-        tableView = nil;
-    }
-}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -96,6 +87,21 @@
     if(activeField)
     {
         [activeField resignFirstResponder];
+    }
+}
+
+#pragma mark gesture implementation
+
+-(void)onBackgroundTap
+{
+    if(activeField)
+    {
+        [activeField resignFirstResponder];
+    }
+    if(tableView)
+    {
+        [tableView removeFromSuperview];
+        tableView = nil;
     }
 }
 
@@ -147,6 +153,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark view rendering functions
 
 -(void)addTitle
 {
@@ -236,9 +243,12 @@
     yVal += submitButton.frame.size.height + 3;
 }
 
+#pragma mark Submit buttob click functionality
+
+
 -(void)submitRequest:(id)sender
 {
-    if([self isValidate])
+    if([self isValidate])                       // Form validation
     {
         WebService *webService = [[WebService alloc]init];
         webService.customWebServiceDelegate = self;
@@ -276,22 +286,16 @@
     }
 }
 
+#pragma mark check the validation of textfields
+
 -(BOOL)isValidate{
-    /* NSString *carModel;
-     NSString *firstName;
-     NSString *lastName;
-     NSString *poBox;
-     NSString *pc;
-     NSString *showRoom;
-     NSString *email;
-     NSString *phone; */
     for(UITextField *textField in dataFieldArr)
     {
         NSString *str = textField.text;
-        str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];        // removing blanck space if any
         if(str.length >0)
         {
-            if(textField.tag == 2)
+            if(textField.tag == 2)                  // checking phn number validation
             {
                 if(![utility NSStringIsValidPhoneNum:textField.text])
                 {
@@ -300,7 +304,7 @@
                     return NO;
                 }
             }
-            if(textField.tag == 3)
+            if(textField.tag == 3)                  // checking email validation
             {
                 if(![utility NSStringIsValidEmail:textField.text])
                 {
@@ -309,7 +313,6 @@
                     return NO;
                 }
             }
-            //return YES;
         }
         else
         {
@@ -323,7 +326,7 @@
 }
 
 
--(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg          //showing alert view
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
                                                                         message: msg
@@ -346,7 +349,7 @@
     
 }
 
--(void)getShowroomBranchData
+-(void)getShowroomBranchData                // web service calling for showroom
 {
     WebService *webService = [[WebService alloc]init];
     webService.customWebServiceDelegate = self;
@@ -355,7 +358,7 @@
     
 }
 
--(void)getVehicleDropDown
+-(void)getVehicleDropDown                        // web service calling for vehicle drop down
 {
     WebService *webService = [[WebService alloc]init];
     webService.customWebServiceDelegate = self;
@@ -364,15 +367,14 @@
     
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict        // if any error comes
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict      // delegate for success
 {
-    //if()
-    if(dict.count == 1)
+    if(dict.count == 1)                                         // for showroom success
     {
         arrOfDict = [dict valueForKey:@"showroom_address"];
         int i = 0;
@@ -389,7 +391,7 @@
     
     else
     {
-        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])       //for vehicle drop down success
         {
             carDictArr = [dict valueForKey:@"dropDown"];
             int j=0;
@@ -403,7 +405,7 @@
             }
         }
         
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"adventurePark"])
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"adventurePark"])        //for adventure park success
         {
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Adventure Park is successfully submitted."];
@@ -478,9 +480,6 @@
     return YES;
 }
 
-
-
-
 -(void)addTableView:(UITextField *)texfield
 {
     [activeField resignFirstResponder];
@@ -504,8 +503,6 @@
 {
     if ([touch.view isDescendantOfView:tableView] || [touch.view isDescendantOfView:self.settingView.tableView]) {
         
-        // Don't let selections of auto-complete entries fire the
-        // gesture recognizer
         return NO;
     }
     

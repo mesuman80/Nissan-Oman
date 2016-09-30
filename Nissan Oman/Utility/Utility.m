@@ -20,6 +20,8 @@
     return self;
 }
 
+#pragma Mark alertview delegate
+
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
@@ -68,10 +70,12 @@
     return totalHeight;
 }
 
--(void)configNudgerServerData{
+#pragma mark configure server data
+
+-(void)configNissanServerData{
     SharePreferenceUtil *sharePreferenceUtil = [SharePreferenceUtil getInstance];
     [sharePreferenceUtil saveString:@"http://webisdomsolutions.com/nissanweb/webservices/" withKey:kN_BaseURL];
-    [sharePreferenceUtil saveString:@"http://54.153.76.97/" withKey:kN_BaseIP];
+    
 }
 
 #pragma Hud Method
@@ -212,6 +216,8 @@
     return result.length;
 }
 
+#pragma mark check if entered email is valid
+
 -(BOOL)isValidEmail:(NSString *)emailString Strict:(BOOL)strictFilter
 {
     NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -223,6 +229,8 @@
     return [emailTest evaluateWithObject:emailString];
 }
 
+
+#pragma mark phone number validation
 - (BOOL)myMobileNumberValidate:(NSString*)number
 {
     NSString *numberRegEx = @"[0-9]{10}";
@@ -233,6 +241,7 @@
         return FALSE;
 }
 
+#pragma mark password validation
 -(BOOL)passwordValidate:(NSString *)password
 {
     if(password.length == 0)
@@ -283,6 +292,7 @@
     textField.layer.cornerRadius = cornerRadius;
     textField.clipsToBounds = YES;
 }
+
 -(void)addBorderToButton:(UIButton *)button BorderWidth:(float)borderWidth Radius:(float)radius Color:(UIColor *)color
 {
     [button.layer setBorderColor:[color CGColor]];
@@ -416,6 +426,9 @@
     
     return dictCodes;
 }
+
+
+#pragma mark getting current country code of user
 
 -(NSString *)countryCode
 {

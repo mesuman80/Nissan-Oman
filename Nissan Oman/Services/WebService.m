@@ -375,6 +375,7 @@
     });
 }
 
+#pragma mark sign up service
 
 -(void)registerUser:(NSDictionary *)dict {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -398,6 +399,8 @@
     }
 
 }
+
+#pragma mark login service
 
 -(void)loginUser:(NSDictionary *)dict
 {
@@ -423,6 +426,8 @@
     
 }
 
+#pragma mark vehicle categeory service
+
 -(void)getVehicleCategeoryList
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -445,6 +450,8 @@
     }
     
 }
+
+#pragma mark vehicle sub categeory service
 
 -(void)getVehicleSubCategeoryList:(NSString *)idVal
 {
@@ -470,6 +477,7 @@
     
 }
 
+#pragma mark vehicle description service
 -(void)getVehicleDescription:(NSString *)idVal
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -494,6 +502,8 @@
     
 }
 
+#pragma mark showroom address service
+
 -(void)getShowroomAddress
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -516,6 +526,9 @@
     }
     
 }
+
+
+#pragma mark service centre name  service
 
 -(void)getServiceCentre
 {
@@ -540,6 +553,8 @@
     
 }
 
+#pragma mark body shop centre service
+
 -(void)getBodyShop
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -562,6 +577,9 @@
     }
     
 }
+
+#pragma mark Genuine part center service
+
 -(void)getGenuinePart
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -584,6 +602,8 @@
     }
     
 }
+
+#pragma mark current offers service
 
 -(void)getCurrentOffers
 {
@@ -609,7 +629,7 @@
 }
 
 
-
+#pragma mark vehicle drop down service
 
 -(void)getVehicleDropDown
 {
@@ -633,6 +653,8 @@
     }
     
 }
+
+#pragma mark request a brochure service
 
 -(void)requestBrochure:(NSDictionary *)dict
 {
@@ -658,6 +680,8 @@
     
 }
 
+#pragma mark request a quote service
+
 -(void)requestQuote:(NSDictionary *)dict
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -681,6 +705,8 @@
     }
     
 }
+
+#pragma mark request for test drive service
 
 -(void)requestTestDrive:(NSDictionary *)dict
 {
@@ -706,6 +732,8 @@
     
 }
 
+#pragma mark request for adventure park service
+
 -(void)requestAdventurePark:(NSDictionary *)dict
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -729,6 +757,9 @@
     }
     
 }
+
+
+#pragma mark request for service appointment service
 
 -(void)requestServiceAppointment:(NSDictionary *)dict
 {
@@ -754,6 +785,8 @@
     
 }
 
+#pragma mark request for feedback service
+
 -(void)requestFeedback:(NSDictionary *)dict
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -778,6 +811,8 @@
     
 }
 
+#pragma mark forget password service
+
 -(void)forgetPassword:(NSString *)email
 {
     if([[InternetConnection sharedInstance] connectionStatus]) {
@@ -801,6 +836,8 @@
     }
     
 }
+
+#pragma mark account settings service
 
 -(void)accountSettings:(NSDictionary *)dict
 {

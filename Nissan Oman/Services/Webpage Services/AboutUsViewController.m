@@ -40,10 +40,6 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    // self.navigationController.navigationBar.tintColor=[UIColor blackColor];
-    
-    //  self.title=title;
-    // self.edgesForExtendedLayout = UIRectEdgeNone;
     CGFloat yVal = 0;
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,yVal, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height - yVal)];
     
@@ -63,19 +59,6 @@
 {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
-    //    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0, [[UIScreen mainScreen]bounds].size.width, self.view.bounds.size.height)];
-    //    webView.delegate=self;
-    //    webView.delegate = self; // setup the delegate as the web view is shown
-    //
-    //    NSURL *nsurl            =   [NSURL URLWithString:urlToOpen];
-    //    NSURLRequest *nsrequest =   [NSURLRequest requestWithURL:nsurl];
-    //    [webView loadRequest:nsrequest];
-    //    [webView setBackgroundColor:[UIColor clearColor]];
-    //    [self.view addSubview:webView];
-    
-    // self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
