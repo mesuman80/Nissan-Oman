@@ -54,12 +54,12 @@
     [[self tabBar]addSubview:subview];
     
     
-    HomeViewController  *homeViewController = [[HomeViewController alloc]init];
+    HomeViewController  *homeViewController = [[HomeViewController alloc]init];         // for home view
     homeViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"homeicon.png"] tag:0];
     
     UINavigationController *homeNavigationController=[[UINavigationController alloc]initWithRootViewController:homeViewController];
     
-    ShowroomViewController  *locationViewController = [[ShowroomViewController alloc]init];
+    ShowroomViewController  *locationViewController = [[ShowroomViewController alloc]init];     // for location view
     locationViewController.arrVal = @[@"SHOWROOM LOCATOR",PlaceholderSelectBranch,@"showroomAddress"];
 
     locationViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"location_icon.png"] tag:1];
@@ -68,12 +68,12 @@
 
     
     [self.navigationController setNavigationBarHidden:NO];
-    VehicleCategeoryViewController  *vehiclesViewController = [[VehicleCategeoryViewController alloc]init];
+    VehicleCategeoryViewController  *vehiclesViewController = [[VehicleCategeoryViewController alloc]init]; // for vehicle view
     vehiclesViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"crossover_icon.png"] tag:2];
     UINavigationController *vehicleNavigationController=[[UINavigationController alloc]initWithRootViewController:vehiclesViewController];
     [vehicleNavigationController setNavigationBarHidden: NO];
     
-    CallViewController  *callViewController = [[CallViewController alloc]init];
+    CallViewController  *callViewController = [[CallViewController alloc]init];  // for toll free call view
     callViewController.tabBarItem=[[UITabBarItem alloc]initWithTitle:nil image:[UIImage imageNamed:@"call.png"] tag:3];
     UINavigationController *callNavigationController=[[UINavigationController alloc]initWithRootViewController:callViewController];
     
@@ -82,6 +82,10 @@
     
     [self setViewControllers:myViewControllers];
     [self setSelectedIndex:0];
+    
+    
+    
+    // for vertical bars
     
     UIView *verticalView1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, [self tabBar].frame.size.height)];
     verticalView1.backgroundColor = [UIColor whiteColor];
@@ -103,46 +107,28 @@
     
 }
 
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item // if tab bar item selected
 {
     if(item.tag == 0)
     {
-      /*  UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height)];
-        v.backgroundColor = [UIColor redColor];
-        [[self tabBar]addSubview:v]; */
         subview.frame = CGRectMake(0, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height);
-        
     }
     
     else if(item.tag == 1)
     {
-       /* UIView *v = [[UIView alloc]initWithFrame:CGRectMake([self tabBar].frame.size.width *.25f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height)];
-        v.backgroundColor = [UIColor redColor];
-        [[self tabBar]addSubview:v]; */
         subview.frame = CGRectMake([self tabBar].frame.size.width *.25f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height);
-
         
     }
     else if(item.tag == 2)
     {
-      /*  UIView *v = [[UIView alloc]initWithFrame:CGRectMake([self tabBar].frame.size.width *.5f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height)];
-        v.backgroundColor = [UIColor redColor];
-        [[self tabBar]addSubview:v];*/
         subview.frame = CGRectMake([self tabBar].frame.size.width *.5f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height);
 
-        
     }
     else if(item.tag == 3)
     {
-      /*  UIView *v = [[UIView alloc]initWithFrame:CGRectMake([self tabBar].frame.size.width *.75f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height)];
-        v.backgroundColor = [UIColor redColor];
-        [[self tabBar]addSubview:v]; */
         subview.frame = CGRectMake([self tabBar].frame.size.width *.75f, 0, [self tabBar].frame.size.width *.25f, [self tabBar].frame.size.height);
 
-        
     }
-    
-    NSLog(@"item val = %@", item);
 }
 /*
 #pragma mark - Navigation

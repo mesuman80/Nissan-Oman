@@ -17,7 +17,7 @@
 
 @synthesize backgroundDimView,viewHeight,viewWidth,navigationHeight;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {               // setting basic ui of view controller
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -42,7 +42,7 @@
 }
 
 #pragma Initialization
--(void)initialiseVariables{
+-(void)initialiseVariables{                     // initialise data variables
     viewWidth = self.view.frame.size.width;
     viewHeight = self.view.frame.size.height;
     

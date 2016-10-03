@@ -421,15 +421,7 @@
 }
 
 -(BOOL)isValidate{
-   /* NSString *carModel;
-    NSString *firstName;
-    NSString *lastName;
-    NSString *poBox;
-    NSString *pc;
-    NSString *showRoom;
-    NSString *email;
-    NSString *phone; */
-   for(UITextField *textField in dataFieldArr)
+    for(UITextField *textField in dataFieldArr)
    {
        NSString *str = textField.text;
        str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

@@ -421,28 +421,28 @@
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if(textField.tag == 1 || textField.tag == 4)
+    if(textField.tag == 1 || textField.tag == 4)        // If textfield is either name of location
     {
         [textField resignFirstResponder];
         desiredField = textField;
-        if(datePickerView)
+        if(datePickerView)                              // if any datepicker is there, remove it
         {
             [self removeDatePicker1];
         }
-        [self addTableView:textField];
+        [self addTableView:textField];                  // add tableview
         return NO;
         
     }
-    if(textField.tag == 5)
+    if(textField.tag == 5)                              // if textfield is test drive date
     {
         [textField resignFirstResponder];
         desiredField = textField;
-        if(tableView)
+        if(tableView)                                    // if tableview, remove it
         {
             [tableView removeFromSuperview];
             tableView = nil;
         }
-        [self openDatePicker];
+        [self openDatePicker];                          // open date picker
         return NO;
     }
 
@@ -473,7 +473,7 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if([string isEqualToString:@"\n"])
+    if([string isEqualToString:@"\n"])          // for return key
     {
         [textField resignFirstResponder];
     }
@@ -503,7 +503,7 @@
 {
     if ([touch.view isDescendantOfView:tableView] || [touch.view isDescendantOfView:self.settingView.tableView]) {
         
-        return NO;
+        return NO;                  // to disable gesture if table view is there
     }
     
     return YES;
@@ -518,10 +518,10 @@
     
     if(desiredField.tag == 1)
     {
-        return carArray.count;
+        return carArray.count;          // for car model array
     }
     
-    return showRoomArray.count;
+    return showRoomArray.count;          // for showroom array
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -563,13 +563,13 @@
     
     //if(self.formType == RequestTypeQuote)
     //{
-    if(desiredField.tag == 1)
+    if(desiredField.tag == 1)               //for car model
     {
         name = [carArray objectAtIndex:indexPath.row];
         carDict = [carDictArr objectAtIndex:indexPath.row];
         
     }
-    else
+    else                                    // for showroom
     {
         name = [showRoomArray objectAtIndex:indexPath.row];
         showRoomDict = [arrOfDict objectAtIndex:indexPath.row];
@@ -594,6 +594,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark datepicker delegate
 
 -(void)openDatePicker
 {
@@ -614,8 +615,6 @@
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
         
-        
-        NSDate *newDate = [calendar dateFromComponents: components];
         // [myDatePicker setMinimumDate:newDate];
         
         
@@ -642,7 +641,7 @@
     
 }
 
--(void)setupDoneButton:(UIView *)view
+-(void)setupDoneButton:(UIView *)view               // done button ui
 {
     UIButton *doneButton = [[UIButton alloc]init];
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
@@ -654,7 +653,7 @@
     
 }
 
--(void)setupCancelButton:(UIView *)view
+-(void)setupCancelButton:(UIView *)view         // cancel button ui
 {
     UIButton *cancelButton = [[UIButton alloc]init];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -666,7 +665,7 @@
     
 }
 
--(void)onDoneTap:(id)sender
+-(void)onDoneTap:(id)sender                 // on tap of done button
 {
     dob = myDatePicker.date;
     //previousMessageFutureDate  = futureDate;
@@ -685,7 +684,7 @@
     //futureDate = myDatePicker.date;
 }
 
--(void)removeDatePicker1 {
+-(void)removeDatePicker1 {                  // remove datepicker
     
     [datePickerView removeFromSuperview];
     [myDatePicker removeFromSuperview];
@@ -694,7 +693,7 @@
 }
 
 
--(void)setDateOnLabel:(NSString *)dateAndTime
+-(void)setDateOnLabel:(NSString *)dateAndTime               // set date on given textfield
 {
     NSString * dateTimeString;
     if(dateAndTime)
@@ -714,14 +713,16 @@
 }
 
 
--(NSString *)getDatePickerTimeStr
+-(NSString *)getDatePickerTimeStr           // get string form date
 {
     NSDateFormatter *dateSelected = [[NSDateFormatter alloc]init];
     dateSelected.dateFormat = @"MM/dd/YYYY";
     NSString *time =[dateSelected stringFromDate:dob];
     return time;
 }
--(void)onCancelTap:(id)sender
+
+
+-(void)onCancelTap:(id)sender               // on tap of cancel button
 {
     [self removeDatePicker1];
     dob = nil;

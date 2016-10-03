@@ -39,7 +39,7 @@
     [super viewWillAppear:animated];
 }
 
--(void)drawLogo
+-(void)drawLogo // draw top left logo image
 {
    if([self.navigationController.navigationBar isHidden])
    {
@@ -51,19 +51,14 @@
 
     }
     yValue = yCordinate;
-    NSLog(@"yCordinate = %f",yCordinate);
-   // yCordinate = 25 + self.navigationController.navigationBar.frame.size.height;
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20,yCordinate , 60, 60)];
-   // UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 25, 80, 80)];
     imgView.image = [UIImage imageNamed:@"app_icon.png"];
     [self.view addSubview:imgView];
-    
-   
 }
 
 
 
--(void)drawSettingButton
+-(void)drawSettingButton         // draw top right setting button
 {
     baseView = [[UIView alloc]initWithFrame:CGRectMake(0, yCordinate + 5, 100, 40)];
     baseView.center = CGPointMake(self.view.frame.size.width *.85f, baseView.center.y);
@@ -83,20 +78,14 @@
     [baseView addGestureRecognizer:gesture];
 }
 
--(void)settingBtnTouched:(id)sender
+-(void)settingBtnTouched:(id)sender                         // setting button touch handler
 {
     counter ++;
     CGFloat yval = yValue;//settingBtn.frame.origin.y + settingBtn.frame.size.height + 5;
     if(!settingView)
     {
-        //view = [[SettingView alloc]initWithFrame:CGRectMake(imgView.frame.size.width + imgView.frame.origin.x+ 10,  yval,self.view.frame.size.width- (imgView.frame.size.width + imgView.frame.origin.x), self.view.frame.size.height - yval)];
-        
-        
          settingView = [[SettingView alloc]initWithFrame:CGRectMake(0,  yval,self.view.frame.size.width, self.view.frame.size.height - yval)];
         settingView.rootController = self;
-        
-       // view.backgroundColor = [UIColor whiteColor];
-        //  [self.view addSubview:view];
     }
     
     if(counter %2 != 0)
@@ -105,7 +94,6 @@
         [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self.view addSubview:settingView];
             settingView.center = CGPointMake(self.view.frame.size.width/2, settingView.center.y);
-          //  self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
 
         } completion:^(BOOL finished) {
             
