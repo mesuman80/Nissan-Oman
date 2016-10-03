@@ -109,7 +109,6 @@
 
 
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0)
     {

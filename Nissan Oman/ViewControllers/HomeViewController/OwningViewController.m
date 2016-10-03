@@ -97,7 +97,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Index pathn =%li" , indexPath.row);
     static NSString *tableCellIdentifierForReadReceipt = @"cellIdentifier";
     CustomTableViewCell *tableCell = [tableView1 dequeueReusableCellWithIdentifier:tableCellIdentifierForReadReceipt];
     if(tableCell == nil) {
@@ -117,7 +116,6 @@
 
 
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected pathn =%li" , indexPath.row);
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0)
     {
