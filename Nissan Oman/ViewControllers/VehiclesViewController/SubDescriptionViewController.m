@@ -89,7 +89,7 @@
         NSLog(@"dict = %@",dict);
         
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
-        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(initialX, initialY+2, 5, 5)] CGPath]];
+        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(initialX, initialY+ 8, 5, 5)] CGPath]];
         [[scrollView layer] addSublayer:circleLayer];
         [circleLayer setFillColor:[[UIColor blackColor] CGColor]];
         
@@ -98,15 +98,28 @@
         headingLabel.font = [UIFont boldSystemFontOfSize:10.0f];
         NSString *headingStr = [dict valueForKey:@"heading"];
         headingLabel.text = headingStr;
-        CGSize displayValueSize = [headingLabel.text sizeWithFont:headingLabel.font
-                                            constrainedToSize:CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX)
-                                                lineBreakMode:NSLineBreakByWordWrapping];
+        headingLabel.numberOfLines = 0;
+        headingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize = CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX);
+        
+        
+        CGRect textRect = [headingStr boundingRectWithSize:maximumLabelSize
+                                                   options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                                attributes:@{NSFontAttributeName:headingLabel.font}
+                                                   context:nil];
+        
 
-        headingLabel.frame = CGRectMake(16, initialY, scrollView.frame.size.width - 20, displayValueSize.height + 10);
+        
+        
+        
+        /*CGSize displayValueSize = [headingLabel.text sizeWithFont:headingLabel.font
+                                            constrainedToSize:CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX)
+                                                lineBreakMode:NSLineBreakByWordWrapping]; */
+
+        headingLabel.frame = CGRectMake(16, initialY, scrollView.frame.size.width - 20, textRect.size.height + 10);
         headingLabel.numberOfLines = 0;
         
         [scrollView addSubview:headingLabel];
-
         initialY += headingLabel.frame.size.height + 10;
         
         UILabel *subHeadingLabel = [[UILabel alloc]init];
@@ -114,10 +127,23 @@
         NSString *subHeadingStr = [dict valueForKey:@"subHeading"];
          subHeadingLabel.text = subHeadingStr;
         subHeadingLabel.textColor =[ UIColor grayColor];
-        CGSize labelSize = [subHeadingLabel.text sizeWithFont:subHeadingLabel.font
+        subHeadingLabel.numberOfLines = 0;
+        subHeadingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize1 = CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX);
+        
+        
+        CGRect textRect1 = [subHeadingStr boundingRectWithSize:maximumLabelSize1
+                                                   options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                                attributes:@{NSFontAttributeName:subHeadingLabel.font}
+                                                   context:nil];
+        
+
+        
+       /* CGSize labelSize = [subHeadingLabel.text sizeWithFont:subHeadingLabel.font
                                     constrainedToSize:CGSizeMake(scrollView.frame.size.width - 20, CGFLOAT_MAX)
-                                        lineBreakMode:NSLineBreakByWordWrapping];
-        subHeadingLabel.frame = CGRectMake(16, initialY, scrollView.frame.size.width - 20, labelSize.height);
+                                        lineBreakMode:NSLineBreakByWordWrapping];*/
+        
+        subHeadingLabel.frame = CGRectMake(16, initialY, scrollView.frame.size.width - 20, textRect1.size.height);
        
         subHeadingLabel.numberOfLines = 0;
         [scrollView addSubview:subHeadingLabel];

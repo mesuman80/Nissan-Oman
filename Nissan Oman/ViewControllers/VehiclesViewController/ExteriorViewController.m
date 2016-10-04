@@ -98,11 +98,24 @@
         NSString *headingStr = text;
         headingLabel.text = headingStr;
         headingLabel.textColor = [UIColor grayColor];
-        CGSize displayValueSize = [text sizeWithFont:headingLabel.font
-                                   constrainedToSize:CGSizeMake(interiorScrollView.frame.size.width -20, CGFLOAT_MAX)
-                                       lineBreakMode:NSLineBreakByWordWrapping];
         
-        headingLabel.frame = CGRectMake(xpos, imgView.frame.size.height + 2, interiorScrollView.frame.size.width - 20, displayValueSize.height + 10);
+        headingLabel.numberOfLines = 0;
+        headingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize = CGSizeMake(interiorScrollView.frame.size.width - 20, CGFLOAT_MAX);
+        
+        
+        CGRect textRect = [headingStr boundingRectWithSize:maximumLabelSize
+                                                   options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                                attributes:@{NSFontAttributeName:headingLabel.font}
+                                                   context:nil];
+        
+
+        
+       /* CGSize displayValueSize = [text sizeWithFont:headingLabel.font
+                                   constrainedToSize:CGSizeMake(interiorScrollView.frame.size.width -20, CGFLOAT_MAX)
+                                       lineBreakMode:NSLineBreakByWordWrapping]; */
+        
+        headingLabel.frame = CGRectMake(xpos, imgView.frame.size.height + 2, interiorScrollView.frame.size.width - 20, textRect.size.height + 10);
         headingLabel.numberOfLines = 0;
         
         
@@ -138,11 +151,24 @@
         NSString *headingStr = text;
         headingLabel.text = headingStr;
         headingLabel.textColor = [UIColor grayColor];
-        CGSize displayValueSize = [text sizeWithFont:headingLabel.font
-                                   constrainedToSize:CGSizeMake(exteriorScrollView.frame.size.width -20, CGFLOAT_MAX)
-                                       lineBreakMode:NSLineBreakByWordWrapping];
         
-        headingLabel.frame = CGRectMake(xpos, imgHeight + 5, exteriorScrollView.frame.size.width - 20, displayValueSize.height + 10);
+        headingLabel.numberOfLines = 0;
+        headingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize = CGSizeMake(exteriorScrollView.frame.size.width - 20, CGFLOAT_MAX);
+        
+        
+        CGRect textRect = [headingStr boundingRectWithSize:maximumLabelSize
+                                                   options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                                attributes:@{NSFontAttributeName:headingLabel.font}
+                                                   context:nil];
+        
+
+        
+       /* CGSize displayValueSize = [text sizeWithFont:headingLabel.font
+                                   constrainedToSize:CGSizeMake(exteriorScrollView.frame.size.width -20, CGFLOAT_MAX)
+                                       lineBreakMode:NSLineBreakByWordWrapping]; */
+        
+        headingLabel.frame = CGRectMake(xpos, imgHeight + 5, exteriorScrollView.frame.size.width - 20, textRect.size.height + 10);
         headingLabel.numberOfLines = 0;
         
         [exteriorScrollView addSubview:headingLabel];

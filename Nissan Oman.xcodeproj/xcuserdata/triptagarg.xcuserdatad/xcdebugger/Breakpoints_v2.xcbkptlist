@@ -2554,11 +2554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/VehiclesViewController/SubDescriptionViewController.m"
-            timestampString = "496657693.70499"
+            timestampString = "497268845.12376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-addElements"
             landmarkType = "7">
          </BreakpointContent>
@@ -2714,11 +2714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nissan Oman/ViewControllers/VehiclesViewController/ExteriorViewController.m"
-            timestampString = "497258170.202012"
+            timestampString = "497268314.059202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-drawExteriorScrollView"
             landmarkType = "7">
          </BreakpointContent>

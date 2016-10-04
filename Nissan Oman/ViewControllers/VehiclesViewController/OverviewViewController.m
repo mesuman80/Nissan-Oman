@@ -96,11 +96,24 @@
     NSString *headingStr = [dataArray objectAtIndex:3];
      headingLabel.text = headingStr;
     headingLabel.textColor = [UIColor grayColor];
-    CGSize displayValueSize = [headingLabel.text sizeWithFont:headingLabel.font
-                                            constrainedToSize:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)
-                                                lineBreakMode:NSLineBreakByWordWrapping];
     
-    headingLabel.frame = CGRectMake(16, yCordinate, self.view.frame.size.width - 20, displayValueSize.height + 10);
+    headingLabel.numberOfLines = 0;
+    headingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    CGSize maximumLabelSize = CGSizeMake(self.view.frame.size.width - 2, CGFLOAT_MAX);
+    
+    
+    CGRect textRect = [headingStr boundingRectWithSize:maximumLabelSize
+                                               options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                            attributes:@{NSFontAttributeName:headingLabel.font}
+                                               context:nil];
+    
+
+    
+   /* CGSize displayValueSize = [headingLabel.text sizeWithFont:headingLabel.font
+                                            constrainedToSize:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)
+                                                lineBreakMode:NSLineBreakByWordWrapping]; */
+    
+    headingLabel.frame = CGRectMake(16, yCordinate, self.view.frame.size.width - 20, textRect.size.height + 10);
    headingLabel.numberOfLines = 0;
     [self.view addSubview:headingLabel];
     
