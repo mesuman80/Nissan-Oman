@@ -254,6 +254,17 @@
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if(textField == phoneNumberTextfield)
+    {
+        if(textField.text.length >7)
+        {
+            return NO;
+        }
+    }
+    return YES;
+}
 -(void)signupButtonTouched:(id)sender{
    if([self checkValidation])
    {
