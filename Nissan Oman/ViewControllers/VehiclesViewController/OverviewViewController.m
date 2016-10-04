@@ -16,6 +16,7 @@
 {
     CGFloat yCordinate;
     BOOL isFirstTime;
+    Utility *utility;
 }
 
 @synthesize dataArray;
@@ -23,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
-    
+    utility = [[Utility alloc]init];
     isFirstTime = YES;
     
     // Do any additional setup after loading the view.
@@ -36,6 +37,7 @@
         isFirstTime = NO;
         [self addTitle];
         [self addSubTitle] ;
+        [utility showHUD];
         [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(drawImageView) userInfo:nil repeats:NO];
         //[self drawImageView];
        // [self drawOverView];
@@ -102,7 +104,8 @@
    headingLabel.numberOfLines = 0;
     [self.view addSubview:headingLabel];
     
-   
+    [utility hideHUD];
+
 
 }
 

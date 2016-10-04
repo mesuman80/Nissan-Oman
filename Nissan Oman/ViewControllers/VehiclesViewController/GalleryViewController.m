@@ -15,6 +15,7 @@
 @implementation GalleryViewController
 {
     CGFloat yCordinate;
+    Utility *utility;
     
     
 }
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    utility = [[Utility alloc]init];
    
     // Do any additional setup after loading the view.
 }
@@ -32,6 +34,7 @@
     [super viewWillAppear:animated];
     [self addTitle];
     [self addSubTitle];
+    [utility showHUD];
      [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(addScrollView) userInfo:nil repeats:NO];
     
    // [self addScrollView];
@@ -91,6 +94,7 @@
         horScrollView.showsHorizontalScrollIndicator = NO;
     }
     [horScrollView setContentSize:CGSizeMake(xpos, horScrollView.frame.size.height)];
+    [utility hideHUD];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
