@@ -38,11 +38,7 @@ typedef void(^onCompletion)(NSString *error);
 -(void)forgetPassword:(NSString *)email;
 -(void)accountSettings:(NSDictionary *)dict;
 
-//User Update Webservices
--(void)updateDeviceTokenInSever;
 
-//Category Webservices
--(void)getCategoryListWithCompletion:(onCompletion)iCompletion;
 @property id<CustomWebServiceDelegate>customWebServiceDelegate;
 
 @end

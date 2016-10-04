@@ -62,7 +62,6 @@
 		F7A1C2F01D80338700C386A5 /* arrow_icon_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C29B1D80338600C386A5 /* arrow_icon_gray.png */; };
 		F7A1C2F11D80338700C386A5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C29C1D80338600C386A5 /* background.png */; };
 		F7A1C2F21D80338700C386A5 /* body_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C29D1D80338600C386A5 /* body_shop.png */; };
-		F7A1C2F31D80338700C386A5 /* bottombar.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C29E1D80338600C386A5 /* bottombar.png */; };
 		F7A1C2F41D80338700C386A5 /* brochure.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C29F1D80338600C386A5 /* brochure.png */; };
 		F7A1C2F51D80338700C386A5 /* buyer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A01D80338600C386A5 /* buyer_icon.png */; };
 		F7A1C2F61D80338700C386A5 /* buyer_support.png in Resources */ = {isa = PBXBuildFile; fileRef = F7A1C2A11D80338700C386A5 /* buyer_support.png */; };
@@ -286,7 +285,6 @@
 		F7A1C29B1D80338600C386A5 /* arrow_icon_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_icon_gray.png; sourceTree = "<group>"; };
 		F7A1C29C1D80338600C386A5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		F7A1C29D1D80338600C386A5 /* body_shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body_shop.png; sourceTree = "<group>"; };
-		F7A1C29E1D80338600C386A5 /* bottombar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottombar.png; sourceTree = "<group>"; };
 		F7A1C29F1D80338600C386A5 /* brochure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brochure.png; sourceTree = "<group>"; };
 		F7A1C2A01D80338600C386A5 /* buyer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyer_icon.png; sourceTree = "<group>"; };
 		F7A1C2A11D80338700C386A5 /* buyer_support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyer_support.png; sourceTree = "<group>"; };
@@ -773,7 +771,6 @@
 				F7A1C29B1D80338600C386A5 /* arrow_icon_gray.png */,
 				F7A1C29C1D80338600C386A5 /* background.png */,
 				F7A1C29D1D80338600C386A5 /* body_shop.png */,
-				F7A1C29E1D80338600C386A5 /* bottombar.png */,
 				F7A1C29F1D80338600C386A5 /* brochure.png */,
 				F7A1C2A01D80338600C386A5 /* buyer_icon.png */,
 				F7A1C2A11D80338700C386A5 /* buyer_support.png */,
@@ -1052,7 +1049,6 @@
 				F7ECA7571D95382D0065E83A /* vpone_5.png in Resources */,
 				F7A1C2FC1D80338700C386A5 /* current_offers.png in Resources */,
 				F7A1C32A1D80338700C386A5 /* signfacebook.png in Resources */,
-				F7A1C2F31D80338700C386A5 /* bottombar.png in Resources */,
 				F7A1C3381D80338700C386A5 /* xtrail3.jpg in Resources */,
 				F7A1C3281D80338700C386A5 /* showroom.png in Resources */,
 				F7A1C3391D80338700C386A5 /* xtrail4.jpg in Resources */,

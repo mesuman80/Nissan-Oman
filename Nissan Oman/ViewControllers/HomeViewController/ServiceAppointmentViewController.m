@@ -698,12 +698,6 @@
         NSLog(@"%f",myDatePicker.frame.origin.y);
         myDatePicker.minimumDate=[NSDate date];
         
-        NSDate *currentDate = [NSDate date];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
-        // [myDatePicker setMinimumDate:newDate];
-        
-        
         myDatePicker.datePickerMode = UIDatePickerModeDate;
         myDatePicker.backgroundColor = [UIColor whiteColor];
         [myDatePicker addTarget:self action:@selector(dateSelected:) forControlEvents:UIControlEventValueChanged];

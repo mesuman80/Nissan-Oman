@@ -95,12 +95,23 @@
         subHeadingLabel.font = [UIFont boldSystemFontOfSize:12.0f];
         NSString *headingStr = data.subHeading;
         subHeadingLabel.text = headingStr;
-        CGSize displayValueSize = [headingStr sizeWithFont:subHeadingLabel.font
-                                   constrainedToSize:CGSizeMake(cellWidth - 20, CGFLOAT_MAX)
-                                       lineBreakMode:NSLineBreakByWordWrapping];
-        
-        subHeadingLabel.frame = CGRectMake(10, baseView.frame.size.height + 2, cellWidth - 20, displayValueSize.height + 10);
         subHeadingLabel.numberOfLines = 0;
+        subHeadingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGSize maximumLabelSize = CGSizeMake(cellWidth - 20, CGFLOAT_MAX);
+        
+        
+        CGRect textRect = [headingStr boundingRectWithSize:maximumLabelSize
+                                                 options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                              attributes:@{NSFontAttributeName:subHeadingLabel.font}
+                                                 context:nil];
+        
+        
+       // CGSize displayValueSize = [headingStr sizeWithFont:subHeadingLabel.font
+       //                            constrainedToSize:CGSizeMake(cellWidth - 20, CGFLOAT_MAX)
+         //                              lineBreakMode:NSLineBreakByWordWrapping];
+        
+        subHeadingLabel.frame = CGRectMake(10, baseView.frame.size.height + 2, cellWidth - 20, textRect.size.height + 10);
+        
 
          [self.contentView addSubview:subHeadingLabel];
         

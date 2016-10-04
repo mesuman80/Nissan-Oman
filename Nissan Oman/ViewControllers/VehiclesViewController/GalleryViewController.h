@@ -11,6 +11,6 @@
 @interface GalleryViewController : TabbarBaseViewController
 
 @property NSArray *dataArray;
-@property NSString *title;
+@property NSString *titleVal;
 
 @end

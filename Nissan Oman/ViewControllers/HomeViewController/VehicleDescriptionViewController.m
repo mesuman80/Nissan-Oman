@@ -248,7 +248,7 @@
        // [self.navigationController setNavigationBarHidden:NO];
         NSArray *arr = [dataDictionary valueForKey:@"gallery"];
         GalleryViewController *controller = [[GalleryViewController alloc]init];
-        controller.title = [dataDictionary valueForKey:@"vehicle_name"];
+        controller.titleVal = [dataDictionary valueForKey:@"vehicle_name"];
         controller.dataArray = arr;
         [self.navigationController pushViewController:controller animated:YES];
     }

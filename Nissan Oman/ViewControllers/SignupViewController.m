@@ -117,6 +117,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark ui drawig implementation
 //************************************ UI elements drawing methods ********************************//
 -(void)setupForTextfield{
     
@@ -285,6 +286,8 @@
     
 }
 
+#pragma mark webservice delegates implementation
+
 -(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict                   // webservice success case
 {
      UserData *data = [UserData sharedData];
@@ -315,11 +318,15 @@
     [appDelegate openTabBar];
 }
 
+
+#pragma mark login button touch implementation
 -(void)loginButtonTouched:(id)sender{                                   // touch hadler of login button
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(BOOL)checkValidation
+
+#pragma mark validation implementation
+-(BOOL)checkValidation                                                  // check validation
 {
     NSString *firstname;
     NSString *lastname;
@@ -424,6 +431,8 @@
     return NO;
 }
 
+#pragma mark alertview implementation
+
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
@@ -459,7 +468,7 @@
     }
 }
 
-
+#pragma mark datepicker implementation
 
 -(void)openDatePicker
 {
@@ -474,15 +483,6 @@
         myDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,47, self.view.frame.size.width ,datePickerView.frame.size.height-47)];
         NSLog(@"%f",myDatePicker.frame.origin.y);
         // myDatePicker.minimumDate=[NSDate date];
-        
-        NSDate *currentDate = [NSDate date];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
-        
-        
-        NSDate *newDate = [calendar dateFromComponents: components];
-       // [myDatePicker setMinimumDate:newDate];
-        
         
         myDatePicker.datePickerMode = UIDatePickerModeDate;
         myDatePicker.backgroundColor = [UIColor whiteColor];
@@ -559,7 +559,7 @@
 }
 
 
--(void)setDateOnLabel:(NSString *)dateAndTime
+-(void)setDateOnLabel:(NSString *)dateAndTime               // set date on textfield
 {
     NSString * dateTimeString;
     if(dateAndTime)
@@ -570,22 +570,20 @@
     {
        // dateTimeString = TTMFutureButton;
     }
-    CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
-    CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
-    //or whatever font you're using
     
     [dobNameTextfield setText:dateTimeString];
     
 }
 
 
--(NSString *)getDatePickerTimeStr
+-(NSString *)getDatePickerTimeStr               // converting date to string format
 {
     NSDateFormatter *dateSelected = [[NSDateFormatter alloc]init];
     dateSelected.dateFormat = @"MM/dd/YYYY";
     NSString *time =[dateSelected stringFromDate:dob];
     return time;
 }
+
 -(void)onCancelTap:(id)sender
 {
     [self removeDatePicker1];

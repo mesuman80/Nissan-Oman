@@ -408,13 +408,7 @@
         NSLog(@"%f",myDatePicker.frame.origin.y);
        // myDatePicker.minimumDate=[NSDate date];
         
-        NSDate *currentDate = [NSDate date];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:currentDate];
-      
-        // [myDatePicker setMinimumDate:newDate];
-        
-        
+
         myDatePicker.datePickerMode = UIDatePickerModeDate;
         myDatePicker.backgroundColor = [UIColor whiteColor];
         [myDatePicker addTarget:self action:@selector(dateSelected:) forControlEvents:UIControlEventValueChanged];
@@ -501,9 +495,7 @@
     {
         // dateTimeString = TTMFutureButton;
     }
-    CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
-    CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
-    //or whatever font you're using
+
     
     [dateField setText:dateTimeString];
     

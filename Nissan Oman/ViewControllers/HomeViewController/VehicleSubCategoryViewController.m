@@ -75,19 +75,19 @@
 }
 -(void)addButtons
 {
-    UIButton *gridButton = [[UIButton alloc]initWithFrame:CGRectMake(.75*self.view.frame.size.width, yCordinate, 20, 20)];
+    UIButton *gridButton = [[UIButton alloc]initWithFrame:CGRectMake(.82*self.view.frame.size.width, yCordinate, 20, 20)];
     [gridButton setBackgroundImage:[UIImage imageNamed:@"gridview_icon.jpg"] forState:UIControlStateNormal];
     [self.view addSubview:gridButton];
     gridButton.tag = 0;
     [gridButton addTarget:self action:@selector(displayTypeChanged:) forControlEvents:UIControlEventTouchUpInside];
     
-    menuButton = [[UIButton alloc]initWithFrame:CGRectMake(.82*self.view.frame.size.width, yCordinate - 2, 25, 25)];
+    menuButton = [[UIButton alloc]initWithFrame:CGRectMake(.89*self.view.frame.size.width, yCordinate - 2, 25, 25)];
     [menuButton setBackgroundImage:[UIImage imageNamed:@"listview_icon.png"] forState:UIControlStateNormal];
     [self.view addSubview:menuButton];
     menuButton.tag = 1;
     [menuButton addTarget:self action:@selector(displayTypeChanged:) forControlEvents:UIControlEventTouchUpInside];
 
-    yCordinate += gridButton.frame.size.height + 7;
+    yCordinate += gridButton.frame.size.height + 9;
     
 }
 

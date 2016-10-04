@@ -158,11 +158,22 @@
 
 -(CGFloat)calculateCellHeightWithText:(NSString *)text
 {
-    CGSize displayValueSize = [text sizeWithFont:[UIFont systemFontOfSize: 12.0f]
-                               constrainedToSize:CGSizeMake(tableView.frame.size.width - 20, CGFLOAT_MAX)
-                                   lineBreakMode:NSLineBreakByWordWrapping];
+
+    CGSize maximumLabelSize = CGSizeMake(tableView.frame.size.width - 20, CGFLOAT_MAX);
     
-    return displayValueSize.height;
+    
+    CGRect textRect = [text boundingRectWithSize:maximumLabelSize
+                                               options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading
+                                            attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12.0f]}
+                                               context:nil];
+    
+    
+    
+   // CGSize displayValueSize = [text sizeWithFont:[UIFont systemFontOfSize: 12.0f]
+     //                          constrainedToSize:CGSizeMake(tableView.frame.size.width - 20, CGFLOAT_MAX)
+       //                            lineBreakMode:NSLineBreakByWordWrapping];
+    
+    return textRect.size.height + 10;
 }
 
 - (void)didReceiveMemoryWarning {

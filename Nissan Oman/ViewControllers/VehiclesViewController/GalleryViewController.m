@@ -19,7 +19,7 @@
     
     
 }
-@synthesize title,dataArray;
+@synthesize titleVal,dataArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -44,7 +44,7 @@
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
-    label.text = title;
+    label.text = titleVal;
     label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.center = CGPointMake(self.view.frame.size.width/2, label.center.y);
