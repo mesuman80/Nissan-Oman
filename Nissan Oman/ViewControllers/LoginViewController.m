@@ -25,11 +25,10 @@
 
 @implementation LoginViewController
 {
-    WebService *webService;
-    UITextField *activeTextField;
-    NSString *fbAccessToken;
-    BOOL isFirstTime;
-
+    WebService *webService;                     // webservice object
+    UITextField *activeTextField;               // to check which textfield is active
+    BOOL isFirstTime;                           // to draw ui elements only once
+    
 }
 
 @synthesize usernameTextfield,passwordTextfield;
@@ -45,7 +44,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if(isFirstTime)
+    if(isFirstTime)                             // stop rendering ui after every time screen comes
     {
         isFirstTime = NO;
         [self setupTextField];
@@ -60,13 +59,9 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+// ********************************* UI Rendering methods *******************************************//
 
-
--(void)setupTextField{
+-(void)setupTextField{              // setting up username and password fields
     
     usernameTextfield = [[CustomTextField alloc] init];
     [usernameTextfield setFrame:CGRectMake(ScreenWidthFactor*10,self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
@@ -86,7 +81,8 @@
     self.y = passwordTextfield.frame.origin.y+passwordTextfield.frame.size.height+ScreenHeightFactor*10;
 }
 
--(void)setupForForgetPassword{
+-(void)setupForForgetPassword       // setting up password field
+{
     forgetPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth/2 + 25*ScreenWidthFactor, self.y, screenWidth/2 - 25*ScreenWidthFactor, ScreenHeightFactor*40)];
     [forgetPasswordButton setBackgroundColor:[UIColor clearColor]];
     [forgetPasswordButton setTitle:@"Forget Password ?" forState:UIControlStateNormal];
@@ -99,7 +95,7 @@
     self.y = forgetPasswordButton.frame.origin.y+forgetPasswordButton.frame.size.height+ScreenHeightFactor*10;
 }
 
--(void)setupForSignUp{
+-(void)setupForSignUp{                  // setting up login button
     loginButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidthFactor*10,self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
     [loginButton setBackgroundColor:[UIColor whiteColor]];
     [loginButton setTitle:@"LOGIN" forState:UIControlStateNormal];
@@ -124,7 +120,7 @@
     self.y = signupButton.frame.origin.y+signupButton.frame.size.height+ScreenHeightFactor*30;
 }
 
--(void)addSeparatorView{
+-(void)addSeparatorView{                // setting up "OR" label
     UIView *separatorView1 = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidthFactor*10, self.y, screenWidth/2-ScreenWidthFactor*50, ScreenHeightFactor*1)];
     [separatorView1 setBackgroundColor:[UIColor whiteColor]];
     [self.scrollView addSubview:separatorView1];
@@ -142,7 +138,8 @@
     self.y = self.y+ScreenHeightFactor*30;
 }
 
--(void)setupForFacebookLogin{
+-(void)setupForFacebookLogin                // setting up facebook login field
+{
     
     loginWithFacebookButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidthFactor*10, self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
     [loginWithFacebookButton setBackgroundImage:[UIImage imageNamed:@"signfacebook.png"] forState:UIControlStateNormal];
@@ -152,7 +149,8 @@
     self.y = loginWithFacebookButton.frame.origin.y+loginWithFacebookButton.frame.size.height+ScreenHeightFactor*20;
 }
 
--(void)setBottomBanner{
+-(void)setBottomBanner                          // setting up bottom logo field
+{
     UIImageView *bottomBannerView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/8, self.y, screenWidth-ScreenWidthFactor*80, ScreenHeightFactor*40)];
     [bottomBannerView setImage:[UIImage imageNamed:@"bottombar.png"]];
     [self.scrollView addSubview:bottomBannerView];
@@ -191,18 +189,19 @@
     activeTextField = textField;
 }
 
--(void)signupButtonTouched:(id)sender{
+-(void)signupButtonTouched:(id)sender                   // touch handling of sign up button
+{
     SignupViewController *signupViewController = [[SignupViewController alloc] init];
     [self.navigationController pushViewController:signupViewController animated:YES];
 }
 
--(void)forgetPasswordButtonTouched:(id)sender
+-(void)forgetPasswordButtonTouched:(id)sender               // touch handling of forget password button
 {
     ForgetPasswordViewController *forgetPasswordViewController = [[ForgetPasswordViewController alloc] init];
     [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
 }
 
--(void)loginButtonTouched:(id)sender{
+-(void)loginButtonTouched:(id)sender{                       // touch handling of login button
     
     if([self checkValidation])
     {
@@ -218,7 +217,7 @@
     }
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict          // webservice success case
 {
     UserData *data = [UserData sharedData];
 
@@ -235,22 +234,22 @@
     [self openTabBar];
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // webservice error case
 {
     [self showAlertView:@"Error" WithMessage:[dict valueForKey:@"error_msg"]];
 }
 
--(AppDelegate *)getInstance
+-(AppDelegate *)getInstance                                         // getting Appdelegate instance
 {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
--(void)openTabBar
+-(void)openTabBar                                       // open tabbar using app delegate instance
 {
     AppDelegate *appDelegate=[self getInstance];
     [appDelegate openTabBar];
 }
 
--(BOOL)checkValidation
+-(BOOL)checkValidation              // check validation for login
 {
     NSString *userName;
     NSString *password;
@@ -279,7 +278,7 @@
     return NO;
 }
 
--(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg          // showing alert view with desired text and error
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
                                                                         message: msg
@@ -304,7 +303,7 @@
 
 
 #pragma mark FaceBook Related Function 
--(void)facebookLogin:(id)sender {
+-(void)facebookLogin:(id)sender {                   // login via facebook implentation
     NSLog(@"FaceBook Login");
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
@@ -321,12 +320,6 @@
          
          if(result.token)   // This means if There is current access token.
          {
-             
-             fbAccessToken =result.token.tokenString;
-             NSLog(@"fbAccessToken:%@", fbAccessToken);
-             [[NSUserDefaults standardUserDefaults] setValue:(fbAccessToken)  forKey:@"fbaccesstoken"];
-             [[NSUserDefaults standardUserDefaults] synchronize];
-             
              if ([FBSDKAccessToken currentAccessToken]) {
                  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"first_name, last_name, picture.type(large), email, name, id, gender"}]
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -350,12 +343,10 @@
                                                  @"password" : @"",
                                                  @"signUpMode": @"FACEBOOK"
                                                  };
-                          [webService registerUser:dict];
+                          [webService registerUser:dict];           // register user when we get data from facebook
 
                           
-                          
-                          // [self showPhoneNumberPopup];
-                      }
+                            }
                   }];
              }
          }
@@ -363,14 +354,9 @@
      }];
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
-*/
+
 
 @end

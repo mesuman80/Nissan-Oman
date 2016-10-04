@@ -18,6 +18,7 @@
     BOOL isFirstTime;
     UIScrollView *interiorScrollView;
     UIScrollView *exteriorScrollView;
+    Utility *utility;
 
 }
 @synthesize interiorDataArray, exteriorDataArray,titleName,interiorBtn,exteriorBtn,isinteriorSelected,isexteriorSelected;
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
-    
+    utility = [[Utility alloc]init];
     isFirstTime = YES;
     
     // Do any additional setup after loading the view.
@@ -38,7 +39,7 @@
         isFirstTime = NO;
         [self addTitle];
         [self drawButtons];
-        
+        [utility showHUD];
         if(isinteriorSelected)
         {
             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(drawInteriorScrollView) userInfo:nil repeats:NO];
@@ -68,6 +69,7 @@
 
 -(void)drawInteriorScrollView
 {
+
     interiorScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , .50f*self.view.frame.size.height)];
     //[horScrollView setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:interiorScrollView];
@@ -111,6 +113,7 @@
 
 }
     [interiorScrollView setContentSize:CGSizeMake(xpos, interiorScrollView.frame.size.height)];
+    [utility hideHUD];
 
 }
 
@@ -165,7 +168,7 @@
          xpos += exteriorScrollView.frame.size.width;
     }
     [exteriorScrollView setContentSize:CGSizeMake(xpos, exteriorScrollView.frame.size.height)];
-    
+    [utility hideHUD];
 }
 
 
@@ -200,6 +203,8 @@
 
 -(void)btnTouched:(UIButton *)sender
 {
+    
+    
     if(sender.tag == 0)
     {
         exteriorBtn.backgroundColor = buttonRedColor;
@@ -212,10 +217,13 @@
         {
             if(!exteriorScrollView)
             {
-                [self drawExteriorScrollView];
+                //[self drawExteriorScrollView];
+                 [utility showHUD];
+                 [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(drawExteriorScrollView) userInfo:nil repeats:NO];
             }
             else
             {
+                [utility hideHUD];
                 exteriorScrollView.alpha = 1.0f;
             }
             interiorScrollView.alpha = 0.0f;
@@ -233,10 +241,13 @@
         {
             if(!interiorScrollView)
             {
-                [self drawInteriorScrollView];
+                //[self drawInteriorScrollView];
+                 [utility showHUD];
+                 [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(drawInteriorScrollView) userInfo:nil repeats:NO];
             }
             else
             {
+                [utility hideHUD];
                 interiorScrollView.alpha = 1.0f;
             }
             exteriorScrollView.alpha = 0.0f;

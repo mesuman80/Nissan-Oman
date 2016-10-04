@@ -88,7 +88,7 @@
         settingView.rootController = self;
     }
     
-    if(counter %2 != 0)
+    if(counter %2 != 0)                             // if click on first time
     {
         settingView.center = CGPointMake(2*self.view.frame.size.width, settingView.center.y);
         [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -101,7 +101,7 @@
 
     }
     
-    else
+    else                                                    // click again
     {
         [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             settingView.center = CGPointMake(2*self.view.frame.size.width, settingView.center.y);

@@ -18,13 +18,13 @@
 
 @implementation SignupViewController
 {
-    WebService *webService;
-    UITextField *activeTextField;
-    UIView *datePickerView;
-    UIDatePicker *myDatePicker;
-    NSDate *dob;
-    UITextField *previousTextField;
-    UITextField *desiredField;
+    WebService *webService;                      // webservice object
+    UITextField *activeTextField;                // to check which textfield is active
+    UIView *datePickerView;                      // view to add datepicker
+    UIDatePicker *myDatePicker;                  // uidatepicker object
+    NSDate *dob;                                 // dob string
+    UITextField *previousTextField;              // previously active textfield if any
+    UITextField *desiredField;                   // textfield that act as label
 }
 
 @synthesize firstNameTextfield,lastNameTextfield;
@@ -40,9 +40,9 @@
    // self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height*1.2);
     // Do any additional setup after loading the view.
 }
--(void)onBackgroundTap:(id)sender
+-(void)onBackgroundTap:(id)sender       // background tap gesture
 {
-    if(activeTextField)
+    if(activeTextField)                 // if keyboard is there, the drop it down
     {
         [activeTextField resignFirstResponder];
     }
@@ -50,9 +50,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setupForTextfield];
-    [self setupForSignup];
-    [self setBottomBanner];
+    [self setupForTextfield];               // setting up textfields
+    [self setupForSignup];                  // setting up sign up buton
+    [self setBottomBanner];                 // setting up bottom logo
     
      [self addKeyBoardNotification];
 }
@@ -117,7 +117,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//************************************ UI elements drawing methods ********************************//
 -(void)setupForTextfield{
     
     firstNameTextfield = [[CustomTextField alloc] init];
@@ -223,7 +223,7 @@
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if(textField.tag == 100)
+    if(textField.tag == 100)                    // for DOB
     {
         desiredField = textField;
         [textField resignFirstResponder];
@@ -258,14 +258,14 @@
 {
     if(textField == phoneNumberTextfield)
     {
-        if(textField.text.length >7)
+        if(textField.text.length > phoneNumLength - 1)                    // for phone numer lenght check
         {
             return NO;
         }
     }
     return YES;
 }
--(void)signupButtonTouched:(id)sender{
+-(void)signupButtonTouched:(id)sender{                        // touch handler of sign up button
    if([self checkValidation])
    {
        webService = [[WebService alloc]init];
@@ -285,37 +285,37 @@
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict                   // webservice success case
 {
      UserData *data = [UserData sharedData];
     data.userName = [dict valueForKey:@"name"];
     data.userId = [dict valueForKey:@"email"];
     data.firstName = [dict valueForKey:@"name"];
     
-    [[SharePreferenceUtil getInstance]saveBool:YES withKey:kN_isUserMobileRegistered];
+    [[SharePreferenceUtil getInstance]saveBool:YES withKey:kN_isUserMobileRegistered];      // save user to data base
     [Common saveCustomObject:data key:@"UserData"];
 
-    [self openTabBar];
+    [self openTabBar];                                                                      // open tabbar
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict                         // webservice error case
 {
     [self showAlertView:@"Error" WithMessage:[dict valueForKey:@"error_msg"]];
 
 }
 
 
--(AppDelegate *)getInstance
+-(AppDelegate *)getInstance                                               // getting instance of appdelegate
 {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
--(void)openTabBar
+-(void)openTabBar                                                       // open tabbar
 {
     AppDelegate *appDelegate=[self getInstance];
     [appDelegate openTabBar];
 }
 
--(void)loginButtonTouched:(id)sender{
+-(void)loginButtonTouched:(id)sender{                                   // touch hadler of login button
     [self.navigationController popViewControllerAnimated:YES];
 }
 

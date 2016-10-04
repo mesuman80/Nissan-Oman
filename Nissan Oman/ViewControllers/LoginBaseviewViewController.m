@@ -17,7 +17,7 @@
 @synthesize upperLogo,y,scrollView;
 @synthesize backgroundDimView,viewHeight,viewWidth,navigationHeight;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad {               // basic navigation set up
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -36,15 +36,13 @@
     [self setupForScrollView];
    
     [self setUpperLogo];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void)setBackgoundImage{
+-(void)setBackgoundImage{           // settting background image
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [backgroundView setFrame:CGRectMake(0, 0, viewWidth,self.view.frame.size.height)];
     backgroundView.contentMode = UIViewContentModeScaleToFill;
@@ -53,24 +51,23 @@
 }
 
 #pragma Initialization
--(void)initialiseVariables{
+-(void)initialiseVariables{         //initialising variables
     viewWidth = self.view.frame.size.width;
     viewHeight = self.view.frame.size.height;
     
     utility = [[Utility alloc]init];
     sharePreferenceUtil = [SharePreferenceUtil getInstance];
     webService = [[WebService alloc]init];
-    //    userData = [sharePreferenceUtil getCustomObjectFromDefaultsWithKey:kN_UserData];
 }
 
--(void)setUpperLogo{
+-(void)setUpperLogo{                    // setting up upper logo
     upperLogo = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/2-ScreenWidthFactor*40,ScreenHeightFactor*40, ScreenWidthFactor*80, ScreenHeightFactor*80)];
     [upperLogo setImage:[UIImage imageNamed:@"login_logo.png"]];
     [scrollView addSubview:upperLogo];
     y = upperLogo.frame.origin.y+upperLogo.frame.size.height+ScreenHeightFactor*20;
 }
 
--(void)setupForScrollView{
+-(void)setupForScrollView{                  // setting up scroll view
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     scrollView.scrollEnabled = YES;
     scrollView.pagingEnabled = NO;
