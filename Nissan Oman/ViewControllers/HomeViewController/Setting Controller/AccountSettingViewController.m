@@ -392,7 +392,26 @@
     if([string isEqualToString:@"\n"])
     {
         [textField resignFirstResponder];
+        
+
     }
+    if(textField.tag == 0 || textField.tag == 1)
+    {
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NAME] invertedSet];
+        
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        
+        return [string isEqualToString:filtered];
+    }
+    else if(textField.tag == 3)
+    {
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NUMBERS] invertedSet];
+        
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        
+        return [string isEqualToString:filtered];
+    }
+    
     return YES;
 }
 
@@ -415,7 +434,12 @@
         
         datePickerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         
-        
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDate *currentDate = [NSDate date];
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        [comps setYear: -18];
+        NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+        myDatePicker.maximumDate = maxDate;
         
         //        NSDate *now = [NSDate date];
         //        int daysToAdd = 1;

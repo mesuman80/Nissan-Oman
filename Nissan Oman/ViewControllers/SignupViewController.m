@@ -490,6 +490,13 @@
         
         datePickerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDate *currentDate = [NSDate date];
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        [comps setYear: -18];
+        NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+        myDatePicker.maximumDate = maxDate;
+
         
         
         //        NSDate *now = [NSDate date];

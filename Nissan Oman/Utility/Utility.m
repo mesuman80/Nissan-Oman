@@ -452,11 +452,23 @@
 -(BOOL) NSStringIsValidPhoneNum:(NSString *)checkNumber
 {
     checkNumber = [checkNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if(checkNumber.length == phoneNumLength)
+    
+    NSString *numberRegEx = @"[0-9]{8}";
+    NSPredicate *numberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numberRegEx];
+    if ([numberTest evaluateWithObject:checkNumber] == YES)
     {
-        return YES;
+        if(checkNumber.length == phoneNumLength)
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+
     }
-    return NO;
+    
+       return NO;
 }
 
 @end

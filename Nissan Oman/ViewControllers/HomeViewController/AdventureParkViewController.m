@@ -477,6 +477,15 @@
     {
         [textField resignFirstResponder];
     }
+    if(textField.tag == 2)
+    {
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NUMBERS] invertedSet];
+        
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        
+        return [string isEqualToString:filtered];
+    }
+
     return YES;
 }
 
@@ -617,11 +626,10 @@
         
         datePickerView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
         
-        
-        
-        //        NSDate *now = [NSDate date];
-        //        int daysToAdd = 1;
-        //        NSDate *newDate1 = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
+        NSDate *now = [NSDate date];
+        int daysToAdd = 1;
+        NSDate *newDate1 = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
+        myDatePicker.minimumDate = newDate1;
         
     }
     [self.view bringSubviewToFront:datePickerView];

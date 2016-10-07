@@ -189,7 +189,7 @@
         texfield.tag = i;
         texfield.returnKeyType = UIReturnKeyDefault;
         
-        if([[arrVal objectAtIndex:i] isEqualToString:@"PHONE"])
+        if([[arrVal objectAtIndex:i] isEqualToString:@"PHONE"] || [[arrVal objectAtIndex:i] isEqualToString:@"PC"])
         {
             texfield.keyboardType = UIKeyboardTypePhonePad;
         }
@@ -649,6 +649,48 @@
     {
         [textField resignFirstResponder];
     }
+    
+    if(self.formType == RequestTypeBrochure || self.formType == RequestTypeQuote)
+    {
+        if(textField.tag == 2 || textField.tag == 3)
+        {
+            NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NAME] invertedSet];
+            
+            NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+            
+            return [string isEqualToString:filtered];
+        }
+        else  if(textField.tag == 6)
+        {
+            NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NUMBERS] invertedSet];
+            
+            NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+            
+            return [string isEqualToString:filtered];
+        }
+    }
+    
+     else if(self.formType == RequestTypeTestDrive)
+     {
+         if(textField.tag == 2 || textField.tag == 3 || textField.tag == 4)
+         {
+             NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NAME] invertedSet];
+             
+             NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+             
+             return [string isEqualToString:filtered];
+         }
+         else  if(textField.tag == 5 || textField.tag == 8)
+         {
+             NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NUMBERS] invertedSet];
+             
+             NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+             
+             return [string isEqualToString:filtered];
+         }
+
+
+     }
     return YES;
 }
 
