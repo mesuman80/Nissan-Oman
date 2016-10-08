@@ -58,6 +58,8 @@
     
 }
 
+#pragma mark configure custom tableview cell
+
 - (void)configureCell:(NSDictionary *)dict withWidth:(CGFloat)cellWidth
 {
     baseView.frame = CGRectMake(0, 0, cellWidth, self.contentView.frame.size.height - 2);

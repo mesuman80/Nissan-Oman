@@ -32,6 +32,8 @@
     return nil;
 }
 
+#pragma mark ui rendering
+
 -(void)setElements
 {
     dataArr = @[@"FEEDBACK",@"CALL NISSAN TOLL FREE",@"ABOUT US",@"SETTINGS"];
@@ -53,16 +55,6 @@
 
     
     [self addSubview:tableView];
-    
-   /* [self setDelegate:self];
-    [self setDataSource:self];
-    self.scrollEnabled=NO;
-    self.backgroundColor=[UIColor whiteColor];
-    
-    self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    self.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
-    self.tableFooterView=[[UIView alloc]initWithFrame:CGRectZero];
-    self.tableHeaderView=[[UIView alloc]initWithFrame:CGRectZero]; */
 }
 
 #pragma mark Table view delegates!
@@ -96,24 +88,24 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == 0)
+    if(indexPath.row == 0)              // for feedback
     {
         [rootController.navigationController setNavigationBarHidden:NO];
         FeedbackViewController *controller1 = [[FeedbackViewController alloc]init];
         [rootController.navigationController pushViewController:controller1 animated:YES];
     }
-    else if(indexPath.row == 1)
+    else if(indexPath.row == 1)             // for call
     {
         NSString *phnNum = [NSString stringWithFormat:@"%@%@",@"tel:",TollfreeNumber];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phnNum]];
     }
-   else  if(indexPath.row == 2)
+   else  if(indexPath.row == 2)             // for about us
     {
         [rootController.navigationController setNavigationBarHidden:NO];
         AboutUsViewController *webPage = [[AboutUsViewController alloc]initWithWebString:@"Loyalty Program" withUrl:ADVENTUREPARKPAGE];
         [rootController.navigationController pushViewController:webPage animated:YES];
     }
-   else  if(indexPath.row == 3)
+   else  if(indexPath.row == 3)                     // for setting view controller
    {
        NSString *getVal = [[SharePreferenceUtil getInstance] getStringWithKey:IsSettingScreen];
        if([getVal isEqualToString:@"YES"])
@@ -130,6 +122,9 @@
    }
 
 }
+
+#pragma mark view touches handling
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

@@ -21,11 +21,11 @@
 
 @implementation HomeViewController
 {
-    UITableView *tableView;
-    NSArray *dataArr;
-    CGFloat yVal;
-    UIScrollView *horScrollView;
-    NSMutableArray *scrollArray;
+    UITableView *tableView;         // tableview object
+    NSArray *dataArr;               // array for tableview
+    CGFloat yVal;                   // y position
+    UIScrollView *horScrollView;    // horizontal scrollview for cars
+    NSMutableArray *scrollArray;    // array for car images
 }
 
 - (void)viewDidLoad {
@@ -92,8 +92,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark ui rendering
 
--(void)addImageView
+-(void)addImageView                 // scrollview implementation
 {
     yVal = self.yCordinate;
     horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yVal, self.view.frame.size.width , .20f*self.view.frame.size.height)];
@@ -119,7 +120,7 @@
    // yVal += imgView.frame.size.height + 10;
 }
 
--(void)addTableView
+-(void)addTableView                     // adding tableview
 {
     tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yVal,screenWidth - 20, self.view.frame.size.height*.5f) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor clearColor];

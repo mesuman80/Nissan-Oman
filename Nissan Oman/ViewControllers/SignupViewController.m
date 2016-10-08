@@ -54,7 +54,7 @@
     [self setupForSignup];                  // setting up sign up buton
     [self setBottomBanner];                 // setting up bottom logo
     
-     [self addKeyBoardNotification];
+     [self addKeyBoardNotification];        // adding keyboard notifications
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -73,7 +73,7 @@
     
 }
 
--(void) keyboardWillShow:(NSNotification *)note
+-(void) keyboardWillShow:(NSNotification *)note         // keyboard up notification
 {
     NSLog(@"self.frame %f", self.view.frame.size.height);
     
@@ -97,7 +97,7 @@
     
 }
 
--(void) keyboardWillHide:(NSNotification *)note
+-(void) keyboardWillHide:(NSNotification *)note             // keyboard down notification
 {
     NSLog(@"KeyBoard wiil Hide");
     UIEdgeInsets contentInsets=UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
@@ -106,7 +106,7 @@
     //[doneView removeFromSuperview];
 }
 
--(void)removeAllNotification
+-(void)removeAllNotification                                // removing keyboard notifications
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -117,6 +117,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark ui drawig implementation
 //************************************ UI elements drawing methods ********************************//
 -(void)setupForTextfield{
@@ -186,7 +187,8 @@
 
 }
 
--(void)setupForSignup{
+-(void)setupForSignup           // setting up buttons
+{
     signupButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidthFactor*10,self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
     [signupButton setBackgroundColor:[UIColor whiteColor]];
     [signupButton setTitle:@"SIGN UP" forState:UIControlStateNormal];
@@ -211,7 +213,8 @@
     self.y = loginButton.frame.origin.y+loginButton.frame.size.height+ScreenHeightFactor*30;
 }
 
--(void)setBottomBanner{
+-(void)setBottomBanner                          // setting uo bottom image
+{
     UIImageView *bottomBannerView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth/8, self.y, screenWidth-ScreenWidthFactor*80, ScreenHeightFactor*40)];
     [bottomBannerView setImage:[UIImage imageNamed:@"bottombar.png"]];
     [self.scrollView addSubview:bottomBannerView];
@@ -220,7 +223,7 @@
      self.scrollView.contentSize = CGSizeMake(0, bottomBannerView.frame.size.height + bottomBannerView.frame.origin.y);
 }
 
-#pragma textField Delegate
+#pragma mark textField Delegate
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -514,7 +517,7 @@
     
 }
 
--(void)setupDoneButton:(UIView *)view
+-(void)setupDoneButton:(UIView *)view               // done button setup
 {
     UIButton *doneButton = [[UIButton alloc]init];
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
@@ -526,7 +529,7 @@
     
 }
 
--(void)setupCancelButton:(UIView *)view
+-(void)setupCancelButton:(UIView *)view             // cancel button setup
 {
     UIButton *cancelButton = [[UIButton alloc]init];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

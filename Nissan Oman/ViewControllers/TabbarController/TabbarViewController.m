@@ -26,10 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   // [[self tabBar] setBackgroundColor:[UIColor blackColor]];
-   // [[UITabBar appearance] setBackgroundColor:[UIColor blackColor]];
     [self tabBar].barStyle  = UIBarStyleDefault;
-  //  [[self tabBar] setOpaque:YES];
     [self tabBar].tintColor = [UIColor whiteColor];
      self.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, 0, 0);
     [self drawTabbar];
@@ -40,6 +37,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark tabbar drawing
 
 -(void)drawTabbar
 {
@@ -106,6 +106,8 @@
    
     
 }
+
+#pragma mark tabbar click implementation
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item // if tab bar item selected
 {

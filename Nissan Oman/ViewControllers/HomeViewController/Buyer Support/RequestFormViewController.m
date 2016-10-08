@@ -40,6 +40,9 @@
 }
 @synthesize arrVal;
 
+#pragma mark view life cycle
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -56,6 +59,8 @@
     [self.view addGestureRecognizer:gesture];
     // Do any additional setup after loading the view.
 }
+
+#pragma mark tap gesture recogniser
 
 -(void)onBackgroundTap
 {
@@ -109,7 +114,7 @@
     
 }
 
--(void) keyboardWillShow:(NSNotification *)note
+-(void) keyboardWillShow:(NSNotification *)note             // keyboard up
 {
     NSLog(@"self.frame %f", self.view.frame.size.height);
     
@@ -133,7 +138,7 @@
     
 }
 
--(void) keyboardWillHide:(NSNotification *)note
+-(void) keyboardWillHide:(NSNotification *)note             // keyboard down
 {
     NSLog(@"KeyBoard wiil Hide");
     UIEdgeInsets contentInsets=UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
@@ -142,14 +147,15 @@
     //[doneView removeFromSuperview];
 }
 
--(void)removeAllNotification
+-(void)removeAllNotification                                    // remove keyboard notification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark ui rendering
 
 
--(void)addTitle
+-(void)addTitle                 // add title
 {
     yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 250, 30)];
@@ -163,7 +169,7 @@
     yCordinate += label.frame.size.height +3;
 }
 
--(void)drawForm
+-(void)drawForm             // draw form
 {
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yCordinate, screenWidth, screenHeight - yCordinate- 70)];
     [scrollView setUserInteractionEnabled:YES];
@@ -278,6 +284,9 @@
     yVal += noLabel.frame.size.height + 10;
 }
 
+#pragma mark radio button touch implementation
+
+
 -(void)radiobuttonSelected:(id)sender{
     switch ([sender tag]) {
         case 0:
@@ -321,6 +330,9 @@
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
     yVal += submitButton.frame.size.height + 3;
 }
+
+#pragma mark submit button touch
+
 
 -(void)submitRequest:(id)sender
 {
@@ -419,6 +431,8 @@
    }
 
 }
+#pragma mark check validation
+
 
 -(BOOL)isValidate{
     for(UITextField *textField in dataFieldArr)
@@ -484,6 +498,7 @@
     return YES;
 }
 
+#pragma mark show alertview
 
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
@@ -508,6 +523,9 @@
     
 }
 
+#pragma mark get showroom branch data
+
+
 -(void)getShowroomBranchData
 {
     WebService *webService = [[WebService alloc]init];
@@ -516,6 +534,8 @@
     [webService getShowroomAddress];
     
 }
+
+#pragma mark get vehicle data
 
 -(void)getVehicleDropDown
 {
@@ -526,15 +546,17 @@
     
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict              // connection success case
 {
     //if()
-    if(dict.count == 1)
+    if(dict.count == 1)                     // for showroom
     {
         arrOfDict = [dict valueForKey:@"showroom_address"];
         int i = 0;
@@ -551,7 +573,7 @@
     
     else
     {
-        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])           // for vehicle
         {
             carDictArr = [dict valueForKey:@"dropDown"];
             int j=0;
@@ -565,26 +587,24 @@
             }
         }
         
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestQuote"])
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestQuote"])         // for request quote
         {
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Quote is successfully submitted."];
 
         }
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestBrochure"])
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestBrochure"])          // for request brochure
         {
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Brochure is successfully submitted."];
 
         }
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestTestDrive"])
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"requestTestDrive"])         // for request test drive
         {
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Test Drive is successfully submitted."];
             
         }
-
-        //  [self addTableView];
     }
 
 }
@@ -695,6 +715,7 @@
 }
 
 
+#pragma mark tableview rendering
 
 
 -(void)addTableView:(UITextField *)texfield
@@ -728,7 +749,7 @@
     return YES;
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

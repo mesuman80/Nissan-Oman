@@ -44,6 +44,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark ui rendering
+
 -(void)addTitle
 {
     yCordinate = self.yCordinate + 10;
@@ -58,8 +60,9 @@
     yCordinate += label.frame.size.height +3;
 }
 
+#pragma mark tableview rendering
 
--(void)addTableView
+-(void)addTableView             // add tableview
 {
     tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];

@@ -29,13 +29,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setupTextField];
     [self setupForSignUp];
 }
 
--(void)setupTextField{
+
+#pragma mark ui rendering
+
+-(void)setupTextField{                  // setting up text field
     
     usernameTextfield = [[CustomTextField alloc] init];
     [usernameTextfield setFrame:CGRectMake(ScreenWidthFactor*10,self.y, screenWidth-ScreenWidthFactor*20, ScreenHeightFactor*40)];
@@ -76,11 +80,13 @@
     self.y = loginButton.frame.origin.y+loginButton.frame.size.height+ScreenHeightFactor*30;
 }
 
--(void)loginButtonTouched:(id)sender{
+#pragma mark touch handler
+
+-(void)loginButtonTouched:(id)sender{                   // touch handler of login button
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)submitBtnClicked:(id)sender
+-(void)submitBtnClicked:(id)sender                      // touch handler of submit button
 {
     webService = [[WebService alloc]init];
     webService.serviceName = @"forgetPassword";
@@ -88,18 +94,22 @@
     [ webService forgetPassword:usernameTextfield.text.lowercaseString];
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+#pragma mark connection delegate
+
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict                  // connection success case
 {
     
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict                // connection failure case
 {
     [self showAlertView:@"Error" WithMessage:[dict valueForKey:@"error_msg"]];
 }
 
 
--(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
+#pragma mark alertview implementation
+
+-(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg          // show alertview
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
                                                                         message: msg

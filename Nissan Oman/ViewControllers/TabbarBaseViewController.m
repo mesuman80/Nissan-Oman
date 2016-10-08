@@ -39,6 +39,8 @@
     [super viewWillAppear:animated];
 }
 
+#pragma mark ui rendering
+
 -(void)drawLogo // draw top left logo image
 {
    if([self.navigationController.navigationBar isHidden])
@@ -77,6 +79,8 @@
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(settingBtnTouched:)];
     [baseView addGestureRecognizer:gesture];
 }
+
+#pragma mark touch handler
 
 -(void)settingBtnTouched:(id)sender                         // setting button touch handler
 {

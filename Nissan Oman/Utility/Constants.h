@@ -102,7 +102,7 @@
 #define U_Password                        @"password"
 
 #define ACCEPTABLE_CHARACTERS_FOR_NUMBERS @"0123456789"
-#define ACCEPTABLE_CHARACTERS_FOR_NAME @"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define ACCEPTABLE_CHARACTERS_FOR_NAME @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 //********************************** Nissan Toll free Number **************************************************
 

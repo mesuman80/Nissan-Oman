@@ -603,7 +603,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark datepicker delegate
+#pragma mark datepicker implementation
 
 -(void)openDatePicker
 {

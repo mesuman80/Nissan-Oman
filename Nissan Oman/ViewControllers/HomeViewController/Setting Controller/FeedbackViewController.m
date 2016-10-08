@@ -32,6 +32,8 @@
 
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,6 +50,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark get vehicle data
+
 -(void)getVehicleDropDown
 {
     WebService *webService = [[WebService alloc]init];
@@ -57,14 +61,16 @@
     
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict        // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict          // connection success case
 {
-    if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+    if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])       // for vehicle
     {
         carDictArr = [dict valueForKey:@"dropDown"];
         int j=0;
@@ -77,7 +83,7 @@
             [modelArray addObject:name];
         }
     }
-    else  if([[dict valueForKey:@"serviceName"]isEqualToString:@"feedback"])
+    else  if([[dict valueForKey:@"serviceName"]isEqualToString:@"feedback"])        // for feedback
     {
         [self.navigationController popViewControllerAnimated:YES];
         [self showAlertView:nil WithMessage:@"Your Feedback is successfully submitted."];
@@ -85,7 +91,10 @@
     }
     
 }
--(void)addTitle
+
+#pragma mark ui rendering
+
+-(void)addTitle             // add title
 {
     yCordinate =  25 + self.navigationController.navigationBar.frame.size.height;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
@@ -99,7 +108,7 @@
     yCordinate += label.frame.size.height + 20;
 }
 
--(void)addSubTitle
+-(void)addSubTitle              // add subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = @"SHARE YOUR FEEDBACKS/REVIEWS";
@@ -113,7 +122,7 @@
     
 }
 
--(void)drawForm
+-(void)drawForm                 // draw form
 {
     for(int i=0; i<arrVal.count; i++)
     {
@@ -157,7 +166,7 @@
     
 }
 
--(void)addSubmitButton
+-(void)addSubmitButton          // add submit button
 {
     submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
@@ -166,6 +175,8 @@
     [self.view addSubview:submitButton];
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+#pragma mark submit button touch handler
 
 -(void)submitRequest:(id)sender
 {
@@ -201,6 +212,9 @@
     }
 }
 
+
+#pragma mark check validation
+
 -(BOOL)isValidate{
     
     for(UITextView *textField in dataFieldArr)
@@ -221,6 +235,8 @@
     
     return YES;
 }
+
+#pragma mark show alertview
 
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
@@ -308,40 +324,27 @@
     NSRange bottom = NSMakeRange(textView.text.length -1, 1);
     [textView scrollRangeToVisible:bottom];
     
+    if(textView.tag == 0)
+    {
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NAME] invertedSet];
+        
+        NSString *filtered = [[text componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        
+        return [text isEqualToString:filtered];
+    }
+
+    
 
     return YES;
 }
 
 -(void)textViewDidChange:(UITextView *)textView
 {
-  /*  CGFloat fixedWidth = textView.frame.size.width;
-    CGFloat height = textView.frame.size.height;
-    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-    
-    
-    CGRect newFrame = textView.frame;
-    if(newSize.height > height)
-    {
-        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-
-    }
-    else
-    {
-        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), height);
-
-    }
-    textView.frame = newFrame;
-    
-    if(textView.tag == 2)
-    {
-        submitButton.frame = CGRectMake(submitButton.frame.origin.x, textView.frame.origin.y + textView.frame.size.height + 10, submitButton.frame.size.width, submitButton.frame.size.height);
-        submitButton.center = CGPointMake(self.view.frame.size.width/2, submitButton.center.y);
-
-    } */
-    
     [textView scrollRangeToVisible:NSMakeRange(textView.text.length - 1,1)];
     
 }
+
+#pragma mark add tableview
 
 
 -(void)addTableView:(UITextView *)texfield
@@ -387,7 +390,7 @@
     return YES;
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -436,12 +439,6 @@
     
     [tableView removeFromSuperview];
     tableView = nil;
-    // [scrollView setScrollEnabled:YES];
-    
-    
-    // }
-    
-    
     
 }
 

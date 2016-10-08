@@ -45,6 +45,8 @@
     Utility *utility;
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -70,6 +72,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark tap gesture implementation
 
 -(void)onBackgroundTap
 {
@@ -121,7 +125,7 @@
     
 }
 
--(void) keyboardWillShow:(NSNotification *)note
+-(void) keyboardWillShow:(NSNotification *)note             // keyboard up
 {
     NSLog(@"self.frame %f", self.view.frame.size.height);
     
@@ -145,7 +149,7 @@
     
 }
 
--(void) keyboardWillHide:(NSNotification *)note
+-(void) keyboardWillHide:(NSNotification *)note                     // keyboard down
 {
     NSLog(@"KeyBoard wiil Hide");
     UIEdgeInsets contentInsets=UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
@@ -154,10 +158,13 @@
     //[doneView removeFromSuperview];
 }
 
--(void)removeAllNotification
+-(void)removeAllNotification                            // remove keyboard notifications
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#pragma mark get service centre data
+
 -(void)gerServiceCentreData
 {
     WebService *webService = [[WebService alloc]init];
@@ -166,6 +173,8 @@
     [webService getServiceCentre];
 
 }
+
+#pragma mark get vehicle data
 
 -(void)getVehicleDropDown
 {
@@ -176,14 +185,17 @@
     
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict           //connection success case
 {
-    if([dict isKindOfClass:[NSArray class]])
+    if([dict isKindOfClass:[NSArray class]])                // for showroom
     {
         arrOfDict = (NSArray *)dict;
         int i = 0;
@@ -201,7 +213,7 @@
     
     else
     {
-        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
+        if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])           // for vehicle
         {
             carDictArr = [dict valueForKey:@"dropDown"];
             int j=0;
@@ -214,7 +226,7 @@
                 [modelArray addObject:name];
             }
         }
-        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"serviceAppointment"])
+        else if([[dict valueForKey:@"serviceName"]isEqualToString:@"serviceAppointment"])       // for service appointment
         {
             [self.navigationController popViewControllerAnimated:YES];
             [self showAlertView:nil WithMessage:@"Your request for Service Appointment is successfully submitted."];
@@ -223,41 +235,11 @@
        
     }
     
-  /*  if([[dict valueForKey:@"serviceName"]isEqualToString:@"vehicleDropdown"])
-    {
-        carDictArr = [dict valueForKey:@"dropDown"];
-        int j=0;
-        for(NSDictionary *dict in carDictArr)
-        {
-            NSString *name = [dict valueForKey:@"vehicle_name"];
-            
-            j++;
-            
-            [modelArray addObject:name];
-        }
-    }
-    else
-    {
-        arrOfDict = (NSArray *)dict;
-        int i = 0;
-        for(NSDictionary *dict in arrOfDict)
-        {
-            NSString *str1 = [dict valueForKey:@"showroom_branch"];
-            NSString *str2 = [dict valueForKey:@"showroom_address"];
-            NSString *name = [NSString stringWithFormat:@"%@-%@",str1,str2];
-            
-            i++;
-            
-            [serviceCentreArray addObject:name];
-        }
-
-    }*/
 }
 
+#pragma mark ui rendering
 
-
-
--(void)addTitle
+-(void)addTitle             // add title
 {
     yValue = self.yCordinate + 10;
     
@@ -279,7 +261,7 @@
     yVal += label.frame.size.height + 10;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                  // add subtitle
 {
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yVal, 250, 30)];
@@ -294,9 +276,7 @@
 }
 
 
-
-
--(void)drawForm
+-(void)drawForm                 // draw form
 {
     
     for(int i=2; i<arrVal.count; i++)
@@ -342,7 +322,7 @@
     
 }
 
--(void)addSubmitButton
+-(void)addSubmitButton              // add submit button
 {
     submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yVal, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
@@ -352,6 +332,8 @@
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
     yVal += submitButton.frame.size.height + 3;
 }
+
+#pragma mark submit button touch handler
 
 -(void)submitRequest:(id)sender
 {
@@ -394,6 +376,8 @@
     }
 }
 
+#pragma mark check validation
+
 -(BOOL)isValidate{
     for(UITextField *textField in dataFieldArr)
     {
@@ -435,6 +419,7 @@
     return YES;
 }
 
+#pragma mark show alertview
 
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
@@ -460,7 +445,7 @@
 }
 
 
-#pragma Textfield delegate implementation
+#pragma mark Textfield delegate implementation
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if(textField.tag == 3 || textField.tag == 5 || textField.tag == 7)
@@ -520,7 +505,7 @@
     {
         [textField resignFirstResponder];
     }
-    if( textField.tag == 8 || textField.tag == 9)
+    if( textField.tag == 8 || textField.tag == 9 || textField.tag == 4)
     {
         NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:ACCEPTABLE_CHARACTERS_FOR_NUMBERS] invertedSet];
         
@@ -532,8 +517,7 @@
     return YES;
 }
 
-
-
+#pragma mark add tableview
 
 -(void)addTableView:(UITextField *)texfield
 {
@@ -601,7 +585,7 @@
     return YES;
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -687,14 +671,11 @@
     
     [tableView removeFromSuperview];
     tableView = nil;
-   // [scrollView setScrollEnabled:YES];
-
-    
-    // }
-    
     
     
 }
+
+#pragma mark datepicker implementation
 
 -(void)openDatePicker
 {
@@ -729,7 +710,7 @@
     
 }
 
--(void)setupDoneButton:(UIView *)view
+-(void)setupDoneButton:(UIView *)view           // setting done button
 {
     UIButton *doneButton = [[UIButton alloc]init];
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
@@ -741,7 +722,7 @@
     
 }
 
--(void)setupCancelButton:(UIView *)view
+-(void)setupCancelButton:(UIView *)view             // setting cancel button
 {
     UIButton *cancelButton = [[UIButton alloc]init];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -752,6 +733,8 @@
     [view addSubview:cancelButton];
     
 }
+
+#pragma mark done button touch handler
 
 -(void)onDoneTap:(id)sender
 {
@@ -766,13 +749,13 @@
     
     
 }
+
 -(void)dateSelected:(id)sender
 {
-    
-    //futureDate = myDatePicker.date;
+
 }
 
--(void)removeDatePicker1 {
+-(void)removeDatePicker1 {              // removing date picker
     
     [datePickerView removeFromSuperview];
     [myDatePicker removeFromSuperview];
@@ -781,7 +764,7 @@
 }
 
 
--(void)setDateOnLabel:(NSString *)dateAndTime
+-(void)setDateOnLabel:(NSString *)dateAndTime               // setting date on label
 {
     NSString * dateTimeString;
     if(dateAndTime)
@@ -792,23 +775,21 @@
     {
         // dateTimeString = TTMFutureButton;
     }
-    //CGSize size = [dateTimeString sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
-   // CGSize stringsize = CGSizeMake(ceilf(size.width), ceilf(size.height));
-    //or whatever font you're using
     
     [desiredTextField setText:dateTimeString];
     
 }
 
 
--(NSString *)getDatePickerTimeStr
+-(NSString *)getDatePickerTimeStr           // get string from date
 {
     NSDateFormatter *dateSelected = [[NSDateFormatter alloc]init];
     dateSelected.dateFormat = @"MM/dd/YYYY";
     NSString *time =[dateSelected stringFromDate:dob];
     return time;
 }
--(void)onCancelTap:(id)sender
+
+-(void)onCancelTap:(id)sender               // on cancel tap
 {
     [self removeDatePicker1];
     dob = nil;

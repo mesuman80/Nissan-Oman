@@ -22,6 +22,8 @@
 
 }
 
+#pragma mark view life circle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -55,7 +57,9 @@
     // Do any additional setup after loading the view.
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle             // add title
 {
     yCordinate = self.yCordinate + 10;;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
@@ -70,7 +74,7 @@
 }
 
 
--(void)addTableView
+-(void)addTableView             // add tableview
 {
     tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, .35*self.view.frame.size.height,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -80,7 +84,7 @@
     [self.view addSubview:tableView];
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
