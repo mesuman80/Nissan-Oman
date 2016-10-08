@@ -42,7 +42,6 @@
 		F71040921D8126C600BD3E88 /* TabbarBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040911D8126C600BD3E88 /* TabbarBaseViewController.m */; };
 		F71040951D8126D300BD3E88 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040941D8126D300BD3E88 /* TabbarViewController.m */; };
 		F71040981D8126E400BD3E88 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040971D8126E400BD3E88 /* CallViewController.m */; };
-		F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F710409D1D8126F900BD3E88 /* VehiclesViewController.m */; };
 		F71040A11D81270100BD3E88 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A01D81270100BD3E88 /* HomeViewController.m */; };
 		F71040A41D81290C00BD3E88 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F71040A31D81290C00BD3E88 /* Common.m */; };
 		F71EE7BD1D9E3DE900169DFF /* gtr.png in Resources */ = {isa = PBXBuildFile; fileRef = F71EE7BC1D9E3DE900169DFF /* gtr.png */; };
@@ -255,8 +254,6 @@
 		F71040941D8126D300BD3E88 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
 		F71040961D8126E400BD3E88 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
 		F71040971D8126E400BD3E88 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
-		F710409C1D8126F900BD3E88 /* VehiclesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehiclesViewController.h; sourceTree = "<group>"; };
-		F710409D1D8126F900BD3E88 /* VehiclesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehiclesViewController.m; sourceTree = "<group>"; };
 		F710409F1D81270100BD3E88 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F71040A01D81270100BD3E88 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F71040A21D81290C00BD3E88 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -722,8 +719,6 @@
 				F7896D1E1D86A57E00DB024C /* VehicleDescriptionViewController.m */,
 				F7AA6D7C1D8A605C0058BE50 /* DescriptionView.h */,
 				F7AA6D7D1D8A605C0058BE50 /* DescriptionView.m */,
-				F710409C1D8126F900BD3E88 /* VehiclesViewController.h */,
-				F710409D1D8126F900BD3E88 /* VehiclesViewController.m */,
 				F70C3AE91D96A9C600EDC4F9 /* GalleryViewController.h */,
 				F70C3AEA1D96A9C600EDC4F9 /* GalleryViewController.m */,
 				F778C5E11D98FDED0074FB86 /* SubDescriptionViewController.h */,
@@ -1231,7 +1226,6 @@
 				F7896D1F1D86A57E00DB024C /* VehicleDescriptionViewController.m in Sources */,
 				532F20131D6F000800F19D5B /* BaseViewController.m in Sources */,
 				F76858351D9B87E300D9070C /* SpecificationData.m in Sources */,
-				F710409E1D8126F900BD3E88 /* VehiclesViewController.m in Sources */,
 				F7C32F7A1D9A70FA001D50B6 /* ExteriorViewController.m in Sources */,
 				F7AD7BA81D82CA9700AECEDA /* VehicleCategeoryViewController.m in Sources */,
 				F71040981D8126E400BD3E88 /* CallViewController.m in Sources */,

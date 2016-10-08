@@ -30,7 +30,9 @@
     return nil;
 }
 
--(void)addTableView
+#pragma mark ui rendering
+
+-(void)addTableView         // adding sub type tableview
 {
     CGFloat tableHeight ;
     if(self.dictionaryArray.count >4)
@@ -63,7 +65,7 @@
     [baseView addSubview:tableView];
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -89,22 +91,6 @@
     return 50.0f;
 }
 
-/*-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"Types";
-    label.backgroundColor = buttonRedColor;
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment=NSTextAlignmentCenter;
-    return label;
-   
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 50;
-} */
-
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView1 deselectRowAtIndexPath:indexPath animated:YES];
     VehicleDescriptionViewController *vehicleDescriptionViewController = [[VehicleDescriptionViewController alloc]init];
@@ -113,6 +99,8 @@
     [parentViewController.navigationController pushViewController:vehicleDescriptionViewController animated:YES];
     
 }
+
+#pragma mark view touches implementation
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

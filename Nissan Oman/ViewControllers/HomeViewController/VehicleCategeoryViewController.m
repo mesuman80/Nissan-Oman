@@ -24,6 +24,8 @@
     NSArray *arrOfDict;
 }
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     if(self.isBarShown)
@@ -51,6 +53,8 @@
     }
 }
 
+#pragma mark get vehicles categeogy data
+
 -(void)getVehicleCategoryData
 {
     WebService *webService = [[WebService alloc]init];
@@ -59,12 +63,14 @@
     [webService getVehicleCategeoryList];
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict        // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict       // connection success case
 {
     arrOfDict = [dict valueForKey:@"vehicle_category"];
     int i = 0;
@@ -84,7 +90,9 @@
     [self addTableView];
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle             // add title
 {
     yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
@@ -98,7 +106,7 @@
     yCordinate += label.frame.size.height +3;
 }
 
--(void)addSubTitle
+-(void)addSubTitle          // ass subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 20)];
     label.text = @"CHOOSE CATEGORY";
@@ -112,7 +120,7 @@
 
 }
 
--(void)addTableView
+-(void)addTableView     // add tableview
 {
     tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .5*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -122,7 +130,7 @@
     [self.view addSubview:tableView];
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

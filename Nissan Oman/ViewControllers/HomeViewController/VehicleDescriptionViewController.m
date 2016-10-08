@@ -28,6 +28,9 @@
     NSMutableArray *stringArr;
     BOOL isFirstTime;
 }
+
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     isFirstTime = YES;
@@ -37,6 +40,7 @@
 
     // Do any additional setup after loading the view.
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -48,6 +52,8 @@
     
 }
 
+#pragma mark get description of vehicles
+
 -(void)getDescription
 {
     WebService *webService = [[WebService alloc]init];
@@ -57,18 +63,22 @@
 
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict          // connection success case
 {
     dataDictionary = dict;
     [self addDescriptionView];
 }
 
--(void)addDescriptionView
+#pragma mark ui rendering
+
+-(void)addDescriptionView                                   // adding view for vehicle description
 {
     [self drawVehicleView];
 }
@@ -105,7 +115,7 @@
     
 }
 
--(void)drawButtons
+-(void)drawButtons              // draw bottom buttons
 {
     int xx      = 0;
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yVal, self.view.frame.size.width, .4*self.view.frame.size.height)];
@@ -145,6 +155,8 @@
     [scrollView setContentSize:CGSizeMake(0, yPos)];
 }
 
+#pragma mark touch handler of submit button
+
 -(void)requestBtnTouched
 {
     RequestFormViewController *requestFormViewController = [[RequestFormViewController alloc]init];
@@ -154,10 +166,12 @@
     [self.navigationController pushViewController:requestFormViewController animated:YES];
 }
 
+#pragma mark touch implementation of bottom buttons
+
 -(void)btntouched:(UITapGestureRecognizer *)sender
 {
     UIView *view = (UIView *)sender.view;
-    if(view.tag == 0)
+    if(view.tag == 0)                       // for overview
     {
         NSString *overview = [dataDictionary valueForKey:@"vehicle_overview"];
         NSString *image = [dataDictionary valueForKey:@"overview_image"];
@@ -168,7 +182,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-   else  if(view.tag == 1)
+   else  if(view.tag == 1)                              // for exterior view
     {
         [self.navigationController setNavigationBarHidden:NO];
         
@@ -181,7 +195,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-   else if(view.tag == 2)
+   else if(view.tag == 2)                                   // for interior view
     {
         [self.navigationController setNavigationBarHidden:NO];
         
@@ -195,7 +209,7 @@
         
     }
 
-    else if(view.tag == 3)
+    else if(view.tag == 3)                                      // for performance
     {
         NSArray *arr = [dataDictionary valueForKey:@"performance"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -204,7 +218,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-   else if(view.tag == 4)
+   else if(view.tag == 4)                                       // for safety
     {
         NSArray *arr = [dataDictionary valueForKey:@"safty"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -213,7 +227,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    else if(view.tag == 5)
+    else if(view.tag == 5)                                      // for color and trim
     {
         NSArray *arr = [dataDictionary valueForKey:@"color_trim"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -223,7 +237,7 @@
         
     }
 
-   else if(view.tag == 6)
+   else if(view.tag == 6)                                       // for versality
     {
         NSArray *arr = [dataDictionary valueForKey:@"versatility"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -232,7 +246,7 @@
         [self.navigationController pushViewController:controller animated:YES];
         
     }
-    else if(view.tag == 7)
+    else if(view.tag == 7)                                  // for specification
     {
         NSArray *arr = [dataDictionary valueForKey:@"specification"];
         [self.navigationController setNavigationBarHidden:NO];
@@ -243,7 +257,7 @@
     }
 
     
-    else if(view.tag == 8)
+    else if(view.tag == 8)                                  // for gallery
     {
        // [self.navigationController setNavigationBarHidden:NO];
         NSArray *arr = [dataDictionary valueForKey:@"gallery"];
@@ -253,7 +267,7 @@
         [self.navigationController pushViewController:controller animated:YES];
     }
     
-    else if(view.tag == 9)
+    else if(view.tag == 9)                                  // for technlogy
     {
         NSArray *arr = [dataDictionary valueForKey:@"technology"];
         [self.navigationController setNavigationBarHidden:NO];

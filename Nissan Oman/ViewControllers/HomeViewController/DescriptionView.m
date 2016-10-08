@@ -28,10 +28,10 @@
     return nil;
 }
 
+#pragma mark view for description (bottom buttons)
+
 -(void)drawButtons
 {
-   
-    
     label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, .6*self.frame.size.width, .7*self.frame.size.height)];
     [label setBackgroundColor:[UIColor clearColor]];
     label.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
@@ -46,6 +46,8 @@
     imgView.image = [UIImage imageNamed:@"arrow_icon.png"];
     [self addSubview:imgView];
 }
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

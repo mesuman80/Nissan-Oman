@@ -130,11 +130,8 @@
 
 #pragma mark mapview delegates
 
-- (void)mapView:(GMSMapView *)mapView1
-didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(GMSMapView *)mapView1 didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
-   
-    
 }
 
 
@@ -177,15 +174,7 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"]) {
-        //        CLLocation *location1 = [object myLocation];
-        //        //...
-        //        NSLog(@"Location, %@,", location1);
-        //
-        //        CLLocationCoordinate2D target =
-        //        CLLocationCoordinate2DMake(location1.coordinate.latitude, location1.coordinate.longitude);
-        //
-        //        [mapView animateToLocation:target];
-        //        [mapView animateToZoom:17];
+    
     }
 }
 
@@ -201,8 +190,6 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     CLLocationCoordinate2D target =
     CLLocationCoordinate2DMake(latdouble, longdouble);
     
-    
-    
     [mapView1 animateToLocation:target];
     
     marker.position= target;
@@ -217,7 +204,6 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
 
     return YES;
 }
-
 
 
 - (void)didReceiveMemoryWarning {

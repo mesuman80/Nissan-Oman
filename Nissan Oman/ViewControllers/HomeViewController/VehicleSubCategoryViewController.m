@@ -33,6 +33,8 @@
 
 @synthesize dictionary;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -59,7 +61,9 @@
         [subTypeView removeFromSuperview];
     }
 }
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle             // add title
 {
     yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 30)];
@@ -73,7 +77,8 @@
     
     yCordinate += label.frame.size.height +3;
 }
--(void)addButtons
+
+-(void)addButtons       // add grid view and list view buttons
 {
     UIButton *gridButton = [[UIButton alloc]initWithFrame:CGRectMake(.82*self.view.frame.size.width, yCordinate, 20, 20)];
     [gridButton setBackgroundImage:[UIImage imageNamed:@"gridview_icon.jpg"] forState:UIControlStateNormal];
@@ -91,9 +96,23 @@
     
 }
 
+-(void)addTableView                         //add tableview
+{
+    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .55*self.view.frame.size.height) style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor whiteColor];
+    tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.dataSource = self;
+    tableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:tableView];
+}
+
+
+#pragma mark display buttons touch handler
+
 -(void)displayTypeChanged:(UIButton *)sender
 {
-    if(sender.tag == 0)
+    if(sender.tag == 0)             // for gridview
     {
         tableView.alpha = 0;
         if(!gridView)
@@ -108,7 +127,7 @@
             }
         }
     }
-    else
+    else                        // for list view
     {
         if(gridView)
         {
@@ -122,7 +141,7 @@
     }
 }
 
--(void)addGridView
+-(void)addGridView          // add grid view
 {
     gridArray = [[NSMutableArray alloc]init];
     NSMutableArray *carNameArray = [[NSMutableArray alloc]init];
@@ -192,6 +211,8 @@
     }
 }
 
+#pragma mark touch handler of items
+
 -(void)itemClicked:(UITapGestureRecognizer *)gesture
 {
     UIView *view = gesture.view;
@@ -220,6 +241,8 @@
 
 }
 
+#pragma mark get vehicles sub categeory data
+
 -(void)getVehicleSubCategoryData
 {
     WebService *webService = [[WebService alloc]init];
@@ -228,12 +251,14 @@
     [webService getVehicleSubCategeoryList:[self.dictionary valueForKey:@"category_id"]];
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict          // connection success case
 {
     arrOfDict = nil;
     arrOfDict = [dict valueForKey:@"sub_category"];
@@ -254,18 +279,9 @@
     
     [self addTableView];
 }
--(void)addTableView
-{
-    tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .55*self.view.frame.size.height) style:UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor whiteColor];
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.dataSource = self;
-    tableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:tableView];
-}
 
-#pragma Mark tableView Delegaes implementation
+
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
