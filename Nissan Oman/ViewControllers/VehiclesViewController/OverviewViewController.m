@@ -21,6 +21,8 @@
 
 @synthesize dataArray;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -44,7 +46,10 @@
     }
 }
 
--(void)addTitle
+
+#pragma mark ui rendering
+
+-(void)addTitle                 // adding title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -58,7 +63,7 @@
     yCordinate += label.frame.size.height + 5;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                  // adding sub title
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = [dataArray objectAtIndex:1];
@@ -72,7 +77,7 @@
     
 }
 
--(void)drawImageView
+-(void)drawImageView                        // adding imageview
 {
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width - 40, .3*self.view.frame.size.height)];
     imgView.contentMode = UIViewContentModeScaleAspectFill;
@@ -89,7 +94,7 @@
     [self drawOverView];
 }
 
--(void)drawOverView
+-(void)drawOverView                                 // adding heading label
 {
     UILabel *headingLabel = [[UILabel alloc]init];
     headingLabel.font = [UIFont boldSystemFontOfSize:12.0f];

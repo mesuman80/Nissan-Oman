@@ -20,6 +20,8 @@
 }
 @synthesize dataArray;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -40,7 +42,10 @@
     }
 }
 
--(void)addTitle
+
+#pragma mark ui rendering
+
+-(void)addTitle         // adding title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -54,7 +59,7 @@
     yCordinate += label.frame.size.height + 5;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                  // adding sub title
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = [dataArray objectAtIndex:1];
@@ -68,7 +73,7 @@
     
 }
 
--(void)addScrollView
+-(void)addScrollView                // adding scroll view
 {
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , screenHeight - yCordinate)];
     [self.view addSubview:scrollView];
@@ -77,7 +82,7 @@
    
 }
 
--(void)addElements
+-(void)addElements                  // adding heading and details
 {
     NSArray *arr = [dataArray objectAtIndex:2];
     CGFloat initialX = 10;

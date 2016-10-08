@@ -25,6 +25,8 @@
 
 @synthesize dataArray;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -56,8 +58,9 @@
         [self addTableView];
     }
 }
+#pragma mark ui rendering
 
--(void)addTitle
+-(void)addTitle                 // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -71,7 +74,7 @@
     yCordinate += label.frame.size.height + 5;
 }
 
--(void)addTableView
+-(void)addTableView                 // add tableview
 {
     tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, yCordinate,self.view.frame.size.width - 20, .6*self.view.frame.size.height) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -81,7 +84,7 @@
     [self.view addSubview:tableView];
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -104,14 +107,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView1 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*SpecificationTableViewCell *cell = [tableView1 cellForRowAtIndexPath:indexPath];
-    if(cell)
-    {
-        if(!cell.isSelected)
-        {
-            tableCellHeight = 50;
-        }
-    } */
    
     SpecificationData *data = [dataFilledArray objectAtIndex:indexPath.row];
     if(data.isSelected ) {
@@ -155,6 +150,9 @@
    
     [tableView reloadData];
 }
+
+
+#pragma mark calculate height for given text
 
 -(CGFloat)calculateCellHeightWithText:(NSString *)text
 {

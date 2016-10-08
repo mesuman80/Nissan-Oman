@@ -23,6 +23,8 @@
 }
 @synthesize interiorDataArray, exteriorDataArray,titleName,interiorBtn,exteriorBtn,isinteriorSelected,isexteriorSelected;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -53,7 +55,9 @@
     }
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle                     // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -67,7 +71,7 @@
     yCordinate += label.frame.size.height + 5;
 }
 
--(void)drawInteriorScrollView
+-(void)drawInteriorScrollView                   // adding interiro scroll view
 {
 
     interiorScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , .50f*self.view.frame.size.height)];
@@ -130,7 +134,7 @@
 
 }
 
--(void)drawExteriorScrollView
+-(void)drawExteriorScrollView               // drawing exterior scrollview
 {
     exteriorScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , .50f*self.view.frame.size.height)];
     //[horScrollView setBackgroundColor:[UIColor lightGrayColor]];
@@ -198,7 +202,7 @@
 }
 
 
--(void)drawButtons
+-(void)drawButtons              // adding bottom buttons
 {
     exteriorBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, .8*self.view.frame.size.height, .4*self.view.frame.size.width, 40)];
     [exteriorBtn setBackgroundColor:appGrayColor];
@@ -227,11 +231,11 @@
 
 }
 
+#pragma mark touch handler of bottom buttons
+
 -(void)btnTouched:(UIButton *)sender
 {
-    
-    
-    if(sender.tag == 0)
+    if(sender.tag == 0)                         // for exterior button
     {
         exteriorBtn.backgroundColor = buttonRedColor;
         interiorBtn.backgroundColor = appGrayColor;
@@ -255,7 +259,7 @@
             interiorScrollView.alpha = 0.0f;
         }
     }
-    else
+    else                                                    // for interior button
     {
         exteriorBtn.backgroundColor = appGrayColor;
         interiorBtn.backgroundColor = buttonRedColor;

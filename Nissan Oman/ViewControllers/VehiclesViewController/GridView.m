@@ -36,6 +36,8 @@
     return self;
 }
 
+#pragma mark gridview rendering
+
 -(void)drawGridView
 {
     UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 10, self.frame.size.width - 40, .5*self.frame.size.height)];

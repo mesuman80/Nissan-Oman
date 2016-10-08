@@ -23,6 +23,8 @@
 
 @synthesize dataArray;
 
+#pragma mark view life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -45,7 +47,9 @@
     }
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle                             // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -59,7 +63,7 @@
     yCordinate += label.frame.size.height + 5;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                          // add subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = [dataArray objectAtIndex:1];
@@ -73,7 +77,7 @@
     
 }
 
--(void)addImageView
+-(void)addImageView                         // add imageview
 {
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width - 40, .3*self.view.frame.size.height)];
     imgView.contentMode = UIViewContentModeScaleAspectFill;
@@ -93,7 +97,7 @@
     
  
 }
--(void)addColorView
+-(void)addColorView                 // add color view in different shades
 {
     NSArray *arr = [dataArray objectAtIndex:2];
     CGFloat xPos = .1*self.view.frame.size.width;
@@ -119,6 +123,8 @@
         [view addGestureRecognizer:gesture];
     }
 }
+
+#pragma mark color button touch implementation
 
 -(void)colorSelected:(UITapGestureRecognizer *)gesture
 {

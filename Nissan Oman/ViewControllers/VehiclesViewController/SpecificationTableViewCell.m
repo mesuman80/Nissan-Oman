@@ -23,8 +23,6 @@
     // Initialization code
 }
 
-
-
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     
@@ -66,6 +64,8 @@
     return self;
     
 }
+
+#pragma mark custom tableview cell rendering
 
 - (void)configureCell:(SpecificationData *)data withWidth:(CGFloat)cellWidth
 {

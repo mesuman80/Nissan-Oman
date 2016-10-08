@@ -20,6 +20,9 @@
     
 }
 @synthesize titleVal,dataArray;
+
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -40,7 +43,10 @@
    // [self addScrollView];
 
 }
--(void)addTitle
+
+#pragma mark ui rendering
+
+-(void)addTitle                     // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -54,7 +60,7 @@
     yCordinate += label.frame.size.height + 20;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                  // add sub title
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = @"SWIPE IMAGES TO SEE";
@@ -68,7 +74,7 @@
     
 }
 
--(void)addScrollView
+-(void)addScrollView                // add scrollview
 {
     UIScrollView *horScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,yCordinate, self.view.frame.size.width , .20f*self.view.frame.size.height)];
     //[horScrollView setBackgroundColor:[UIColor lightGrayColor]];
@@ -96,6 +102,8 @@
     [horScrollView setContentSize:CGSizeMake(xpos, horScrollView.frame.size.height)];
     [utility hideHUD];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
