@@ -18,6 +18,8 @@
 
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addTitle];
@@ -32,8 +34,9 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+#pragma mark ui rendering
 
--(void)addTitle
+-(void)addTitle                     // add title
 {
     yCordinate = self.yCordinate + 100;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 250, 30)];
@@ -47,7 +50,7 @@
     yCordinate += label.frame.size.height +3;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                  // add subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 200, 20)];
     label.text = @"80050011";
@@ -61,7 +64,7 @@
     
 }
 
--(void)addButton
+-(void)addButton                    // add call button
 {
     UIButton *callButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 40)];
     [callButton setTitle:@"CALL" forState:UIControlStateNormal];
@@ -72,6 +75,9 @@
     [self.view addSubview:callButton];
     [callButton addTarget:self action:@selector(callTollFree:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+#pragma mark toll free implementation
+
 
 -(void)callTollFree:(id)sender
 {
@@ -84,15 +90,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

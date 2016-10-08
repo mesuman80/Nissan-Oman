@@ -27,6 +27,8 @@
     BOOL isOnSameScreen;
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -76,6 +78,9 @@
 
     }
 }
+
+#pragma mark ui rendering
+
 -(void)addTitle
 {
     yCordinate = self.yCordinate + 10;
@@ -90,6 +95,9 @@
     
     yCordinate += label.frame.size.height + 15;
 }
+
+#pragma mark add tableview
+
 
 -(void)addTableView
 {
@@ -146,6 +154,9 @@
     
 }
 
+#pragma mark logout button touch handler
+
+
 -(void)logoutButtonTouched:(id)sender
 {
     [self.navigationController.view removeFromSuperview];
@@ -161,7 +172,7 @@
 
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -208,8 +219,6 @@
     
     
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

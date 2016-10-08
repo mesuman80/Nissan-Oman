@@ -33,6 +33,8 @@
 
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -51,6 +53,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark tap gesture implementation
+
 -(void)onBackgroundTap
 {
     if(activeField)
@@ -62,6 +66,8 @@
         [self removeDatePicker1];
     }
 }
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -94,7 +100,7 @@
     
 }
 
--(void) keyboardWillShow:(NSNotification *)note
+-(void) keyboardWillShow:(NSNotification *)note                 // keyboard up
 {
     NSLog(@"self.frame %f", self.view.frame.size.height);
     
@@ -118,7 +124,7 @@
     
 }
 
--(void) keyboardWillHide:(NSNotification *)note
+-(void) keyboardWillHide:(NSNotification *)note                      // keyboard down
 {
     NSLog(@"KeyBoard wiil Hide");
     UIEdgeInsets contentInsets=UIEdgeInsetsMake(0.0,0.0,0.0,0.0);
@@ -127,14 +133,15 @@
     //[doneView removeFromSuperview];
 }
 
--(void)removeAllNotification
+-(void)removeAllNotification                                // remove keyboard notification
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
+#pragma mark ui rendering
 
--(void)addTitle
+-(void)addTitle                             // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 250, 30)];
@@ -148,7 +155,7 @@
     yCordinate += label.frame.size.height + 20;
 }
 
--(void)addSubTitle
+-(void)addSubTitle                          // add subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = @"USER PROFILE";
@@ -161,7 +168,7 @@
     yCordinate += label.frame.size.height + 20;
     
 }
--(void)drawForm
+-(void)drawForm                             // add form
 {
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, yCordinate, screenWidth, screenHeight - yCordinate)];
     [scrollView setUserInteractionEnabled:YES];
@@ -220,6 +227,8 @@
     
 }
 
+#pragma mark add submit button
+
 -(void)addSubmitButton
 {
     submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yVal, self.view.frame.size.width*.90f, 35)];
@@ -230,6 +239,8 @@
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
     yVal += submitButton.frame.size.height + 3;
 }
+
+#pragma mark submit button touch handler
 
 -(void)submitRequest:(id)sender
 {
@@ -259,12 +270,14 @@
     }
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict              // connection success case
 {
     if([[dict valueForKey:@"serviceName"]isEqualToString:@"accountSettings"])
     {
@@ -277,6 +290,7 @@
     
 }
 
+#pragma mark check validation
 
 
 -(BOOL)isValidate{
@@ -317,6 +331,8 @@
     return YES;
 }
 
+#pragma mark show alertview
+
 -(void)showAlertView:(NSString *)title WithMessage:(NSString *)msg
 {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle: title
@@ -356,7 +372,7 @@
 }
 
 
-#pragma Textfield delegate implementation
+#pragma mark Textfield delegate implementation
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if(textField.tag == 2)
@@ -415,6 +431,7 @@
     return YES;
 }
 
+#pragma mark datepicker implementation
 
 -(void)openDatePicker
 {
@@ -456,7 +473,7 @@
     
 }
 
--(void)setupDoneButton:(UIView *)view
+-(void)setupDoneButton:(UIView *)view           // setting up done button
 {
     UIButton *doneButton = [[UIButton alloc]init];
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
@@ -468,7 +485,7 @@
     
 }
 
--(void)setupCancelButton:(UIView *)view
+-(void)setupCancelButton:(UIView *)view             // setting up cancel button
 {
     UIButton *cancelButton = [[UIButton alloc]init];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -480,7 +497,7 @@
     
 }
 
--(void)onDoneTap:(id)sender
+-(void)onDoneTap:(id)sender             // done tap implementation
 {
     dob = myDatePicker.date;
     //previousMessageFutureDate  = futureDate;
@@ -499,7 +516,7 @@
     //futureDate = myDatePicker.date;
 }
 
--(void)removeDatePicker1 {
+-(void)removeDatePicker1 {          // removing date picker
     
     [datePickerView removeFromSuperview];
     [myDatePicker removeFromSuperview];
@@ -508,7 +525,7 @@
 }
 
 
--(void)setDateOnLabel:(NSString *)dateAndTime
+-(void)setDateOnLabel:(NSString *)dateAndTime           // setting date on label
 {
     NSString * dateTimeString;
     if(dateAndTime)
@@ -526,14 +543,15 @@
 }
 
 
--(NSString *)getDatePickerTimeStr
+-(NSString *)getDatePickerTimeStr           // get string from date
 {
     NSDateFormatter *dateSelected = [[NSDateFormatter alloc]init];
     dateSelected.dateFormat = @"MM/dd/YYYY";
     NSString *time =[dateSelected stringFromDate:dob];
     return time;
 }
--(void)onCancelTap:(id)sender
+
+-(void)onCancelTap:(id)sender           // cancel button tap
 {
     [self removeDatePicker1];
     dob = nil;

@@ -21,6 +21,8 @@
     UIButton *submitButton;
 }
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
@@ -33,7 +35,9 @@
     // Do any additional setup after loading the view.
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle                 // add title
 {
     yCordinate =  self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 30)];
@@ -47,7 +51,7 @@
     yCordinate += label.frame.size.height + 20;
 }
 
--(void)addSubTitle
+-(void)addSubTitle              // add subtitle
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 300, 20)];
     label.text = @"TURN ON NOTIFICATION";
@@ -61,10 +65,8 @@
     
 }
 
--(void)addButtons
+-(void)addButtons               // adding radio buttons
 {
-    
-   
     radiobutton1 = [[UIButton alloc] initWithFrame:CGRectMake(.30*self.view.frame.size.width,yCordinate,20,20)];
     [radiobutton1 setTag:0];
     
@@ -153,6 +155,8 @@
     
 }
 
+#pragma mark radio button touch handler
+
 -(void)radiobuttonSelected:(id)sender{
     switch ([sender tag]) {
         case 0:
@@ -200,6 +204,8 @@
     }
     
 }
+
+#pragma mark radio button gesture handler
 
 -(void)radiobuttonSelected1:(UITapGestureRecognizer *)sender{
     UILabel *label = (UILabel *)sender.view;
@@ -250,7 +256,7 @@
     
 }
 
--(void)addSubmitButton
+-(void)addSubmitButton              // adding submit button
 {
     submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
@@ -260,6 +266,9 @@
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
     yCordinate += submitButton.frame.size.height + 3;
 }
+
+#pragma mark submit button touch handler
+
 
 -(void)submitRequest:(id)sender
 {

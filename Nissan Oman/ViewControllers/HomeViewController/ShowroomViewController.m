@@ -38,6 +38,8 @@
 }
 @synthesize arrVal;
 
+#pragma mark view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     dataArr = [[NSMutableArray alloc]init];
@@ -77,7 +79,9 @@
     }
 }
 
--(void)addTitle
+#pragma mark ui rendering
+
+-(void)addTitle                 // add title
 {
     yCordinate = self.yCordinate + 10;
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate, 250, 30)];
@@ -92,7 +96,7 @@
     [self addTextField];
     [self addSubmitButton];
 }
--(void)addTextField
+-(void)addTextField             // add search text field
 {
     texfield = [[UITextField  alloc] initWithFrame:
                 CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 40)];
@@ -118,7 +122,7 @@
     yCordinate += texfield.frame.size.height + 15;
 
 }
--(void)addSubmitButton
+-(void)addSubmitButton              // add submit button
 {
     submitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, yCordinate, self.view.frame.size.width*.90f, 35)];
     [submitButton setTitle:@"SUBMIT" forState:UIControlStateNormal];
@@ -129,6 +133,8 @@
     [submitButton addTarget:self action:@selector(submitRequest:) forControlEvents:UIControlEventTouchUpInside];
     yCordinate += submitButton.frame.size.height;
 }
+
+#pragma mark submit button touch handler
 
 -(void)submitRequest:(id)sender
 {
@@ -149,44 +155,38 @@
 #pragma Textfield delegate implementation
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-   /* if(dataArr.count == 0)
-    {
-         [self getShowroomBranchData];
-    }
-   else
-   {
-       [self addTableView];
-   }*/
     [textField resignFirstResponder];
      [self addTableView];
 }
+
+#pragma mark get data
 
 -(void)getData
 {
     WebService *webService = [[WebService alloc]init];
     webService.customWebServiceDelegate = self;
     
-    if([[arrVal objectAtIndex:2]isEqualToString:@"showroomAddress"])
+    if([[arrVal objectAtIndex:2]isEqualToString:@"showroomAddress"])        // for showroom
     {
         webService.serviceName = @"showroomAddress";
         [webService getShowroomAddress];
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"serviceCentre"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"serviceCentre"])     // for service centre
     {
         webService.serviceName = @"serviceCentre";
         [webService getServiceCentre];
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"genuinePart"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"genuinePart"])           // for grnuinr part
     {
         webService.serviceName = @"genuinePart";
         [webService getGenuinePart];
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"bodyShop"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"bodyShop"])              // for body shop
     {
         webService.serviceName = @"bodyShop";
         [webService getBodyShop];
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])         // for current offers
     {
         webService.serviceName = @"currentOffers";
         [webService getCurrentOffers];
@@ -195,16 +195,18 @@
 
 }
 
--(void)ConnectionDidFinishWithError:(NSDictionary *)dict
+#pragma mark connection delegates
+
+-(void)ConnectionDidFinishWithError:(NSDictionary *)dict            // connection error case
 {
     
 }
 
--(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict
+-(void)ConnectionDidFinishWithSuccess:(NSDictionary *)dict          // connection success case
 {
     if([[arrVal objectAtIndex:2]isEqualToString:@"showroomAddress"])
     {
-        arrOfDict = [dict valueForKey:@"showroom_address"];
+        arrOfDict = [dict valueForKey:@"showroom_address"];         // for showroom
         int i = 0;
         for(NSDictionary *dict in arrOfDict)
         {
@@ -218,7 +220,7 @@
         }
 
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"serviceCentre"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"serviceCentre"])         // for service centre
     {
         arrOfDict = (NSArray *)dict;
         int i = 0;
@@ -235,7 +237,7 @@
 
     }
     
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"genuinePart"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"genuinePart"])           // for genuine part
     {
         arrOfDict = (NSArray *)dict;
         int i = 0;
@@ -250,7 +252,7 @@
             [dataArr addObject:name];
         }
     }
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"bodyShop"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"bodyShop"])          // for bodyshop
     {
         arrOfDict = (NSArray *)dict;
         int i = 0;
@@ -266,7 +268,7 @@
         }
     }
     
-    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])
+    else if([[arrVal objectAtIndex:2]isEqualToString:@"currentOffers"])         // for current offers
     {
         NSArray *arr = [dict valueForKey:@"current_offers"];
         
@@ -286,10 +288,11 @@
         
     }
     
-     //  [self addTableView];
 }
 
--(void)addLabel
+#pragma mark ui rendering
+
+-(void)addLabel         // add label
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, yCordinate + 20, self.view.frame.size.width*.90f, 100)];
     NSString *str = [NSString stringWithFormat:@"Vehicle Name: %@ \n\n Offer: %@",vehicleName,offerDescription];
@@ -306,7 +309,7 @@
 
 }
 
--(void)addTableView
+-(void)addTableView         // add tableview
 {
     if(!tableView)
     {
@@ -337,7 +340,7 @@
     [self.view addSubview:tableView];
 }
 
-#pragma Mark tableView Delegaes implementation
+#pragma mark tableView Delegaes implementation
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -397,22 +400,10 @@
     
 }
 
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
